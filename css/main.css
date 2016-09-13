@@ -1,6 +1,31 @@
 * {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
+.gm-numbers, 
+.gm-numbers * {
+  font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%
+}
+
+@media only screen and (min-width: 601px) {
+    .container {
+        width: 90%
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 85%
+    }
+}
+
+
 
 .bg_color_green {
   background-color: #4AC261;
@@ -412,19 +437,19 @@ table.generic-table-form {
 }
 .generic-table-form.prefix_100 tr td:first-child {
   padding-left: 0px;
-  width: 60%;
+  width: 45%;
 }
 .generic-table-form.prefix_100 tr td:last-child {
   padding-left: 0px;
-  width: 40%;
+  width: 55%;
 }
 .generic-table-form.prefix_80 tr td:first-child {
   padding-left: 0px;
-  width: 50%;
+  width: 35%;
 }
 .generic-table-form.prefix_80 tr td:last-child {
   padding-left: 0px;
-  width: 50%;
+  width: 65%;
 }
 .generic-table-form tr td:last-child {
   padding-right: 0px;
@@ -547,7 +572,6 @@ input[type="radio"] {
     display:none;
 }
 input[type="radio"] + label {
-    color: $DarkBrown;
     font-family:Arial, sans-serif;
     font-size:15px;
 }
