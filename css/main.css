@@ -7,6 +7,22 @@
 }
 
 
+section {
+  position:relative;
+}
+
+section.back {
+  z-index: 1;
+}
+
+section.front {
+  z-index: 2;
+}
+
+section.top {
+  z-index: 3;
+}
+
 .container {
     margin: 0 auto;
     max-width: 1280px;
@@ -88,6 +104,9 @@ body {
   font-size: 20px;
   margin: 0;
   padding: 0;
+  background-color: transparent;
+}
+body.opaque {
   background-color: #F3F3F3;
 }
 header {
@@ -98,11 +117,18 @@ header a {
   color: #FFF;
 }
 
+.container .row:last-child,
+.gem_form .row:last-child {
+  margin-bottom: 0;
+}
+
 .gem_form {
   background-color: #FEFFFF;
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
@@ -117,7 +143,7 @@ header a {
   background-color: #BA0711;
   height: 17px;
   position: absolute;
-  top: -20px;
+  top: -30px;
   left: 0;
   right: 0;
 } 
@@ -365,6 +391,99 @@ p.bottom-border {
 .generic-table-header tr td:nth-child(2) {
   text-align: right;
 }
+
+
+
+.generic-table-quoter {
+  background-color: #15252B;
+  color: #ffffff;
+  padding: 10px 10px;
+}
+
+
+.generic-table-quoter .quote {
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 20px;
+  margin-top: 5px;
+  padding: 0px 15px;
+}
+
+.generic-table-quoter .quote input[type="text"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+
+.generic-table-tabbar {
+  overflow: hidden;
+  background-color: #A7A7A7;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 0.8em;
+}
+
+.generic-table-tabbar.small {
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.generic-table-tabbar .header {
+  margin-top: 5px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.generic-table-tabbar ul {
+  overflow: auto;
+  white-space: nowrap;
+  margin: 0;
+  list-style-type: none;
+}
+
+.generic-table-tabbar ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0px;
+}
+.generic-table-tabbar ul li div.background {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.generic-table-tabbar ul li div.text {
+  padding: 15px 25px;
+  color: #dadada;
+  line-height: 0.8em;
+  display: inline-block;
+}
+.generic-table-tabbar.small ul li div.text {
+  padding: 15px 10px;
+  font-size: 0.9em;
+  line-height: 0.7em;
+  color: #ffffff;
+}
+.generic-table-tabbar.small ul li div.icon {
+  text-align: center;
+  margin-bottom: -15px;
+}
+.generic-table-tabbar.small ul li div.icon img {
+  height: 20px;
+}
+.generic-table-tabbar ul li div.background:hover {
+  background-image: url('../images/tab_arrow.png');
+  background-repeat: no-repeat;
+  background-position: center bottom; 
+}
+.generic-table-tabbar ul li div.text:hover {
+  color: #ffffff;
+}
+
+
+
+
 .generic-table-content tr td {
   padding: 15px 4px;
   margin: 0px 0;
@@ -394,6 +513,40 @@ p.bottom-border {
   color: #FFFFFF;
   border-radius: 0;
 }
+
+
+
+.generic-table-content.small tr td {
+  padding: 6px 4px;
+  margin: 0px 0;
+  color: #888888;
+  border-radius: 0;
+  border-bottom: 1px dotted #BABABA;
+}
+.generic-table-content.small tr:last-child td {
+  border-bottom-width: 0px;
+}
+.generic-table-content.small tr td:nth-child(1) {
+  padding-left: 15px;
+}
+.generic-table-content.small tr td:last-child {
+  padding-right: 15px;
+}
+.generic-table-content.small tr th:nth-child(1) {
+  padding-left: 15px;
+}
+.generic-table-content.small tr th:last-child {
+  padding-right: 15px;
+}
+.generic-table-content.small tr th {
+  padding: 9px 4px;
+  margin: 0px 0;
+  background-color: #656667;
+  color: #FFFFFF;
+  border-radius: 0;
+}
+
+
 .generic-table-footer tr td {
   padding: 0;
   margin: 0;
@@ -401,6 +554,16 @@ p.bottom-border {
 .generic-table-footer {
   border-top: 3px solid #BABABA;
   margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+
+.generic-table-footer.thin-line {
+  border-top: 1px solid #DADADA;
+  margin-top: 10px;
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
@@ -415,6 +578,10 @@ p.bottom-border {
 .generic-table-footer tr td:last-child {
   text-align: right
 }
+
+
+
+
 
 
 table.generic-table-form {
@@ -803,5 +970,114 @@ input[type="text"]:focus { outline:none; }
   height: 72px;
   border-radius: 36px;
   background-image: linear-gradient(to top, #e0e0e0, #fafafa);
+}
+
+
+
+
+
+
+
+
+
+
+.generic-title {
+  margin-bottom: -300px;
+  padding-bottom: 300px;
+  width: 100%;
+  height: 540px;
+  text-align: center;
+  background-color: #6c6c6c;
+  position: relative;
+}
+
+
+.generic-title table {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.generic-title table tr td {
+  text-align: center;
+}
+
+.generic-title table tr td > div.title {
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 2.4em;
+  display: block;
+}
+
+
+.generic-title table tr td > div.hr {
+  height: 4px;
+  width: 180px;
+  background-color: #FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+
+
+.horizontal-menu {
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+}
+.horizontal-menu ul {
+  overflow: auto;
+  white-space: nowrap;
+  margin: 0;
+  list-style-type: none;
+}
+.horizontal-menu ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0px;
+  border-left: 0px solid #dadada;
+}
+
+.horizontal-menu ul li div.background {
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.horizontal-menu ul li div.text {
+  padding: 25px 40px;
+  color: #666666;
+  font-size: 0.8em;
+  line-height: 0.8em;
+  display: inline-block;
+}
+
+.horizontal-menu ul li.divider {
+  top: 2px;
+  width: 1px;
+  background-color: #dadada;
+  height: 0.8em;
+  position: relative;
+  display: inline-block;
+}
+
+
+.horizontal-menu ul li div.background:hover {
+  background-color: #CCCCCD;
+}
+.horizontal-menu ul li div.background:hover div.text {
+  color: #000000;
+}
+
+.horizontal-menu ul li:first-child {
+  border-left-width: 0px;
+}
+.horizontal-menu ul li:last-child {
+  border-right-width: 0px;
 }
 

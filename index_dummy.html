@@ -13,10 +13,10 @@
     <script type="text/javascript" src="js/jquerymin.js"></script>
     <script type="text/javascript" src="js/iframeResizer.min.js"></script>
   </head>
-  <body>
+  <body class='opaque'>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <style>iframe{width:100%}</style>
-    <section>
+    <section class='top'>
       <div class='header'>
         <div class='top-red-bar'>
         </div>
@@ -72,8 +72,33 @@
         </div>
       </div>
     </section>
-    <section>
+
+
+
+    <section class='back'>
+      <div class='generic-title'>
+        <table>
+          <tr>
+            <td>
+              <div class='title'>
+                股票報價- 00001 長和
+              </div>
+              <div class='hr'></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+
+
+    <section class='front'>
       <div class='container'>
+        <div class='row'>
+          <div class='col s12 m12'>
+            <iframe class='if-flexible' id='i6' src='./stock_top_menu.html' frameborder="0" scrolling="no"></iframe>
+          </div>
+        </div>
         <div class='row'>
           <div class='col s12 m8'>
             <iframe class='if-flexible' id='i1' src='./stock_dashboard.html' frameborder="0" scrolling="no"></iframe>
@@ -88,7 +113,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class='top'>
       <div class='footer'>
         <div class='white-space'>
           <div class='container' style='position:relative;'>
