@@ -4,8 +4,9 @@
 
 ## Installation
 
+```
 Step 1: Clone this repo
 Step 2: > npm install -g gulp
 Step 3: > npm install
 Step 4: gulp
-
+```
