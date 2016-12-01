@@ -1,0 +1,20 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.gm {
+
+  font-family: 'Roboto', sans-serif;
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .gm-numbers {
+    font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+
+    * {
+      font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+    }
+  }
+
+}

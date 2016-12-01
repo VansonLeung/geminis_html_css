@@ -1,0 +1,64 @@
+
+.news_content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.lineblock {
+  margin-top: 2px;
+  margin-bottom: 14px;
+  height: 3px;
+  width: 80px;
+
+  &.long {
+    height: 4px;
+    width: 120px;
+  }
+
+  &.xlong {
+    height: 1px;
+    width: 100%;
+  }
+}
+
+.list_item_expandable {
+  margin: 10px;
+
+  .question, .answer {}
+
+  .bubble {
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 28px;
+    line-height: 48px;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+  }
+
+  td {
+    padding: 5px 10px;
+
+    &:last-child {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .desc {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .question .desc {
+    margin-top: 20px;
+  }
+
+  .answer .desc {
+    vertical-align: top;
+  }
+
+  .expanded {}
+}

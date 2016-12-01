@@ -1,0 +1,63 @@
+.horizontal-menu {
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+
+  ul {
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      margin: 0px;
+      border-left: 0px solid #dadada;
+
+      div {
+        &.background {
+          display: inline-block;
+          border-radius: 10px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        &.text {
+          padding: 25px 40px;
+          color: #666666;
+          font-size: 0.8em;
+          line-height: 0.8em;
+          display: inline-block;
+        }
+      }
+
+      &.divider {
+        top: 2px;
+        width: 1px;
+        margin: 25px 0px;
+        background-color: #dadada;
+        height: 0.8em;
+        position: relative;
+        display: inline-block;
+      }
+
+      div.background:hover {
+        background-color: #CCCCCD;
+
+        div.text {
+          color: #000000;
+        }
+      }
+
+      &:first-child {
+        border-left-width: 0px;
+      }
+
+      &:last-child {
+        border-right-width: 0px;
+      }
+    }
+  }
+}

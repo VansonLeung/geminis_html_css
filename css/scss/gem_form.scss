@@ -1,0 +1,236 @@
+.gem_form {
+  .row:last-child {
+    margin-bottom: 0;
+  }
+
+  background-color: #FEFFFF;
+  border-radius: 0px;
+  overflow: hidden;
+  margin-top: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+  &.notopstripe {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  &.shortbottom {
+    padding-bottom: 0px;
+  }
+
+  &.zeromarginpadding {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  &.formnopadding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  &.colnopadding {
+    > .row {
+      >.col {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+  }
+
+  &.nobg {
+    background-color: transparent;
+    > .row {
+      background-color: transparent;
+    }
+  }
+
+  > .row {
+    background-color: #FEFFFF;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  p.topbar {
+    background-color: #BA0711;
+    height: 17px;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+
+    &.big {
+      background-color: #BA0711;
+      height: 40px;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+
+      > span {
+        color: #FFFFFF;
+        line-height: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+
+  .gem_form_header {
+    position: relative;
+  }
+
+
+  > {
+    .row {
+
+      position:relative;
+      padding-left: 0;
+      padding-right: 0;
+
+      > .col {
+        &.grid-l {
+          /*border-right: 1px solid #BCBCBC;*/
+        }
+
+        &.grid-r {
+          border-left: 1px solid #BCBCBC;
+        }
+
+        &.grid-t {
+          border-top: 1px solid #BCBCBC;
+        }
+
+        &.grid-b {
+          border-bottom: 1px solid #BCBCBC;
+        }
+
+        &.input-field {
+          position: relative;
+          margin-top: 0;
+
+          input {
+            border-bottom-width: 0;
+            box-shadow: 0 0 0 0 transparent;
+          }
+
+          label.active {
+            left: 0em;
+          }
+
+          .wrapper {
+            position: relative;
+            top: 20px;
+            padding-bottom: 15px;
+          }
+        }
+
+        &.other-field {
+          padding-top: 25px;
+          padding-bottom: 25px;
+        }
+
+        > {
+          .remarks {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-align: right;
+            color: #1A92FC;
+            font-size: 0.8em;
+          }
+
+          .title_remarks {
+            margin-top: 44px;
+            margin-bottom: 26px;
+            text-align: right;
+            color: #1A92FC;
+            font-size: 0.8em;
+          }
+
+          .title {
+            margin-top: 36px;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #000;
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+        }
+      }
+
+      &.gem_form_header {
+        background: #DEDEDE;
+        padding-top: 26px;
+        padding-bottom: 12px;
+        margin: 0px;
+        min-height: 66px;
+        position: relative;
+
+        > .col {
+          padding-left: 22px;
+          padding-right: 42px;
+          margin: 0px;
+          display: inline-block;
+        }
+      }
+    }
+
+    .container {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      padding-top: 10px;
+      width: 100%;
+
+      > p.topbar {
+        height: 20px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .row .gem_form.col {
+    padding: 10px 0 0;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .gem_form {
+    border-radius: 0px;
+
+    > .container {
+      border-radius: 0px;
+    }
+
+    > .row > .col,
+    > .container > .row > .col {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+
+    &.fixedformpadding {
+      > .row > .col,
+      > .container > .row > .col {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+

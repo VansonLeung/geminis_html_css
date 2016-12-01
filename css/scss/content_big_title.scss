@@ -1,0 +1,39 @@
+.content_big_title {
+  margin-bottom: -300px;
+  padding-bottom: 300px;
+  width: 100%;
+  height: 540px;
+  text-align: center;
+  background-color: #6c6c6c;
+  position: relative;
+
+  table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    tr td {
+      text-align: center;
+
+      > div {
+        &.title {
+          text-align: center;
+          vertical-align: middle;
+          color: #fff;
+          font-size: 2.4em;
+          display: block;
+        }
+
+        &.hr {
+          height: 4px;
+          width: 180px;
+          background-color: #FFFFFF;
+          text-align: center;
+          vertical-align: middle;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

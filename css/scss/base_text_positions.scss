@@ -1,0 +1,20 @@
+.text-bottom-wrapper {
+  position: relative;
+
+  .text-bottom {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}

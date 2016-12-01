@@ -1,0 +1,250 @@
+<section>
+
+  <div class='gem_form'>
+    <div style='padding-left: 0px; padding-right: 0px; '>
+      <br>
+      <table class='generic-table-form'>
+        <tr style='border-bottom: 1px solid #E2E0E0;'>
+          <td id='tab_stock_alert' class='text-center font_lg highlight_as_red'>報價提示</td>
+          <td><center><div style='height: 30px; text-align: center; display: inline-block; background-color: #E2E0E0; width: 2px;'></div></center></td>
+          <td id='tab_news_alert' class='text-center font_lg'>新聞提示</td>
+        </tr>
+      </table>
+
+      <form id='form_stock_alert'>
+        <table class='bg_c_grey font_smed' style='width: 100%;'>
+          <tr>
+            <td class='c_white' style='padding-left: 20px'>
+              長和
+            </td>
+            <td>
+              75.49
+            </td>
+            <td style='text-align: right; padding-right: 20px'>
+              + 0.15
+            </td>
+          </tr>
+        </table>
+
+        <br>
+        <table class='generic-table-form font_smed prefix_100'  style='padding-left: 10px; padding-right: 10px; '>
+          <tr>
+            <td>
+              <input type='radio' checked='checked' name='code' value='stock_code' id='code01' />
+              <label for='code01'><span><span></span></span>股票代號：</label>
+            </td>
+            <td><input type='text' class='gm gm-numbers' /></td>
+          </tr>
+          <tr>
+            <td>
+              <input type='radio' name='code' value='stock_code' id='code02' />
+              <label for='code02'><span><span></span></span>指數：</label>
+            </td>
+            <td><input type='text' class='gm gm-numbers' /></td>
+          </tr>
+        </table>
+
+
+
+        <table class='generic-table-form font_smed prefix_80'>
+          <tr>
+            <td>
+              <label for='code03'><span><span></span></span>標準：</label>
+            </td>
+            <td><input name='code03' type='text' /></td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for='code03'><span><span></span></span></label>
+            </td>
+            <td>
+
+              <div style='position: relative;'>
+                <table class='generic-table-form'>
+                  <tr>
+                    <td>
+                      <div class='select-style'>
+                        <select name='code04' style='width: 60px'>
+                          <option value="volvo">Volvo</option>
+                          <option value="saab">Saab</option>
+                          <option value="mercedes">Mercedes</option>
+                          <option value="audi">Audi</option>
+                        </select>
+                      </div>
+                    </td>
+                    <td>
+                      <input name='code03' type='text' style='width: 100%' />
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for='code04'><span><span></span></span>到期日：</label>
+            </td>
+            <td>
+              <div class='select-style'>
+                <select name='code04'>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for='code05'><span><span></span></span>發送模式：</label>
+            </td>
+            <td>
+              <div class='select-style'>
+                <select name='code05'>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+
+        <table class='generic-table-form font_lg'>
+          <tr>
+            <td class='font_sm'><div class='generic-button-flexible gb-primary font_lg'>儲存</div></td>
+            <td class='font_sm'><div class='generic-button-flexible gb-secondary font_lg'>重設</div></td>
+          </tr>
+        </table>
+
+        <table class='stock-dashboard-footer-table font_smed'>
+          <tr>
+            <td>
+              ＊股價與實際發放時間延遲最少十五分鐘
+            </td>
+          </tr>
+          <tr>
+            <td>
+              資料提供<img style='height: 32px; width: auto;' src='http://www.quotepower.com/web/freequote/images/en/PUBLIC-logoM.png' />
+            </td>
+          </tr>
+        </table>
+      </form>
+
+
+
+
+      <form id='form_news_alert' style='display: none'>
+        <br>
+        <table class='more-table-form generic-table-form font_smed prefix_100'>
+          <tr>
+            <td>
+              <label for='code01'><span><span></span></span>經濟數據新聞</label>
+            </td>
+            <td>
+              <div class='other-field'>
+                <div class='switch'>
+                  <label>
+                    關
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    開
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for='code01'><span><span></span></span>異動股新聞</label>
+            </td>
+            <td>
+              <div class='other-field'>
+                <div class='switch'>
+                  <label>
+                    關
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    開
+                  </label>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+          </tr>
+        </table>
+
+        <table class='generic-table-form font_smed'>
+          <tr>
+            <td>
+              <br>
+              公司活動
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <input type='radio' checked='checked' name='activity' value='stock_activity' id='activity03' />
+              <label for='activity03'><span><span></span></span>全部</label>
+            </td>
+            <td>
+              <input type='radio' name='activity' value='stock_activity' id='activity04' />
+              <label for='activity04'><span><span></span></span>股票代號：</label>
+            </td>
+            <td>
+              <input type='text' class='gm gm-numbers' />
+            </td>
+          </tr>
+
+        </table>
+
+
+
+        <table class='generic-table-form font_smed prefix_80'>
+
+          <tr>
+            <td>
+              <label for='code04'><span><span></span></span>公司活動 - 主題</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class='select-style'>
+                <select name='code05'>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+      </form>
+
+
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  $('td#tab_stock_alert').on('click', function(e) {
+    $('#form_stock_alert').css('display', 'block');
+    $('#form_news_alert').css('display', 'none');
+    $('td#tab_stock_alert').addClass('highlight_as_red');
+    $('td#tab_news_alert').removeClass('highlight_as_red');
+  })
+  $('td#tab_news_alert').on('click', function(e) {
+    $('#form_stock_alert').css('display', 'none');
+    $('#form_news_alert').css('display', 'block');
+    $('td#tab_stock_alert').removeClass('highlight_as_red');
+    $('td#tab_news_alert').addClass('highlight_as_red');
+  })
+</script>
