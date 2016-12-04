@@ -1,0 +1,14 @@
+.pagination {
+  .pagination-page {
+    display: inline-block;
+    padding: 12px;
+  }
+  .pagination-control {
+    display: inline-block;
+    padding: 12px;
+    cursor: pointer;
+  }
+  .pagination-highlight {
+    border-top: 3px solid #C41D19;
+  }
+}

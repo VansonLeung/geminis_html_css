@@ -35,8 +35,32 @@ iframe {
 }
 
 
+
+@media only screen and (max-width: 600px) {
+  .only-mobile {
+
+  }
+  .only-desktop {
+    display: none !important;
+  }
+}
+
+
+
+@media only screen and (min-width: 600px) {
+  .only-mobile {
+    display: none !important;
+  }
+  .only-desktop {
+
+  }
+}
+
+
+
+
 body {
-  color: #666666;
+  color: #444444;
   font-size: 20px;
   margin: 0;
   padding: 0;

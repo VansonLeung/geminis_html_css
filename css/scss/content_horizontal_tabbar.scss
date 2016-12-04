@@ -1,0 +1,45 @@
+.horizontal-tabbar {
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+  padding-bottom: 20px;
+  position: relative;
+
+  ul {
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #DEDEDE;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      margin: 0px;
+      padding: 0;
+      text-align: center;
+      cursor: pointer;
+
+      div {
+        margin: 0px 25px;
+        padding: 15px 15px;
+        color: #A4A4A4;
+        font-size: 0.8em;
+        line-height: 0.8em;
+        display: block;
+        border-bottom: 3px solid transparent;
+      }
+
+      &.active {
+        background-color: #FFFFFF;
+
+        div {
+          color: #CC1514;
+          border-bottom: 3px solid #CC1514;
+        }
+      }
+    }
+  }
+}

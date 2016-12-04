@@ -1,0 +1,41 @@
+<section class="only-desktop">
+  <div>
+    <div>
+      <div class='horizontal-tabbar'>
+        <ul>
+          <li class="active">
+            <div>有效的指示</div>
+          </li>
+          <li>
+            <div>有效的指示</div>
+          </li>
+        </ul>
+        </table>
+      </div>
+    </div>
+</section>
+
+<section class="only-mobile">
+  <div>
+    <div>
+      <div class='horizontal-tabbar'>
+        <ul>
+          <li style="width: 50%;" class="active">
+            <div>有效的指示</div>
+          </li>
+          <li style="width: 50%;">
+            <div>有效的指示</div>
+          </li>
+        </ul>
+        </table>
+      </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+  $('.horizontal-tabbar').find('li').on('click', function(e) {
+    var target = $(e.target).closest('li');
+    target.siblings('li').removeClass('active');
+    target.addClass('active');
+  })
+</script>

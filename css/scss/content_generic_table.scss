@@ -30,6 +30,15 @@ tr {
   }
 }
 
+table.nopadding {
+  tr {
+    th, td {
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+  }
+}
+
 
 .generic-table-header {
   tr {
@@ -64,7 +73,6 @@ tr {
 }
 
 .generic-table-tabbar {
-  overflow: hidden;
   background-color: #A7A7A7;
   width: 100%;
   color: #FFFFFF;
@@ -95,7 +103,6 @@ tr {
       div {
         &.background {
           display: inline-block;
-          overflow: hidden;
           position: relative;
         }
 
@@ -145,7 +152,7 @@ tr {
     td {
       padding: 15px 4px;
       margin: 0px 0;
-      color: #888888;
+      color: #444444;
       border-radius: 0;
       border-bottom: 1px dotted #BABABA;
     }
@@ -185,7 +192,7 @@ tr {
     td {
       padding: 6px 4px;
       margin: 0px 0;
-      color: #888888;
+      color: #444444;
       border-radius: 0;
       border-bottom: 1px dotted #BABABA;
     }
@@ -220,6 +227,84 @@ tr {
       border-radius: 0;
     }
   }
+
+  &.generic-table-content-expandable {
+    tr.expandable-header {
+      td {
+        padding: 15px 4px;
+        margin: 0px 0;
+        color: #444444;
+        border-radius: 0;
+        border-bottom-width: 1px !important;
+      }
+
+      &:nth-last-child(2) {
+        td {
+          border-bottom-width: 0px !important;
+        }
+      }
+
+      &:last-child {
+        td {
+          border-bottom-width: 0px !important;
+        }
+      }
+
+      &.active {
+        td {
+          border-bottom-width: 0px !important;
+        }
+        &:last-child {
+          td {
+            border-bottom-width: 0px !important;
+          }
+        }
+      }
+
+      .toggle {
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
+  }
+  tr.expandable-content {
+    td {
+      padding: 15px 4px;
+      margin: 0px 0;
+      color: #444444;
+      border-radius: 0;
+      border-bottom-width: 0px !important;
+    }
+
+    &:last-child {
+      td {
+        border-bottom-width: 0px !important;
+      }
+    }
+
+    &:last-child {
+      td {
+        border-bottom-width: 0px !important;
+      }
+    }
+
+    &.active {
+      td {
+        border-bottom-width: 1px !important;
+      }
+      &:last-child {
+        td {
+          border-bottom-width: 0px !important;
+        }
+      }
+    }
+
+    display: none;
+    &.active {
+      display: table-row;
+    }
+  }
 }
 
 .generic-table-footer {
@@ -245,7 +330,7 @@ tr {
     th, td {
       margin: 0;
       padding: 10px 10px;
-      color: #888888;
+      color: #444444;
     }
   }
 }
