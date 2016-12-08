@@ -1,0 +1,73 @@
+.stockSimpleInfo .headertitle h4{
+  font-size: 22px !important;
+}
+.stockSimpleInfo .infoarrow{
+  vertical-align: middle;
+}
+.stockSimpleInfo .infoarrowicon{
+  height: 16px;
+  vertical-align: middle;
+}
+.stockSimpleInfo table{
+  width: 100%;
+}
+.stockSimpleInfo table tr td{
+  padding:0 10px 5px 10px;
+}
+.stockSimpleInfo  .leftinfo{
+text-align: left;
+}
+.stockSimpleInfo  .rightinfo{
+text-align: right;
+}
+.stockSimpleInfo h4{
+  margin:0 ;
+  padding-top:10px;
+}
+
+
+.generic-table-quoter .header-left{float: left;text-align: left; font-size: 20px;}
+.generic-table-quoter .header-right{float: right;text-align: right; font-size: 20px;}
+.generic-table-quoter .stockquotersearch{
+  height: 40px;
+  background: url(../images/menu_search_icon_2.png) 100% / 18.6px no-repeat;
+}
+
+
+  .generic-table-tabbar .recordTitle {
+    margin: 0px !important;
+    line-height: 43px;
+    font-size: 20px;
+    color: #ce0f00;
+  }
+
+  .generic-table-tabbar.small ul li div.cuntryEnvItem {
+    font-size: 20px; }    
+
+  .generic-table-tabbar ul li div.background-active {
+    background-image: url("../images/tab_arrow.png");
+    background-repeat: no-repeat;
+    background-position: center bottom; }    
+
+
+  .iconexheader{
+     vertical-align: middle;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    align: center;
+height: 16px;width:16px;background: url(../images/mobile_table_expand.png) 100% / 16px no-repeat;    background-position: 0 0%;
+}
+.iconexcontent{
+     vertical-align: middle;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    align: center;
+height: 16px;width:16px;background: url(../images/mobile_table_expand.png) 100% / 16px no-repeat;    background-position: 0 100%;
+}
+
+.marketnewsinfo .row .col{
+  padding:0px;
+}
+
