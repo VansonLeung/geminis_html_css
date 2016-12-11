@@ -2,3 +2,27 @@
   width: 28px;
   height: 24px;
 }
+
+
+.list-item-bullet-oval {
+  vertical-align: top;
+}
+.list-item-bullet-oval > .bullet {
+  width: 7px !important;
+  margin: 5px;
+  height: 7px !important;
+  background-color: #bc0000;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+
+
+.oval-result-success {
+  background-color: #45c45b;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: inline-block;
+  margin: 4px;
+}

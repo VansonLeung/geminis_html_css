@@ -31,9 +31,27 @@ tr {
 }
 
 table.nopadding {
-  tr {
-    th, td {
+  > tbody > tr {
+    > th, > td {
       padding: 0px !important;
+      margin: 0px !important;
+    }
+  }
+}
+
+table.smallpadding {
+  > tbody > tr {
+    > th, > td {
+      padding: 8px !important;
+      margin: 0px !important;
+    }
+  }
+}
+
+table.smallmedpadding {
+  > tbody > tr {
+    > th, > td {
+      padding: 14px !important;
       margin: 0px !important;
     }
   }
@@ -41,8 +59,8 @@ table.nopadding {
 
 
 .generic-table-header {
-  tr {
-    th, td {
+  > tbody > tr {
+    > th, > td {
       padding: 20px;
       margin: 20px;
     }
@@ -152,7 +170,7 @@ table.nopadding {
     td {
       padding: 15px 4px;
       margin: 0px 0;
-      color: #444444;
+      color: #333333;
       border-radius: 0;
       border-bottom: 1px dotted #BABABA;
     }
@@ -192,7 +210,7 @@ table.nopadding {
     td {
       padding: 6px 4px;
       margin: 0px 0;
-      color: #444444;
+      color: #333333;
       border-radius: 0;
       border-bottom: 1px dotted #BABABA;
     }
@@ -233,7 +251,7 @@ table.nopadding {
       td {
         padding: 14.5px;
         margin: 0px 0;
-        color: #444444;
+        color: #333333;
         border-radius: 0;
         border-bottom-width: 1px !important;
       }
@@ -272,7 +290,7 @@ table.nopadding {
     td {
       padding: 15px 4px;
       margin: 0px 0;
-      color: #444444;
+      color: #333333;
       border-radius: 0;
       border-bottom-width: 0px !important;
     }
@@ -330,7 +348,7 @@ table.nopadding {
     th, td {
       margin: 0;
       padding: 10px 10px;
-      color: #444444;
+      color: #333333;
     }
   }
 }
@@ -344,10 +362,7 @@ table.generic-table-form {
   tr td {
     margin: 0;
     padding: 0px 6px 12px 6px;
-    color: #666666;
-    margin: 0;
-    padding: 0px 6px 12px 6px;
-    color: #666666;
+    color: #333333;
 
     div {
       position: relative;

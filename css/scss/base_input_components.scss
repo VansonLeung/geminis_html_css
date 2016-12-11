@@ -97,3 +97,45 @@ input {
     }
   }
 }
+
+
+
+.search_input {
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #e3e1e1;
+
+  > input[type=text],
+  > input[type=email],
+  > input[type=password]
+  {
+    color: #333333;
+
+    ::-webkit-input-placeholder,
+    :-moz-placeholder,
+    ::-moz-placeholder,
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #999999;
+      opacity: 1;
+    }
+  }
+
+  > .search_icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    margin-left: 4px;
+    margin-right: 4px;
+    text-align: center;
+
+    > * {
+      color: #a7003f;
+      font-size:22px !important;
+      line-height: 45px;
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
