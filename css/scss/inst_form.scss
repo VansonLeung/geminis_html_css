@@ -1,0 +1,126 @@
+.tmpbody{
+	background-color:black;
+	padding:20px;
+}
+.inst-form{
+	padding:36px;
+	max-width: 900px;
+	border-radius: 8px;
+	background-color:white;
+}
+
+.inst-form .col, .inst-form .row{
+	padding:0 !important;
+	margin:0 !important;
+}
+
+.inst-form-1sttitle{
+	padding-bottom:36px;
+	margin:0;
+}
+
+.inst-form-2ndtitle{
+	padding-bottom:18px;
+	margin:0;
+}
+
+.cashTradingBtn{
+      font-size:16px;
+      float: left; 
+      width:50%;
+      height:76px;
+      line-height: 76px;
+      background-color: rgba(255,255,255,0);
+      text-align: center;
+      vertical-align: middle;
+}
+
+.cashTradingActive{
+      background-color: #c6ed9f;
+      color:#45c45b;
+      border-radius: 4px;
+}
+
+.inst-form-label{
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size:16px;
+	line-height:75px;
+	height:75px;
+}
+
+.label-left{
+	padding-left: 16px !important;
+}
+
+.labelfield-left{
+	padding-left: 6px !important;
+}
+
+.inst-form-comboboxItem{
+	line-height:75px;
+}
+
+.inst-form-greenbox{
+	position:absolute;
+
+}
+
+.inst-form input[type="radio"]:checked + label > span > .inst-form-greenbox{
+  background-color:#45c45b !important;
+}
+.inst-form input[type="radio"]:checked + label > .inst-form-greenbox-base{
+  background-color:#c6ed9f !important;
+}
+.inst-form-select{
+	line-height:72px;
+}
+.inst-grid-b{
+	border-bottom: 1px solid #BCBCBC;
+}
+.inst-grid-t{
+	border-top: 1px solid #BCBCBC;
+}
+.inst-grid-l{
+    border-right: 1px solid #BCBCBC;
+}
+.inst-grid-r{
+    border-left: 1px solid #BCBCBC;
+}
+.remove-gemform-s{
+	margin: 0 !important;
+	padding: 0 !important;
+	padding-top:23px !important;
+}
+.materialize input[type=number],.materialize input[type=text]{
+	margin:0 !important;
+}
+.labelfield{
+	padding-bottom:5px !important;
+}
+.labelfield-text{
+	font-size:16px !important;
+}
+.inst-tips{
+  height: 16px;
+  font-family: STHeitiTC;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.14;
+  color: #6c6c6c;
+  margin-bottom:60px;
+}
+.companyAcctArea{
+	border-bottom: 1px solid #BCBCBC;
+	border-top: 1px solid #BCBCBC;
+}
+.col .companyAcctArea-info{
+padding-top: 17px !important;
+padding-bottom: 17px !important;
+}
+
+.depositTitle{
+	margin:56px 0px 0px 0px !important;
+}
