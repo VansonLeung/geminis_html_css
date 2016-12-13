@@ -52,6 +52,57 @@ input {
     }
   }
 
+
+
+  &[type="checkbox"] {
+    display: none;
+
+    + label {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+
+      span {
+        font-size: 11px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        box-sizing: initial;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+
+      > span {
+        margin: -1px 4px 0 0;
+        padding: 4px;
+        background-image: url(../images/checkbox_n.png);
+        -webkit-background-size: contain;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &:checked {
+      + label > span {
+        background-image: url(../images/checkbox_o.png);
+      }
+
+      + label span {
+        -webkit-transition: background-image 0.2s linear;
+        -o-transition: background-image 0.2s linear;
+        -moz-transition: background-image 0.2s linear;
+        transition: background-image 0.2s linear;
+      }
+    }
+
+    + label span {
+      -webkit-transition: background-image 0.2s linear;
+      -o-transition: background-image 0.2s linear;
+      -moz-transition: background-image 0.2s linear;
+      transition: background-image 0.2s linear;
+    }
+  }
+
+
   &[type="text"], &[type="password"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

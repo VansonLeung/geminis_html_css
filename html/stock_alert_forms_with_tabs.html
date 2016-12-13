@@ -1,13 +1,25 @@
 <section>
 
-  <div class='gem_form'>
+  <style>
+    #form_stock_alert > table > tbody > tr > td
+    {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    #form_news_alert > table > tbody > tr > td
+    {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+  </style>
+
+  <div class='gem_form notopstripe'>
     <div style='padding-left: 0px; padding-right: 0px; '>
-      <br>
-      <table class='generic-table-form'>
-        <tr style='border-bottom: 1px solid #E2E0E0;'>
-          <td id='tab_stock_alert' class='text-center font_lg highlight_as_red'>報價提示</td>
+      <table class='generic-table-form nopadding'>
+        <tr style='border-bottom: 1px solid #E2E0E0; padding: 10px !important;'>
+          <td id='tab_stock_alert' class='text-center font_lmed highlight_as_red' style="padding: 10px !important;">報價提示</td>
           <td><center><div style='height: 30px; text-align: center; display: inline-block; background-color: #E2E0E0; width: 2px;'></div></center></td>
-          <td id='tab_news_alert' class='text-center font_lg'>新聞提示</td>
+          <td id='tab_news_alert' class='text-center font_lmed' style="padding: 10px !important;">新聞提示</td>
         </tr>
       </table>
 
@@ -27,18 +39,18 @@
         </table>
 
         <br>
-        <table class='generic-table-form font_smed prefix_100'  style='padding-left: 10px; padding-right: 10px; '>
+        <table class='generic-table-form font_smed prefix_100'  style='padding-left: 10px !important; padding-right: 10px !important; '>
           <tr>
             <td>
               <input type='radio' checked='checked' name='code' value='stock_code' id='code01' />
-              <label for='code01'><span><span></span></span>股票代號：</label>
+              <label class="c_dgrey" for='code01'><span><span></span></span>股票代號：</label>
             </td>
             <td><input type='text' class='gm gm-numbers' /></td>
           </tr>
           <tr>
             <td>
               <input type='radio' name='code' value='stock_code' id='code02' />
-              <label for='code02'><span><span></span></span>指數：</label>
+              <label class="c_dgrey" for='code02'><span><span></span></span>指數：</label>
             </td>
             <td><input type='text' class='gm gm-numbers' /></td>
           </tr>
@@ -49,14 +61,14 @@
         <table class='generic-table-form font_smed prefix_80'>
           <tr>
             <td>
-              <label for='code03'><span><span></span></span>標準：</label>
+              <label class="c_dgrey font_med" for='code03'><span><span></span></span>標準：</label>
             </td>
             <td><input name='code03' type='text' /></td>
           </tr>
 
           <tr>
             <td>
-              <label for='code03'><span><span></span></span></label>
+              <label class="c_dgrey" for='code03'><span><span></span></span></label>
             </td>
             <td>
 
@@ -85,7 +97,7 @@
 
           <tr>
             <td>
-              <label for='code04'><span><span></span></span>到期日：</label>
+              <label class="c_dgrey font_med" for='code04'><span><span></span></span>到期日：</label>
             </td>
             <td>
               <div class='select-style'>
@@ -100,7 +112,7 @@
           </tr>
           <tr>
             <td>
-              <label for='code05'><span><span></span></span>發送模式：</label>
+              <label class="c_dgrey font_med" for='code05'><span><span></span></span>發送模式：</label>
             </td>
             <td>
               <div class='select-style'>
@@ -116,14 +128,15 @@
         </table>
 
 
-        <table class='generic-table-form font_lg'>
+        <table class='generic-table-form font_lg' style="table-layout: fixed">
           <tr>
+            <td class='font_sm'><div class='generic-button-flexible gb-primary-hollow font_lg'>取消</div></td>
             <td class='font_sm'><div class='generic-button-flexible gb-primary font_lg'>儲存</div></td>
-            <td class='font_sm'><div class='generic-button-flexible gb-secondary font_lg'>重設</div></td>
           </tr>
         </table>
 
-        <table class='stock-dashboard-footer-table font_smed'>
+
+        <table class='stock-dashboard-footer-table font_xsm nopadding'>
           <tr>
             <td>
               ＊股價與實際發放時間延遲最少十五分鐘
@@ -131,7 +144,7 @@
           </tr>
           <tr>
             <td>
-              資料提供<img style='height: 32px; width: auto;' src='http://www.quotepower.com/web/freequote/images/en/PUBLIC-logoM.png' />
+              資料提供<img style='vertical-align: middle; height: 32px; width: auto;' src='http://www.quotepower.com/web/freequote/images/en/PUBLIC-logoM.png' />
             </td>
           </tr>
         </table>
@@ -141,94 +154,40 @@
 
 
       <form id='form_news_alert' style='display: none'>
-        <br>
-        <table class='more-table-form generic-table-form font_smed prefix_100'>
-          <tr>
-            <td>
-              <label for='code01'><span><span></span></span>經濟數據新聞</label>
-            </td>
-            <td>
-              <div class='other-field'>
-                <div class='switch'>
-                  <label>
-                    關
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    開
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <label for='code01'><span><span></span></span>異動股新聞</label>
-            </td>
-            <td>
-              <div class='other-field'>
-                <div class='switch'>
-                  <label>
-                    關
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                    開
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-          </tr>
-        </table>
-
         <table class='generic-table-form font_smed'>
-          <tr>
-            <td>
-              <br>
-              公司活動
+          <tr style="border-bottom: 1px solid #dadada;">
+            <td style="padding-top: 15px !important;">
+              <label class="c_dgrey font_lmed" for='st'>股票：</label>
             </td>
-
+            <td style="padding-top: 15px !important;"><input name="st" type='text' class='gm gm-numbers' /></td>
           </tr>
           <tr>
-            <td>
-              <input type='radio' checked='checked' name='activity' value='stock_activity' id='activity03' />
-              <label for='activity03'><span><span></span></span>全部</label>
-            </td>
-            <td>
-              <input type='radio' name='activity' value='stock_activity' id='activity04' />
-              <label for='activity04'><span><span></span></span>股票代號：</label>
-            </td>
-            <td>
-              <input type='text' class='gm gm-numbers' />
-            </td>
-          </tr>
-
-        </table>
-
-
-
-        <table class='generic-table-form font_smed prefix_80'>
-
-          <tr>
-            <td>
-              <label for='code04'><span><span></span></span>公司活動 - 主題</label>
+            <td style="padding-top: 15px !important;">
+              <input type='checkbox' name='check' value='stock_check' id='check01' />
+              <label class="c_dgrey" for='check01'><span><span></span></span>IIS HKEX announcement </label>
             </td>
           </tr>
           <tr>
-            <td>
-              <div class='select-style'>
-                <select name='code05'>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </div>
+            <td style="padding-top: 5px !important;">
+              <input type='checkbox' name='check' value='stock_check' id='check02' />
+              <label class="c_dgrey" for='check02'><span><span></span></span>公司活動：</label>
             </td>
+            <td style="padding-top: 5px !important;"><input type='text' class='gm gm-numbers' /></td>
+          </tr>
+          <tr>
           </tr>
         </table>
+
+        <table class='generic-table-form font_lg' style="table-layout: fixed; margin-top: 10px;">
+          <tr>
+            <td class='font_sm'><div class='generic-button-flexible gb-primary-hollow font_lg'>取消</div></td>
+            <td class='font_sm'><div class='generic-button-flexible gb-primary font_lg'>儲存</div></td>
+          </tr>
+        </table>
+
 
       </form>
+
 
 
     </div>
