@@ -17,7 +17,18 @@
                         <div class="col l4">
                             <p class="inst-form-label label-left">支賬戶口</p>
                         </div>
-                        <div class="col l4">
+                        <div class="col l4 form_acct_choice_1">
+                            <div class="inst-form-comboboxItem">
+                                <input type='radio' class="with-gap" name='AccountType' id='choice_counterparty' />
+                                <label for='choice_counterparty'>
+                                    <span class="inst-form-greenbox-base">
+                                                <span class="inst-form-greenbox" ></span>
+                                    </span>
+                                    Counterparty
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l4 form_acct_choice_2">
                             <div class="inst-form-comboboxItem">
                                 <input type='radio' class="with-gap" name='AccountType' id='choice_margin' />
                                 <label for='choice_margin'>
@@ -28,7 +39,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col l4">
+                        <div class="col l4 form_acct_choice_3">
                             <div class="inst-form-comboboxItem">
                                 <input type='radio' class="with-gap" name='AccountType' id='choice_custodian' />
                                 <label for='choice_custodian'>
@@ -48,7 +59,18 @@
                         <div class="col l4">
                             <p class="inst-form-label">收賬戶口</p>
                         </div>
-                        <div class="col l4">
+                        <div class="col l4 to_acct_choice_1">
+                            <div class="inst-form-comboboxItem">
+                                <input type='radio' class="with-gap" name='AccountType' id='choice_counterparty_r' />
+                                <label for='choice_counterparty_r'>
+                                    <span class="inst-form-greenbox-base">
+                                                <span class="inst-form-greenbox" ></span>
+                                    </span>
+                                    Counterparty
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l4 to_acct_choice_2">
                             <div class="inst-form-comboboxItem">
                                 <input type='radio' class="with-gap" name='transferMethod' id='choice_margin_r' />
                                 <label for='choice_margin_r'>
@@ -59,7 +81,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col l4">
+                        <div class="col l4 to_acct_choice_3">
                             <div class="inst-form-comboboxItem">
                                 <input type='radio' class="with-gap" name='transferMethod' id='choice_custodian_r' />
                                 <label for='choice_custodian_r'>
@@ -79,7 +101,7 @@
                         </div>
                         <div class="col l4">
                             <div class="inst-form-comboboxItem">
-                                <input type='radio' class="with-gap" name='transferacctType' id='choice_nocash' />
+                                <input type='radio' checked class="with-gap" name='transferacctType' id='choice_nocash' />
                                 <label for='choice_nocash'>
                                     <span class="inst-form-greenbox-base">
                                                 <span class="inst-form-greenbox" ></span>
@@ -104,6 +126,9 @@
             </div>
             <div class="inst-area-three row">
                 <div class="col l6 inst-form-select inst-grid-b">
+                        <label for='field_currency' class="selecthits">
+                                市場
+                         </label>
                     <select id="field_currency">
                         <option value="" disabled selected>貨幣</option>
                         <option value="HKD">HKD</option>
@@ -116,6 +141,7 @@
                         <option value="SGD">SGD</option>
                         <option value="MYR">MYR</option>
                     </select>
+
                 </div>
                 <div class="col l6 inst-grid-r inst-grid-b">
                     <div class="emptyItem"></div>
@@ -233,11 +259,41 @@
           loadinstallFx.prototype.initBehavior = function(){
 
             // init
+                    $(".form_acct_choice_1").show();
+                    $(".form_acct_choice_2").hide();
+                    $(".form_acct_choice_3").hide();
+
+                    $(".to_acct_choice_1").hide();
+                    $(".to_acct_choice_2").show();
+                    $(".to_acct_choice_3").show();     
 
             $('.cashTradingBtn').on('click',function(e){
 
+                let curSelItem = $(this).data().tradtype;
                 $('.cashTradingBtn').removeClass('cashTradingActive');
                 $(this).addClass('cashTradingActive');
+
+
+                if(curSelItem == 'depositItem'){
+                    $(".form_acct_choice_1").show();
+                    $(".form_acct_choice_2").hide();
+                    $(".form_acct_choice_3").hide();
+
+                    $(".to_acct_choice_1").hide();
+                    $(".to_acct_choice_2").show();
+                    $(".to_acct_choice_3").show();                    
+
+                }else{
+                    $(".to_acct_choice_1").show();
+                    $(".to_acct_choice_2").hide();
+                    $(".to_acct_choice_3").hide();
+
+                    $(".form_acct_choice_1").hide();
+                    $(".form_acct_choice_2").show();
+                    $(".form_acct_choice_3").show(); 
+                }
+
+
 
             });
  
