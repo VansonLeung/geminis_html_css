@@ -1,29 +1,4 @@
 .stock-dashboard {
-  .gem_form_header input[type=search] {
-    border-radius: 20px;
-    overflow: hidden;
-    width: 140px;
-    color: #FFFFFF;
-    padding: 0px 8px;
-
-    /* Overridden by padding: 1px; */
-    border: 0px solid black;
-    background: #9B9B9B;
-
-    /* Overridden by background-color: white; */
-    border-bottom: 0 solid orange;
-    margin: 0px;
-    height: 29px;
-
-    &:focus {
-      border-bottom: 0 solid orange;
-      -webkit-box-shadow: 0 0 0 0 orange;
-      -moz-box-shadow: 0 0 0 0 orange;
-      box-shadow: 0 0 0 0 orange;
-      margin: 0px;
-      height: 29px;
-    }
-  }
 
   .gem_form_header .quote_count {
     color: #BB0711;
