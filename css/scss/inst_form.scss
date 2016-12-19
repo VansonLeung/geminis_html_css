@@ -5,6 +5,7 @@
 .inst-form{
 	padding:36px;
 	max-width: 900px;
+	width: 900px;
 	border-radius: 8px;
 	background-color:white;
 }
@@ -217,4 +218,12 @@ line-height:75px;
     border-radius: 30px;
     width: 100px;
     padding: 10px 30px;
+}
+.confirmbox{
+	margin:20px 0px;
+}
+.confirmbox tr td{
+padding:0px;
+padding-top:20px;
+	font-size:16px;
 }
