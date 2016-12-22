@@ -1,0 +1,74 @@
+.landingpage_banner
+{
+  height: 399px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  ul.landingpage_banner_button
+  {
+    li
+    {
+      position: relative;
+      width: 200px;
+      height: 54px;
+      color: #ffffff;
+      background-color: #394f64;
+      margin-left: 36px;
+      margin-right: 36px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding: 14px 14px;
+      text-align: center;
+      font-size: 1.2em;
+      cursor: pointer;
+
+      .arrow
+      {
+        background: url('../images/index/banner_arrow.png');
+        position: absolute;
+        top: -15px;
+        left: 10px;
+        width: 8px;
+        height: 30px;
+        display: none;
+      }
+
+      &.active
+      {
+        background-color: #1b2942;
+
+        .arrow
+        {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.landingpage_shortcut
+{
+  height: 60px;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  a {
+    color: #ffffff;
+  }
+
+  td {
+    margin: 0px !important;
+    padding: 0px !important;
+    text-align: center;
+    border-right: 2px solid #ffffff;
+    cursor: pointer;
+
+    &:last-child
+    {
+      border-right-width:0px !important;
+    }
+  }
+}

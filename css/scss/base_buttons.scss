@@ -149,6 +149,21 @@
 }
 
 
+.gb-white-red {
+  border: solid 2px #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #A50841 !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+
 .oval-button-red {
   width: 72px;
   height: 72px;
