@@ -10,6 +10,20 @@
 	background-color:white;
 }
 
+
+@media only screen and (max-width: 600px) {
+	.inst-form{
+		width: auto;
+	}
+}
+
+
+@media only screen and (min-width: 600px) {
+	.inst-form{
+		width: 900px;
+	}
+}
+
 .inst-form .col, .inst-form .row{
 	padding:0 !important;
 	margin:0 !important;
@@ -36,12 +50,28 @@
       vertical-align: middle;
 }
 
+.cashTradingBtn-m{
+      font-size:16px;
+      float: left; 
+      width:50%;
+      height:76px;
+      line-height: 76px;
+      background-color: rgba(255,255,255,0);
+      text-align: center;
+      vertical-align: middle;
+}
+
 .cashTradingActive{
       background-color: #c6ed9f;
       color:#45c45b;
       border-radius: 4px;
 }
 
+.cashTradingActive-m{
+      background-color: #c6ed9f;
+      color:#45c45b;
+      border-radius: 4px;
+}
 .inst-form-label{
 	margin: 0 !important;
 	padding: 0 !important;
