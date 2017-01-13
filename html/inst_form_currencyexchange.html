@@ -1,7 +1,8 @@
 <section class="tmpbody">
     <div class="row inst-form gem_form inst-form-settlement">
-        <form>
-        <div class="area-top">
+        <!-- <form> -->
+        <div class="overviewpage">
+            <div class="area-top">
             <div class="col s12">
                 <h5 class="inst-form-1sttitle">貨幣交易提示</h5>
             </div>
@@ -72,7 +73,7 @@
                 <a class="exchangebtn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="col s2 inst-form-select ">
-                        <label for='field_currency' class="selecthits">
+                        <label  class="selecthits">
                                 轉到
                          </label>                
                     <select id="field_currency_to">
@@ -112,9 +113,65 @@
                     </div>            
                 </div>
             </div>
-
-        </form>
+        </div>
     </div>
+        <!-- </form> -->
+        <!-- <form> -->
+        <div class="confirmpage">
+            <div class="area-top">
+            <div class="col s12 inst-grid-b">
+                <h5 class="inst-form-1sttitle">資金交易提示</h5>
+            </div>
+             <div class="inst-area-one row inst-grid-b ">
+             <table class="confirmbox">
+                 <tr><td width="25%">交易戶口:</td><td width="25%"><span id="selAcctType"></span></td><td width="25%"></td><td width="25%"></td></tr>
+                 <tr><td>由貨幣:</td><td><span id="selFormCur"></span><td></td><td></td></tr>
+                 <tr><td>轉到貨幣:</td><td><span id="selToCur"></span><td></td><td></td></tr>
+                 <tr><td>備註:</td><td><span id="SelRemark"></span><td></td><td></td></tr>
+             </table>
+            </div>
+             <div class="inst-area-three row inst-grid-b">
+                <div class="col s12">
+                <div class="col s2">
+                    <h5>賬戶密碼</h5>
+                </div>
+                <div class="col s10">
+                    
+                    <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="field_passwords" type="password" class="validate labelfield">
+                                <label class="labelfield-text labelfield-left" for="field_passwords">請輸入密碼</label>
+                            </div>
+                        </div>
+                    </div>  
+
+                </div>                
+                </div>
+            </div>
+            </div>        
+        </div>
+        <!-- </form> -->
+        <!-- <form> -->
+        <div class="completepage">
+            <div class="area-top">
+                <div class="col s12 inst-grid-b">
+                    <p class="finishmsg"><img src="../images/complete icon.png" class="msgiconfinish" /></p>
+                    <p class="finishmsg">已完成</p>
+                    <p class="refnumlabel">參考編號: 000000</p>
+                </div>
+            </div>        
+        </div>        
+        <!-- </form> -->
+    <button onclick="loadpage('overviewpage')">s1</button>
+    <button onclick="loadtoConfirm('confirmpage')">s2</button>
+    <button onclick="loadtoComplete('completepage')">s3</button>
+    <button onclick="clientLogin()">clientLogin</button>
+
+<button onclick="isLogin()">isLogin</button>
+
+<button onclick="foreignExchange()">foreignExchange</button>
+        </div>
 </section>
 
 
@@ -125,28 +182,356 @@
 
       $(function(e){
 
+window.loadpage = function loadpage(page){
+    $('.overviewpage').hide();
+    $('.confirmpage').hide();
+    $('.completepage').hide();
+    $('.'+page).show();
+}
+    window.initJS = function initJS(){
+        window.glo = {}
+        glo.stepflag = 1;
+        glo.isloginflag = false;
+        glo.sessionid = "";
+    $('.confirmpage').hide();
+    $('.completepage').hide();
+
+        window.exchangeForm = {
+            ChannelID:'INT',
+            ClientID:'',
+            TradingAccSeq:0,
+            FromCurrency:'',
+            FromAmount:0,
+            ExchangeRate:0.000000,
+            ToCurrency:'',
+            ToAmountx:0,
+            Language:'en_US',
+            SessionID:''
+        }
+        $('#field_amount_to').change(function(e){
+            toggleAmount('field_amount_to','field_amount');
+        });
+        $('#field_amount').change(function(e){
+            toggleAmount('field_amount_to','field_amount');
+        });
+        $('#field_currency').change(function(e){
+            let fromField = e.currentTarget.value;
+            let toField = $('#field_currency_to').val();
+            if(fromField == toField){
+                $('#field_currency_to').val(null);
+            }
+        });
+        $('#field_currency_to').change(function(e){
+            let toField = e.currentTarget.value;
+            let fromField = $('#field_currency').val();
+            if(fromField == toField){
+                $('#field_currency').val(null);
+            }
+        });
 
 
-          
 
+    }
+    window.currencyMapping = function currencyMapping(curr){
+        let curLst =[];
+            curLst['HKD'] = '港幣';
+            curLst['USD'] = '美元';
+            curLst['EUR'] = '歐元';
+            curLst['AUD'] = '澳元';
+            curLst['CNY'] = '人民幣';
+            curLst['JPY'] = '日元';
+            curLst['GBP'] = '英鎊';
+            curLst['SGD'] = '新加坡元';
+            curLst['MYR'] = '馬來西亞令吉';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }
+    window.acctTypeMapping = function acctTypeMapping(acct){
+        let acctLst =[];
+            acctLst['C'] = 'Custodian';
+            acctLst['M'] = 'Margin';
+            if(acctLst[acct.toUpperCase()] != undefined){
+                return acctLst[acct.toUpperCase()];
+            }else{
+                return '';
+            }
+    }    
+    
+    window.depositCash = function depositCash(){
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "depositCash",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": {
+                "channelID": "INT",
+                "clientID": glo.clientid,
+                "tradingAccSeq": glo.tranaccseq,
+                "CurrencyID": "HKD",
+                "Amount": 1000.00,
+                "SettleMethod": "E",
+                "SessionID": glo.sessionid
+              }
+            }
+        }
+        callSOAPapi(dataSet);
+    }   
+    window.uitoFormData = function uitoFormData(){
+        let data = {}
+        if(document.getElementById('choice_custodian_r').checked === true){
+            data.transAcct = 'C';
+        }
+        if(document.getElementById('choice_margin_r').checked === true){
+            data.transAcct = 'M';
+        }
+        data.fromCurrency = $('#field_currency').val();
+        data.fromAmount = $('#field_amount').val();
+        data.toCurrency = $('#field_currency_to').val();
+        data.toAmountx = $('#field_amount_to').val();
+        data.remark = $('#field_remarks').val();
+        if(data.transAcct =='' || data.fromCurrency ==''|| data.fromCurrency ==null || data.toCurrency ==''|| data.toCurrency ==null ||  (data.fromAmount =='' && data.toAmountx =='') ){
+            data.state = false;
+        }else{
+            data.state = true;
+        }
+        return data;
+    }
+    window.loadtoConfirm = function loadtoConfirm(page){
+        let fd = uitoFormData();
+        let formlabelval = '';
+        let tolabelval = '';               
+        exchangeForm.FromCurrency = fd.fromCurrency;
+        if(!isNaN(fd.fromAmount) && fd.fromAmount!=''){
+            exchangeForm.FromAmount = parseFloat(fd.fromAmount).toFixed(6);
+            formlabelval = parseFloat(exchangeForm.FromAmount).toFixed(2);
+        }else{
+            formlabelval = '';
+        }
+        exchangeForm.ToCurrency = fd.toCurrency;
 
-        let loadinstallFx = function(){
+        if(!isNaN(fd.toAmountx) && fd.toAmountx!=''){
+            exchangeForm.ToAmountx = parseFloat(fd.toAmountx).toFixed(6);
+            tolabelval = parseFloat(exchangeForm.ToAmountx).toFixed(2);
+        }else{
+            tolabelval = '';
+        }
+        exchangeForm.ClientID = glo.clientid;
+        exchangeForm.TradingAccSeq = glo.tranaccseq;
+        exchangeForm.SessionID = glo.sessionid;
 
-          loadinstallFx.prototype.initBehavior = function(){
+        $('#selAcctType').text(acctTypeMapping(fd.transAcct));
+        $('#selFormCur').text(currencyMapping(exchangeForm.FromCurrency)+' '+formlabelval);
+        $('#selToCur').text(currencyMapping(exchangeForm.ToCurrency)+' '+tolabelval);
+        $('#SelRemark').text(fd.remark);
 
-   
+        if(fd.state){
+            glo.stepflag = 2;
+            loadpage(page);
+            }else{
+            alert('pls fill in data');
+        }
 
+    }
 
- 
-
-          }
-
-
-
-       
+    window.loadtoComplete = function loadtoComplete(page){
+        let loadDS = loadUIDataSet();
+        let pwd = $('#field_passwords').val();
+        if(pwd == loadDS.pwd){
+            foreignExchange(function(e){
+                glo.stepflag = 3;
+                loadpage(page);
+            });
+        }else{
+            alert('pls fill in password');
 
         }
-            let init = new loadinstallFx();
-            init.initBehavior();
+    }
+
+    window.foreignExchange = function foreignExchange(callback){
+
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "foreignExchange",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": exchangeForm
+            }
+        }
+            callSOAPapi(dataSet,function(){
+                (callback && typeof(callback) === "function") && callback();
+            });
+  
+    }   
+    window.createClient = function createClient(){
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "createClient",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": {
+                "NAME": "KFC",
+                "BIRTHDAY": "1990-10-29",
+                "IDTYPE": "H",
+                "IDNUMBER": "Z123123(1)",
+                "COUNTRYOFRESIDENCE": "HK",
+                "EMAIL": "kaytest@gmail.com",
+                "ADDRESSTYPE": 1,
+                "PASSWORD": "12345678",
+                "ADDRESS1": "TSW"
+              }
+            }
+        }
+        callSOAPapi(dataSet);
+    }
+    window.IPOListEnquiry = function IPOListEnquiry(){
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "IPOListEnquiry",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": {
+              }
+            }
+        }
+        if(glo.isloginflag){
+            dataSet.form.body = {
+                "ClientID": glo.clientid,
+                "TradingAccSeq": glo.tranaccseq,
+                "SessionID": glo.sessionid
+            }
+        }
+        callSOAPapi(dataSet);       
+    }
+    window.clientLogin = function clientLogin(){
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "clientLogin",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": {
+                "ChannelID": "INT",
+                  "ClientID": loadDS.loginid,
+                  "TradingAccSeq": "-1",
+                  "Password": loadDS.loginpw,
+                  "Encrypt": "Y"
+              }
+            }
+        }
+        callSOAPapi(dataSet);
+    }
+    window.isLogin = function isLogin(){
+        let loadDS = loadUIDataSet();
+        let dataSet={
+            "form":
+            {
+              "name": "isClientLogin",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "body": {
+                  "clientID": glo.clientid,
+                  "sessionID": glo.sessionid
+              }
+            }
+        }
+        callSOAPapi(dataSet);
+    }
+    window.callSOAPapi = function callSOAPapi(loaddata,callback){
+        $.ajax({
+            type: 'POST',
+            url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
+            data: JSON.stringify(loaddata),
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                console.log("SerCall - "+loaddata.form.name,responseData);
+                if(responseData.data){
+                    console.log("Res - Data ",responseData.data);
+                }
+                if(loaddata.form.name == 'clientLogin'){
+                    glo.sessionid = responseData.data.sessionIDField;
+                    glo.clientid = responseData.data.clientIdField;
+                    glo.tranaccseq = responseData.data.tradingAccSeqField;
+                }
+                    (callback && typeof(callback) === "function") && callback();
+            },
+            error: function (responseData, textStatus, errorThrown) {
+                console.log("SerCall - "+loaddata.form.name,responseData);
+                    (callback && typeof(callback) === "function") && callback();
+            }
+        }); 
+    }
+    window.loadUIDataSet = function loadUIDataSet(){
+
+        let dataSet = {}
+
+            dataSet.acct = "9910-268";
+            dataSet.pwd = "12345678";
+            dataSet.loginid = "9910-268";
+            dataSet.loginpw = "12345678";
+
+        return dataSet;
+    }   
+    window.toggleAmount = function toggleAmount(toAmt,fromAmt){
+        if(document.getElementById(toAmt).value != ''){
+            document.getElementById(fromAmt).setAttribute("disabled",true);
+        }else{
+            document.getElementById(fromAmt).removeAttribute("disabled");
+        }
+        if(document.getElementById(fromAmt).value != ''){
+            document.getElementById(toAmt).setAttribute("disabled",true);
+        }else{
+            document.getElementById(toAmt).removeAttribute("disabled");
+        }        
+    }
+
+    initJS();
       });
 </script>
