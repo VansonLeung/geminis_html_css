@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('iframe.if-flexible').iFrameResize({log: true, interval: 32, resizeFrom: 'parent'});
+  $('iframe.if-flexible').iFrameResize({log: true, interval: 32, resizeFrom: 'parent', checkOrigin: false});
 })
 
 var iframeLoaded = function(e)

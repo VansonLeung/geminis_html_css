@@ -1,63 +1,76 @@
 <section>
-  <div class='gem_form'>
-    <div class='gem_form_header' style='position:relative; padding-left: 0; padding-right: 0;'>
-      <p class='topbar'></p>
-    </div>
-    <div style='padding-left: 20px; padding-right: 20px;'>
-      <br>
-      <table class='generic-table-form'>
-        <tr>
-          <td class='font_lg c_black'>登入</td>
-          <td class='font_sm text-right'><a href='#' class='font_med c_red'>沒有賬號？立即註冊</a></td>
-        </tr>
-      </table>
-      <br/>
-      <table class='generic-table-form font_smed prefix_100'>
-        <tr>
-          <td colspan='2'><input id='username' placeholder='登入號 / 電郵' type='text' class='font_med' style='padding: 10px'/></td>
-        </tr>
-        <tr>
-          <td colspan='2'><input id='password' placeholder='登入密碼' type='password' class='font_med' style='padding: 10px'/></td>
-        </tr>
-      </table>
+    <div class='row'>
+        <div class='col s12 m8'>
+            <img src='/images/login_banner.jpg' style='width: 100%;' />
+        </div>
+        <div class='col s12 m4'>
 
-      <table class='generic-table-form font_lg'>
-        <tr>
-          <td class='font_sm'><a href='#' class='font_smed c_lblue'>忘記密碼</a></td>
-          <td class='font_sm'><div id="login" class='generic-button-flexible gb-primary font_lg'>登入</div></td>
-        </tr>
-      </table>
-    </div>
-    <div class='bg_c_lgrey text-center' style='margin-bottom: -10px; padding: 5px'><a href='#' class='font_sm c_white'>TTL 免責聲明</a></div>
-  </div>
+            <div class='gem_form'>
+                <div class='gem_form_header'>
+                    <p class='topbar'></p>
+                </div>
+
+                <div class='row'>
+                    <div class='col m12 s12'>
+                        <br/>
+                      <table class='generic-table-form'>
+                        <tr>
+                          <td class='font_lg c_black'>登入</td>
+                          <td class='font_sm text-right'><a href='#' class='font_med c_red'>沒有賬號？立即註冊</a></td>
+                        </tr>
+                      </table>
+                      <table class='generic-table-form font_smed prefix_100'>
+                        <tr>
+                          <td colspan='2'><input id='username' placeholder='登入號 / 電郵' type='text' class='font_med' style='padding: 10px'/></td>
+                        </tr>
+                        <tr>
+                          <td colspan='2'><input id='password' placeholder='登入密碼' type='password' class='font_med' style='padding: 10px'/></td>
+                        </tr>
+                        <tr>
+                          <td colspan='2' class='font_lg text-right'><a href='#' class='font_smed c_lblue'>忘記密碼</a></td>
+                        </tr>
+                      </table>
+
+                      <table class='generic-table-form font_lg'>
+                        <tr>
+                          <td class='font_sm'><div id="login" class='generic-button-flexible gb-primary font_lg'>登入</div></td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+                <div class='bg_c_lgrey text-center' style='margin-bottom: -10px; padding: 5px'><a href='#' class='font_sm c_white'>TTL 免責聲明</a></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
 <script type="text/javascript">
-var isBusy = false;
-$('#login').on('click', function(e) {
+    var isBusy = false;
+    $('#login').on('click', function(e) {
 
-  if (isBusy) return;
-  isBusy = true;
+        if (isBusy) return;
+        isBusy = true;
 
-  $.post({
-      '/api/session/login', 
-      { 
-          username: $('#username').val(), 
-          password: $('#password').val(),
-      }, 
-      function (data) 
-      {
-          if (data.success)
-          {
-            window.location = "/@{S:LOCALE}/";
-          }
-          else
-          {
-            alert(data.message);
-          }
-      } 
-  });
-
-})
+        $.post('/api/session/login',
+                {
+                    username: $('#username').val(),
+                    password: $('#password').val(),
+                })
+                .done( function(msg) {
+                    if (msg.success)
+                    {
+                        window.location = "/@{S:LOCALE}/";
+                    }
+                    else
+                    {
+                        alert(msg.message);
+                    }
+                    isBusy = false;
+                })
+                .fail( function(xhr, textStatus, errorThrown) {
+                    alert(xhr.responseText);
+                    isBusy = false;
+                });
+    })
 </script>
