@@ -40,6 +40,8 @@ gulp.task('default',function() {
       .pipe(gulp.dest('./dist/images/'));
   gulp.src('js/**/*')
       .pipe(gulp.dest('./dist/js/'));
+  gulp.src('slick/**/*')
+      .pipe(gulp.dest('./dist/slick/'));
   runSequence('styles', 'mergehtml');
   gulp.watch('css/scss/**/*.scss',['styles']);
   gulp.watch('html/**/*.html',['mergehtml']);
