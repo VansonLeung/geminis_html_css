@@ -1,4 +1,5 @@
-<section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;">
+<section>
+<!-- <section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;"> -->
 <div class="row" id="orgForm">
 <div align="right" class="col l3 hidewhenmobile">
 <div class="stepbar" style="height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;">
@@ -28,6 +29,12 @@
 </div>
 
 <div class="col s12 m12 l9 smallform">
+<div id="sercallloader" style="display: none ">
+<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
+<div class="indeterminate">&nbsp;</div>
+</div>
+</div>
+
 <div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;">
 <div class="overviewpage">
 <form>
@@ -110,14 +117,6 @@
 </div>
 </div>
 
-<div class="inst-area-three row">
-<div class="col s12 m12 l6 inst-form-select inst-grid-b"><label class="selecthits" for="field_currency">市場 </label> <select id="field_currency"> <!-- <option value="" disabled selected>貨幣</option> --><option value="HKEX">HKEX</option><option value="MAMK">MAMK</option><option value="SZMK">SZMK</option><option value="USEX">USEX</option><option value="TWEX">TWEX</option><option value="AUEX">AUEX</option><option value="CAEX">CAEX</option><option value="CHEX">CHEX</option><option value="EUEX">EUEX</option><option value="GREX">GREX</option><option value="IDEX">IDEX</option><option value="JPEX">JPEX</option><option value="KREX">KREX</option><option value="MYEX">MYEX</option><option value="PHEX">PHEX</option><option value="SGEX">SGEX</option><option value="SHEB">SHEB</option><option value="THEX">THEX</option> <!-- <option value="USD">USD</option> --> <!-- <option value="EUR">EUR</option> --> <!-- <option value="AUD">AUD</option> --> <!-- <option value="CNY">CNY</option> --> <!-- <option value="JPY">JPY</option> --> <!-- <option value="GBP">GBP</option> --> <!-- <option value="SGD">SGD</option> --> <!-- <option value="MYR">MYR</option> --> </select></div>
-
-<div class="col l6 hidewhenmobile inst-grid-r inst-grid-b">
-<div class="emptyItem">&nbsp;</div>
-</div>
-</div>
-
 <h6 class="inst-tips">&nbsp;</h6>
 
 <div class="col s12">
@@ -167,9 +166,10 @@
 </div>
 </div>
 
-<table class="generic-table-content small font_smed stocklisttable">
+<table class="generic-table-content small font_smed stocklisttable nopaddtable desksizetable">
     <tbody>
         <tr class="smaller">
+            <th class="settlement-col-6">市場</th>
             <th class="settlement-col-1">代號</th>
             <th class="settlement-col-2">股票名稱</th>
             <th class="settlement-col-3">股數</th>
@@ -178,6 +178,18 @@
         </tr>
     </tbody>
 </table>
+<!-- mobile -->
+
+<table class="generic-table-content generic-table-content-expandable font_smedmed stockmolisttable mosizetable">
+    <tbody>
+        <tr class="smaller">
+            <th>&nbsp;</th>
+            <th>代號</th>
+            <th class="t_right">股票名稱</th>
+        </tr>
+    </tbody>
+</table>
+<!-- mobile -->
 
 <div class="dsa">&nbsp;</div>
 <a class="btn settlement-addstockBtn">加入股票</a>
@@ -219,9 +231,9 @@
 <div class="col s12" style="min-height: 400px; padding-top: 66px !important;">
 <p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
 
-<p class="finishmsg" style="text-align: center;">已完成</p>
+<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
 
-<p class="refnumlabel" style="text-align: center;">參考編號: 000000</p>
+<p class="refnumlabel" id="calldesc" style="text-align: center;">參考編號: 000000</p>
 </div>
 </div>
 </div>
@@ -237,6 +249,43 @@
 </section>
 <script>
       $(function(e){
+
+    window.renewmotable = function renewmotable(){
+
+      $('.generic-table-content-expandable').find('.expandable-header .toggle').on('click', function(e) {
+        var toggle = $(e.target).closest('.toggle');
+        var header = $(e.target).closest('.expandable-header');
+        var content = header.next('.expandable-content');
+        if (header.hasClass('active'))
+        {
+          header.removeClass('active');
+          content.removeClass('active');
+          toggle.html("<div class='iconexheader'></div>");
+        }
+        else
+        {
+          header.addClass('active');
+          content.addClass('active');
+          toggle.html("<div class='iconexcontent'></div>");
+                          
+        }
+     });
+    }
+
+    window.rewindowsize = function rewindowsize(){
+        let curwei= $(document).width();
+        let desksizetable = $(".desksizetable");
+        let mosizetable = $(".mosizetable");
+        if(curwei <= 1072){
+            isdeskStocktable = false;
+            desksizetable.hide();
+            mosizetable.show();
+        }else{
+            isdeskStocktable = true;
+            desksizetable.show();
+            mosizetable.hide();
+        }
+    }
     window.loadUIDataSet = function loadUIDataSet() {
 
         let dataSet = {}
@@ -247,22 +296,57 @@
         dataSet.loginpw = "12345678";
         return dataSet;
     } 
-
+       window.callloader = function callloader(state){
+        if(state){
+            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
+        }else{
+            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
+        }
+    } 
+   window.serCallHandle = function serCallHandle(res,trueFlag){
+        console.log("Res - Data ", res.data);
+        if(!trueFlag){
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+        }else{
+            if (res.data) {
+                if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+                    $(".msgiconfinish").attr('src','../../../images/complete icon.png');
+                    $("#callstate").text(nls.success);
+                    if(res.data.transactionIDField && res.data.transactionIDField !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionIDField);
+                    }else{
+                        $("#calldesc").text('');
+                    }
+                }else{
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+            } 
+        }       
+    }
     window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+        callloader(true);
         $.ajax({
             type: 'POST',
             url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
             data: JSON.stringify(loaddata),
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
-                console.log("SerCall - " + loaddata.form.name, responseData);
-                if (responseData.data) {
-                    console.log("Res - Data ", responseData.data);
-                }
+                serCallHandle(responseData,true);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                // if (responseData.data) {
+                    // console.log("Res - Data ", responseData.data);
+                // }
+                callloader(false);
                 (callback && typeof(callback) === "function") && callback();
             },
             error: function(responseData, textStatus, errorThrown) {
-                console.log("SerCall - " + loaddata.form.name, responseData);
+                serCallHandle(responseData,false);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                callloader(false);
                 (callback && typeof(callback) === "function") && callback();
             }
         });
@@ -353,19 +437,18 @@
                 let d = instFormData;
 
                 instSettlementForm = {
-                    ClientID: glo.clientid,
-                    TradingAccSeq: d.TradingAccSeq,
-                    MarketID: d.MarketID,
-                    InstrumentID: '',
-                    Instruction: d.Instruction,
-                    SettlementMethod: d.SettlementMethod,
-                    CounterpartyName: d.CounterpartyName,
-                    CounterpartyAccountNo: d.CounterpartyAccountNo,
-                    CounterpartyContactPerson: d.CounterpartyContactPerson,
-                    CounterpartyTelNo: d.CounterpartyTelNo,
-                    Language: glo.locallang,
-                    SessionID: glo.sessionid,
-                    StockInformationList: d.StockInformationList
+                    clientID: glo.clientid,
+                    tradingAccSeq: d.TradingAccSeq,
+                    instrumentID: '',
+                    instruction: d.Instruction,
+                    settlementMethod: d.SettlementMethod,
+                    counterpartyName: d.CounterpartyName,
+                    counterpartyAccountNo: d.CounterpartyAccountNo,
+                    counterpartyContactPerson: d.CounterpartyContactPerson,
+                    counterpartyTelNo: d.CounterpartyTelNo,
+                    language: glo.locallang,
+                    sessionID: glo.sessionid,
+                    stockInformationList: d.StockInformationList
                 }
 
 
@@ -387,13 +470,33 @@
             let check01 = document.getElementById('check01').checked;
 
             let stocklstlen = $('.stockList').length;
+            let stockmolstlen = $('.stockmoList').length;
+
             let state = true;
             let qtystate = true;
-            for (let stock = 0; stock<stocklstlen; stock++){
-                let selItem = $('.settlement-box-one').get(stock);
-                let selItemQty = $('.settlement-box-two').get(stock);
-                if(selItem.value == ''){ state = false; }
-                if(selItemQty.value == ''){ qtystate = false; }
+            let namestate = true;
+            if(isdeskStocktable){
+
+                for (let stock = 0; stock<stocklstlen; stock++){
+                    let selItem = $('.settlement-box-one').get(stock);
+                    let selItemName = $('.settlement-box-stockname').get(stock);
+                    let selItemQty = $('.settlement-box-two').get(stock);
+                    if(selItem.value == ''){ state = false; }
+                    if(selItemName.value == ''){ namestate = false; }
+                    if(selItemQty.value == ''){ qtystate = false; }
+                }
+
+            }else{
+            
+                for (let stock = 0; stock<stockmolstlen; stock++){
+                    let selItem = $('.settlement-box-one-m').get(stock);
+                    let selItemName = $('.settlement-box-stockname-m').get(stock);
+                    let selItemQty = $('.settlement-box-two-m').get(stock);
+                    if(selItem.value == ''){ state = false; }
+                    if(selItemName.value == ''){ namestate = false; }
+                    if(selItemQty.value == ''){ qtystate = false; }
+                }
+
             }
 
             if (glo.sessionid == '' || glo.clientid == '') {
@@ -404,6 +507,7 @@
 
             if(!state){ alert(nls.fillinqty);return; }
             if(!qtystate){ alert(nls.fillinstockqty);return; }
+            if(!namestate){ alert(nls.fillinstockname);return; }
             
             if(field_name =='' || field_accountnum=='' || field_contactname=='' || field_contactnum=='' || check01==false){
             alert(nls.fillindata2);
@@ -425,7 +529,6 @@
                  <tr><td width="25%">'+nls.fromacct+':</td><td>'+d.formacctName+'</td></tr>\
                  <tr><td>'+nls.toacct+':</td><td>'+d.toacctName+'<td></tr>\
                  <tr><td>'+nls.transmethod+':</td><td>'+d.SettlementMethodName+'</td></tr>\
-                 <tr><td>'+nls.market+':</td><td>'+d.MarketID+'<td></tr>\
                  <tr><td colspan="2">'+nls.acceptman+'</td></tr>\
                  <tr><td>'+nls.name+':</td><td>'+d.CounterpartyName+'</td></tr>\
                  <tr><td>'+nls.acctnum+':</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
@@ -435,11 +538,12 @@
                 
                 for(let item =0 ; item < d.StockInformationList.length;item++){
                     temp = temp + '<tr><td colspan="2">' +
-                    nls.stockno+ ': '+ d.StockInformationList[item].InstrumentID +
-                    nls.stockname+ ': '+ d.StockInformationList[item].InstrumentName +
-                    nls.stockqty+ ': '+ d.StockInformationList[item].Qty +
-                    nls.stockamt+ ': '+ d.StockInformationList[item].Amount +
-                    nls.stockremark+ ': '+ d.StockInformationList[item].Remarks +
+                    nls.market+ ': '+ d.StockInformationList[item].marketID +
+                    nls.stockno+ ': '+ d.StockInformationList[item].instrumentID +
+                    nls.stockname+ ': '+ d.StockInformationList[item].instrumentName +
+                    nls.stockqty+ ': '+ d.StockInformationList[item].qty +
+                    nls.stockamt+ ': '+ d.StockInformationList[item].amount +
+                    nls.stockremark+ ': '+ d.StockInformationList[item].remarks +
                     '</td></tr>';
                 }    
              
@@ -464,7 +568,6 @@
                 instFormData.toacct ='p';
                 instFormData.TradingAccSeq = $('input[name="transferMethod"]:checked').val();
             }
-            instFormData.MarketID = $('#field_currency').val();
             instFormData.SettlementMethod = $('input[name="transferacctType"]:checked').val();
             instFormData.SettlementMethod == 'FOP' && (instFormData.SettlementMethodName = nls.FOP);
             instFormData.SettlementMethod == 'DVP' && (instFormData.SettlementMethodName = nls.DVP);
@@ -477,21 +580,45 @@
             instFormData.CounterpartyTelNo = $('#field_contactnum').val();
             instFormData.StockInformationList = [];
 
-            let lstlength = $('.stockList').length;
-            let dataLst = [];
-            // init form
-            for(let i=0;i<lstlength;i++){
-                let stockLst = $('.stockList');
-                dataLst[i] = {
-                    InstrumentID    :stockLst.find('.settlement-box-one').get(i).value,
-                    InstrumentName  :stockLst.find('.settlement-box-stockname').get(i).textContent,
-                    Qty             :stockLst.find('.settlement-box-two').get(i).value,
-                    Amount          :stockLst.find('.settlement-box-stockamt').get(i).textContent,
-                    Remarks         :stockLst.find('.settlement-box-three').get(i).value
-                };
-            }
-            instFormData.StockInformationList = dataLst;
+            if(isdeskStocktable){
+                let lstlength = $('.stockList').length;
+                let dataLst = [];
+                // init form
+                for(let i=0;i<lstlength;i++){
+                    let stockLst = $('.stockList');
 
+                    dataLst[i] = {
+                        marketID        :stockLst.find('.settlement-box-market').get(i).value,
+                        instrumentID    :stockLst.find('.settlement-box-one').get(i).value,
+                        instrumentName  :stockLst.find('.settlement-box-stockname').get(i).value,
+                        qty             :stockLst.find('.settlement-box-two').get(i).value,
+                        amount          :stockLst.find('.settlement-box-stockamt').get(i).value,
+                        remarks         :stockLst.find('.settlement-box-three').get(i).value
+                    };
+                    dataLst[i].amount == '' && (dataLst[i].amount = 0);
+                }
+                instFormData.StockInformationList = dataLst;
+            }else{
+                let lstlength = $('.stockmoList').length;
+                let dataLst = [];
+                // init form
+                for(let i=0;i<lstlength;i++){
+                    let stockLst = $('.stockmoList');
+                    let stockLstbody = $('.stockmoListbody');
+
+                    dataLst[i] = {
+                        marketID        :stockLstbody.find('.settlement-box-market-m').get(i).value,
+                        instrumentID    :stockLst.find('.settlement-box-one-m').get(i).value,
+                        instrumentName  :stockLst.find('.settlement-box-stockname-m').get(i).value,
+                        qty             :stockLstbody.find('.settlement-box-two-m').get(i).value,
+                        amount          :stockLstbody.find('.settlement-box-stockamt-m').get(i).value,
+                        remarks         :stockLstbody.find('.settlement-box-three-m').get(i).value
+                    };
+
+                    dataLst[i].amount == '' && (dataLst[i].amount = 0);
+                }
+                instFormData.StockInformationList = dataLst;                
+            }
             console.log("From Data: - ",instFormData);
             (callback && typeof(callback) === "function") && callback();
         }
@@ -520,7 +647,28 @@
             });
     }  
 
+    window.renderDeskStocktoUI = function renderDeskStocktoUI(callback){
+        $('.stocklisttable').append('\
+            <tr class="real-grey-line stockList">\
+              <td style="padding:5px !important;"><select class="settlement-box-market"><option value="HKEX">HKEX</option><option value="MAMK">MAMK</option><option value="SZMK">SZMK</option><option value="USEX">USEX</option><option value="TWEX">TWEX</option><option value="AUEX">AUEX</option><option value="CAEX">CAEX</option><option value="CHEX">CHEX</option><option value="EUEX">EUEX</option><option value="GREX">GREX</option><option value="IDEX">IDEX</option><option value="JPEX">JPEX</option><option value="KREX">KREX</option><option value="MYEX">MYEX</option><option value="PHEX">PHEX</option><option value="SGEX">SGEX</option><option value="SHEB">SHEB</option><option value="THEX">THEX</option> </select></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-one" style="margin-left:0px;" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockname" style="width:100px !important; height:35px !important;" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-two" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockamt" style="width:100px !important; height:35px !important;" /></td>\
+              <td style="padding:5px !important;"><div><input type="text" value="" class="settlement-box-three" /> <div class="table_button settlement-red-color c_white removestockbtn"><i class="fa fa-remove" aria-hidden="true"></i></div></div></td>\
+            </tr>\
+                    ');
+        (callback && typeof(callback) === "function") && callback();
 
+    }
+    window.renderMoStocktoUI = function renderMoStocktoUI(callback){
+
+        $('.stockmolisttable').append('\
+            <tr class="expandable-header stockmoList"> <td class="toggle"> <div class="iconexheader"></div> </td> <td> <input type="text" class="settlement-box-one-m" value="" /> </td> <td class="t_right"> <input type="text" class="settlement-box-stockname-m" value="" /> </td> </tr> <tr class="expandable-content stockmoListbody"> <td colspan="3"> <table> <tr> <td> </td> <td>市場：</td> <td class="right-align"> <select style="width:100%" class="settlement-box-market-m"> <option value="HKEX">HKEX</option> <option value="MAMK">MAMK</option> <option value="SZMK">SZMK</option> <option value="USEX">USEX</option> <option value="TWEX">TWEX</option> <option value="AUEX">AUEX</option> <option value="CAEX">CAEX</option> <option value="CHEX">CHEX</option> <option value="EUEX">EUEX</option> <option value="GREX">GREX</option> <option value="IDEX">IDEX</option> <option value="JPEX">JPEX</option> <option value="KREX">KREX</option> <option value="MYEX">MYEX</option> <option value="PHEX">PHEX</option> <option value="SGEX">SGEX</option> <option value="SHEB">SHEB</option> <option value="THEX">THEX</option> </select> </td> </tr> <tr> <td> </td> <td>股數：</td> <td class="right-align"> <input type="text" class="settlement-box-two-m" value="" /> </td> </tr> <tr> <td> </td> <td>金額：</td> <td class="right-align"> <input type="text" class="settlement-box-stockamt-m" value="" /> </td> </tr> <tr> <td> </td> <td>備註：</td> <td class="right-align"> <textarea class="settlement-box-three-m" style="width:100%"></textarea> </td> </tr> <tr> <td></td> <td></td> <td class="right-align"><span style="display:inline-block; padding:0px 10px;color:#ce0f00;">刪除</span> <div class="table_button settlement-red-color c_white removestockmobtn"><i class="fa fa-remove" aria-hidden="true"></i></div> </td> </tr> </table> </td> </tr>');   
+        
+        (callback && typeof(callback) === "function") && callback();
+
+    }
         let loadinstallFx = function(){
 
             loadinstallFx.prototype.initBehavior = function(){
@@ -528,12 +676,16 @@
 
             window.nls = {
                 nextstep: '下一步',
+                success: '已完成',
+                desc: '參考編號:',
+                fail: '未能完成',
                 done: '完成',
                 plsfillpwd: '請輸入密碼',
                 loginacctfirst: '請先登入帳號',
                 fillindata: '請輸入／選擇資料',
                 fillinqty:'請輸入股票代號',
                 fillinstockqty:'請輸入股票股數',
+                fillinstockname:'請輸入股票名稱',
                 fillindata2:'請輸入／選擇資料及按接受條款',                
 
                 FOP:'無需付款交收',
@@ -561,6 +713,20 @@
 
             };
 
+
+            window.isdeskStocktable = true;
+
+            $(window).resize(function(){
+                rewindowsize();
+            });
+    
+            rewindowsize();
+
+            renderDeskStocktoUI();
+            renderMoStocktoUI(function(e){
+                renewmotable();
+            });        
+
             window.glostepback = 1;
             window.glostepgo = 2;
             window.instFormData =  {};
@@ -573,8 +739,11 @@
             glo.isloginflag = false;
             glo.sessionid = "";
             glo.sessionid = "@{S:SESSIONID}";
+            // glo.sessionid = '';
             glo.clientid = "@{S:CLIENTID}";
+            // glo.clientid = '';
             let transacctlst = '@{S:TRADINGACCLIST}';
+            // let transacctlst = '';
 
             transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
@@ -614,15 +783,7 @@
             $(".to_acct_choice_3").show();
             haveMType && ($(".to_acct_choice_2").show());  
             
-
-
-            // $(".form_acct_choice_1-m").show();
-            // $(".form_acct_choice_2-m").hide();
-            // $(".form_acct_choice_3-m").hide();
-
-            // $(".to_acct_choice_1-m").hide();
-            // $(".to_acct_choice_2-m").show();
-            // $(".to_acct_choice_3-m").show();                         
+                       
 
             $('.cashTradingBtn').on('click',function(e){
 
@@ -638,7 +799,7 @@
 
                     $(".to_acct_choice_1").hide();
                     $(".to_acct_choice_3").show();
-            haveMType && ($(".to_acct_choice_2").show());  
+                    haveMType && ($(".to_acct_choice_2").show());  
 
                 }else{
                     instFormData.Instruction = 'W';
@@ -648,84 +809,40 @@
 
                     $(".form_acct_choice_1").hide();
                     $(".form_acct_choice_3").show();
-            haveMType && ($(".form_acct_choice_2").show());  
+                    haveMType && ($(".form_acct_choice_2").show());  
                 }
             });
 
-            // $('.cashTradingBtn-m').on('click',function(e){
-
-            //     let curSelItem = $(this).data().tradtype;
-            //     $('.cashTradingBtn-m').removeClass('cashTradingActive-m');
-            //     $(this).addClass('cashTradingActive-m');
-
-            //     if(curSelItem == 'depositItem-m'){
-
-            //         $(".form_acct_choice_1-m").show();
-            //         $(".form_acct_choice_2-m").hide();
-            //         $(".form_acct_choice_3-m").hide();
-
-            //         $(".to_acct_choice_1-m").hide();
-            //         $(".to_acct_choice_2-m").show();
-            //         $(".to_acct_choice_3-m").show();                                        
-
-            //     }else{
-
-            //         $(".to_acct_choice_1-m").show();
-            //         $(".to_acct_choice_2-m").hide();
-            //         $(".to_acct_choice_3-m").hide();
-
-            //         $(".form_acct_choice_1-m").hide();
-            //         $(".form_acct_choice_2-m").show();
-            //         $(".form_acct_choice_3-m").show(); 
-                
-            //     }
-
-            //  });
 
 
 
               }
 
               $('body').on('click','.settlement-addstockBtn',function(e){
-                $('.stocklisttable').append('\
-                    <tr class="real-grey-line stockList">\
-                      <td><input type="text" value="" class="settlement-box-one" /></td>\
-                      <td class="settlement-box-stockname">---</td>\
-                      <td><input type="text" value="" class="settlement-box-two" /></td>\
-                      <td class="t_right settlement-box-stockamt">---</td>\
-                      <td><input type="text" value="" class="settlement-box-three" /> <div class="table_button settlement-red-color c_white removestockbtn"><i class="fa fa-remove" aria-hidden="true"></i></div></td>\
-                    </tr>\
-                    ');
+                if(isdeskStocktable){
+                    renderDeskStocktoUI();
+                }else{
+                    renderMoStocktoUI(function(e){
+                        renewmotable();
+                    });
+                }
               });
 
 
             $('body').on('click','.removestockbtn',function(e){
-
-                    $(this).parent().parent().remove();
+                    $(this).parent().parent().parent().remove();
             });          
+            $('body').on('click','.removestockmobtn',function(e){
+                    // $(this).parent().parent().remove();
+                    let stockheader = $(this).parent().parent().parent().parent().parent().parent().prev();
+                    let stockbody = $(this).parent().parent().parent().parent().parent().parent();
 
+                    stockheader.remove();
+                    stockbody.remove();                    
+            });
         }
             let init = new loadinstallFx();
             init.initBehavior();
-            $('.settlement-addstockBtn').click();
+            // $('.settlement-addstockBtn').click();
       });
-</script><script type="text/javascript">
-  $('.generic-table-content-expandable').find('.expandable-header .toggle').on('click', function(e) {
-    var toggle = $(e.target).closest('.toggle');
-    var header = $(e.target).closest('.expandable-header');
-    var content = header.next('.expandable-content');
-    if (header.hasClass('active'))
-    {
-      header.removeClass('active');
-      content.removeClass('active');
-      toggle.html("<div class='iconexheader'></div>");
-    }
-    else
-    {
-      header.addClass('active');
-      content.addClass('active');
-      toggle.html("<div class='iconexcontent'></div>");
-                      
-    }
-  });
 </script>

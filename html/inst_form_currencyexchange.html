@@ -1,4 +1,5 @@
-<section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;">
+<section>
+<!-- <section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;"> -->
 <div class="row" id="orgForm">
 <div align="right" class="col l3 hidewhenmobile">
 <div class="stepbar" style="height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;">
@@ -28,7 +29,13 @@
 </div>
 
 <div class="col s12 m12 l9 smallform">
-<div class="row inst-form gem_form inst-form-settlement" style="min-height:515px"><!-- <form> -->
+<div id="sercallloader" style="display: none ">
+<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
+<div class="indeterminate">&nbsp;</div>
+</div>
+</div>
+
+<div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;min-height:515px"><!-- <form> -->
 <div class="overviewpage">
 <div class="area-top">
 <div class="col s12">
@@ -70,7 +77,7 @@
 </div>
 </div>
 
-<div class="col s2 hidewhenmobile"></div>
+<div class="col s2 hidewhenmobile">&nbsp;</div>
 
 <div class="col s12 m12 l2 inst-form-select mobileitemrow"><label class="selecthits">轉到 </label> <select class="inputselect" id="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
 
@@ -107,27 +114,19 @@
     <tbody>
         <tr>
             <td width="25%">交易戶口:</td>
-            <td width="25%">&nbsp;</td>
-            <td width="25%">&nbsp;</td>
-            <td width="25%">&nbsp;</td>
+            <td id="selAcctType" width="75%">&nbsp;</td>
         </tr>
         <tr>
             <td>由貨幣:</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td id="selFormCur">&nbsp;</td>
         </tr>
         <tr>
             <td>轉到貨幣:</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td id="selToCur">&nbsp;</td>
         </tr>
         <tr>
             <td>備註:</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td id="SelRemark">&nbsp;</td>
         </tr>
     </tbody>
 </table>
@@ -157,9 +156,9 @@
 <div class="col s12" style="min-height: 400px; padding-top: 66px !important;">
 <p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
 
-<p class="finishmsg" style="text-align: center;">已完成</p>
+<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
 
-<p class="refnumlabel" style="text-align: center;">參考編號: 000000</p>
+<p class="refnumlabel" id="calldesc" style="text-align: center;">參考編號: 000000</p>
 </div>
 </div>
 </div>
@@ -178,8 +177,37 @@
 
 
       $(function(e){
-
-
+    window.callloader = function callloader(state){
+        if(state){
+            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
+        }else{
+            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
+        }
+    }
+    window.serCallHandle = function serCallHandle(res,trueFlag){
+        console.log("Res - Data ", res.data);
+        if(!trueFlag){
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+        }else{
+            if (res.data) {
+                if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+                    $(".msgiconfinish").attr('src','../../../images/complete icon.png');
+                    $("#callstate").text(nls.success);
+                    if(res.data.transactionIDField && res.data.transactionIDField !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionIDField);
+                    }else{
+                        $("#calldesc").text('');
+                    }
+                }else{
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+            } 
+        }       
+    }
     window.loadUIDataSet = function loadUIDataSet() {
 
         let dataSet = {}
@@ -192,20 +220,25 @@
     }
 
     window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+        callloader(true);
         $.ajax({
             type: 'POST',
             url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
             data: JSON.stringify(loaddata),
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
-                console.log("SerCall - " + loaddata.form.name, responseData);
-                if (responseData.data) {
-                    console.log("Res - Data ", responseData.data);
-                }
+                serCallHandle(responseData,true);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                // if (responseData.data) {
+                    // console.log("Res - Data ", responseData.data);
+                // }
+                callloader(false);
                 (callback && typeof(callback) === "function") && callback();
             },
             error: function(responseData, textStatus, errorThrown) {
-                console.log("SerCall - " + loaddata.form.name, responseData);
+                serCallHandle(responseData,false);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                callloader(false);
                 (callback && typeof(callback) === "function") && callback();
             }
         });
@@ -293,6 +326,9 @@
 
         window.nls = {
             nextstep: '下一步',
+            success: '已完成',
+            desc: '參考編號:',
+            fail: '未能完成',
             done: '完成',
             plsfillpwd: '請輸入密碼',
             loginacctfirst: '請先登入帳號',
@@ -327,6 +363,9 @@
         glo.sessionid = "@{S:SESSIONID}";
         glo.clientid = "@{S:CLIENTID}";
         let transacctlst = '@{S:TRADINGACCLIST}';
+        // glo.sessionid = "";
+        // glo.clientid = "";
+        // let transacctlst = "";
         transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
         glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
@@ -447,23 +486,23 @@
 
     window.loadconfirm = function loadconfirm(){
         window.exchangeForm = {
-            ChannelID:'INT',
-            ClientID:glo.clientid,
-            Language:glo.locallang,
-            SessionID:glo.sessionid
+            channelID:'INT',
+            clientID:glo.clientid,
+            language:glo.locallang,
+            sessionID:glo.sessionid
         }
 
         let fd = uitoFormData();
         let formlabelval = '';
         let tolabelval = '';               
-        exchangeForm.FromCurrency = fd.fromCurrency;
+        exchangeForm.fromCurrency = fd.fromCurrency;
         if(!isNaN(fd.fromAmount) && fd.fromAmount!=''){
-            exchangeForm.FromAmount = parseFloat(fd.fromAmount).toFixed(6);
-            formlabelval = parseFloat(exchangeForm.FromAmount).toFixed(2);
+            exchangeForm.fromAmount = parseFloat(fd.fromAmount).toFixed(6);
+            formlabelval = parseFloat(exchangeForm.fromAmount).toFixed(2);
         }else{
             formlabelval = '';
         }
-        exchangeForm.ToCurrency = fd.toCurrency;
+        exchangeForm.toCurrency = fd.toCurrency;
 
         if(!isNaN(fd.toAmount) && fd.toAmount!=''){
             exchangeForm.toAmount = parseFloat(fd.toAmount).toFixed(6);
@@ -477,12 +516,11 @@
             alert(nls.loginacctfirst);
             return;
         }
-
         if(fd.state){
             exchangeForm.tradingAccSeq = fd.tradingAccSeq;
             $('#selAcctType').text(acctTypeMapping(fd.transAcct));
-            $('#selFormCur').text(currencyMapping(exchangeForm.FromCurrency)+' '+formlabelval);
-            $('#selToCur').text(currencyMapping(exchangeForm.ToCurrency)+' '+tolabelval);
+            $('#selFormCur').text(currencyMapping(exchangeForm.fromCurrency)+' '+formlabelval);
+            $('#selToCur').text(currencyMapping(exchangeForm.toCurrency)+' '+tolabelval);
             $('#SelRemark').text(fd.remark);
                loadpage('confirmpage');
                 handlestepcolor(2);
@@ -517,7 +555,7 @@
         let dataSet={
             "form":
             {
-              "name": "foreignExchange",
+              "name": "foreignExchangeInstruction",
               "credentials": {
                 "username": loadDS.acct,
                 "password": loadDS.pwd
