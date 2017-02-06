@@ -1,0 +1,214 @@
+<style>
+.acc_member_register_form
+{
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.acc_member_register_form td.label
+{
+    text-align: right;
+    padding-right: 20px;
+    width: 160px;
+}
+
+@media only screen and (max-width: 600px) {
+  .acc_member_register_form td.label
+  {
+    text-align: left;
+  }
+  .acc_member_register_form
+  {
+    border-radius: 0px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+
+}
+
+</style>
+
+<div style='background-color: #96D7FD'>
+  <div class='container'>
+    <div style='padding: 70px; text-align: center;'>
+      <h3>為你而設的新一代互聯網證券商</h3>
+    </div>
+
+    <form id='acc_member_register_form'>
+      <section>
+          <div class='row'>
+              <div class='col s12 m12 acc_member_register_form'>
+
+                  <table class='generic-table-form'>
+                      <tr>
+                          <td class='font_sm text-right' style='height: 55px; vertical-align: center;'><a href='#' class='font_med c_red'>已有賬户? 馬上登錄</a></td>
+                      </tr>
+                  </table>
+
+                  <div class='col m2 l3'>
+                      &nbsp;
+                  </div>
+                  <div class='col s12 m8 l6'>
+                      
+                      <!-- content here -->
+                        <table class='generic-table-form font_smed'>
+                          <tr>
+                            <td class='label'><label for='username'>登入名稱: </label></td>
+                            <td colspan='2'><input name='username' id='username' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='firstname'>名: </label></td>
+                            <td colspan='2'><input name='firstname' id='firstname' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='lastname'>姓: </label></td>
+                            <td colspan='2'><input name='lastname' id='lastname' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='tel'>電話號碼: </label></td>
+                            <td colspan='2'><input name='tel' id='tel' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='email'>電郵地址: </label></td>
+                            <td colspan='2'><input name='email' id='email' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='password'>密碼: </label></td>
+                            <td colspan='2'><input name='password' id='password' placeholder='' type='password' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='confirm_password'>確認密碼: </label></td>
+                            <td colspan='2'><input name='confirm_password' id='confirm_password' placeholder='' type='password' class='font_med' style='padding: 10px'/></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label for='otp'>請輸入OTP: </label></td>
+                            <td><input name='otp' id='otp' placeholder='' type='text' class='font_med' style='padding: 10px'/></td>
+                            <td><input type='button' id='acc_btn_otp' class='generic-button-standalone gb-primary font_lg' value='獲取OTP'></input></td>
+                          </tr>
+                          <tr>
+                            <td class='label'><label>&nbsp;</label></td>
+                            <td colspan='2' class='text-left' style='vertical-align: center;'><span id='form-error' class='font_med c_red'></span></td>
+                          </tr>
+
+                          <tr>
+                            <td class='label'><label>&nbsp;</label></td>
+                            <td colspan='2'>
+                              <input type='checkbox' name='check' value='check' id='check' />
+                              <label for='check'><span><span></span></span>I accept the <a href='#'>Terms &amp; Conditions</a> and confirm that I am 18 years old or older.</label>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class='label'><label>&nbsp;</label></td>
+                            <td colspan='2' class=''><input type='submit' class='generic-button-big gb-primary font_lg' value='免費開戶'></input></td>
+                          </tr>
+
+                        </table>
+
+
+                  </div>
+                  <div class='col m2 l3'>
+                      &nbsp;
+                  </div>
+              </div>
+          </div>
+      </section>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+    var isBusy = false;
+
+    $('#acc_btn_otp').on('click', function(e) {
+      e.preventDefault();
+
+      if (isBusy) return;
+      isBusy = true;
+      $('#form-error').text('');
+
+      $.post('/api/code/register_anonymous',
+              {
+                  username: $('#username').val(),
+                  email: $('#email').val(),
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                      $('#form-error').text('成功，請檢查電郵');
+                  }
+                  else
+                  {
+                      $('#form-error').text(msg.message);
+                  }
+                  isBusy = false;
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                  $('#form-error').text(xhr.responseText);
+                  isBusy = false;
+              });      
+    })
+
+    $('#acc_member_register_form').on('submit', function(e) {
+
+        e.preventDefault();
+        if (isBusy) return;
+        $('#form-error').text('');
+
+        if ($('#password').val() !== $('#confirm_password').val())
+        {
+          $('#form-error').text('請檢查密碼');
+          return;
+        }
+
+        if (
+              $('#username').val() === ''
+              || $('#firstname').val() === ''
+              || $('#lastname').val() === ''
+              || $('#tel').val() === ''
+              || $('#email').val() === ''
+              || $('#password').val() === ''
+              || $('#otp').val() === ''
+          )
+        {
+          $('#form-error').text('請輸入所有欄位');
+          return;
+        }
+
+        if (
+              !$('#check').is(':checked')
+          )
+        {
+          $('#form-error').text('請閱讀并同意Terms &amp; Conditions');
+          return;
+        }
+
+        isBusy = true;
+
+        $.post('/api/user/register',
+                {
+                    username: $('#username').val(),
+                    firstname: $('#firstname').val(),
+                    lastname: $('#lastname').val(),
+                    tel: $('#tel').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    otp: $('#otp').val(),
+                })
+                .done( function(msg) {
+                    if (msg.success)
+                    {
+                        window.location = "/@{S:LOCALE}/";
+                    }
+                    else
+                    {
+                        $('#form-error').text(msg.message);
+                    }
+                    isBusy = false;
+                })
+                .fail( function(xhr, textStatus, errorThrown) {
+                    $('#form-error').text(msg.message);
+                    isBusy = false;
+                });
+    })
+</script>
