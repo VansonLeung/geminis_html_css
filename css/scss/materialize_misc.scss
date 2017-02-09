@@ -1,6 +1,6 @@
 .materialize {
   /* Checkboxes
-   ========================================================================== */
+     ========================================================================== */
   /* CUSTOM CSS CHECKBOXES */
   form p {
     margin-bottom: 10px;
@@ -59,7 +59,7 @@
   [type="checkbox"]:not(.filled-in) + label:after {
     border: 0;
     -webkit-transform: scale(0);
-    transform: scale(0);
+            transform: scale(0);
   }
 
   [type="checkbox"]:not(:checked):disabled + label:before {
@@ -69,7 +69,7 @@
 
   [type="checkbox"].tabbed:focus + label:after {
     -webkit-transform: scale(1);
-    transform: scale(1);
+            transform: scale(1);
     border: 0;
     border-radius: 50%;
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
@@ -86,11 +86,11 @@
     border-right: 2px solid #26a69a;
     border-bottom: 2px solid #26a69a;
     -webkit-transform: rotate(40deg);
-    transform: rotate(40deg);
+            transform: rotate(40deg);
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+            backface-visibility: hidden;
     -webkit-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
   }
 
   [type="checkbox"]:checked:disabled + label:before {
@@ -109,11 +109,11 @@
     border-right: 2px solid #26a69a;
     border-bottom: none;
     -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+            transform: rotate(90deg);
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+            backface-visibility: hidden;
     -webkit-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
   }
 
   [type="checkbox"]:indeterminate:disabled + label:before {
@@ -334,8 +334,12 @@
     color: initial;
     position: absolute;
     right: 0;
-    top: 16px;
+    top: 0;
+    bottom: 0;
+    height: 10px;
+    margin: auto 0;
     font-size: 10px;
+    line-height: 10px;
   }
 
   .select-wrapper span.caret.disabled {
@@ -483,9 +487,9 @@
     top: 10px;
     margin-left: -6px;
     -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+            transform: rotate(-45deg);
   }
 
   input[type=range] + .thumb .value {
@@ -495,7 +499,7 @@
     color: #26a69a;
     font-size: 0;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+            transform: rotate(45deg);
   }
 
   input[type=range] + .thumb.active {
@@ -527,7 +531,7 @@
     border-radius: 50%;
     background-color: #26a69a;
     -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
     margin: -5px 0 0 0;
     transition: .3s;
   }
@@ -624,13 +628,13 @@
   .table-of-contents a:hover {
     color: #a8a8a8;
     padding-left: 19px;
-    border-left: 1px solid #ea4a4f;
+    border-left: 1px solid #ee6e73;
   }
 
   .table-of-contents a.active {
     font-weight: 500;
     padding-left: 18px;
-    border-left: 2px solid #ea4a4f;
+    border-left: 2px solid #ee6e73;
   }
 
   .side-nav {
@@ -640,30 +644,28 @@
     top: 0;
     margin: 0;
     -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+            transform: translateX(-100%);
     height: 100%;
     height: calc(100% + 60px);
     height: -moz-calc(100%);
     padding-bottom: 60px;
     background-color: #fff;
     z-index: 999;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     overflow-y: auto;
     will-change: transform;
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+            backface-visibility: hidden;
     -webkit-transform: translateX(-105%);
-    transform: translateX(-105%);
+            transform: translateX(-105%);
   }
 
   .side-nav.right-aligned {
     right: 0;
     -webkit-transform: translateX(105%);
-    transform: translateX(105%);
+            transform: translateX(105%);
     left: auto;
     -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+            transform: translateX(100%);
   }
 
   .side-nav .collapsible {
@@ -717,6 +719,7 @@
   .side-nav li > a > [class^="mdi-"], .side-nav li > a > [class*="mdi-"],
   .side-nav li > a > i.material-icons {
     float: left;
+    height: 48px;
     line-height: 48px;
     margin: 0 32px 0 0;
     width: 24px;
@@ -741,22 +744,22 @@
   }
 
   .side-nav .userView {
-    overflow: hidden;
     position: relative;
     padding: 32px 32px 0;
     margin-bottom: 8px;
   }
 
-  .side-nav .userView a {
+  .side-nav .userView > a {
     height: auto;
     padding: 0;
   }
 
-  .side-nav .userView a:hover {
+  .side-nav .userView > a:hover {
     background-color: transparent;
   }
 
   .side-nav .userView .background {
+    overflow: hidden;
     position: absolute;
     top: 0;
     right: 0;
@@ -776,7 +779,7 @@
 
   .side-nav .userView .name,
   .side-nav .userView .email {
-    font-weight: 14px;
+    font-size: 14px;
     line-height: 24px;
   }
 
@@ -798,16 +801,10 @@
     z-index: 998;
   }
 
-  .side-nav.fixed a {
-    display: block;
-    padding: 0 16px;
-    color: rgba(0, 0, 0, 0.87);
-  }
-
   .side-nav.fixed {
     left: 0;
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
     position: fixed;
   }
 
@@ -819,11 +816,11 @@
   @media only screen and (max-width: 992px) {
     .side-nav.fixed {
       -webkit-transform: translateX(-105%);
-      transform: translateX(-105%);
+              transform: translateX(-105%);
     }
     .side-nav.fixed.right-aligned {
       -webkit-transform: translateX(105%);
-      transform: translateX(105%);
+              transform: translateX(105%);
     }
     .side-nav a {
       padding: 0 16px;
@@ -833,13 +830,13 @@
     }
   }
 
-  .side-nav .collapsible-body li.active,
-  .side-nav.fixed .collapsible-body li.active {
+  .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
+  .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
     background-color: #ee6e73;
   }
 
-  .side-nav .collapsible-body li.active a,
-  .side-nav.fixed .collapsible-body li.active a {
+  .side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
+  .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a {
     color: #fff;
   }
 
@@ -911,7 +908,7 @@
   @keyframes container-rotate {
     to {
       -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+              transform: rotate(360deg);
     }
   }
 
@@ -1029,42 +1026,42 @@
   @keyframes fill-unfill-rotate {
     12.5% {
       -webkit-transform: rotate(135deg);
-      transform: rotate(135deg);
+              transform: rotate(135deg);
     }
     /* 0.5 * ARCSIZE */
     25% {
       -webkit-transform: rotate(270deg);
-      transform: rotate(270deg);
+              transform: rotate(270deg);
     }
     /* 1   * ARCSIZE */
     37.5% {
       -webkit-transform: rotate(405deg);
-      transform: rotate(405deg);
+              transform: rotate(405deg);
     }
     /* 1.5 * ARCSIZE */
     50% {
       -webkit-transform: rotate(540deg);
-      transform: rotate(540deg);
+              transform: rotate(540deg);
     }
     /* 2   * ARCSIZE */
     62.5% {
       -webkit-transform: rotate(675deg);
-      transform: rotate(675deg);
+              transform: rotate(675deg);
     }
     /* 2.5 * ARCSIZE */
     75% {
       -webkit-transform: rotate(810deg);
-      transform: rotate(810deg);
+              transform: rotate(810deg);
     }
     /* 3   * ARCSIZE */
     87.5% {
       -webkit-transform: rotate(945deg);
-      transform: rotate(945deg);
+              transform: rotate(945deg);
     }
     /* 3.5 * ARCSIZE */
     to {
       -webkit-transform: rotate(1080deg);
-      transform: rotate(1080deg);
+              transform: rotate(1080deg);
     }
     /* 4   * ARCSIZE */
   }
@@ -1305,15 +1302,15 @@
   @keyframes left-spin {
     from {
       -webkit-transform: rotate(130deg);
-      transform: rotate(130deg);
+              transform: rotate(130deg);
     }
     50% {
       -webkit-transform: rotate(-5deg);
-      transform: rotate(-5deg);
+              transform: rotate(-5deg);
     }
     to {
       -webkit-transform: rotate(130deg);
-      transform: rotate(130deg);
+              transform: rotate(130deg);
     }
   }
 
@@ -1332,15 +1329,15 @@
   @keyframes right-spin {
     from {
       -webkit-transform: rotate(-130deg);
-      transform: rotate(-130deg);
+              transform: rotate(-130deg);
     }
     50% {
       -webkit-transform: rotate(5deg);
-      transform: rotate(5deg);
+              transform: rotate(5deg);
     }
     to {
       -webkit-transform: rotate(-130deg);
-      transform: rotate(-130deg);
+              transform: rotate(-130deg);
     }
   }
 
@@ -1465,11 +1462,11 @@
     width: 100%;
     height: 400px;
     -webkit-perspective: 500px;
-    perspective: 500px;
+            perspective: 500px;
     -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+            transform-style: preserve-3d;
     -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
   }
 
   .carousel.carousel-slider {
@@ -1512,7 +1509,7 @@
   .carousel .carousel-item {
     display: none;
     width: 200px;
-    height: 400px;
+    height: 200px;
     position: absolute;
     top: 0;
     left: 0;
@@ -1906,7 +1903,7 @@
   .picker--focused .picker__day--selected {
     border-radius: 50%;
     -webkit-transform: scale(0.75);
-    transform: scale(0.75);
+            transform: scale(0.75);
     background: #0089ec;
     color: #ffffff;
   }
@@ -1934,11 +1931,11 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .picker__button--today,
@@ -2108,7 +2105,7 @@
   .picker--focused .picker__day--selected {
     border-radius: 50%;
     -webkit-transform: scale(0.9);
-    transform: scale(0.9);
+            transform: scale(0.9);
     background-color: #26a69a;
     color: #ffffff;
   }
@@ -2289,4 +2286,5 @@
       margin-bottom: 5em;
     }
   }
+
 }

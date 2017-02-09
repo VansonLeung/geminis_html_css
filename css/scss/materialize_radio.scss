@@ -1,6 +1,6 @@
 .materialize {
   /* Radio Buttons
-     ========================================================================== */
+    ========================================================================== */
   [type="radio"]:not(:checked),
   [type="radio"]:checked {
     position: absolute;
@@ -20,9 +20,9 @@
     transition: .28s ease;
     /* webkit (konqueror) browsers */
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 
   [type="radio"] + label:before,
@@ -54,9 +54,8 @@
   }
 
   [type="radio"]:not(:checked) + label:after {
-    z-index: -1;
     -webkit-transform: scale(0);
-    transform: scale(0);
+            transform: scale(0);
   }
 
   /* Checked styles */
@@ -73,18 +72,17 @@
   [type="radio"]:checked + label:after,
   [type="radio"].with-gap:checked + label:after {
     background-color: #26a69a;
-    z-index: 0;
   }
 
   [type="radio"]:checked + label:after {
     -webkit-transform: scale(1.02);
-    transform: scale(1.02);
+            transform: scale(1.02);
   }
 
   /* Radio With gap */
   [type="radio"].with-gap:checked + label:after {
     -webkit-transform: scale(0.5);
-    transform: scale(0.5);
+            transform: scale(0.5);
   }
 
   /* Focused styles */
