@@ -184,14 +184,16 @@
     }
   }
 
-  .container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 10px;
-    width: 100%;
+  > {
+    .container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 10px;
+      width: 100%;
 
-    > p.topbar {
-      height: 20px;
+      > p.topbar {
+        height: 20px;
+      }
     }
   }
 }
