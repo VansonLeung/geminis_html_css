@@ -91,109 +91,107 @@
   }
 
 
-  > {
-    .row {
+  .row {
 
-      position:relative;
-      padding-left: 0;
-      padding-right: 0;
+    position:relative;
+    padding-left: 0;
+    padding-right: 0;
 
-      > .col {
-        &.grid-l {
-          /*border-right: 1px solid #BCBCBC;*/
+    > .col {
+      &.grid-l {
+        /*border-right: 1px solid #BCBCBC;*/
+      }
+
+      &.grid-r {
+        border-left: 1px solid #BCBCBC;
+      }
+
+      &.grid-t {
+        border-top: 1px solid #BCBCBC;
+      }
+
+      &.grid-b {
+        border-bottom: 1px solid #BCBCBC;
+      }
+
+      &.input-field {
+        position: relative;
+        margin-top: 0;
+
+        input {
+          border-bottom-width: 0 !important;
+          box-shadow: 0 0 0 0 transparent !important;
         }
 
-        &.grid-r {
-          border-left: 1px solid #BCBCBC;
+        label.active {
+          left: 0em;
         }
 
-        &.grid-t {
-          border-top: 1px solid #BCBCBC;
-        }
-
-        &.grid-b {
-          border-bottom: 1px solid #BCBCBC;
-        }
-
-        &.input-field {
+        .wrapper {
           position: relative;
-          margin-top: 0;
-
-          input {
-            border-bottom-width: 0;
-            box-shadow: 0 0 0 0 transparent;
-          }
-
-          label.active {
-            left: 0em;
-          }
-
-          .wrapper {
-            position: relative;
-            top: 20px;
-            padding-bottom: 15px;
-          }
-        }
-
-        &.other-field {
-          padding-top: 25px;
-          padding-bottom: 25px;
-        }
-
-        > {
-          .remarks {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            text-align: right;
-            color: #1A92FC;
-            font-size: 0.8em;
-          }
-
-          .title_remarks {
-            margin-top: 44px;
-            margin-bottom: 26px;
-            text-align: right;
-            color: #1A92FC;
-            font-size: 0.8em;
-          }
-
-          .title {
-            margin-top: 36px;
-            margin-bottom: 20px;
-            text-align: left;
-            color: #000;
-            font-size: 1.2em;
-            font-weight: bold;
-          }
+          top: 20px;
+          padding-bottom: 15px;
         }
       }
 
-      &.gem_form_header {
-        background: #DEDEDE;
-        padding-top: 14px;
-        padding-bottom: 6px;
-        margin: 0px;
-        min-height: 66px;
-        position: relative;
+      &.other-field {
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
 
-        > .col {
-          padding-left: 10px;
-          padding-right: 10px;
-          margin: 0px;
-          display: inline-block;
+      > {
+        .remarks {
+          margin-top: 10px;
+          margin-bottom: 20px;
+          text-align: right;
+          color: #1A92FC;
+          font-size: 0.8em;
+        }
+
+        .title_remarks {
+          margin-top: 44px;
+          margin-bottom: 26px;
+          text-align: right;
+          color: #1A92FC;
+          font-size: 0.8em;
+        }
+
+        .title {
+          margin-top: 36px;
+          margin-bottom: 20px;
+          text-align: left;
+          color: #000;
+          font-size: 1.2em;
+          font-weight: bold;
         }
       }
     }
 
-    .container {
+    &.gem_form_header {
+      background: #DEDEDE;
+      padding-top: 14px;
+      padding-bottom: 6px;
+      margin: 0px;
+      min-height: 66px;
       position: relative;
-      overflow: hidden;
-      padding-top: 10px;
-      width: 100%;
 
-      > p.topbar {
-        height: 20px;
+      > .col {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0px;
+        display: inline-block;
       }
+    }
+  }
+
+  .container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+    width: 100%;
+
+    > p.topbar {
+      height: 20px;
     }
   }
 }

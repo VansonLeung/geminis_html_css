@@ -1,0 +1,702 @@
+<style>
+@media (max-width: 600px) {
+    .hide_mobile {display: none;}
+}
+</style>
+
+<section style='background-color: #ddd'><!-- <section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;"> -->
+<div class="row" id="orgForm">
+    <div align="right" class="col l3 hidewhenmobile">
+        <div class="stepbar" style="height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="padding:0;margin:0;"><img id="stepbarstepicon1" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
+                        <td style="padding:0;margin:0;">
+                            <p id="stepbarstep1" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">帳戶資料</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0;margin:0;"><img id="stepbarstepicon2" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
+                        <td style="padding:0;margin:0;">
+                            <p id="stepbarstep2" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">個人化設定</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0;margin:0;"><img id="stepbarstepicon3" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
+                        <td style="padding:0;margin:0;">
+                            <p id="stepbarstep3" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">修改電郵地址</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0;margin:0;"><img id="stepbarstepicon3" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
+                        <td style="padding:0;margin:0;">
+                            <p id="stepbarstep4" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">修改密碼</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col s12 m12 l9 smallform">
+        <div id="sercallloader" style="display: none ">
+            <div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
+                <div class="indeterminate">&nbsp;</div>
+            </div>
+        </div>
+        <div class="row inst-form gem_form" style="margin-left: 0px;">
+            <div class="overviewpage">
+                <form id='basic_info'>
+                    <div class="col s12">
+                        <h5 class="inst-form-1sttitle">帳戶資料</h5>
+                    </div>
+                    <div class="inst-area-one row">
+                        <div class="col s12 m12 l12 inst-grid-t inst-grid-b">
+                            <div>
+                                我的帳户資料
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><BR>
+                    <div class="col s12">
+                        <h5 class="inst-form-2ndtitle withdrawTitle">個人化設定</h5>
+                    </div>
+
+                    <div class="row materialize">
+                    <div class='input-field col m6 s12 inst-grid-l inst-grid-t inst-grid-b'>
+                        <div  style='padding: 20px 10px !important'>
+                        <select class='material' id="field_language">
+                            <option selected="selected" value="繁體中文">繁體中文</option>
+                            <option value="簡體中文">簡體中文</option>
+                            <option value="English">English</option>
+                         </select>
+                        <label style='top: 4px !important'>語言</label>
+                        </div>
+                    </div>
+
+                    <div class='input-field col m6 s12 inst-grid-t inst-grid-b'>
+                        <div  style='padding: 20px 10px !important'>
+                        <select class='material' id="field_notification_method">
+                            <option selected="selected" value="電郵">電郵</option>
+                            <option value="簡體中文">簡體中文</option>
+                            <option value="English">English</option>
+                         </select>
+                        <label style='top: 4px !important'>提示方式</label>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="row materialize">
+
+                    <div class='input-field col m6 s12 inst-grid-l inst-grid-b'>
+                        <div  style='padding: 20px 10px !important'>
+                        <select class='material' id="field_notification_method">
+                            <option selected="selected" value="hk"> 綠升 紅跌 </option>
+                            <option value="cn"> 紅升 綠跌 </option>
+                         </select>
+                        <label style='top: 4px !important'>變更升跌顏色</label>
+                        </div>
+                    </div>
+                    <div class='input-field col m6 s12 inst-grid-b hide_mobile'>
+                        <div  style='padding: 20px 10px !important; visibility: hidden;'>
+                        <select class='material' id="">
+                            <option selected="selected" value="hk"> 綠升 紅跌 </option>
+                            <option value="cn"> 紅升 綠跌 </option>
+                         </select>
+                        <label style='top: 4px !important'>變更升跌顏色</label>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <input type='submit' id="login" style='margin: 20px 0px;' class='generic-button-big gb-primary font_med' value='儲存變更'></input>
+
+                    <br>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="row inst-form gem_form" style="margin-left: 0px;">
+            <div class="overviewpage">
+                <form id='basic_info'>
+                    <div class="col s12">
+                        <h5 class="inst-form-1sttitle">修改電郵地址</h5>
+                    </div>
+
+
+                    <div class="row materialize">
+
+                    <div class='input-field col m12 s12 inst-grid-t inst-grid-b'>
+
+
+                        <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                        <div class="input-field col s12"><input style='margin-bottom: 0px !important' class="validate labelfield" id="field_bankswiftcode" type="password" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">現有電郵地址（必填）</label></div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+                    </div>
+
+                    <div class="row materialize">
+                    <div class='input-field col m12 s12 inst-grid-b'>
+
+                        <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                        <div class="input-field col s12"><input style='margin-bottom: 0px !important' class="validate labelfield" id="field_bankswiftcode" type="password" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">新的電郵地址（必填）</label></div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+
+                    </div>
+
+
+                    <input type='submit' id="login" style='margin: 20px 0px;' class='generic-button-big gb-primary font_med' value='儲存變更'></input>
+
+                    <br>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="row inst-form gem_form" style="margin-left: 0px;">
+            <div class="overviewpage">
+                <form id='basic_info'>
+                    <div class="col s12">
+                        <h5 class="inst-form-1sttitle">修改密碼</h5>
+                    </div>
+
+
+                    <div class="row materialize">
+
+                    <div class='input-field col s12 m12 inst-grid-t inst-grid-b'>
+
+
+                        <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                        <div class="input-field col s12"><input style='margin-bottom: 0px !important' class="validate labelfield" id="field_bankswiftcode" type="password" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">現有密碼（必填）</label></div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+                    </div>
+
+                    <div class="row materialize">
+                    <div class='input-field col m6 s12 inst-grid-l inst-grid-b'>
+
+                        <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                        <div class="input-field col s12"><input style='margin-bottom: 0px !important' class="validate labelfield" id="field_bankswiftcode" type="password" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">新的密碼（必填）</label></div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class='input-field col m6 s12 inst-grid-b'>
+
+                        <div class="gem_form materialize remove-gemform-s">
+                        <div class="row">
+                        <div class="input-field col s12"><input style='margin-bottom: 0px !important' class="validate labelfield" id="field_bankswiftcode" type="password" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">確認密碼（必填）</label></div>
+                        </div>
+                        </div>
+
+
+                    </div>
+
+
+                    </div>
+
+
+                    <input type='submit' id="login" style='margin: 20px 0px;' class='generic-button-big gb-primary font_med' value='儲存變更'></input>
+
+                    <br>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script>
+$(function(e) {
+window.callloader = function callloader(state){
+if(state){
+$("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
+}else{
+$("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
+}
+}
+window.loadUIDataSet = function loadUIDataSet() {
+let dataSet = {}
+dataSet.acct = "9910-268";
+dataSet.pwd = "12345678";
+dataSet.loginid = "@{S:CLIENTID}";
+// dataSet.loginid = "9910-268";
+dataSet.loginpw = "12345678";
+return dataSet;
+}
+window.serCallHandle = function serCallHandle(res,trueFlag){
+console.log("Res - Data ", res.data);
+if(!trueFlag){
+$(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+$("#callstate").text(nls.fail);
+$("#calldesc").text('');
+}else{
+if (res.data) {
+if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+$(".msgiconfinish").attr('src','../../../images/complete icon.png');
+$("#callstate").text(nls.success);
+if(res.data.transactionIDField && res.data.transactionIDField !=''){
+$("#calldesc").text(nls.desc + res.data.transactionIDField);
+}else{
+$("#calldesc").text('');
+}
+}else{
+$(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+$("#callstate").text(nls.fail);
+$("#calldesc").text('');
+}
+}
+}
+}
+window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+callloader(true);
+$.ajax({
+type: 'POST',
+url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
+data: JSON.stringify(loaddata),
+dataType: 'json',
+success: function(responseData, textStatus, jqXHR) {
+serCallHandle(responseData,true);
+// console.log("SerCall - " + loaddata.form.name, responseData);
+// if (responseData.data) {
+// console.log("Res - Data ", responseData.data);
+// }
+callloader(false);
+(callback && typeof(callback) === "function") && callback();
+},
+error: function(responseData, textStatus, errorThrown) {
+serCallHandle(responseData,false);
+// console.log("SerCall - " + loaddata.form.name, responseData);
+callloader(false);
+(callback && typeof(callback) === "function") && callback();
+}
+});
+}
+window.convtoi18n = function convtoi18n(lang,culture){
+let langculture = [];
+let sellang = lang+'_'+culture;
+langculture['zh_HK'] = "zh_TW";
+langculture['zh_TW'] = "zh_TW";
+langculture['zh_CN'] = "zh_CN";
+langculture['en_US'] = "en_US";
+if(langculture[sellang] == undefined){
+return 'en_US';
+}else{
+return langculture[sellang];
+}
+}
+window.loadstep = function loadstep(step) {
+switch (step) {
+case 1:
+loadoverview();
+break;
+case 2:
+loadconfirm();
+break;
+case 3:
+loadcomplete();
+break;
+case 4:
+reloadPage();
+break;
+default:
+;
+}
+}
+window.handlestepcolor = function handlestepcolor(step) {
+switch (step) {
+case 1:
+$('#stepbarstepicon1').show();
+$('#stepbarstepicon2').hide();
+$('#stepbarstepicon3').hide();
+$('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+$('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+$('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+break;
+case 2:
+$('#stepbarstepicon1').hide();
+$('#stepbarstepicon2').show();
+$('#stepbarstepicon3').hide();
+$('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+$('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+$('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+break;
+case 3:
+$('#stepbarstepicon1').hide();
+$('#stepbarstepicon2').hide();
+$('#stepbarstepicon3').show();
+$('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+$('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+$('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+break;
+default:
+;
+}
+}
+window.reloadPage = function reloadPage() {
+window.location.reload();
+}
+window.loadpage = function loadpage(page) {
+$('.overviewpage').hide();
+$('.confirmpage').hide();
+$('.completepage').hide();
+$('.' + page).show();
+}
+window.loadoverview = function loadoverview() {
+loadpage('overviewpage');
+$('#field_passwords').val('');
+$('#stepgo').text(nls.nextstep);
+handlestepcolor(1);
+glostepback = 1;
+glostepgo = 2;
+}
+window.loadcomplete = function loadcomplete() {
+let field_passwords = $('#field_passwords').val();
+let localInfo = loadUIDataSet();
+// if(field_passwords =='' || field_passwords != localInfo.loginpw){
+if (field_passwords == '') {
+alert(nls.plsfillpwd);
+} else {
+let d = instFormData;
+if (d.Instruction == 'D') {
+instSettlementForm = {
+channelID: 'INT',
+clientID: glo.clientid,
+tradingAccSeq: d.TradingAccSeq,
+amount: d.Amount,
+currencyID: d.CurrencyID,
+settleMethod: d.SettleMethod,
+remark: d.StatementRemark,
+bankAccount: d.BankAccount,
+bankID: d.BankID,
+language: glo.locallang,
+sessionID: glo.sessionid
+}
+depositCash(function() {
+loadpage('completepage');
+$('#stepgo').text(nls.done);
+handlestepcolor(3);
+glostepback = 0;
+glostepgo = 4;
+});
+} else {
+instSettlementForm = {
+channelID: 'INT',
+clientID: glo.clientid,
+tradingAccSeq: d.TradingAccSeq,
+amount: d.Amount,
+currencyID: d.CurrencyID,
+settleMethod: d.SettleMethod,
+remark: d.StatementRemark,
+bankAccount: d.BankAccount,
+bankID: d.BankID,
+bankName: d.BankName,
+bankAccountName: d.BankAccountName,
+bankSwiftCode: d.BankSwiftCode,
+language: glo.locallang,
+sessionID: glo.sessionid
+}
+withdrawCash(function() {
+loadpage('completepage');
+$('#stepgo').text(nls.done);
+handlestepcolor(3);
+glostepback = 0;
+glostepgo = 4;
+});
+}
+}
+}
+window.loadconfirm = function loadconfirm() {
+let field_bankname = $('#field_bankname').val();
+let field_bankaccountname = $('#field_bankaccountname').val();
+let field_bankaccountnum = $('#field_bankaccountnum').val();
+let field_bankswiftcode = $('#field_bankswiftcode').val();
+let field_amount = $('#field_amount').val();
+let field_currency = $('#field_currency').val();
+if (glo.sessionid == '' || glo.clientid == '') {
+alert(nls.loginacctfirst);
+return;
+}
+if(instFormData.Instruction == 'W'){
+if(field_bankname == '' || field_bankaccountname == '' || field_bankaccountnum == '' || field_bankswiftcode == ''){
+alert(nls.fillindata);
+return;
+}
+}
+if ( field_amount == '' || field_currency == '') {
+alert(nls.fillindata);
+} else {
+loadDesktopUItoData(function() {
+loadDatatoConfirmUI(instFormData);
+loadpage('confirmpage');
+handlestepcolor(2);
+glostepback = 1;
+glostepgo = 3;
+});
+}
+}
+window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data) {
+let d = data;
+let temp = '\
+<table class="confirmbox">\
+    <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
+    <tr><td width="25%">' + nls.transacct + ':</td><td>' + d.TradingAccSeqName + '</td></tr>\
+    <tr><td>' + nls.transmethod + ':</td><td>' + d.SettleMethodName + '</td></tr>\
+    <tr><td>' + nls.currency + ':</td><td>' + d.CurrencyID + ' ' + d.Amount + '<td></tr>\
+    <tr><td>' + nls.remark + ':</td><td>' + d.StatementRemark + '</td></tr>';
+    if (d.transferacctTypeName) {
+    temp += '<tr><td>' + nls.cashfrom + ':</td><td>' + d.transferacctTypeName + '</td></tr>';
+    }
+    if (d.BankName) {
+    temp += '<tr><td>' + nls.bankname + ':</td><td>' + d.BankName + '</td></tr>';
+    temp += '<tr><td>' + nls.bankaccountname + ':</td><td>' + d.BankAccountName + '</td></tr>';
+    temp += '<tr><td>' + nls.bankaccountnum + ':</td><td>' + d.BankAccount + '</td></tr>';
+    temp += '<tr><td>' + nls.bankcode + ':</td><td>' + d.BankSwiftCode + '</td></tr>';
+    }
+temp += '</table>';
+$('#cfmArea').empty().append(temp);
+}
+window.loadDesktopUItoData = function loadDesktopUItoData(callback) {
+if (instFormData.Instruction == 'W') {
+instFormData = {};
+instFormData.Instruction = 'W';
+instFormData.BankID = '';
+instFormData.BankName = $('#field_bankname').val();
+instFormData.BankAccountName = $('#field_bankaccountname').val();
+instFormData.BankAccount = $('#field_bankaccountnum').val();
+instFormData.BankSwiftCode = $('#field_bankswiftcode').val();
+instFormData.transferacctType = $('input[name="transferacctType"]:checked').val();
+instFormData.transferacctType == 1 && (instFormData.transferacctTypeName = nls.localbank);
+instFormData.transferacctType == 2 && (instFormData.transferacctTypeName = nls.overseabank);
+instFormData.SettleMethod = $('input[name="transferMethod"]:checked').val();
+} else {
+instFormData = {};
+instFormData.Instruction = 'D';
+instFormData.BankID = $('#field_cashd_bankid').val();
+instFormData.BankAccount = $('#field_cashd_bankacctno').val();
+instFormData.SettleMethod = $('input[name="transferMethod2"]:checked').val();
+}
+instFormData.Amount = $('#field_amount').val();
+instFormData.CurrencyID = $('#field_currency').val();
+// instFormData.StatementRemark = $('#field_remarks').val();
+instFormData.StatementRemark = $('#remarkarea').val();
+instFormData.SettleMethod == 'F' && (instFormData.SettleMethodName = nls.transfer);
+instFormData.SettleMethod == 'R' && (instFormData.SettleMethodName = nls.cheuqe);
+instFormData.SettleMethod == 'T' && (instFormData.SettleMethodName = nls.telex);
+instFormData.TradingAccSeq = $('input[name="AccountType"]:checked').val();
+instFormData.TradingAccSeq == 1 && (instFormData.TradingAccSeqName = nls.Custodian);
+instFormData.TradingAccSeq == 2 && (instFormData.TradingAccSeqName = nls.Margin);
+instFormData.Instruction == 'D' && (instFormData.InstructionName = nls.deposit);
+instFormData.Instruction == 'W' && (instFormData.InstructionName = nls.withdraw);
+console.log("From Data: - ", instFormData);
+(callback && typeof(callback) === "function") && callback();
+}
+window.depositCash = function depositCash(callback) {
+let loadDS = loadUIDataSet();
+let dataSet = {
+"form": {
+"name": "depositCashInstruction",
+"credentials": {
+"username": loadDS.acct,
+"password": loadDS.pwd
+},
+"header": {
+"version": "1",
+"traceNo": "1"
+},
+"body": instSettlementForm
+}
+}
+callSOAPapi(dataSet, function() {
+(callback && typeof(callback) === "function") && callback();
+});
+}
+window.withdrawCash = function withdrawCash(callback) {
+let loadDS = loadUIDataSet();
+let dataSet = {
+"form": {
+"name": "withdrawCashInstruction",
+"credentials": {
+"username": loadDS.acct,
+"password": loadDS.pwd
+},
+"header": {
+"version": "1",
+"traceNo": "1"
+},
+"body": instSettlementForm
+}
+}
+callSOAPapi(dataSet, function() {
+(callback && typeof(callback) === "function") && callback();
+});
+}
+window.loadtipsforCur = function loadtipsforCur(cur){
+if(cur == 'USD'){
+$('.normaCurArea').hide();
+$('.usdCurArea').show();
+}else{
+$('.normaCurArea').show();
+$('.usdCurArea').hide();
+}
+}
+let loadinstallFx = function() {
+loadinstallFx.prototype.initBehavior = function() {
+window.nls = {
+nextstep: '下一步',
+success: '已完成',
+desc: '參考編號:',
+fail: '未能完成',
+done: '完成',
+plsfillpwd: '請輸入密碼',
+loginacctfirst: '請先登入帳號',
+fillindata: '請輸入／選擇資料',
+localbank: '本地銀行',
+overseabank: '海外銀行',
+transfer: '轉帳',
+cheuqe: '支票',
+telex: '電匯',
+Custodian: 'Custodian',
+Margin: 'Margin',
+deposit: '存入',
+withdraw: '提取',
+transacct: '交易戶口',
+transmethod: '交收方法',
+currency: '貨幣',
+remark: '備註',
+cashfrom: '資金提取至',
+bankname: '銀行名稱',
+bankaccountname: '戶口姓名',
+bankaccountnum: '銀行戶口號碼',
+bankcode: '銀行／國際代碼'
+};
+window.glostepback = 1;
+window.glostepgo = 2;
+window.instFormData = {};
+window.instSettlementForm = {};
+instFormData.Instruction = 'D';
+handlestepcolor(1);
+window.glo = {}
+glo.isloginflag = false;
+glo.sessionid = "";
+glo.sessionid = "@{S:SESSIONID}";
+glo.clientid = "@{S:CLIENTID}";
+let transacctlst = '@{S:TRADINGACCLIST}';
+// glo.sessionid = '';
+// glo.clientid = '';
+// let transacctlst = '';
+transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
+glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+let haveMType = false;
+$('.marginchoice').hide();
+if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
+for (let i = 0; i < glo.tranaccseq.length; i++) {
+if (glo.tranaccseq[i].accountType == "M") {
+haveMType = true;
+}
+}
+}
+haveMType == true && $('.marginchoice').show();
+$('#stepback').on('click', function(e) {
+let selpage = glostepback;
+loadstep(selpage);
+});
+$('#stepgo').on('click', function(e) {
+let selpage = glostepgo;
+loadstep(selpage);
+});
+$('.confirmpage').hide();
+$('.completepage').hide();
+// init
+$(".inst-area-one").show();
+$(".inst-area-two").hide();
+$(".inst-area-three").show();
+$(".inst-area-four").hide();
+$(".inst-area-five").hide();
+$(".inst-area-six").show();
+$(".inst-area-seven").show();
+$(".depositTitle").show();
+$(".withdrawTitle").hide();
+$(".inst-tips").hide();
+$('.normaCurArea').show();
+$('.usdCurArea').hide();
+$('#remarkarea').trigger('autoresize');
+$('#field_currency').on('change',function(e){
+let selcur = $(this).val();
+loadtipsforCur(selcur);
+});
+$('.cashTradingBtn').on('click', function(e) {
+let curSelItem = $(this).data().tradtype;
+$('.cashTradingBtn').removeClass('cashTradingActive');
+$(this).addClass('cashTradingActive');
+if (curSelItem == 'depositItem') {
+instFormData.Instruction = 'D';
+$(".inst-area-one").show();
+$(".inst-area-two").hide();
+$(".inst-area-three").show();
+$(".inst-area-four").hide();
+$(".inst-area-five").hide();
+$(".inst-area-six").show();
+$(".inst-area-seven").show();
+$(".depositTitle").show();
+$(".withdrawTitle").hide();
+$(".inst-tips").hide();
+$('.clientdataTitle').show();
+$('.inst-area-clientarea').show();
+} else {
+instFormData.Instruction = 'W';
+$(".inst-area-one").show();
+$(".inst-area-two").show();
+$(".inst-area-three").show();
+$(".inst-area-four").show();
+$(".inst-area-five").show();
+$(".inst-area-six").hide();
+$(".inst-area-seven").hide();
+$(".depositTitle").hide();
+$(".withdrawTitle").show();
+$(".inst-tips").show();
+$('.clientdataTitle').hide();
+$('.inst-area-clientarea').hide();
+}
+});
+$('.settlemethodItem').on('click', function(e) {
+let curSelItem = $(this).data().settleitem;
+$('.transfertoAcct').addClass('hidden');
+if (curSelItem == 'transfer') {
+$('.transfertoAcct').removeClass('hidden');
+}
+});
+}
+}
+let init = new loadinstallFx();
+init.initBehavior();
+});
+</script>html
