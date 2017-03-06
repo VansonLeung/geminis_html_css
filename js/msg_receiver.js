@@ -96,7 +96,7 @@ function receiver(message) {
          */
         else if (msg.action === "keep_alive_gem")
         {
-            $.post("/api/keep_alive");
+            $.post("/api/session/api_sso_keepalive");
         }
 
         /**
@@ -105,7 +105,7 @@ function receiver(message) {
          */
         else if (msg.action === "heart_beat_gem")
         {
-            $.post("/api/heart_beat");
+            $.post("/api/session/api_sso_heartbeat");
         }
 
 
