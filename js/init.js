@@ -10,13 +10,22 @@ var iframeLoaded = function(e)
 // This will popup any html URLs with given height
 window.popupIframe = function(url, height)
 {
-	var p = new Popelt({
+	window.____p = new Popelt({
 	    contentType: 'iframe',
 	    loadUrl: url,
 	    iframeWidth: '100%',
 	    iframeHeight: height || '500px'
 	});
 	// p.addCloseButton();
-	p.show();
+	window.____p.show();
 
+}
+
+window.closePopupIframe = function()
+{
+	if (window.____p)
+	{
+		window.____p.close();
+		window.____p = null;
+	}
 }
