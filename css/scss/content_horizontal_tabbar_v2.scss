@@ -1,0 +1,38 @@
+.submenubar{
+  background-color: white;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin:0 auto;
+  overflow: hidden;
+}
+.submenuList{
+  margin:0;
+  overflow: auto;
+}
+.submenuList li{
+  display: inline-block;
+  margin-right: -6px;
+}
+.submenuList li:hover{
+  background-color: #ccc;
+  border-radius:10px;
+}
+.submenuList li:hover a{
+  color:#000;
+}
+.submenuList a{
+ color:#9b9b9b;
+ font-size: 16px;
+}
+.submenuList li p{
+  width: 100%;
+  padding:0 20px;
+  margin: 25px 0px;
+  text-align: center;
+  border-right: solid 1px #cccccc;
+}
+.submenuList li:last-child p{
+  border-right: none;
+}
+.submenuList {
+}
