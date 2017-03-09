@@ -12,13 +12,13 @@
                   <div class='GSL'>GSL</div>
                 </td>
                 <td>
-                  繁中 
+                  <span id="lang_select"></span>
                   &nbsp;&nbsp;|&nbsp;&nbsp;
                   字體大小
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span style='font-size: 20px'>A</span>
+                  <span style='font-size: 20px; border-bottom: 2px solid #CF0D14'><a href='#' style='text-decoration: none; color: #333' onclick='fontSmall();'>A</a></span>
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span style='font-size: 30px'>A</span>
+                  <span style='font-size: 30px'><a href='#' style='text-decoration: none; color: #333' onclick='fontBig();'>A</a></span>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 <span class='generic-button-standalone gb-hollow-white'>
                   登入／註冊
@@ -227,3 +227,32 @@
   </div>
 </section>
 <script type="text/javascript" src="/js/init.js"></script>
+
+
+<script>
+window.initLangMenu = function initLangMenu(curlang,el){
+  var convLang = curlang.toLowerCase();
+  var langLst = [];
+  var outputStr = '';
+  var linkLst = [
+    '#',
+    '#',
+    '#'
+  ];
+  langLst['zh-HK'] = '繁中';
+  langLst['zh-CN'] = '简中';
+  langLst['en-US'] = 'English';
+  
+  outputStr += '<div class="cust-dropdown-lang">';
+
+  if(langLst[convLang]){
+    outputStr += '<button class="cust-dropbtn-lang">'+langLst[convLang]+' <img src="../../../images/menu_language_arrow.png" /></button>';
+  }else{
+    outputStr += '<button class="cust-dropbtn-lang">English</button>';
+  }
+  outputStr += '<div class="cust-dropdown-lang-content"> <a href="'+linkLst[0]+'">繁中</a> <a href="'+linkLst[1]+'">简中</a> <a href="'+linkLst[2]+'">English</a> </div> </div>';
+  $('#'+el).empty().append(outputStr);
+}
+
+initLangMenu('zh-HK','lang_select');
+</script>
