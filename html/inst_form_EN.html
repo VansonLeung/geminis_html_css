@@ -1,41 +1,168 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:18px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:24px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff; padding-top: 55px;padding-left:72px;
+    }
+    .inst{
+    display: block;
+        padding: 0px !important;
+    }
+    .inst-form{
+ max-width:none;
+    }
+    .enqu{
+    display: none;
+
+    }
+
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    }
+    .radionewlabel{
+        color: #333;
+    }
+</style>
 <section>
-<!-- <section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;"> -->
-<div class="row" id="orgForm">
-<div align="right" class="col l3 hidewhenmobile">
-<div class="stepbar" style="height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;">
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="padding:0">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
+<p>資金交易指示</p>
+</div>
+
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p><a href="../deposit-Instruction-enquiry/">現金存取指示查詢</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst"><!-- right menu -->
+<div class="col s12 m12 l3 hidewhenmobile" style="padding:0 0.75rem 0 0">
+<div class="stepbar">
 <table>
-    <tbody>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon1" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep1" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">交易指示</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon2" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep2" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">確認</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon3" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep3" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">完成</p>
-            </td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep2">確認</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep3">完成</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+<!-- right menu -->
 
-<div class="col s12 m12 l9 smallform">
-<div id="sercallloader" style="display: none ">
-<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
-<div class="indeterminate">&nbsp;</div>
-</div>
-</div>
-
-<div class="row inst-form gem_form" style="margin-left: 0px;">
+<div class="col s12 m12 l9" style="padding:0">
+<div class="row inst-form gem_form " style="margin-left: 0px;min-height:515px"><!-- <form> -->
 <div class="overviewpage">
 <form>
 <div class="col s12">
@@ -59,11 +186,11 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label for="choice_custodian"> <span class="inst-form-greenbox-base"> </span> Custodian </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
 </div>
 
 <div class="col s12 m12 l6 marginchoice cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label for="choice_margin"> <span class="inst-form-greenbox-base"> </span> Margin </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
 </div>
 </div>
 </div>
@@ -79,15 +206,15 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer" name="transferMethod" type="radio" value="F" /> <label for="choice_transfer"> <span class="inst-form-greenbox-base"> </span> 轉帳 </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer" name="transferMethod" type="radio" value="F" /> <label class="radionewlabel" for="choice_transfer"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 轉帳 </label></div>
 </div>
 
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque" name="transferMethod" type="radio" value="R" /> <label for="choice_cheque"> <span class="inst-form-greenbox-base"> </span> 支票 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque" name="transferMethod" type="radio" value="R" /> <label class="radionewlabel" for="choice_cheque"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 支票 </label></div>
 </div>
 
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex" name="transferMethod" type="radio" value="T" /> <label for="choice_telex"> <span class="inst-form-greenbox-base"> </span> 電匯 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex" name="transferMethod" type="radio" value="T" /> <label class="radionewlabel" for="choice_telex"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 電匯 </label></div>
 </div>
 </div>
 </div>
@@ -101,11 +228,11 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_local" name="transferacctType" type="radio" value="1" /> <label for="choice_local"> <span class="inst-form-greenbox-base"> </span> 本地銀行 </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_local" name="transferacctType" type="radio" value="1" /> <label class="radionewlabel" for="choice_local"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 本地銀行 </label></div>
 </div>
 
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_overseas" name="transferacctType" type="radio" value="2" /> <label for="choice_overseas"> <span class="inst-form-greenbox-base"> </span> 海外銀行 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_overseas" name="transferacctType" type="radio" value="2" /> <label class="radionewlabel" for="choice_overseas"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 海外銀行 </label></div>
 </div>
 </div>
 </div>
@@ -122,15 +249,15 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer2" name="transferMethod2" type="radio" value="F" /> <label for="choice_transfer2"> <span class="inst-form-greenbox-base"> </span> 轉帳 </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer2" name="transferMethod2" type="radio" value="F" /> <label class="radionewlabel" for="choice_transfer2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 轉帳 </label></div>
 </div>
 
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque2" name="transferMethod2" type="radio" value="R" /> <label for="choice_cheque2"> <span class="inst-form-greenbox-base"> </span> 支票 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque2" name="transferMethod2" type="radio" value="R" /> <label class="radionewlabel" for="choice_cheque2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 支票 </label></div>
 </div>
 
 <div class="col s12 m12 l4 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex2" name="transferMethod2" type="radio" value="T" /> <label for="choice_telex2"> <span class="inst-form-greenbox-base"> </span> 電匯 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex2" name="transferMethod2" type="radio" value="T" /> <label class="radionewlabel" for="choice_telex2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 電匯 </label></div>
 </div>
 </div>
 </div>
@@ -165,10 +292,10 @@
 </div>
 
 <div class="inst-area-four row">
-<div class="col s12 m12 l6 inst-grid-t inst-grid-b">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b editable">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">銀行名稱</label></div>
+<div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">銀行名稱</label></div>
 </div>
 </div>
 </div>
@@ -209,7 +336,7 @@
 <div class="col s12 m12 l6 inst-grid-t inst-grid-b">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_cashd_bankacctno" type="text" /> <label class="labelfield-text labelfield-left" for="field_cashd_bankacctno">客戶賬戶號碼</label></div>
+<div class="input-field col s12"><input class="validate labelfield" id="field_cashd_bankacctno" type="text" /> <label class="labelfield-text labelfield-left" for="field_cashd_bankacctno">客戶帳戶號碼</label></div>
 </div>
 </div>
 </div>
@@ -231,37 +358,37 @@
 <div class="inst-area-six row">
 <div class="col s12 companyAcctArea">
 <ul class="col s12 m12 l12 companyAcctArea-info normaCurArea">
-    <li>請存入至以下的銀行 戶口</li>
-    <li>銀行名稱：滙豐銀行（香港）有限公司</li>
-    <li>SWIFT編碼：HSBCHKHH</li>
-    <li>銀行地址：香港中環皇后大道中1號</li>
-    <li>賬戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
-    <li>賬戶號碼: 500-357561-292 (港元)</li>
-    <li>&nbsp;</li>
-    <li>*請於入數紙或電匯通知書上寫上賬戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
+  <li>請存入至以下的銀行 戶口</li>
+  <li>銀行名稱：滙豐銀行（香港）有限公司</li>
+  <li>SWIFT編碼：HSBCHKHH</li>
+  <li>銀行地址：香港中環皇后大道中1號</li>
+  <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
+  <li>帳戶號碼: 500-357561-292 (港元)</li>
+  <li>&nbsp;</li>
+  <li>*請於入數紙或電匯通知書上寫上帳戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
 </ul>
 
 <ul class="col s12 m12 l12 companyAcctArea-info usdCurArea">
-    <li>請存入至以下的銀行 戶口</li>
-    <li>銀行名稱：滙豐銀行（香港）有限公司</li>
-    <li>SWIFT編碼：HSBCHKHH</li>
-    <li>銀行地址：香港中環皇后大道中1號</li>
-    <li>賬戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
-    <li>賬戶號碼: 500-357561-274 (美元)</li>
-    <li>&nbsp;</li>
-    <li>中轉銀行</li>
-    <li>銀行名稱：滙豐銀行（美國紐約）</li>
-    <li>賬戶號碼: 000-04441-5</li>
-    <li>Chips編碼: UID#075995</li>
-    <li>SWIFT編碼: MRMDUS33</li>
-    <li>&nbsp;</li>
-    <li>*請於入數紙或電匯通知書上寫上賬戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
+  <li>請存入至以下的銀行 戶口</li>
+  <li>銀行名稱：滙豐銀行（香港）有限公司</li>
+  <li>SWIFT編碼：HSBCHKHH</li>
+  <li>銀行地址：香港中環皇后大道中1號</li>
+  <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
+  <li>帳戶號碼: 500-357561-274 (美元)</li>
+  <li>&nbsp;</li>
+  <li>中轉銀行</li>
+  <li>銀行名稱：滙豐銀行（美國紐約）</li>
+  <li>帳戶號碼: 000-04441-5</li>
+  <li>Chips編碼: UID#075995</li>
+  <li>SWIFT編碼: MRMDUS33</li>
+  <li>&nbsp;</li>
+  <li>*請於入數紙或電匯通知書上寫上帳戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
 </ul>
 </div>
 </div>
 </form>
 </div>
-<!-- <form> -->
+<!-- </form> --><!-- <form> -->
 
 <div class="confirmpage">
 <div class="area-top">
@@ -273,14 +400,16 @@
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
-<div class="col s6 m6 l2">
-<h5>賬戶密碼</h5>
+<div class="col s12 m6 l2">
+<h5 style="line-height: 60px">OTP</h5>
 </div>
 
-<div class="col s6 m6 l10">
+<div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_passwords" type="password" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入密碼</label></div>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
 </div>
 </div>
 </div>
@@ -305,10 +434,31 @@
 </div>
 </div>
 
-<div class="row" style="width:100%;padding-left:6.5px;padding-right:6.5px">
-<div class="col l3 hidewhenmobile" id="stepback" style="height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;">上一步</div>
+<div class="enqu">&nbsp;</div>
+</div>
+<!-- </section>
+<section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;">
+<div class="row" id="orgForm">
+<div align="right" class="col l3 hidewhenmobile">
 
-<div class="col s12 m12 l9" id="stepgo" style="height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;">下一步</div>
+</div>
+
+<div class="col s12 m12 l9 smallform">
+
+<div id="sercallloader" style="display: none ">
+<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
+<div class="indeterminate">&nbsp;</div>
+</div>
+</div>
+
+
+</div>
+</div> -->
+
+<div class="row inst stepBottomBar">
+<div class="col s12 m12 l3 " id="stepback">返回上一步</div>
+
+<div class="col s12 m12 l9" id="stepgo">同意，下一步</div>
 </div>
 </section>
 <script>
@@ -316,19 +466,67 @@
 
 
 $(function(e) {
-
-
-    window.callloader = function callloader(state){
-        if(state){
-            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
-        }else{
-            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
-        }
+$(".editable").on("click", function() {
+  // $(this).find('input[type=text]').trigger('focus');
+  $('#field_bankname').trigger('focus');
+});
+$('.subsubmenuBox').on('click',function(e){
+    var subsubItem = $(this).data().gmnsubsubmenu;
+    if(subsubItem == 'inst'){
+        $('.inst').show();
+        $('.enqu').hide();
     }
+    if(subsubItem == 'enqu'){
+        // $('.inst').hide();
+        // $('.enqu').show();
+
+    }
+    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
+    $(this).addClass('subsubmenuBox-Active');
+});
+
+$('#acc_btn_otp').click(function(e){
+
+    callOTP(function(e){
+
+    });
+
+});
+
+
+    window.callOTP = function callOTP(callback){
+        turnLoader('c');
+
+        $.post('/api/usercode/registerfromsession',
+              {
+                  email:'kaycheung@cherrypicks.com',
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                turnLoader();
+                      alert('成功，請檢查電郵');
+                (callback && typeof(callback) === "function") && callback();
+                  }
+                  else
+                  {
+                turnLoader();
+                      alert(msg.message);
+                (callback && typeof(callback) === "function") && callback();
+                  }
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                turnLoader();
+                  alert("Network Error");
+                (callback && typeof(callback) === "function") && callback();
+              });      
+
+    }
+
 
     window.loadUIDataSet = function loadUIDataSet() {
 
-        let dataSet = {}
+        var dataSet = {}
         dataSet.acct = "9910-268";
         dataSet.pwd = "12345678";
         dataSet.loginid = "@{S:CLIENTID}";
@@ -345,11 +543,11 @@ $(function(e) {
                     $("#calldesc").text('');
         }else{
             if (res.data) {
-                if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+                if(res.data.isSuccess && res.data.isSuccess == 'Y'){
                     $(".msgiconfinish").attr('src','../../../images/complete icon.png');
                     $("#callstate").text(nls.success);
-                    if(res.data.transactionIDField && res.data.transactionIDField !=''){
-                        $("#calldesc").text(nls.desc + res.data.transactionIDField);
+                    if(res.data.transactionID && res.data.transactionID !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionID);
                     }else{
                         $("#calldesc").text('');
                     }
@@ -358,14 +556,24 @@ $(function(e) {
                     $("#callstate").text(nls.fail);
                     $("#calldesc").text('');
                 }
-            } 
+            }else{
+                // otp error
+                if(res.message == 'OTP Incorrect' && res.responseCode == 'F002' && res.success == false){
+                    glootperror = true;
+                }
+              
+              $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+            }
         }       
     }
     window.callSOAPapi = function callSOAPapi(loaddata, callback) {
-        callloader(true);
+        turnLoader('c');
         $.ajax({
             type: 'POST',
-            url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
+            url: '/api/session/submitSoapQuery',
+            contentType: 'application/json',
             data: JSON.stringify(loaddata),
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
@@ -374,21 +582,21 @@ $(function(e) {
                 // if (responseData.data) {
                     // console.log("Res - Data ", responseData.data);
                 // }
-                callloader(false);
+        turnLoader();
                 (callback && typeof(callback) === "function") && callback();
             },
             error: function(responseData, textStatus, errorThrown) {
                 serCallHandle(responseData,false);
                 // console.log("SerCall - " + loaddata.form.name, responseData);
-                callloader(false);
+        turnLoader();
                 (callback && typeof(callback) === "function") && callback();
             }
         });
     }
 
     window.convtoi18n = function convtoi18n(lang,culture){
-        let langculture = [];
-        let sellang = lang+'_'+culture;
+        var langculture = [];
+        var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
         langculture['zh_CN'] = "zh_CN";
@@ -425,25 +633,35 @@ $(function(e) {
                 $('#stepbarstepicon1').show();
                 $('#stepbarstepicon2').hide();
                 $('#stepbarstepicon3').hide();
-                $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                
+                $('#stepbarstep1').addClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
                 break;
             case 2:
                 $('#stepbarstepicon1').hide();
                 $('#stepbarstepicon2').show();
                 $('#stepbarstepicon3').hide();
-                $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').addClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
                 break;
             case 3:
                 $('#stepbarstepicon1').hide();
                 $('#stepbarstepicon2').hide();
                 $('#stepbarstepicon3').show();
-                $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').addClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
                 break;
             default:
                 ;
@@ -473,13 +691,13 @@ $(function(e) {
     }
 
     window.loadcomplete = function loadcomplete() {
-        let field_passwords = $('#field_passwords').val();
-        let localInfo = loadUIDataSet();
+        var field_passwords = $('#field_passwords').val();
+        var localInfo = loadUIDataSet();
         // if(field_passwords =='' || field_passwords != localInfo.loginpw){
         if (field_passwords == '') {
             alert(nls.plsfillpwd);
         } else {
-            let d = instFormData;
+            var d = instFormData;
             if (d.Instruction == 'D') {
                 instSettlementForm = {
                     channelID: 'INT',
@@ -495,7 +713,16 @@ $(function(e) {
                     sessionID: glo.sessionid
                 }
 
-                depositCash(function() {
+                depositCash(field_passwords,function() {
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
                     loadpage('completepage');
                     $('#stepgo').text(nls.done);
                     handlestepcolor(3);
@@ -521,7 +748,16 @@ $(function(e) {
                     sessionID: glo.sessionid
                 }
 
-                withdrawCash(function() {
+                withdrawCash(field_passwords,function() {
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
                     loadpage('completepage');
                     $('#stepgo').text(nls.done);
                     handlestepcolor(3);
@@ -532,29 +768,59 @@ $(function(e) {
         }
     }
 
+    window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
+        var state = false;
+        var msgstart = '';
+        t == 's'? msgstart = nls.choosedata: msgstart = nls.fillindata;
+        if(item == "" || item == null){
+          state = true;
+        }
+        if(state == true){
+          alert(msgstart+label);
+          $( dom).trigger('focus');
+        }
+        return state; 
+    }
+
     window.loadconfirm = function loadconfirm() {
-        let field_bankname = $('#field_bankname').val();
-        let field_bankaccountname = $('#field_bankaccountname').val();
-        let field_bankaccountnum = $('#field_bankaccountnum').val();
-        let field_bankswiftcode = $('#field_bankswiftcode').val();
-        let field_amount = $('#field_amount').val();
-        let field_currency = $('#field_currency').val();
+        var field_bankname = $('#field_bankname').val();
+        var field_bankaccountname = $('#field_bankaccountname').val();
+        var field_bankaccountnum = $('#field_bankaccountnum').val();
+        var field_bankswiftcode = $('#field_bankswiftcode').val();
+        var field_amount = $('#field_amount').val();
+        var field_currency = $('#field_currency').val();
 
 
         if (glo.sessionid == '' || glo.clientid == '') {
 
-            alert(nls.loginacctfirst);
-            return;
-        }
-        if(instFormData.Instruction == 'W'){
-            if(field_bankname == '' || field_bankaccountname == '' || field_bankaccountnum == '' || field_bankswiftcode == ''){
-                alert(nls.fillindata);
-                return;
-            }
+            // alert(nls.loginacctfirst);
+            // return;
+        
         }
 
-        if ( field_amount == '' || field_currency == '') {
-            alert(nls.fillindata);
+        if(instFormData.Instruction == 'W'){
+            // if(field_bankname == '' || field_bankaccountname == '' || field_bankaccountnum == '' || field_bankswiftcode == ''){
+
+              var field1 = vaildationEmpty(field_bankname,'#field_bankname',nls.bankname,'');
+              if(field1 == true) return;
+              var field2 = vaildationEmpty(field_bankaccountname,'#field_bankaccountname',nls.bankaccountname,'');
+              if(field2 == true) return;
+              var field3 = vaildationEmpty(field_bankaccountnum,'#field_bankaccountnum',nls.bankaccountnum,'');
+              if(field3 == true) return;
+              var field4 = vaildationEmpty(field_bankswiftcode,'#field_bankswiftcode',nls.bankcode,'');
+              if(field4 == true) return;
+              
+                // alert(nls.fillindata);
+                // return;
+            // }
+        }
+        if ( field_amount == '' || field_currency == '' || field_currency == null) {
+            // alert(nls.fillindata);
+              var field5 = vaildationEmpty(field_amount,'#field_amount',nls.amount,'');
+              if(field5 == true) return;
+              var field6 = vaildationEmpty(field_currency,'#field_currency',nls.currency,'s');
+              if(field6 == true) return;
+
         } else {
             loadDesktopUItoData(function() {
                 loadDatatoConfirmUI(instFormData);
@@ -566,24 +832,24 @@ $(function(e) {
         }
     }
     window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data) {
-        let d = data;
-        let temp = '\
+        var d = data;
+        var temp = '\
             <table class="confirmbox">\
                  <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
-                 <tr><td width="25%">' + nls.transacct + ':</td><td>' + d.TradingAccSeqName + '</td></tr>\
-                 <tr><td>' + nls.transmethod + ':</td><td>' + d.SettleMethodName + '</td></tr>\
-                 <tr><td>' + nls.currency + ':</td><td>' + d.CurrencyID + ' ' + d.Amount + '<td></tr>\
-                 <tr><td>' + nls.remark + ':</td><td>' + d.StatementRemark + '</td></tr>';
+                 <tr><td width="25%">' + nls.transacct + '：</td><td>' + d.TradingAccSeqName + '</td></tr>\
+                 <tr><td>' + nls.transmethod + '：</td><td>' + d.SettleMethodName + '</td></tr>\
+                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + d.Amount + '<td></tr>\
+                 <tr><td>' + nls.remark + '：</td><td>' + d.StatementRemark + '</td></tr>';
         if (d.transferacctTypeName) {
-            temp += '<tr><td>' + nls.cashfrom + ':</td><td>' + d.transferacctTypeName + '</td></tr>';
+            temp += '<tr><td>' + nls.cashfrom + '：</td><td>' + d.transferacctTypeName + '</td></tr>';
         }
         if (d.BankName) {
-            temp += '<tr><td>' + nls.bankname + ':</td><td>' + d.BankName + '</td></tr>';
-            temp += '<tr><td>' + nls.bankaccountname + ':</td><td>' + d.BankAccountName + '</td></tr>';
-            temp += '<tr><td>' + nls.bankaccountnum + ':</td><td>' + d.BankAccount + '</td></tr>';
-            temp += '<tr><td>' + nls.bankcode + ':</td><td>' + d.BankSwiftCode + '</td></tr>';
+            temp += '<tr><td>' + nls.bankname + '：</td><td>' + d.BankName + '</td></tr>';
+            temp += '<tr><td>' + nls.bankaccountname + '：</td><td>' + d.BankAccountName + '</td></tr>';
+            temp += '<tr><td>' + nls.bankaccountnum + '：</td><td>' + d.BankAccount + '</td></tr>';
+            temp += '<tr><td>' + nls.bankcode + '：</td><td>' + d.BankSwiftCode + '</td></tr>';
         }
-        temp += '</table>';
+        temp += '</table>'; 
 
         $('#cfmArea').empty().append(temp);
     }
@@ -634,12 +900,12 @@ $(function(e) {
     }
 
 
-    window.depositCash = function depositCash(callback) {
+    window.depositCash = function depositCash(otpVal,callback) {
 
-        let loadDS = loadUIDataSet();
-        let dataSet = {
+        var loadDS = loadUIDataSet();
+        var dataSet = {
             "form": {
-                "name": "depositCashInstruction",
+                "name": "cashDepositInstruction",
                 "credentials": {
                     "username": loadDS.acct,
                     "password": loadDS.pwd
@@ -648,6 +914,7 @@ $(function(e) {
                     "version": "1",
                     "traceNo": "1"
                 },
+              "otp": otpVal,
                 "body": instSettlementForm
             }
         }
@@ -655,12 +922,12 @@ $(function(e) {
             (callback && typeof(callback) === "function") && callback();
         });
     }
-    window.withdrawCash = function withdrawCash(callback) {
+    window.withdrawCash = function withdrawCash(otpVal,callback) {
 
-        let loadDS = loadUIDataSet();
-        let dataSet = {
+        var loadDS = loadUIDataSet();
+        var dataSet = {
             "form": {
-                "name": "withdrawCashInstruction",
+                "name": "cashWithdrawalInstruction",
                 "credentials": {
                     "username": loadDS.acct,
                     "password": loadDS.pwd
@@ -669,6 +936,7 @@ $(function(e) {
                     "version": "1",
                     "traceNo": "1"
                 },
+              "otp": otpVal,
                 "body": instSettlementForm
             }
         }
@@ -687,19 +955,21 @@ $(function(e) {
         }
     }
 
-    let loadinstallFx = function() {
+    var loadinstallFx = function() {
 
         loadinstallFx.prototype.initBehavior = function() {
 
             window.nls = {
-                nextstep: '下一步',
+                otperror:'Invalid OTP. Please try again',
+                nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '參考編號:',
                 fail: '未能完成',
                 done: '完成',
-                plsfillpwd: '請輸入密碼',
+                plsfillpwd: '請輸入OTP',
                 loginacctfirst: '請先登入帳號',
-                fillindata: '請輸入／選擇資料',
+                fillindata: '請輸入',
+                choosedata: '請選擇',
                 localbank: '本地銀行',
                 overseabank: '海外銀行',
                 transfer: '轉帳',
@@ -711,6 +981,7 @@ $(function(e) {
                 withdraw: '提取',
                 transacct: '交易戶口',
                 transmethod: '交收方法',
+                amount: '金額',
                 currency: '貨幣',
                 remark: '備註',
                 cashfrom: '資金提取至',
@@ -720,6 +991,7 @@ $(function(e) {
                 bankcode: '銀行／國際代碼'
             };
 
+            window.glootperror = false;
             window.glostepback = 1;
             window.glostepgo = 2;
             window.instFormData = {};
@@ -733,20 +1005,20 @@ $(function(e) {
             glo.sessionid = "";
             glo.sessionid = "@{S:SESSIONID}";
             glo.clientid = "@{S:CLIENTID}";
-            let transacctlst = '@{S:TRADINGACCLIST}';
+            var transacctlst = '@{S:TRADINGACCLIST}';
 
             // glo.sessionid = '';
             // glo.clientid = '';
-            // let transacctlst = '';
+            // transacctlst = '';
 
             transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
             glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
 
-            let haveMType = false;
+            var haveMType = false;
             $('.marginchoice').hide();
             if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
-                for (let i = 0; i < glo.tranaccseq.length; i++) {
+                for (var i = 0; i < glo.tranaccseq.length; i++) {
                     if (glo.tranaccseq[i].accountType == "M") {
                         haveMType = true;
                     }
@@ -756,12 +1028,12 @@ $(function(e) {
             haveMType == true && $('.marginchoice').show();
 
             $('#stepback').on('click', function(e) {
-                let selpage = glostepback;
+                var selpage = glostepback;
                 loadstep(selpage);
             });
 
             $('#stepgo').on('click', function(e) {
-                let selpage = glostepgo;
+                var selpage = glostepgo;
                 loadstep(selpage);
             });
 
@@ -786,13 +1058,13 @@ $(function(e) {
             $('.usdCurArea').hide();
             $('#remarkarea').trigger('autoresize');
             $('#field_currency').on('change',function(e){
-                let selcur = $(this).val();
+                var selcur = $(this).val();
                 loadtipsforCur(selcur);                
             });
 
             $('.cashTradingBtn').on('click', function(e) {
 
-                let curSelItem = $(this).data().tradtype;
+                var curSelItem = $(this).data().tradtype;
                 $('.cashTradingBtn').removeClass('cashTradingActive');
                 $(this).addClass('cashTradingActive');
                 if (curSelItem == 'depositItem') {
@@ -830,7 +1102,7 @@ $(function(e) {
 
 
             $('.settlemethodItem').on('click', function(e) {
-                let curSelItem = $(this).data().settleitem;
+                var curSelItem = $(this).data().settleitem;
                 $('.transfertoAcct').addClass('hidden');
                 if (curSelItem == 'transfer') {
                     $('.transfertoAcct').removeClass('hidden');
@@ -841,7 +1113,7 @@ $(function(e) {
         }
 
     }
-    let init = new loadinstallFx();
+    var init = new loadinstallFx();
     init.initBehavior();
 
 });

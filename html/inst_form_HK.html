@@ -1,0 +1,1120 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:18px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:24px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff; padding-top: 55px;padding-left:72px;
+    }
+    .inst{
+    display: block;
+        padding: 0px !important;
+    }
+    .inst-form{
+ max-width:none;
+    }
+    .enqu{
+    display: none;
+
+    }
+
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    }
+    .radionewlabel{
+        color: #333;
+    }
+</style>
+<section>
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="padding:0">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
+<p>資金交易指示</p>
+</div>
+
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p><a href="../deposit-Instruction-enquiry/">現金存取指示查詢</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst"><!-- right menu -->
+<div class="col s12 m12 l3 hidewhenmobile" style="padding:0 0.75rem 0 0">
+<div class="stepbar">
+<table>
+  <tbody>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep2">確認</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep3">完成</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<!-- right menu -->
+
+<div class="col s12 m12 l9" style="padding:0">
+<div class="row inst-form gem_form " style="margin-left: 0px;min-height:515px"><!-- <form> -->
+<div class="overviewpage">
+<form>
+<div class="col s12">
+<h5 class="inst-form-1sttitle">資金交易提示</h5>
+</div>
+
+<div class="inst-area-one row">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b">
+<div>
+<div class="cashTradingBtn cashTradingActive" data-tradtype="depositItem">存入</div>
+
+<div class="cashTradingBtn" data-tradtype="withdrawItem">提取</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-r inst-grid-t inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label label-left">交易戶口</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+</div>
+
+<div class="col s12 m12 l6 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="inst-area-two row">
+<div class="col s12 m12 l12 inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label label-left mobile-label">交收方法</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer" name="transferMethod" type="radio" value="F" /> <label class="radionewlabel" for="choice_transfer"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 轉帳 </label></div>
+</div>
+
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque" name="transferMethod" type="radio" value="R" /> <label class="radionewlabel" for="choice_cheque"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 支票 </label></div>
+</div>
+
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex" name="transferMethod" type="radio" value="T" /> <label class="radionewlabel" for="choice_telex"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 電匯 </label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label label-left">資金提取至</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_local" name="transferacctType" type="radio" value="1" /> <label class="radionewlabel" for="choice_local"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 本地銀行 </label></div>
+</div>
+
+<div class="col s12 m12 l6 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_overseas" name="transferacctType" type="radio" value="2" /> <label class="radionewlabel" for="choice_overseas"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 海外銀行 </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- miss                     -->
+
+<div class="inst-area-seven row">
+<div class="col s12 m12 l12 inst-grid-b">
+<div class="row">
+<div class="col  s4 m4 l4">
+<p class="inst-form-label  label-left mobile-label">交收方法</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_transfer2" name="transferMethod2" type="radio" value="F" /> <label class="radionewlabel" for="choice_transfer2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 轉帳 </label></div>
+</div>
+
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_cheque2" name="transferMethod2" type="radio" value="R" /> <label class="radionewlabel" for="choice_cheque2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 支票 </label></div>
+</div>
+
+<div class="col s12 m12 l4 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_telex2" name="transferMethod2" type="radio" value="T" /> <label class="radionewlabel" for="choice_telex2"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 電匯 </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- miss -->
+
+<div class="inst-area-three row">
+<div class="col s4 m4 l4 inst-form-select includecurrency inst-grid-b"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+
+<div class="col s8 m8 l8 inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金額</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><!-- <input class="validate labelfield" maxlength="100" id="field_remarks" type="text" /> <label class="labelfield-text labelfield-left" for="field_remarks">備註</label> --><textarea class="materialize-textarea" id="remarkarea" maxlength="100"></textarea><label for="remarkarea">備註</label></div>
+</div>
+</div>
+</div>
+</div>
+
+<h6 class="inst-tips">* Do not accept third party transfer</h6>
+
+<div class="col s12">
+<h5 class="inst-form-2ndtitle withdrawTitle">提取至銀行戶口</h5>
+</div>
+
+<div class="inst-area-four row">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b editable">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">銀行名稱</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-t inst-grid-r inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountname">戶口姓名</label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="inst-area-five row">
+<div class="col s12 m12 l6 inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountnum">銀行戶口號碼</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-r inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankswiftcode" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">銀行／國際代碼</label></div>
+</div>
+</div>
+</div>
+</div>
+<!-- new requirement -->
+
+<div class="col s12">
+<h5 class="inst-form-2ndtitle clientdataTitle" style="margin: 56px 0px 0px 0px !important;">客戶資金資料</h5>
+</div>
+
+<div class="inst-area-clientarea row">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_cashd_bankacctno" type="text" /> <label class="labelfield-text labelfield-left" for="field_cashd_bankacctno">客戶帳戶號碼</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-t inst-grid-r inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_cashd_bankid" type="text" /> <label class="labelfield-text labelfield-left" for="field_cashd_bankid">客戶銀行編號</label></div>
+</div>
+</div>
+</div>
+</div>
+<!-- new requirement -->
+
+<div class="col s12">
+<h5 class="inst-form-2ndtitle depositTitle">存款指示詳情</h5>
+</div>
+
+<div class="inst-area-six row">
+<div class="col s12 companyAcctArea">
+<ul class="col s12 m12 l12 companyAcctArea-info normaCurArea">
+  <li>請存入至以下的銀行 戶口</li>
+  <li>銀行名稱：滙豐銀行（香港）有限公司</li>
+  <li>SWIFT編碼：HSBCHKHH</li>
+  <li>銀行地址：香港中環皇后大道中1號</li>
+  <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
+  <li>帳戶號碼: 500-357561-292 (港元)</li>
+  <li>&nbsp;</li>
+  <li>*請於入數紙或電匯通知書上寫上帳戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
+</ul>
+
+<ul class="col s12 m12 l12 companyAcctArea-info usdCurArea">
+  <li>請存入至以下的銀行 戶口</li>
+  <li>銀行名稱：滙豐銀行（香港）有限公司</li>
+  <li>SWIFT編碼：HSBCHKHH</li>
+  <li>銀行地址：香港中環皇后大道中1號</li>
+  <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
+  <li>帳戶號碼: 500-357561-274 (美元)</li>
+  <li>&nbsp;</li>
+  <li>中轉銀行</li>
+  <li>銀行名稱：滙豐銀行（美國紐約）</li>
+  <li>帳戶號碼: 000-04441-5</li>
+  <li>Chips編碼: UID#075995</li>
+  <li>SWIFT編碼: MRMDUS33</li>
+  <li>&nbsp;</li>
+  <li>*請於入數紙或電匯通知書上寫上帳戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="confirmpage">
+<div class="area-top">
+<div class="col s12 inst-grid-b">
+<h5 class="inst-form-1sttitle">資金交易提示</h5>
+</div>
+
+<div class="inst-area-one row inst-grid-b " id="cfmArea">&nbsp;</div>
+
+<div class="inst-area-three row inst-grid-b">
+<div class="col s12">
+<div class="col s12 m6 l2">
+<h5 style="line-height: 60px">OTP</h5>
+</div>
+
+<div class="col s12 m6 l10">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="completepage">
+<div class="area-top">
+<div class="col s12" style="min-height: 400px; padding-top: 66px !important;">
+<p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
+
+<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
+
+<p class="refnumlabel" id="calldesc" style="text-align: center;">參考編號: 000000</p>
+</div>
+</div>
+</div>
+<!-- </form> --></div>
+</div>
+</div>
+
+<div class="enqu">&nbsp;</div>
+</div>
+<!-- </section>
+<section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;">
+<div class="row" id="orgForm">
+<div align="right" class="col l3 hidewhenmobile">
+
+</div>
+
+<div class="col s12 m12 l9 smallform">
+
+<div id="sercallloader" style="display: none ">
+<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
+<div class="indeterminate">&nbsp;</div>
+</div>
+</div>
+
+
+</div>
+</div> -->
+
+<div class="row inst stepBottomBar">
+<div class="col s12 m12 l3 " id="stepback">返回上一步</div>
+
+<div class="col s12 m12 l9" id="stepgo">同意，下一步</div>
+</div>
+</section>
+<script>
+
+
+
+$(function(e) {
+$(".editable").on("click", function() {
+  // $(this).find('input[type=text]').trigger('focus');
+  $('#field_bankname').trigger('focus');
+});
+$('.subsubmenuBox').on('click',function(e){
+    var subsubItem = $(this).data().gmnsubsubmenu;
+    if(subsubItem == 'inst'){
+        $('.inst').show();
+        $('.enqu').hide();
+    }
+    if(subsubItem == 'enqu'){
+        // $('.inst').hide();
+        // $('.enqu').show();
+
+    }
+    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
+    $(this).addClass('subsubmenuBox-Active');
+});
+
+$('#acc_btn_otp').click(function(e){
+
+    callOTP(function(e){
+
+    });
+
+});
+
+
+    window.callOTP = function callOTP(callback){
+        turnLoader('c');
+
+        $.post('/api/usercode/registerfromsession',
+              {
+                  email:'kaycheung@cherrypicks.com',
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                turnLoader();
+                      alert('成功，請檢查電郵');
+                (callback && typeof(callback) === "function") && callback();
+                  }
+                  else
+                  {
+                turnLoader();
+                      alert(msg.message);
+                (callback && typeof(callback) === "function") && callback();
+                  }
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                turnLoader();
+                  alert("Network Error");
+                (callback && typeof(callback) === "function") && callback();
+              });      
+
+    }
+
+
+    window.loadUIDataSet = function loadUIDataSet() {
+
+        var dataSet = {}
+        dataSet.acct = "9910-268";
+        dataSet.pwd = "12345678";
+        dataSet.loginid = "@{S:CLIENTID}";
+        // dataSet.loginid = "9910-268";
+        dataSet.loginpw = "12345678";
+        return dataSet;
+    }
+
+    window.serCallHandle = function serCallHandle(res,trueFlag){
+        console.log("Res - Data ", res.data);
+        if(!trueFlag){
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+        }else{
+            if (res.data) {
+                if(res.data.isSuccess && res.data.isSuccess == 'Y'){
+                    $(".msgiconfinish").attr('src','../../../images/complete icon.png');
+                    $("#callstate").text(nls.success);
+                    if(res.data.transactionID && res.data.transactionID !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionID);
+                    }else{
+                        $("#calldesc").text('');
+                    }
+                }else{
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+            }else{
+                // otp error
+                if(res.message == 'OTP Incorrect' && res.responseCode == 'F002' && res.success == false){
+                    glootperror = true;
+                }
+              
+              $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+            }
+        }       
+    }
+    window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+        turnLoader('c');
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            contentType: 'application/json',
+            data: JSON.stringify(loaddata),
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                serCallHandle(responseData,true);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                // if (responseData.data) {
+                    // console.log("Res - Data ", responseData.data);
+                // }
+        turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            },
+            error: function(responseData, textStatus, errorThrown) {
+                serCallHandle(responseData,false);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+        turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            }
+        });
+    }
+
+    window.convtoi18n = function convtoi18n(lang,culture){
+        var langculture = [];
+        var sellang = lang+'_'+culture;
+        langculture['zh_HK'] = "zh_TW";
+        langculture['zh_TW'] = "zh_TW";
+        langculture['zh_CN'] = "zh_CN";
+        langculture['en_US'] = "en_US";
+        if(langculture[sellang] == undefined){
+            return 'en_US';
+        }else{
+            return langculture[sellang];
+        }
+    }
+
+    window.loadstep = function loadstep(step) {
+        switch (step) {
+            case 1:
+                loadoverview();
+                break;
+            case 2:
+                loadconfirm();
+                break;
+            case 3:
+                loadcomplete();
+                break;
+            case 4:
+                reloadPage();
+                break;
+            default:
+                ;
+        }
+    }
+
+    window.handlestepcolor = function handlestepcolor(step) {
+        switch (step) {
+            case 1:
+                $('#stepbarstepicon1').show();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').hide();
+                
+                $('#stepbarstep1').addClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 2:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').show();
+                $('#stepbarstepicon3').hide();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').addClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 3:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').show();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').addClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+                break;
+            default:
+                ;
+        }
+    }
+
+    window.reloadPage = function reloadPage() {
+
+        window.location.reload();
+
+    }
+
+    window.loadpage = function loadpage(page) {
+        $('.overviewpage').hide();
+        $('.confirmpage').hide();
+        $('.completepage').hide();
+        $('.' + page).show();
+    }
+
+    window.loadoverview = function loadoverview() {
+        loadpage('overviewpage');
+        $('#field_passwords').val('');
+        $('#stepgo').text(nls.nextstep);
+        handlestepcolor(1);
+        glostepback = 1;
+        glostepgo = 2;
+    }
+
+    window.loadcomplete = function loadcomplete() {
+        var field_passwords = $('#field_passwords').val();
+        var localInfo = loadUIDataSet();
+        // if(field_passwords =='' || field_passwords != localInfo.loginpw){
+        if (field_passwords == '') {
+            alert(nls.plsfillpwd);
+        } else {
+            var d = instFormData;
+            if (d.Instruction == 'D') {
+                instSettlementForm = {
+                    channelID: 'INT',
+                    clientID: glo.clientid,
+                    tradingAccSeq: d.TradingAccSeq,
+                    amount: d.Amount,
+                    currencyID: d.CurrencyID,
+                    settleMethod: d.SettleMethod,
+                    remark: d.StatementRemark,
+                    bankAccount: d.BankAccount,
+                    bankID: d.BankID,
+                    language: glo.locallang,
+                    sessionID: glo.sessionid
+                }
+
+                depositCash(field_passwords,function() {
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
+                    loadpage('completepage');
+                    $('#stepgo').text(nls.done);
+                    handlestepcolor(3);
+                    glostepback = 0;
+                    glostepgo = 4;
+                });
+
+            } else {
+                instSettlementForm = {
+                    channelID: 'INT',
+                    clientID: glo.clientid,
+                    tradingAccSeq: d.TradingAccSeq,
+                    amount: d.Amount,
+                    currencyID: d.CurrencyID,
+                    settleMethod: d.SettleMethod,
+                    remark: d.StatementRemark,
+                    bankAccount: d.BankAccount,
+                    bankID: d.BankID,
+                    bankName: d.BankName,
+                    bankAccountName: d.BankAccountName,
+                    bankSwiftCode: d.BankSwiftCode,
+                    language: glo.locallang,
+                    sessionID: glo.sessionid
+                }
+
+                withdrawCash(field_passwords,function() {
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
+                    loadpage('completepage');
+                    $('#stepgo').text(nls.done);
+                    handlestepcolor(3);
+                    glostepback = 0;
+                    glostepgo = 4;
+                });
+            }
+        }
+    }
+
+    window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
+        var state = false;
+        var msgstart = '';
+        t == 's'? msgstart = nls.choosedata: msgstart = nls.fillindata;
+        if(item == "" || item == null){
+          state = true;
+        }
+        if(state == true){
+          alert(msgstart+label);
+          $( dom).trigger('focus');
+        }
+        return state; 
+    }
+
+    window.loadconfirm = function loadconfirm() {
+        var field_bankname = $('#field_bankname').val();
+        var field_bankaccountname = $('#field_bankaccountname').val();
+        var field_bankaccountnum = $('#field_bankaccountnum').val();
+        var field_bankswiftcode = $('#field_bankswiftcode').val();
+        var field_amount = $('#field_amount').val();
+        var field_currency = $('#field_currency').val();
+
+
+        if (glo.sessionid == '' || glo.clientid == '') {
+
+            // alert(nls.loginacctfirst);
+            // return;
+        
+        }
+
+        if(instFormData.Instruction == 'W'){
+            // if(field_bankname == '' || field_bankaccountname == '' || field_bankaccountnum == '' || field_bankswiftcode == ''){
+
+              var field1 = vaildationEmpty(field_bankname,'#field_bankname',nls.bankname,'');
+              if(field1 == true) return;
+              var field2 = vaildationEmpty(field_bankaccountname,'#field_bankaccountname',nls.bankaccountname,'');
+              if(field2 == true) return;
+              var field3 = vaildationEmpty(field_bankaccountnum,'#field_bankaccountnum',nls.bankaccountnum,'');
+              if(field3 == true) return;
+              var field4 = vaildationEmpty(field_bankswiftcode,'#field_bankswiftcode',nls.bankcode,'');
+              if(field4 == true) return;
+              
+                // alert(nls.fillindata);
+                // return;
+            // }
+        }
+        if ( field_amount == '' || field_currency == '' || field_currency == null) {
+            // alert(nls.fillindata);
+              var field5 = vaildationEmpty(field_amount,'#field_amount',nls.amount,'');
+              if(field5 == true) return;
+              var field6 = vaildationEmpty(field_currency,'#field_currency',nls.currency,'s');
+              if(field6 == true) return;
+
+        } else {
+            loadDesktopUItoData(function() {
+                loadDatatoConfirmUI(instFormData);
+                loadpage('confirmpage');
+                handlestepcolor(2);
+                glostepback = 1;
+                glostepgo = 3;
+            });
+        }
+    }
+    window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data) {
+        var d = data;
+        var temp = '\
+            <table class="confirmbox">\
+                 <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
+                 <tr><td width="25%">' + nls.transacct + '：</td><td>' + d.TradingAccSeqName + '</td></tr>\
+                 <tr><td>' + nls.transmethod + '：</td><td>' + d.SettleMethodName + '</td></tr>\
+                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + d.Amount + '<td></tr>\
+                 <tr><td>' + nls.remark + '：</td><td>' + d.StatementRemark + '</td></tr>';
+        if (d.transferacctTypeName) {
+            temp += '<tr><td>' + nls.cashfrom + '：</td><td>' + d.transferacctTypeName + '</td></tr>';
+        }
+        if (d.BankName) {
+            temp += '<tr><td>' + nls.bankname + '：</td><td>' + d.BankName + '</td></tr>';
+            temp += '<tr><td>' + nls.bankaccountname + '：</td><td>' + d.BankAccountName + '</td></tr>';
+            temp += '<tr><td>' + nls.bankaccountnum + '：</td><td>' + d.BankAccount + '</td></tr>';
+            temp += '<tr><td>' + nls.bankcode + '：</td><td>' + d.BankSwiftCode + '</td></tr>';
+        }
+        temp += '</table>'; 
+
+        $('#cfmArea').empty().append(temp);
+    }
+
+    window.loadDesktopUItoData = function loadDesktopUItoData(callback) {
+
+        if (instFormData.Instruction == 'W') {
+            instFormData = {};
+            instFormData.Instruction = 'W';
+
+            instFormData.BankID = '';
+            instFormData.BankName = $('#field_bankname').val();
+            instFormData.BankAccountName = $('#field_bankaccountname').val();
+            instFormData.BankAccount = $('#field_bankaccountnum').val();
+            instFormData.BankSwiftCode = $('#field_bankswiftcode').val();
+            instFormData.transferacctType = $('input[name="transferacctType"]:checked').val();
+            instFormData.transferacctType == 1 && (instFormData.transferacctTypeName = nls.localbank);
+            instFormData.transferacctType == 2 && (instFormData.transferacctTypeName = nls.overseabank);
+
+            instFormData.SettleMethod = $('input[name="transferMethod"]:checked').val();
+
+        } else {
+            instFormData = {};
+            instFormData.Instruction = 'D';
+
+            instFormData.BankID = $('#field_cashd_bankid').val();
+            instFormData.BankAccount = $('#field_cashd_bankacctno').val();
+
+
+            instFormData.SettleMethod = $('input[name="transferMethod2"]:checked').val();
+
+        }
+        instFormData.Amount = $('#field_amount').val();
+        instFormData.CurrencyID = $('#field_currency').val();
+        // instFormData.StatementRemark = $('#field_remarks').val();
+        instFormData.StatementRemark = $('#remarkarea').val();
+        instFormData.SettleMethod == 'F' && (instFormData.SettleMethodName = nls.transfer);
+        instFormData.SettleMethod == 'R' && (instFormData.SettleMethodName = nls.cheuqe);
+        instFormData.SettleMethod == 'T' && (instFormData.SettleMethodName = nls.telex);
+        instFormData.TradingAccSeq = $('input[name="AccountType"]:checked').val();
+        instFormData.TradingAccSeq == 1 && (instFormData.TradingAccSeqName = nls.Custodian);
+        instFormData.TradingAccSeq == 2 && (instFormData.TradingAccSeqName = nls.Margin);
+        instFormData.Instruction == 'D' && (instFormData.InstructionName = nls.deposit);
+        instFormData.Instruction == 'W' && (instFormData.InstructionName = nls.withdraw);
+
+        console.log("From Data: - ", instFormData);
+        (callback && typeof(callback) === "function") && callback();
+    }
+
+
+    window.depositCash = function depositCash(otpVal,callback) {
+
+        var loadDS = loadUIDataSet();
+        var dataSet = {
+            "form": {
+                "name": "cashDepositInstruction",
+                "credentials": {
+                    "username": loadDS.acct,
+                    "password": loadDS.pwd
+                },
+                "header": {
+                    "version": "1",
+                    "traceNo": "1"
+                },
+              "otp": otpVal,
+                "body": instSettlementForm
+            }
+        }
+        callSOAPapi(dataSet, function() {
+            (callback && typeof(callback) === "function") && callback();
+        });
+    }
+    window.withdrawCash = function withdrawCash(otpVal,callback) {
+
+        var loadDS = loadUIDataSet();
+        var dataSet = {
+            "form": {
+                "name": "cashWithdrawalInstruction",
+                "credentials": {
+                    "username": loadDS.acct,
+                    "password": loadDS.pwd
+                },
+                "header": {
+                    "version": "1",
+                    "traceNo": "1"
+                },
+              "otp": otpVal,
+                "body": instSettlementForm
+            }
+        }
+        callSOAPapi(dataSet, function() {
+            (callback && typeof(callback) === "function") && callback();
+        });
+    }
+
+    window.loadtipsforCur = function loadtipsforCur(cur){
+        if(cur == 'USD'){
+            $('.normaCurArea').hide();
+            $('.usdCurArea').show();
+        }else{
+            $('.normaCurArea').show();
+            $('.usdCurArea').hide();
+        }
+    }
+
+    var loadinstallFx = function() {
+
+        loadinstallFx.prototype.initBehavior = function() {
+
+            window.nls = {
+                otperror:'一次性密碼不正確, 試再次輸入',
+                nextstep: '同意，下一步',
+                success: '已完成',
+                desc: '參考編號:',
+                fail: '未能完成',
+                done: '完成',
+                plsfillpwd: '請輸入OTP',
+                loginacctfirst: '請先登入帳號',
+                fillindata: '請輸入',
+                choosedata: '請選擇',
+                localbank: '本地銀行',
+                overseabank: '海外銀行',
+                transfer: '轉帳',
+                cheuqe: '支票',
+                telex: '電匯',
+                Custodian: 'Custodian',
+                Margin: 'Margin',
+                deposit: '存入',
+                withdraw: '提取',
+                transacct: '交易戶口',
+                transmethod: '交收方法',
+                amount: '金額',
+                currency: '貨幣',
+                remark: '備註',
+                cashfrom: '資金提取至',
+                bankname: '銀行名稱',
+                bankaccountname: '戶口姓名',
+                bankaccountnum: '銀行戶口號碼',
+                bankcode: '銀行／國際代碼'
+            };
+
+            window.glootperror = false;
+            window.glostepback = 1;
+            window.glostepgo = 2;
+            window.instFormData = {};
+            window.instSettlementForm = {};
+            instFormData.Instruction = 'D';
+            handlestepcolor(1);
+
+
+            window.glo = {}
+            glo.isloginflag = false;
+            glo.sessionid = "";
+            glo.sessionid = "@{S:SESSIONID}";
+            glo.clientid = "@{S:CLIENTID}";
+            var transacctlst = '@{S:TRADINGACCLIST}';
+
+            // glo.sessionid = '';
+            // glo.clientid = '';
+            // transacctlst = '';
+
+            transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
+
+            glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+
+            var haveMType = false;
+            $('.marginchoice').hide();
+            if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
+                for (var i = 0; i < glo.tranaccseq.length; i++) {
+                    if (glo.tranaccseq[i].accountType == "M") {
+                        haveMType = true;
+                    }
+                }
+            }
+
+            haveMType == true && $('.marginchoice').show();
+
+            $('#stepback').on('click', function(e) {
+                var selpage = glostepback;
+                loadstep(selpage);
+            });
+
+            $('#stepgo').on('click', function(e) {
+                var selpage = glostepgo;
+                loadstep(selpage);
+            });
+
+            $('.confirmpage').hide();
+            $('.completepage').hide();
+
+
+
+            // init
+            $(".inst-area-one").show();
+            $(".inst-area-two").hide();
+            $(".inst-area-three").show();
+            $(".inst-area-four").hide();
+            $(".inst-area-five").hide();
+            $(".inst-area-six").show();
+            $(".inst-area-seven").show();
+            $(".depositTitle").show();
+            $(".withdrawTitle").hide();
+            $(".inst-tips").hide();
+            
+            $('.normaCurArea').show();
+            $('.usdCurArea').hide();
+            $('#remarkarea').trigger('autoresize');
+            $('#field_currency').on('change',function(e){
+                var selcur = $(this).val();
+                loadtipsforCur(selcur);                
+            });
+
+            $('.cashTradingBtn').on('click', function(e) {
+
+                var curSelItem = $(this).data().tradtype;
+                $('.cashTradingBtn').removeClass('cashTradingActive');
+                $(this).addClass('cashTradingActive');
+                if (curSelItem == 'depositItem') {
+                    instFormData.Instruction = 'D';
+                    $(".inst-area-one").show();
+                    $(".inst-area-two").hide();
+                    $(".inst-area-three").show();
+                    $(".inst-area-four").hide();
+                    $(".inst-area-five").hide();
+                    $(".inst-area-six").show();
+                    $(".inst-area-seven").show();
+                    $(".depositTitle").show();
+                    $(".withdrawTitle").hide();
+                    $(".inst-tips").hide();
+                    $('.clientdataTitle').show();
+                    $('.inst-area-clientarea').show();
+
+
+                } else {
+                    instFormData.Instruction = 'W';
+                    $(".inst-area-one").show();
+                    $(".inst-area-two").show();
+                    $(".inst-area-three").show();
+                    $(".inst-area-four").show();
+                    $(".inst-area-five").show();
+                    $(".inst-area-six").hide();
+                    $(".inst-area-seven").hide();
+                    $(".depositTitle").hide();
+                    $(".withdrawTitle").show();
+                    $(".inst-tips").show();
+                    $('.clientdataTitle').hide();
+                    $('.inst-area-clientarea').hide();
+                }
+            });
+
+
+            $('.settlemethodItem').on('click', function(e) {
+                var curSelItem = $(this).data().settleitem;
+                $('.transfertoAcct').addClass('hidden');
+                if (curSelItem == 'transfer') {
+                    $('.transfertoAcct').removeClass('hidden');
+                }
+            });
+
+
+        }
+
+    }
+    var init = new loadinstallFx();
+    init.initBehavior();
+
+});
+</script>
