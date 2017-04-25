@@ -1,0 +1,917 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:18px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:24px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff ;padding-top: 55px;padding-left:72px;
+    }
+    .inst{
+    display: block;
+        padding: 0px !important;
+    }
+    .enqu{
+    display: none;
+
+    }
+.inst-form{
+max-width:none;
+}
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    }
+    .radionewlabel{
+        color: #333;
+    }
+</style>
+<section><!-- <section style="background-color:#f2f2f2;"> -->
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="padding:0 !important;">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
+<p>貨幣交易指示</p>
+</div>
+
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p><a href="../currency-exchange-instruction-enquiry/">貨幣交易指示查詢</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst"><!-- right menu -->
+<div class="col s12 m12 l3 hidewhenmobile" style="padding:0 !important;">
+<div class="stepbar">
+<table>
+    <tbody>
+        <tr>
+            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+            <td class="menustepArea">
+            <p class="menustepText" id="stepbarstep1">交易指示</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+            <td class="menustepArea">
+            <p class="menustepText" id="stepbarstep2">確認</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+            <td class="menustepArea">
+            <p class="menustepText" id="stepbarstep3">完成</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<!-- right menu -->
+
+<div class="col s12 m12 l9" style="padding-right:0 !important;">
+<div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;min-height:515px"><!-- <form> -->
+<div class="overviewpage">
+<div class="area-top">
+<div class="col s12">
+<h5 class="inst-form-1sttitle">貨幣交易提示</h5>
+</div>
+
+<div class="inst-area-one row">
+<div class="col s12 m12 l6 inst-grid-b mobileitemrow" style="border-top:1px solid #9e9e9e;">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label">交易戶口</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+</div>
+
+<div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col l6 hidewhenmobile inst-grid-r inst-grid-b" style="border-top:1px solid #9e9e9e;">
+<div class="emptyItem">&nbsp;</div>
+</div>
+</div>
+
+<div class="inst-area-two row inst-grid-b">
+<div class="col s12 m12 l2 inst-form-select mobileitemrow"><label class="selecthits" for="field_currency">由 </label> <select class="inputselect" id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+
+<div class="col s12 m12 l3 mobileitemrow">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金額</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s2 hidewhenmobile">&nbsp;</div>
+
+<div class="col s12 m12 l2 inst-form-select mobileitemrow"><label class="selecthits">轉到 </label> <select class="inputselect" id="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+
+<div class="col s12 m12 l3 mobileitemrow">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield" id="field_amount_to" type="number" /> <label class="labelfield-text" for="field_amount_to">金額</label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="inst-area-three row inst-grid-b">
+<div class="col s12 m12 l12 mobileitemrow">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12 "><input autocomplete="off" class="validate labelfield" id="field_remarks" type="text" /> <label class="labelfield-text labelfield-left" for="field_remarks">備註</label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="confirmpage">
+<div class="area-top">
+<div class="col s12 inst-grid-b">
+<h5 class="inst-form-1sttitle">資金交易提示</h5>
+</div>
+
+<div class="inst-area-one row inst-grid-b ">
+<table class="confirmbox">
+    <tbody>
+        <tr>
+            <td width="25%">交易戶口：</td>
+            <td id="selAcctType" width="75%">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>由貨幣：</td>
+            <td id="selFormCur">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>轉到貨幣：</td>
+            <td id="selToCur">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>備註：</td>
+            <td id="SelRemark">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="inst-area-three row inst-grid-b">
+<div class="col s12">
+<div class="col s12 m6 l2">
+<h5 style="line-height: 60px">OTP</h5>
+</div>
+
+<div class="col s12 m6 l10">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="completepage">
+<div class="area-top">
+<div class="col s12" style="min-height: 400px; padding-top: 66px !important;">
+<p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
+
+<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
+
+<p class="refnumlabel" id="calldesc" style="text-align: center;">參考編號: 000000</p>
+</div>
+</div>
+</div>
+<!-- </form> --></div>
+</div>
+</div>
+
+<div class="enqu" id="enquArea">&nbsp; <!-- enqu -->
+<div class="gem_form notopstripe">
+<div>
+<table class="generic-table-header smallmedpadding">
+    <tbody>
+        <tr>
+            <td class="font_lg">貨幣交易指示查詢</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="generic-table-content font_smedmed" id="enquiryTable">
+</table>
+</div>
+</div>
+<!-- enqu --></div>
+</div>
+
+<div class="row inst stepBottomBar">
+<div class="col s12 m12 l3 " id="stepback">返回上一步</div>
+
+<div class="col s12 m12 l9" id="stepgo">同意，下一步</div>
+</div>
+</section>
+<script>
+
+
+
+      $(function(e){
+
+
+$('.subsubmenuBox').on('click',function(e){
+    var subsubItem = $(this).data().gmnsubsubmenu;
+    if(subsubItem == 'inst'){
+        $('.inst').show();
+        $('.enqu').hide();
+    }
+    if(subsubItem == 'enqu'){
+        // $('.inst').hide();
+        // $('.enqu').show();
+        // if(glo.sessionid !='' && glo.clientid !=''){
+        //     loadEnquiryData();
+        // }
+    }
+    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
+    $(this).addClass('subsubmenuBox-Active');
+});
+
+$('#acc_btn_otp').click(function(e){
+
+    callOTP(function(e){
+
+    });
+
+});
+
+    window.serCallHandle = function serCallHandle(res,trueFlag){
+        console.log("Res - Data ", res.data);
+        if(!trueFlag){
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+        }else{
+            if (res.data) {
+                if(res.data.isSuccess && res.data.isSuccess == 'Y'){
+                    $(".msgiconfinish").attr('src','../../../images/complete icon.png');
+                    $("#callstate").text(nls.success);
+                    if(res.data.transactionID && res.data.transactionID !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionID);
+                    }else{
+                        $("#calldesc").text('');
+                    }
+                }else{
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+            }else{
+                // otp error
+                if(res.message == 'OTP Incorrect' && res.responseCode == 'F002' && res.success == false){
+                    glootperror = true;
+                }
+              $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+            } 
+        }       
+    }
+    window.loadUIDataSet = function loadUIDataSet() {
+
+        var dataSet = {}
+        dataSet.acct = "9910-268";
+        dataSet.pwd = "12345678";
+        dataSet.loginid = "@{S:CLIENTID}";
+        // dataSet.loginid = "9910-268";
+        dataSet.loginpw = "12345678";
+        return dataSet;
+    }
+    window.callOTP = function callOTP(callback){
+        turnLoader('c');
+
+        $.post('/api/usercode/registerfromsession',
+              {
+                  email:'kaycheung@cherrypicks.com',
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                turnLoader();
+                      alert('成功，請檢查電郵');
+                (callback && typeof(callback) === "function") && callback();
+                  }
+                  else
+                  {
+                turnLoader();
+                      alert(msg.message);
+                (callback && typeof(callback) === "function") && callback();
+                  }
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                turnLoader();
+                  alert("Network Error");
+                (callback && typeof(callback) === "function") && callback();
+              });      
+
+    }
+    window.foreignExchange = function foreignExchange(otpVal,callback){
+
+        var loadDS = loadUIDataSet();
+        var dataSet={
+            "form":
+            {
+              "name": "foreignExchangeInstruction",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "otp": otpVal,
+              "body": exchangeForm
+            }
+        }
+            callSOAPapi(dataSet,function(){
+                (callback && typeof(callback) === "function") && callback();
+            });
+    }      
+    window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+        // callloader(true);
+        turnLoader('c');
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            contentType: 'application/json',
+            data: JSON.stringify(loaddata),
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                serCallHandle(responseData,true);
+                turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            },
+            error: function(responseData, textStatus, errorThrown) {
+                serCallHandle(responseData,false);
+                turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            }
+        });
+     
+    }
+    window.initJS = function initJS(){
+
+        window.nls = {
+            otperror:'一次性密碼不正確, 試再次輸入',
+            nextstep: '同意，下一步',
+            success: '已完成',
+            desc: '參考編號:',
+            fail: '未能完成',
+            done: '完成',
+            plsfillpwd: '請輸入OTP',
+            loginacctfirst: '請先登入帳號',
+            fillindata: '請輸入',
+            choosedata: '請選擇',
+            amount: '金額',
+            localbank: '本地銀行',
+            overseabank: '海外銀行',
+            transfer: '轉帳',
+            cheuqe: '支票',
+            Custodian: 'Custodian',
+            Margin: 'Margin',
+            deposit: '存入',
+            withdraw: '提取',
+            transacct: '交易戶口',
+            transmethod: '交收方法',
+            currency: '貨幣',
+            remark: '備註',
+            cashfrom: '資金提取至',
+            emptmsgtype1:'請輸入金額及選擇貨幣',
+            emptmsgtype2:'請選擇貨幣',
+            emptmsgtype3:'輸入金額',
+            bankname: '銀行名稱',
+            bankaccountname: '戶口姓名',
+            bankaccountnum: '銀行戶口號碼',
+            bankcode: '銀行／國際代碼'
+        };
+
+        window.glootperror = false;
+        window.glostepback = 1;
+        window.glostepgo = 2;
+        window.instFormData = {};
+        window.instSettlementForm = {};
+        handlestepcolor(1);
+
+        window.glo = {}
+        glo.isloginflag = false;
+        glo.sessionid = "@{S:SESSIONID}";
+        glo.clientid = "@{S:CLIENTID}";
+        var transacctlst = '@{S:TRADINGACCLIST}';
+        // glo.sessionid = "";
+        // glo.clientid = "";
+        // transacctlst = "";
+        transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
+
+        glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+
+        var haveMType = false;
+        $('.marginchoice').hide();
+        if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
+            for (var i = 0; i < glo.tranaccseq.length; i++) {
+                if (glo.tranaccseq[i].accountType == "M") {
+                    haveMType = true;
+                }
+            }
+        }
+
+        haveMType == true && $('.marginchoice').show();
+
+
+
+        $('#stepback').on('click', function(e) {
+            var selpage = glostepback;
+            loadstep(selpage);
+        });
+
+        $('#stepgo').on('click', function(e) {
+            var selpage = glostepgo;
+            loadstep(selpage);
+        });
+
+            $('.confirmpage').hide();
+            $('.completepage').hide();
+
+
+
+        $('#field_amount_to').change(function(e){
+            toggleAmount('field_amount_to','field_amount');
+        });
+        $('#field_amount').change(function(e){
+            toggleAmount('field_amount_to','field_amount');
+        });
+        $('#field_currency').change(function(e){
+            var fromField = e.currentTarget.value;
+            var toField = $('#field_currency_to').val();
+            if(fromField == toField){
+                $('#field_currency_to').val(null);
+            }
+        });
+        $('#field_currency_to').change(function(e){
+            var toField = e.currentTarget.value;
+            var fromField = $('#field_currency').val();
+            if(fromField == toField){
+                $('#field_currency').val(null);
+            }
+        });
+
+
+    }
+    window.convtoi18n = function convtoi18n(lang,culture){
+        var langculture = [];
+        var sellang = lang+'_'+culture;
+        langculture['zh_HK'] = "zh_TW";
+        langculture['zh_TW'] = "zh_TW";
+        langculture['zh_CN'] = "zh_CN";
+        langculture['en_US'] = "en_US";
+        if(langculture[sellang] == undefined){
+            return 'en_US';
+        }else{
+            return langculture[sellang];
+        }
+    }
+
+    window.loadstep = function loadstep(step) {
+        switch (step) {
+            case 1:
+                loadoverview();
+                break;
+            case 2:
+                loadconfirm();
+                break;
+            case 3:
+                loadcomplete();
+                break;
+            case 4:
+                reloadPage();
+                break;
+            default:
+                ;
+        }
+    }
+
+    window.handlestepcolor = function handlestepcolor(step) {
+        switch (step) {
+            case 1:
+                $('#stepbarstepicon1').show();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').hide();
+                
+                $('#stepbarstep1').addClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');
+                break;
+            case 2:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').show();
+                $('#stepbarstepicon3').hide();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').addClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');                
+                break;
+            case 3:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').show();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').addClass('menustepText-Active');                
+                break;
+            default:
+                ;
+        }
+    }
+
+    window.reloadPage = function reloadPage() {
+
+        window.location.reload();
+
+    }
+
+
+    window.loadpage = function loadpage(page){
+        $('.overviewpage').hide();
+        $('.confirmpage').hide();
+        $('.completepage').hide();
+        $('.'+page).show();
+    }
+
+
+
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = '港幣';
+            curLst['USD'] = '美元';
+            curLst['EUR'] = '歐元';
+            curLst['AUD'] = '澳元';
+            curLst['CNY'] = '人民幣';
+            curLst['JPY'] = '日元';
+            curLst['GBP'] = '英鎊';
+            curLst['SGD'] = '新加坡元';
+            curLst['MYR'] = '馬來西亞令吉';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }
+    window.acctTypeMapping = function acctTypeMapping(acct){
+        var acctLst =[];
+            acctLst['C'] = nls.Custodian;
+            acctLst['M'] = nls.Margin;
+            if(acctLst[acct.toUpperCase()] != undefined){
+                return acctLst[acct.toUpperCase()];
+            }else{
+                return '';
+            }
+    }    
+    
+
+    window.uitoFormData = function uitoFormData(){
+        var data = {}
+        if(document.getElementById('choice_custodian_r').checked === true){
+            data.transAcct = 'C';
+            data.tradingAccSeq = 1;
+        }
+        if(document.getElementById('choice_margin_r').checked === true){
+            data.transAcct = 'M';
+            data.tradingAccSeq = 2;
+        }
+        data.fromCurrency = $('#field_currency').val();
+        data.fromAmount = $('#field_amount').val();
+        data.toCurrency = $('#field_currency_to').val();
+        data.toAmount = $('#field_amount_to').val();
+        data.remark = $('#field_remarks').val();
+        if(data.transAcct =='' || data.fromCurrency ==''|| data.fromCurrency ==null || data.toCurrency ==''|| data.toCurrency ==null ||  (data.fromAmount =='' && data.toAmount =='') ){
+            data.state = false;
+        }else{
+            data.state = true;
+        }
+        return data;
+    }
+
+
+    window.loadoverview = function loadoverview() {
+        loadpage('overviewpage');
+        $('#field_passwords').val('');
+        $('#stepgo').text(nls.nextstep);
+        handlestepcolor(1);
+        glostepback = 1;
+        glostepgo = 2;
+    }
+
+
+    window.loadconfirm = function loadconfirm(){
+        window.exchangeForm = {
+            channelID:'INT',
+            clientID:glo.clientid,
+            language:glo.locallang,
+            sessionID:glo.sessionid
+        }
+
+        var fd = uitoFormData();
+        var formlabelval = '';
+        var tolabelval = '';               
+        exchangeForm.fromCurrency = fd.fromCurrency;
+        if(!isNaN(fd.fromAmount) && fd.fromAmount!=''){
+            exchangeForm.fromAmount = parseFloat(fd.fromAmount).toFixed(6);
+            formlabelval = parseFloat(exchangeForm.fromAmount).toFixed(2);
+        }else{
+            formlabelval = '';
+        }
+        exchangeForm.toCurrency = fd.toCurrency;
+
+        if(!isNaN(fd.toAmount) && fd.toAmount!=''){
+            exchangeForm.toAmount = parseFloat(fd.toAmount).toFixed(6);
+            tolabelval = parseFloat(exchangeForm.toAmount).toFixed(2);
+        }else{
+            tolabelval = '';
+        }
+
+
+        if (glo.sessionid == '' || glo.clientid == '') {
+            alert(nls.loginacctfirst);
+            return;
+        }
+        if(fd.state){
+            exchangeForm.tradingAccSeq = fd.tradingAccSeq;
+            $('#selAcctType').text(acctTypeMapping(fd.transAcct));
+            $('#selFormCur').text(currencyMapping(exchangeForm.fromCurrency)+' '+formlabelval);
+            $('#selToCur').text(currencyMapping(exchangeForm.toCurrency)+' '+tolabelval);
+            if(fd.remark==''){
+                fd.remark = '一 一 一';
+            }
+            $('#SelRemark').text(fd.remark);
+               loadpage('confirmpage');
+                handlestepcolor(2);
+                glostepback = 1;
+                glostepgo = 3;
+            }else{
+
+
+                function popupEmptyMsg(msg,dom){
+                      alert(msg);
+                      $( dom).trigger('focus');
+                }
+
+                    var a = $('#field_currency').val();
+                    var b = $('#field_amount').val();
+                    var c = $('#field_currency_to').val();
+                    var d = $('#field_amount_to').val();
+                    a == null? a = "":a=a;
+                    c == null? c = "":c=c;
+                    // conv to 1010
+                    a == "" ? a = "0" :a = "1";
+                    b == "" ? b = "0" :b = "1";
+                    c == "" ? c = "0" :c = "1";
+                    d == "" ? d = "0" :d = "1";
+                    var lastFormat = a+b+c+d;
+                    switch(lastFormat){
+                    case "1111":;break; 
+                    case "1110":;break; 
+                    case "1011":;break; 
+                    // a b c #
+                    // a # c d
+                    case "0000":popupEmptyMsg(nls.emptmsgtype1,"#field_currency");break;
+                    case "1000":popupEmptyMsg(nls.emptmsgtype1,"#field_amount");break;
+                    case "0010":popupEmptyMsg(nls.emptmsgtype1,"#field_currency");break;
+                    // # # # #
+                    // a # # #
+                    // # # c #
+                    // //請輸入金額及選擇貨幣
+                    case "1100":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
+                    case "0100":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
+                    case "0110":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
+                    case "0011":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
+                    case "0001":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
+                    case "1001":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
+                    // a b # #
+                    // # b # #
+                    // # b c #
+                    // # # c d
+                    // # # # d
+                    // a # # d
+                    // //請選擇貨幣
+                    case "1010":popupEmptyMsg(nls.emptmsgtype3,"#field_amount");break;
+                    // a # c #
+                    // //輸入金額
+                    default:
+                    }
+        }
+
+    }
+
+    window.loadcomplete = function loadcomplete(){
+        var pwd = $('#field_passwords').val();
+        if(pwd !=''){
+            foreignExchange(pwd,function(e){
+        console.log(" Data: - ", exchangeForm);
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+                    loadpage('completepage');
+                    $('#stepgo').text(nls.done);
+                    handlestepcolor(3);
+                    glostepback = 0;
+                    glostepgo = 4;
+            });
+        }else{
+            alert(nls.plsfillpwd);
+
+        }
+    }
+
+ 
+
+    window.toggleAmount = function toggleAmount(toAmt,fromAmt){
+        if(document.getElementById(toAmt).value != ''){
+            document.getElementById(fromAmt).setAttribute("disabled",true);
+        }else{
+            document.getElementById(fromAmt).removeAttribute("disabled");
+        }
+        if(document.getElementById(fromAmt).value != ''){
+            document.getElementById(toAmt).setAttribute("disabled",true);
+        }else{
+            document.getElementById(toAmt).removeAttribute("disabled");
+        }        
+    }
+
+ 
+    window.loadEnquiryData = function loadEnquiryData() {
+        var enquiryForm = {
+            clientID: glo.clientid,
+            sessionID: glo.sessionid,
+            language: glo.locallang,
+            tradingAccSeq: 1
+        }
+        var loadDS = loadUIDataSet();
+        var enloaddata = {
+            "form": {
+                "name": "foreignExchangeInstructionEnquiry",
+                "credentials": {
+                    "username": loadDS.acct,
+                    "password": loadDS.pwd
+                },
+                "header": {
+                    "version": "1",
+                    "traceNo": "1"
+                },
+                "body": enquiryForm
+            }
+        }
+        turnLoader('c');
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            data: JSON.stringify(enloaddata),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                var resuData = responseData.data;
+                if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
+                    var convData = resuData.foreignExchangeInstructionList;
+                    var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>參考編號</th> <th>指示時間</th> <th>由</th> <th>金額</th> <th>轉換到</th> <th>金額</th> <th>匯率</th> </tr>';
+                    for (var i = 0; i < convData.length; i++) {
+                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + convData[i].fromAmount + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + convData[i].toAmount + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
+                    }
+                    $('#enquiryTable').empty().append(tempUI);
+                }
+                turnLoader();
+            },
+            error: function(responseData, textStatus, errorThrown) {
+                    var tempUI = '';
+                tempUI += '<tr class="smaller"> <th>參考編號</th> <th>指示時間</th> <th>由</th> <th>金額</th> <th>轉換到</th> <th>金額</th> <th>匯率</th> </tr>';
+                tempUI += '<tr> <td colspan="7">空</td> </tr>';
+                $('#enquiryTable').empty().append(tempUI);
+                turnLoader();
+            }
+        });
+    }
+
+
+
+
+    initJS();
+    
+      });
+</script>
