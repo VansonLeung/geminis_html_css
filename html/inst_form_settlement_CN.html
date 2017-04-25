@@ -1,0 +1,1121 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+    .inst-form{
+max-width:none;
+}
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:18px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:24px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff ;padding-top: 55px;padding-left:72px;
+    }
+    .inst{
+    display: block;
+        padding: 0px !important;
+    }
+    .enqu{
+    display: none;
+
+    }
+
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    }
+    .radionewlabel{
+        color: #333;
+    }
+</style>
+<section>
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="    padding: 0 !important;">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
+<p>股票交收指示</p>
+</div>
+
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p><a href="../stock-instruction-enquiry/">股票交收指示查詢</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst"><!-- right menu -->
+<div class="col s12 m12 l3 hidewhenmobile" style="padding: 0 0.75rem 0 0;">
+<div class="stepbar">
+<table>
+  <tbody>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep2">確認</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep3">完成</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<!-- right menu -->
+
+<div class="col s12 m12 l9" style="padding: 0;">
+<div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;min-height:515px"><!-- <form> -->
+<div class="overviewpage">
+<form>
+<div class="area-top">
+<div class="col s12">
+<h5 class="inst-form-1sttitle">交易提示</h5>
+</div>
+
+<div class="inst-area-one row">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b">
+<div>
+<div class="cashTradingBtn cashTradingActive" data-tradtype="depositItem">存入</div>
+
+<div class="cashTradingBtn" data-tradtype="withdrawItem">提取</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-r inst-grid-t inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label label-left">支帳戶口</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 form_acct_choice_1 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
+</div>
+
+<div class="col s12 m12 l6 form_acct_choice_3 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+</div>
+
+<div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="inst-area-two row">
+<div class="col s12 m12 l6 inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label mobile-label">收帳戶口</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
+</div>
+
+<div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+</div>
+
+<div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-r inst-grid-b">
+<div class="row">
+<div class="col s4 m4 l4">
+<p class="inst-form-label label-left">交收方法</p>
+</div>
+
+<div class="col s8 m8 l8 row">
+<div class="col s12 m12 l6 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_nocash" name="transferacctType" type="radio" value="FOP" /> <label class="radionewlabel" for="choice_nocash"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 無需付款交收 </label></div>
+</div>
+
+<div class="col s12 m12 l6 cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_neddcash" name="transferacctType" type="radio" value="DVP" /> <label class="radionewlabel" for="choice_neddcash"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 金額對付交收 </label></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<h6 class="inst-tips">&nbsp;</h6>
+
+<div class="col s12">
+<h5 class="inst-form-2ndtitle withdrawTitle">交收對手</h5>
+</div>
+
+<div class="inst-area-four row">
+<div class="col s12 m12 l6 inst-grid-t inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_name" type="text" /> <label class="labelfield-text labelfield-left" for="field_name">名稱</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-t inst-grid-r inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_accountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_accountnum">戶口號碼</label></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="inst-area-five row">
+<div class="col s12 m12 l6 inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_contactname" type="text" /> <label class="labelfield-text labelfield-left" for="field_contactname">聯絡人名稱</label></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l6 inst-grid-r inst-grid-b">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12"><input class="validate labelfield" id="field_contactnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_contactnum">電話</label></div>
+</div>
+</div>
+</div>
+</div>
+
+<h6 class="inst-tips">&nbsp;</h6>
+
+<div class="col s12">
+<h5 class="inst-form-2ndtitle withdrawTitle">股票資訊</h5>
+</div>
+</div>
+
+<table class="generic-table-content small font_smed stocklisttable nopaddtable desksizetable">
+  <tbody>
+    <tr class="smaller">
+      <th class="settlement-col-6">市場</th>
+      <th class="settlement-col-1">代號</th>
+      <th class="settlement-col-2">股票名稱</th>
+      <th class="settlement-col-3">股數</th>
+      <th class="t_right settlement-col-4">金額 (如適用)</th>
+      <th class="settlement-col-5">備註</th>
+    </tr>
+  </tbody>
+</table>
+<!-- mobile -->
+
+<table class="generic-table-content generic-table-content-expandable font_smedmed stockmolisttable mosizetable">
+  <tbody>
+    <tr class="smaller">
+      <th>&nbsp;</th>
+      <th>代號</th>
+      <th class="t_right">股票名稱</th>
+    </tr>
+  </tbody>
+</table>
+<!-- mobile -->
+
+<div class="dsa">&nbsp;</div>
+<a class="btn settlement-addstockBtn">＋ 加入股票</a>
+
+<div class="sellement-bottom-line"><input checked="checked" id="check01" name="check" type="checkbox" value="stock_check" /> <label class="accepttnscb" for="check01"><span>&nbsp;<span>&nbsp;</span></span>本人/吾等確認上述股票收益人身份並沒有因進行以上股票交收指示而改變。本人/吾等願為有關上述指示承擔一切後果。</label></div>
+</form>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="confirmpage">
+<div class="area-top">
+<div class="col s12 inst-grid-b">
+<h5 class="inst-form-1sttitle">資金交易提示</h5>
+</div>
+
+<div class="inst-area-one row inst-grid-b " id="cfmArea">&nbsp;</div>
+
+<div class="inst-area-three row inst-grid-b">
+<div class="col s12">
+<div class="col s12 m6 l2">
+<h5 style="line-height: 60px">OTP</h5>
+</div>
+
+<div class="col s12 m6 l10">
+<div class="gem_form materialize remove-gemform-s">
+<div class="row">
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- </form> --><!-- <form> -->
+
+<div class="completepage">
+<div class="area-top">
+<div class="col s12" style="min-height: 400px; padding-top: 66px !important;">
+<p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
+
+<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
+
+<p class="refnumlabel" id="calldesc" style="text-align: center;">參考編號: 000000</p>
+</div>
+</div>
+</div>
+<!-- </form> --></div>
+</div>
+</div>
+
+<div class="enqu">&nbsp;</div>
+</div>
+
+<div class="row inst stepBottomBar">
+<div class="col s12 m12 l3 " id="stepback">返回上一步</div>
+
+<div class="col s12 m12 l9" id="stepgo">同意，下一步</div>
+</div>
+</section>
+<script>
+      $(function(e){
+
+
+$('.subsubmenuBox').on('click',function(e){
+    var subsubItem = $(this).data().gmnsubsubmenu;
+    if(subsubItem == 'inst'){
+        $('.inst').show();
+        $('.enqu').hide();
+    }
+    if(subsubItem == 'enqu'){
+        // $('.inst').hide();
+        // $('.enqu').show();
+
+    }
+    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
+    $(this).addClass('subsubmenuBox-Active');
+});
+
+$('#acc_btn_otp').click(function(e){
+
+    callOTP(function(e){
+
+    });
+
+});
+
+    window.callOTP = function callOTP(callback){
+        turnLoader('c');
+
+        $.post('/api/usercode/registerfromsession',
+              {
+                  email:'kaycheung@cherrypicks.com',
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                turnLoader();
+                      alert('成功，請檢查電郵');
+                (callback && typeof(callback) === "function") && callback();
+                  }
+                  else
+                  {
+                turnLoader();
+                      alert(msg.message);
+                (callback && typeof(callback) === "function") && callback();
+                  }
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                turnLoader();
+                  alert("Network Error");
+                (callback && typeof(callback) === "function") && callback();
+              });      
+
+    }
+
+
+    window.renewmotable = function renewmotable(){
+
+      $('.generic-table-content-expandable').find('.expandable-header .toggle').on('click', function(e) {
+        var toggle = $(e.target).closest('.toggle');
+        var header = $(e.target).closest('.expandable-header');
+        var content = header.next('.expandable-content');
+        if (header.hasClass('active'))
+        {
+          header.removeClass('active');
+          content.removeClass('active');
+          toggle.html("<div class='iconexheader'></div>");
+        }
+        else
+        {
+          header.addClass('active');
+          content.addClass('active');
+          toggle.html("<div class='iconexcontent'></div>");
+                          
+        }
+     });
+    }
+
+    window.rewindowsize = function rewindowsize(){
+        var curwei= $(document).width();
+        var desksizetable = $(".desksizetable");
+        var mosizetable = $(".mosizetable");
+        if(curwei <= 1072){
+            isdeskStocktable = false;
+            desksizetable.hide();
+            mosizetable.show();
+        }else{
+            isdeskStocktable = true;
+            desksizetable.show();
+            mosizetable.hide();
+        }
+    }
+    window.loadUIDataSet = function loadUIDataSet() {
+
+        var dataSet = {}
+        dataSet.acct = "9910-268";
+        dataSet.pwd = "12345678";
+        dataSet.loginid = "@{S:CLIENTID}";
+        // dataSet.loginid = "";
+        dataSet.loginpw = "12345678";
+        return dataSet;
+    } 
+    //    window.callloader = function callloader(state){
+    //     if(state){
+    //         $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
+    //     }else{
+    //         $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
+    //     }
+    // } 
+   window.serCallHandle = function serCallHandle(res,trueFlag){
+        console.log("Res - Data ", res.data);
+        if(!trueFlag){
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+        }else{
+            if (res.data) {
+                if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+                    $(".msgiconfinish").attr('src','../../../images/complete icon.png');
+                    $("#callstate").text(nls.success);
+                    if(res.data.transactionIDField && res.data.transactionIDField !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionIDField);
+                    }else{
+                        $("#calldesc").text('');
+                    }
+                }else{
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+            } else{
+                // otp error
+                if(res.message == 'OTP Incorrect' && res.responseCode == 'F002' && res.success == false){
+                    glootperror = true;
+                }
+
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
+        }       
+    }
+    window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+        // callloader(true);
+        turnLoader('c');
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            contentType: 'application/json',
+            data: JSON.stringify(loaddata),
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                serCallHandle(responseData,true);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                // if (responseData.data) {
+                    // console.log("Res - Data ", responseData.data);
+                // }
+                // callloader(false);
+                turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            },
+            error: function(responseData, textStatus, errorThrown) {
+                serCallHandle(responseData,false);
+                // console.log("SerCall - " + loaddata.form.name, responseData);
+                // callloader(false);
+                turnLoader();
+                (callback && typeof(callback) === "function") && callback();
+            }
+        });
+    }
+
+    window.convtoi18n = function convtoi18n(lang,culture){
+        var langculture = [];
+        var sellang = lang+'_'+culture;
+        langculture['zh_HK'] = "zh_TW";
+        langculture['zh_TW'] = "zh_TW";
+        langculture['zh_CN'] = "zh_CN";
+        langculture['en_US'] = "en_US";
+        if(langculture[sellang] == undefined){
+            return 'en_US';
+        }else{
+            return langculture[sellang];
+        }
+    }    
+        window.loadstep = function loadstep(step){
+            switch(step){
+                case 1:loadoverview();break;
+                case 2:loadconfirm();break;
+                case 3:loadcomplete();break;
+                case 4:reloadPage();break;
+                default:;
+            }  
+        }
+
+        window.handlestepcolor = function handlestepcolor(step){
+        switch (step) {
+            case 1:
+                $('#stepbarstepicon1').show();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').hide();
+                
+                $('#stepbarstep1').addClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 2:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').show();
+                $('#stepbarstepicon3').hide();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').addClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 3:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').show();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').addClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+                break;
+            default:
+                ;
+        }
+        }
+
+        window.reloadPage = function reloadPage(){
+
+            window.location.reload();
+
+        }
+
+        window.loadpage = function loadpage(page){
+            $('.overviewpage').hide();
+            $('.confirmpage').hide();
+            $('.completepage').hide();
+            $('.'+page).show();
+        }
+                  
+        window.loadoverview = function loadoverview(){
+            loadpage('overviewpage');
+            $('#field_passwords').val('');
+            $('#stepgo').text(nls.nextstep);
+            handlestepcolor(1);
+            glostepback = 1;
+            glostepgo = 2;
+        }
+
+        window.loadcomplete = function loadcomplete(){
+            var field_passwords = $('#field_passwords').val();
+            var localInfo = loadUIDataSet();
+            if(field_passwords =='' ){
+            // if(field_passwords =='' || field_passwords != localInfo.loginpw){
+                alert(nls.plsfillpwd);
+            }else{
+                var d = instFormData;
+
+                instSettlementForm = {
+                    clientID: glo.clientid,
+                    tradingAccSeq: d.TradingAccSeq,
+                    instrumentID: '',
+                    instruction: d.Instruction,
+                    settlementMethod: d.SettlementMethod,
+                    counterpartyName: d.CounterpartyName,
+                    counterpartyAccountNo: d.CounterpartyAccountNo,
+                    counterpartyContactPerson: d.CounterpartyContactPerson,
+                    counterpartyTelNo: d.CounterpartyTelNo,
+                    language: glo.locallang,
+                    sessionID: glo.sessionid,
+                    stockInformationList: d.StockInformationList
+                }
+
+
+                settlementInstruction(field_passwords,function(){
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
+                    loadpage('completepage');
+                    $('#stepgo').text(nls.done);
+                    handlestepcolor(3);
+                    glostepback = 0;
+                    glostepgo = 4;
+                });
+            }
+        }
+
+        window.loadconfirm = function loadconfirm(){
+            var field_name = $('#field_name').val();
+            var field_accountnum = $('#field_accountnum').val();
+            var field_contactname = $('#field_contactname').val();
+            var field_contactnum = $('#field_contactnum').val();
+            var check01 = document.getElementById('check01').checked;
+
+            var stocklstlen = $('.stockList').length;
+            var stockmolstlen = $('.stockmoList').length;
+
+            // var state = true;
+            // var qtystate = true;
+            // var namestate = true;
+            if(isdeskStocktable){
+
+                for (var stock = 0; stock<stocklstlen; stock++){
+                    var selItem = $('.settlement-box-one').get(stock);
+                    var selItemName = $('.settlement-box-stockname').get(stock);
+                    var selItemQty = $('.settlement-box-two').get(stock);
+                    if(selItem.value == ''){ 
+
+                      alert(nls.fillinqty);
+                      selItem.focus();
+                      return;
+                      // state = false; 
+                    }
+                    if(selItemName.value == ''){ 
+
+                      alert(nls.fillinstockname);
+                      selItemName.focus();
+                      return;
+                      // namestate = false; 
+                    }
+                    if(selItemQty.value == ''){
+
+                      alert(nls.fillinstockqty);
+                      selItemQty.focus();
+                      return;
+                     // qtystate = false; 
+                   }
+                }
+
+            }else{
+            
+                for (var stock = 0; stock<stockmolstlen; stock++){
+                    var selItem = $('.settlement-box-one-m').get(stock);
+                    var selItemName = $('.settlement-box-stockname-m').get(stock);
+                    var selItemQty = $('.settlement-box-two-m').get(stock);
+                    if(selItem.value == ''){ state = false; }
+                    if(selItemName.value == ''){ namestate = false; }
+                    if(selItemQty.value == ''){ qtystate = false; }
+                }
+
+            }
+
+            if (glo.sessionid == '' || glo.clientid == '') {
+
+                alert(nls.loginacctfirst);
+                return;
+            }
+
+            // if(!state){ alert(nls.fillinqty);return; }
+            // if(!qtystate){ alert(nls.fillinstockqty);return; }
+            // if(!namestate){ alert(nls.fillinstockname);return; }
+            
+
+            window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
+                var state = false;
+                var msgstart = '';
+                t == 's'? msgstart = nls.choosedata: msgstart = nls.fillindata;
+                if(item == "" || item == null){
+                  state = true;
+                }
+                if(state == true){
+                  alert(msgstart+label);
+                  $( dom).trigger('focus');
+                }
+                return state; 
+            }
+
+
+
+            if(field_name =='' || field_accountnum=='' || field_contactname=='' || field_contactnum=='' || check01==false){
+
+
+
+
+              var field1 = vaildationEmpty(field_name,'#field_name',nls.name,'');
+              if(field1 == true) return;
+              var field2 = vaildationEmpty(field_accountnum,'#field_accountnum',nls.acctnum,'');
+              if(field2 == true) return;
+              var field3 = vaildationEmpty(field_contactname,'#field_contactname',nls.acctname,'');
+              if(field3 == true) return;
+              var field4 = vaildationEmpty(field_contactnum,'#field_contactnum',nls.accttel,'');
+              if(field4 == true) return;                                          
+
+              if( check01==false ){
+                alert(nls.fillindata2);
+                return;
+              }
+
+            // alert(nls.fillindata2);
+            }else{
+                loadDesktopUItoData(function(){
+                    loadDatatoConfirmUI(instFormData);
+                    loadpage('confirmpage');
+                    handlestepcolor(2);
+                    glostepback = 1;
+                    glostepgo = 3;
+                });
+            }
+        }
+        window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data){
+            var d = data;
+            var temp = '\
+            <table class="confirmbox">\
+                 <tr><td colspan="2">'+d.InstructionName+'</td></tr>\
+                 <tr><td width="25%">'+nls.fromacct+':</td><td>'+d.formacctName+'</td></tr>\
+                 <tr><td>'+nls.toacct+':</td><td>'+d.toacctName+'<td></tr>\
+                 <tr><td>'+nls.transmethod+':</td><td>'+d.SettlementMethodName+'</td></tr>\
+                 <tr><td colspan="2">'+nls.acceptman+'</td></tr>\
+                 <tr><td>'+nls.name+':</td><td>'+d.CounterpartyName+'</td></tr>\
+                 <tr><td>'+nls.acctnum+':</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
+                 <tr><td>'+nls.acctname+':</td><td>'+d.CounterpartyContactPerson+'</td></tr>\
+                 <tr><td>'+nls.accttel+':</td><td>'+d.CounterpartyTelNo+'</td></tr>\
+                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>';
+                
+                for(var item =0 ; item < d.StockInformationList.length;item++){
+                    temp = temp + '<tr><td colspan="2">' +
+                    nls.market+ ': '+ d.StockInformationList[item].marketID +
+                    nls.stockno+ ': '+ d.StockInformationList[item].instrumentID +
+                    nls.stockname+ ': '+ d.StockInformationList[item].instrumentName +
+                    nls.stockqty+ ': '+ d.StockInformationList[item].qty +
+                    nls.stockamt+ ': '+ d.StockInformationList[item].amount +
+                    nls.stockremark+ ': '+ d.StockInformationList[item].remarks +
+                    '</td></tr>';
+                }    
+             
+             temp +='</table>';
+            
+            $('#cfmArea').empty().append(temp);
+        }
+
+        window.loadDesktopUItoData = function loadDesktopUItoData(callback){
+            if(instFormData.Instruction == 'D'){
+                instFormData.formacctName = 'Counterparty';
+                instFormData.formacct ='p';
+                instFormData.toacct =$('input[name="transferMethod"]:checked').val();
+                instFormData.toacct == 1 && (instFormData.toacctName = nls.Custodian);
+                instFormData.toacct == 2 && (instFormData.toacctName = nls.Margin);
+                instFormData.TradingAccSeq = $('input[name="transferMethod"]:checked').val();
+            }else{
+                instFormData.toacctName = 'Counterparty';
+                instFormData.formacct =$('input[name="AccountType"]:checked').val();
+                instFormData.formacct == 1 && (instFormData.formacctName = nls.Custodian);
+                instFormData.formacct == 2 && (instFormData.formacctName = nls.Margin);
+                instFormData.toacct ='p';
+                instFormData.TradingAccSeq = $('input[name="transferMethod"]:checked').val();
+            }
+            instFormData.SettlementMethod = $('input[name="transferacctType"]:checked').val();
+            instFormData.SettlementMethod == 'FOP' && (instFormData.SettlementMethodName = nls.FOP);
+            instFormData.SettlementMethod == 'DVP' && (instFormData.SettlementMethodName = nls.DVP);
+            instFormData.Instruction == 'D' && (instFormData.InstructionName = nls.deposit);
+            instFormData.Instruction == 'W' && (instFormData.InstructionName = nls.withdraw);
+
+            instFormData.CounterpartyName = $('#field_name').val();
+            instFormData.CounterpartyAccountNo = $('#field_accountnum').val();
+            instFormData.CounterpartyContactPerson = $('#field_contactname').val();
+            instFormData.CounterpartyTelNo = $('#field_contactnum').val();
+            instFormData.StockInformationList = [];
+
+            if(isdeskStocktable){
+                var lstlength = $('.stockList').length;
+                var dataLst = [];
+                // init form
+                for(var i=0;i<lstlength;i++){
+                    var stockLst = $('.stockList');
+
+                    dataLst[i] = {
+                        marketID        :stockLst.find('.settlement-box-market').get(i).value,
+                        instrumentID    :stockLst.find('.settlement-box-one').get(i).value,
+                        instrumentName  :stockLst.find('.settlement-box-stockname').get(i).value,
+                        qty             :stockLst.find('.settlement-box-two').get(i).value,
+                        amount          :stockLst.find('.settlement-box-stockamt').get(i).value,
+                        remarks         :stockLst.find('.settlement-box-three').get(i).value
+                    };
+                    dataLst[i].amount == '' && (dataLst[i].amount = 0);
+                }
+                instFormData.StockInformationList = dataLst;
+            }else{
+                var lstlength = $('.stockmoList').length;
+                var dataLst = [];
+                // init form
+                for(var i=0;i<lstlength;i++){
+                    var stockLst = $('.stockmoList');
+                    var stockLstbody = $('.stockmoListbody');
+
+                    dataLst[i] = {
+                        marketID        :stockLstbody.find('.settlement-box-market-m').get(i).value,
+                        instrumentID    :stockLst.find('.settlement-box-one-m').get(i).value,
+                        instrumentName  :stockLst.find('.settlement-box-stockname-m').get(i).value,
+                        qty             :stockLstbody.find('.settlement-box-two-m').get(i).value,
+                        amount          :stockLstbody.find('.settlement-box-stockamt-m').get(i).value,
+                        remarks         :stockLstbody.find('.settlement-box-three-m').get(i).value
+                    };
+
+                    dataLst[i].amount == '' && (dataLst[i].amount = 0);
+                }
+                instFormData.StockInformationList = dataLst;                
+            }
+            console.log("From Data: - ",instFormData);
+            (callback && typeof(callback) === "function") && callback();
+        }
+
+
+    window.settlementInstruction = function settlementInstruction(otpVal,callback){
+
+        var loadDS = loadUIDataSet();
+        var dataSet={
+            "form":
+            {
+              "name": "settlementInstruction",
+              "credentials": {
+                "username": loadDS.acct,
+                "password": loadDS.pwd
+              },
+              "header": {
+                "version": "1",
+                "traceNo": "1"
+              },
+              "otp": otpVal,
+              "body": instSettlementForm
+            }
+        }
+            callSOAPapi(dataSet,function(){
+                (callback && typeof(callback) === "function") && callback();
+            });
+    }  
+
+    window.renderDeskStocktoUI = function renderDeskStocktoUI(callback){
+        $('.stocklisttable').append('\
+            <tr class="real-grey-line stockList">\
+              <td style="padding:5px !important;"><select class="settlement-box-market"><option value="HKEX">HKEX</option><option value="MAMK">MAMK</option><option value="SZMK">SZMK</option><option value="USEX">USEX</option><option value="TWEX">TWEX</option><option value="AUEX">AUEX</option><option value="CAEX">CAEX</option><option value="CHEX">CHEX</option><option value="EUEX">EUEX</option><option value="GREX">GREX</option><option value="IDEX">IDEX</option><option value="JPEX">JPEX</option><option value="KREX">KREX</option><option value="MYEX">MYEX</option><option value="PHEX">PHEX</option><option value="SGEX">SGEX</option><option value="SHEB">SHEB</option><option value="THEX">THEX</option> </select></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-one" style="margin-left:0px;" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockname" style="width:100px !important; height:35px !important;" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-two" /></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockamt" style="width:100px !important; height:35px !important;" /></td>\
+              <td style="padding:5px !important;"><div><input type="text" value="" class="settlement-box-three" /> <div class="table_button settlement-red-color c_white removestockbtn"><i class="fa fa-remove" aria-hidden="true"></i></div></div></td>\
+            </tr>\
+                    ');
+        (callback && typeof(callback) === "function") && callback();
+
+    }
+    window.renderMoStocktoUI = function renderMoStocktoUI(callback){
+
+        $('.stockmolisttable').append('\
+            <tr class="expandable-header stockmoList"> <td class="toggle"> <div class="iconexheader"></div> </td> <td> <input type="text" class="settlement-box-one-m" value="" /> </td> <td class="t_right"> <input type="text" class="settlement-box-stockname-m" value="" /> </td> </tr> <tr class="expandable-content stockmoListbody"> <td colspan="3"> <table> <tr> <td> </td> <td>市場：</td> <td class="right-align"> <select style="width:100%" class="settlement-box-market-m"> <option value="HKEX">HKEX</option> <option value="MAMK">MAMK</option> <option value="SZMK">SZMK</option> <option value="USEX">USEX</option> <option value="TWEX">TWEX</option> <option value="AUEX">AUEX</option> <option value="CAEX">CAEX</option> <option value="CHEX">CHEX</option> <option value="EUEX">EUEX</option> <option value="GREX">GREX</option> <option value="IDEX">IDEX</option> <option value="JPEX">JPEX</option> <option value="KREX">KREX</option> <option value="MYEX">MYEX</option> <option value="PHEX">PHEX</option> <option value="SGEX">SGEX</option> <option value="SHEB">SHEB</option> <option value="THEX">THEX</option> </select> </td> </tr> <tr> <td> </td> <td>股數：</td> <td class="right-align"> <input type="text" class="settlement-box-two-m" value="" /> </td> </tr> <tr> <td> </td> <td>金額：</td> <td class="right-align"> <input type="text" class="settlement-box-stockamt-m" value="" /> </td> </tr> <tr> <td> </td> <td>備註：</td> <td class="right-align"> <textarea class="settlement-box-three-m" style="width:100%"></textarea> </td> </tr> <tr> <td></td> <td></td> <td class="right-align"><span style="display:inline-block; padding:0px 10px;color:#ce0f00;">刪除</span> <div class="table_button settlement-red-color c_white removestockmobtn"><i class="fa fa-remove" aria-hidden="true"></i></div> </td> </tr> </table> </td> </tr>');   
+        
+        (callback && typeof(callback) === "function") && callback();
+
+    }
+        var loadinstallFx = function(){
+
+            loadinstallFx.prototype.initBehavior = function(){
+
+
+            window.nls = {
+                otperror:'一次性密码不正确，试再次输入',
+                nextstep: '同意，下一步',
+                success: '已完成',
+                desc: '參考編號:',
+                fail: '未能完成',
+                done: '完成',
+                plsfillpwd: '請輸入密碼',
+                loginacctfirst: '請先登入帳號',
+                fillindata: '請輸入',
+                fillinqty:'請輸入股票代號',
+                fillinstockqty:'請輸入股票股數',
+                fillinstockname:'請輸入股票名稱',
+                fillindata2:'請按接受條款',                
+                choosedata: '請選擇',
+                FOP:'無需付款交收',
+                DVP:'金額對付交收',
+                Custodian: 'Custodian',
+                Margin: 'Margin',
+                deposit: '存入',
+                withdraw: '提取',
+
+                fromacct:'支帳戶口',
+                toacct:'收帳戶口',
+                transmethod:'交收方法',
+                market:'市場',
+                acceptman:'交收對手',
+                name:'名稱',
+                acctnum:'戶口號碼',
+                acctname:'聯絡人名稱',
+                accttel:'電話',
+                stockinfo:'股票資訊',
+                stockno:'代號',
+                stockname:'股票名稱',
+                stockqty:'股數',
+                stockamt:'金額 (如適用)',
+                stockremark:'備註'
+
+            };
+
+            window.glootperror = false;
+            window.isdeskStocktable = true;
+
+            $(window).resize(function(){
+                rewindowsize();
+            });
+    
+            rewindowsize();
+
+            renderDeskStocktoUI();
+            renderMoStocktoUI(function(e){
+                renewmotable();
+            });        
+
+            window.glostepback = 1;
+            window.glostepgo = 2;
+            window.instFormData =  {};
+            window.instSettlementForm = {};
+            instFormData.Instruction = 'D';
+            handlestepcolor(1);
+
+
+            window.glo = {}
+            glo.isloginflag = false;
+            glo.sessionid = "";
+            // glo.sessionid = "@{S:SESSIONID}";
+            // glo.clientid = "@{S:CLIENTID}";
+            // var transacctlst = '@{S:TRADINGACCLIST}';
+            glo.sessionid = '';
+            glo.clientid = '';
+             transacctlst = '';
+
+            transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
+
+            glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+
+            window.haveMType = false;
+            $('.marginchoice').hide();
+            if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
+                for (var i = 0; i < glo.tranaccseq.length; i++) {
+                    if (glo.tranaccseq[i].accountType == "M") {
+                        haveMType = true;
+                    }
+                }
+            }
+
+            haveMType == true && $('.marginchoice').show();
+            
+            $('#stepback').on('click',function(e){
+                var selpage = glostepback;
+                loadstep(selpage);
+            });
+
+            $('#stepgo').on('click',function(e){
+                var selpage = glostepgo;
+                loadstep(selpage);
+            });
+
+            $('.confirmpage').hide();
+            $('.completepage').hide();
+            
+            // init
+            $(".form_acct_choice_1").show();
+            $(".form_acct_choice_2").hide();
+            $(".form_acct_choice_3").hide();
+
+            $(".to_acct_choice_1").hide();
+            $(".to_acct_choice_3").show();
+            haveMType && ($(".to_acct_choice_2").show());  
+            
+                       
+
+            $('.cashTradingBtn').on('click',function(e){
+
+                var curSelItem = $(this).data().tradtype;
+                $('.cashTradingBtn').removeClass('cashTradingActive');
+                $(this).addClass('cashTradingActive');
+
+                if(curSelItem == 'depositItem'){
+                    instFormData.Instruction = 'D';
+                    $(".form_acct_choice_1").show();
+                    $(".form_acct_choice_2").hide();
+                    $(".form_acct_choice_3").hide();
+
+                    $(".to_acct_choice_1").hide();
+                    $(".to_acct_choice_3").show();
+                    haveMType && ($(".to_acct_choice_2").show());  
+
+                }else{
+                    instFormData.Instruction = 'W';
+                    $(".to_acct_choice_1").show();
+                    $(".to_acct_choice_2").hide();
+                    $(".to_acct_choice_3").hide();
+
+                    $(".form_acct_choice_1").hide();
+                    $(".form_acct_choice_3").show();
+                    haveMType && ($(".form_acct_choice_2").show());  
+                }
+            });
+
+
+
+
+              }
+
+              $('body').on('click','.settlement-addstockBtn',function(e){
+                if(isdeskStocktable){
+                    renderDeskStocktoUI();
+                }else{
+                    renderMoStocktoUI(function(e){
+                        renewmotable();
+                    });
+                }
+              });
+
+
+            $('body').on('click','.removestockbtn',function(e){
+                    $(this).parent().parent().parent().remove();
+            });          
+            $('body').on('click','.removestockmobtn',function(e){
+                    // $(this).parent().parent().remove();
+                    var stockheader = $(this).parent().parent().parent().parent().parent().parent().prev();
+                    var stockbody = $(this).parent().parent().parent().parent().parent().parent();
+
+                    stockheader.remove();
+                    stockbody.remove();                    
+            });
+        }
+            var init = new loadinstallFx();
+            init.initBehavior();
+            // $('.settlement-addstockBtn').click();
+      });
+</script>

@@ -1,41 +1,167 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+    .inst-form{
+max-width:none;
+}
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:18px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:24px;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff ;padding-top: 55px;padding-left:72px;
+    }
+    .inst{
+    display: block;
+        padding: 0px !important;
+    }
+    .enqu{
+    display: none;
+
+    }
+
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    }
+    .radionewlabel{
+        color: #333;
+    }
+</style>
 <section>
-<!-- <section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;"> -->
-<div class="row" id="orgForm">
-<div align="right" class="col l3 hidewhenmobile">
-<div class="stepbar" style="height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;">
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="    padding: 0 !important;">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
+<p>股票交收指示</p>
+</div>
+
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p><a href="../stock-instruction-enquiry/">股票交收指示查詢</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m12 l12 inst"><!-- right menu -->
+<div class="col s12 m12 l3 hidewhenmobile" style="padding: 0 0.75rem 0 0;">
+<div class="stepbar">
 <table>
-    <tbody>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon1" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep1" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">交易指示</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon2" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep2" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">確認</p>
-            </td>
-        </tr>
-        <tr>
-            <td style="padding:0;margin:0;"><img id="stepbarstepicon3" src="../../../images/status_icon.png" style="display:none;width:16px;height:16px;" /></td>
-            <td style="padding:0;margin:0;">
-            <p id="stepbarstep3" style="text-align:left;color:#666;font-size: 16px;line-height: 24px;">完成</p>
-            </td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep2">確認</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep3">完成</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+<!-- right menu -->
 
-<div class="col s12 m12 l9 smallform">
-<div id="sercallloader" style="display: none ">
-<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
-<div class="indeterminate">&nbsp;</div>
-</div>
-</div>
-
-<div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;">
+<div class="col s12 m12 l9" style="padding: 0;">
+<div class="row inst-form gem_form inst-form-settlement" style="margin-left: 0px;min-height:515px"><!-- <form> -->
 <div class="overviewpage">
 <form>
 <div class="area-top">
@@ -55,20 +181,20 @@
 <div class="col s12 m12 l6 inst-grid-r inst-grid-t inst-grid-b">
 <div class="row">
 <div class="col s4 m4 l4">
-<p class="inst-form-label label-left">支賬戶口</p>
+<p class="inst-form-label label-left">支帳戶口</p>
 </div>
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 form_acct_choice_1 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label for="choice_counterparty"> <span class="inst-form-greenbox-base"> </span> Counterparty </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
 </div>
 
 <div class="col s12 m12 l6 form_acct_choice_3 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label for="choice_custodian"> <span class="inst-form-greenbox-base"> </span> Custodian </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
 </div>
 
 <div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label for="choice_margin"> <span class="inst-form-greenbox-base"> </span> Margin </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
 </div>
 </div>
 </div>
@@ -79,20 +205,20 @@
 <div class="col s12 m12 l6 inst-grid-b">
 <div class="row">
 <div class="col s4 m4 l4">
-<p class="inst-form-label mobile-label">收賬戶口</p>
+<p class="inst-form-label mobile-label">收帳戶口</p>
 </div>
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> </span> Counterparty </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
 </div>
 
 <div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label for="choice_custodian_r"> <span class="inst-form-greenbox-base"> </span> Custodian </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
 </div>
 
 <div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label for="choice_margin_r"> <span class="inst-form-greenbox-base"> </span> Margin </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
 </div>
 </div>
 </div>
@@ -106,11 +232,11 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_nocash" name="transferacctType" type="radio" value="FOP" /> <label for="choice_nocash"> <span class="inst-form-greenbox-base"> </span> 無需付款交收 </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_nocash" name="transferacctType" type="radio" value="FOP" /> <label class="radionewlabel" for="choice_nocash"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 無需付款交收 </label></div>
 </div>
 
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_neddcash" name="transferacctType" type="radio" value="DVP" /> <label for="choice_neddcash"> <span class="inst-form-greenbox-base"> </span> 金額對付交收 </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_neddcash" name="transferacctType" type="radio" value="DVP" /> <label class="radionewlabel" for="choice_neddcash"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 金額對付交收 </label></div>
 </div>
 </div>
 </div>
@@ -167,56 +293,58 @@
 </div>
 
 <table class="generic-table-content small font_smed stocklisttable nopaddtable desksizetable">
-    <tbody>
-        <tr class="smaller">
-            <th class="settlement-col-6">市場</th>
-            <th class="settlement-col-1">代號</th>
-            <th class="settlement-col-2">股票名稱</th>
-            <th class="settlement-col-3">股數</th>
-            <th class="t_right settlement-col-4">金額 (如適用)</th>
-            <th class="settlement-col-5">備註</th>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr class="smaller">
+      <th class="settlement-col-6">市場</th>
+      <th class="settlement-col-1">代號</th>
+      <th class="settlement-col-2">股票名稱</th>
+      <th class="settlement-col-3">股數</th>
+      <th class="t_right settlement-col-4">金額 (如適用)</th>
+      <th class="settlement-col-5">備註</th>
+    </tr>
+  </tbody>
 </table>
 <!-- mobile -->
 
 <table class="generic-table-content generic-table-content-expandable font_smedmed stockmolisttable mosizetable">
-    <tbody>
-        <tr class="smaller">
-            <th>&nbsp;</th>
-            <th>代號</th>
-            <th class="t_right">股票名稱</th>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr class="smaller">
+      <th>&nbsp;</th>
+      <th>代號</th>
+      <th class="t_right">股票名稱</th>
+    </tr>
+  </tbody>
 </table>
 <!-- mobile -->
 
 <div class="dsa">&nbsp;</div>
-<a class="btn settlement-addstockBtn">加入股票</a>
+<a class="btn settlement-addstockBtn">＋ 加入股票</a>
 
-<div class="sellement-bottom-line"><input checked="checked" id="check01" name="check" type="checkbox" /> <label class="accepttnscb" for="check01">本人/吾等確認上述股票收益人身份並沒有因進行以上股票交收指示而改變。本人/吾等願為有關上述指示承擔一切後果。</label></div>
+<div class="sellement-bottom-line"><input checked="checked" id="check01" name="check" type="checkbox" value="stock_check" /> <label class="accepttnscb" for="check01"><span>&nbsp;<span>&nbsp;</span></span>本人/吾等確認上述股票收益人身份並沒有因進行以上股票交收指示而改變。本人/吾等願為有關上述指示承擔一切後果。</label></div>
 </form>
 </div>
-<!-- <form> -->
+<!-- </form> --><!-- <form> -->
 
 <div class="confirmpage">
 <div class="area-top">
 <div class="col s12 inst-grid-b">
-<h5 class="inst-form-1sttitle">交易指示</h5>
+<h5 class="inst-form-1sttitle">資金交易提示</h5>
 </div>
 
 <div class="inst-area-one row inst-grid-b " id="cfmArea">&nbsp;</div>
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
-<div class="col s6 m6 l2">
-<h5>賬戶密碼</h5>
+<div class="col s12 m6 l2">
+<h5 style="line-height: 60px">OTP</h5>
 </div>
 
-<div class="col s6 m6 l10">
+<div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_passwords" type="password" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入密碼</label></div>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
 </div>
 </div>
 </div>
@@ -241,14 +369,71 @@
 </div>
 </div>
 
-<div class="row" style="width:100%;padding-left:6.5px;padding-right:6.5px">
-<div class="col l3 hidewhenmobile" id="stepback" style="height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;">上一步</div>
+<div class="enqu">&nbsp;</div>
+</div>
 
-<div class="col s12 m12 l9" id="stepgo" style="height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;">下一步</div>
+<div class="row inst stepBottomBar">
+<div class="col s12 m12 l3 " id="stepback">返回上一步</div>
+
+<div class="col s12 m12 l9" id="stepgo">同意，下一步</div>
 </div>
 </section>
 <script>
       $(function(e){
+
+
+$('.subsubmenuBox').on('click',function(e){
+    var subsubItem = $(this).data().gmnsubsubmenu;
+    if(subsubItem == 'inst'){
+        $('.inst').show();
+        $('.enqu').hide();
+    }
+    if(subsubItem == 'enqu'){
+        // $('.inst').hide();
+        // $('.enqu').show();
+
+    }
+    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
+    $(this).addClass('subsubmenuBox-Active');
+});
+
+$('#acc_btn_otp').click(function(e){
+
+    callOTP(function(e){
+
+    });
+
+});
+
+    window.callOTP = function callOTP(callback){
+        turnLoader('c');
+
+        $.post('/api/usercode/registerfromsession',
+              {
+                  email:'kaycheung@cherrypicks.com',
+              })
+              .done( function(msg) {
+                  if (msg.success)
+                  {
+                turnLoader();
+                      alert('成功，請檢查電郵');
+                (callback && typeof(callback) === "function") && callback();
+                  }
+                  else
+                  {
+                turnLoader();
+                      alert(msg.message);
+                (callback && typeof(callback) === "function") && callback();
+                  }
+              })
+              .fail( function(xhr, textStatus, errorThrown) {
+                turnLoader();
+                  alert("Network Error");
+                (callback && typeof(callback) === "function") && callback();
+              });      
+
+    }
+
 
     window.renewmotable = function renewmotable(){
 
@@ -273,9 +458,9 @@
     }
 
     window.rewindowsize = function rewindowsize(){
-        let curwei= $(document).width();
-        let desksizetable = $(".desksizetable");
-        let mosizetable = $(".mosizetable");
+        var curwei= $(document).width();
+        var desksizetable = $(".desksizetable");
+        var mosizetable = $(".mosizetable");
         if(curwei <= 1072){
             isdeskStocktable = false;
             desksizetable.hide();
@@ -288,7 +473,7 @@
     }
     window.loadUIDataSet = function loadUIDataSet() {
 
-        let dataSet = {}
+        var dataSet = {}
         dataSet.acct = "9910-268";
         dataSet.pwd = "12345678";
         dataSet.loginid = "@{S:CLIENTID}";
@@ -296,13 +481,13 @@
         dataSet.loginpw = "12345678";
         return dataSet;
     } 
-       window.callloader = function callloader(state){
-        if(state){
-            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
-        }else{
-            $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
-        }
-    } 
+    //    window.callloader = function callloader(state){
+    //     if(state){
+    //         $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: flex;");
+    //     }else{
+    //         $("#sercallloader").attr("style","position: absolute; float: right; z-index: 100; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(94, 94, 94, 0.5); overflow: auto; display: none;");
+    //     }
+    // } 
    window.serCallHandle = function serCallHandle(res,trueFlag){
         console.log("Res - Data ", res.data);
         if(!trueFlag){
@@ -324,14 +509,25 @@
                     $("#callstate").text(nls.fail);
                     $("#calldesc").text('');
                 }
-            } 
+            } else{
+                // otp error
+                if(res.message == 'OTP Incorrect' && res.responseCode == 'F002' && res.success == false){
+                    glootperror = true;
+                }
+
+                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
+                    $("#callstate").text(nls.fail);
+                    $("#calldesc").text('');
+                }
         }       
     }
     window.callSOAPapi = function callSOAPapi(loaddata, callback) {
-        callloader(true);
+        // callloader(true);
+        turnLoader('c');
         $.ajax({
             type: 'POST',
-            url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
+            url: '/api/session/submitSoapQuery',
+            contentType: 'application/json',
             data: JSON.stringify(loaddata),
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
@@ -340,21 +536,23 @@
                 // if (responseData.data) {
                     // console.log("Res - Data ", responseData.data);
                 // }
-                callloader(false);
+                // callloader(false);
+                turnLoader();
                 (callback && typeof(callback) === "function") && callback();
             },
             error: function(responseData, textStatus, errorThrown) {
                 serCallHandle(responseData,false);
                 // console.log("SerCall - " + loaddata.form.name, responseData);
-                callloader(false);
+                // callloader(false);
+                turnLoader();
                 (callback && typeof(callback) === "function") && callback();
             }
         });
     }
 
     window.convtoi18n = function convtoi18n(lang,culture){
-        let langculture = [];
-        let sellang = lang+'_'+culture;
+        var langculture = [];
+        var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
         langculture['zh_CN'] = "zh_CN";
@@ -376,33 +574,44 @@
         }
 
         window.handlestepcolor = function handlestepcolor(step){
-            switch(step){
-                case 1:
-                    $('#stepbarstepicon1').show();
-                    $('#stepbarstepicon2').hide();
-                    $('#stepbarstepicon3').hide();
-                    $('#stepbarstep1').attr('style','text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep2').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep3').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                ;break;
-                case 2:
-                    $('#stepbarstepicon1').hide();
-                    $('#stepbarstepicon2').show();
-                    $('#stepbarstepicon3').hide();
-                    $('#stepbarstep1').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep2').attr('style','text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep3').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                ;break;
-                case 3:
-                    $('#stepbarstepicon1').hide();
-                    $('#stepbarstepicon2').hide();
-                    $('#stepbarstepicon3').show();
-                    $('#stepbarstep1').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep2').attr('style','text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                    $('#stepbarstep3').attr('style','text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                ;break;
-                default:;
-            }
+        switch (step) {
+            case 1:
+                $('#stepbarstepicon1').show();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').hide();
+                
+                $('#stepbarstep1').addClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 2:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').show();
+                $('#stepbarstepicon3').hide();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').addClass('menustepText-Active');
+                $('#stepbarstep3').removeClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                break;
+            case 3:
+                $('#stepbarstepicon1').hide();
+                $('#stepbarstepicon2').hide();
+                $('#stepbarstepicon3').show();
+                $('#stepbarstep1').removeClass('menustepText-Active');
+                $('#stepbarstep2').removeClass('menustepText-Active');
+                $('#stepbarstep3').addClass('menustepText-Active');                
+                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+                break;
+            default:
+                ;
+        }
         }
 
         window.reloadPage = function reloadPage(){
@@ -428,13 +637,13 @@
         }
 
         window.loadcomplete = function loadcomplete(){
-            let field_passwords = $('#field_passwords').val();
-            let localInfo = loadUIDataSet();
+            var field_passwords = $('#field_passwords').val();
+            var localInfo = loadUIDataSet();
             if(field_passwords =='' ){
             // if(field_passwords =='' || field_passwords != localInfo.loginpw){
                 alert(nls.plsfillpwd);
             }else{
-                let d = instFormData;
+                var d = instFormData;
 
                 instSettlementForm = {
                     clientID: glo.clientid,
@@ -452,7 +661,16 @@
                 }
 
 
-                settlementInstruction(function(){
+                settlementInstruction(field_passwords,function(){
+
+        if(glootperror){
+            alert(nls.otperror);       
+            $('#field_passwords').trigger('focus');
+            glootperror = false;     
+            return;
+        }
+
+
                     loadpage('completepage');
                     $('#stepgo').text(nls.done);
                     handlestepcolor(3);
@@ -463,35 +681,53 @@
         }
 
         window.loadconfirm = function loadconfirm(){
-            let field_name = $('#field_name').val();
-            let field_accountnum = $('#field_accountnum').val();
-            let field_contactname = $('#field_contactname').val();
-            let field_contactnum = $('#field_contactnum').val();
-            let check01 = document.getElementById('check01').checked;
+            var field_name = $('#field_name').val();
+            var field_accountnum = $('#field_accountnum').val();
+            var field_contactname = $('#field_contactname').val();
+            var field_contactnum = $('#field_contactnum').val();
+            var check01 = document.getElementById('check01').checked;
 
-            let stocklstlen = $('.stockList').length;
-            let stockmolstlen = $('.stockmoList').length;
+            var stocklstlen = $('.stockList').length;
+            var stockmolstlen = $('.stockmoList').length;
 
-            let state = true;
-            let qtystate = true;
-            let namestate = true;
+            // var state = true;
+            // var qtystate = true;
+            // var namestate = true;
             if(isdeskStocktable){
 
-                for (let stock = 0; stock<stocklstlen; stock++){
-                    let selItem = $('.settlement-box-one').get(stock);
-                    let selItemName = $('.settlement-box-stockname').get(stock);
-                    let selItemQty = $('.settlement-box-two').get(stock);
-                    if(selItem.value == ''){ state = false; }
-                    if(selItemName.value == ''){ namestate = false; }
-                    if(selItemQty.value == ''){ qtystate = false; }
+                for (var stock = 0; stock<stocklstlen; stock++){
+                    var selItem = $('.settlement-box-one').get(stock);
+                    var selItemName = $('.settlement-box-stockname').get(stock);
+                    var selItemQty = $('.settlement-box-two').get(stock);
+                    if(selItem.value == ''){ 
+
+                      alert(nls.fillinqty);
+                      selItem.focus();
+                      return;
+                      // state = false; 
+                    }
+                    if(selItemName.value == ''){ 
+
+                      alert(nls.fillinstockname);
+                      selItemName.focus();
+                      return;
+                      // namestate = false; 
+                    }
+                    if(selItemQty.value == ''){
+
+                      alert(nls.fillinstockqty);
+                      selItemQty.focus();
+                      return;
+                     // qtystate = false; 
+                   }
                 }
 
             }else{
             
-                for (let stock = 0; stock<stockmolstlen; stock++){
-                    let selItem = $('.settlement-box-one-m').get(stock);
-                    let selItemName = $('.settlement-box-stockname-m').get(stock);
-                    let selItemQty = $('.settlement-box-two-m').get(stock);
+                for (var stock = 0; stock<stockmolstlen; stock++){
+                    var selItem = $('.settlement-box-one-m').get(stock);
+                    var selItemName = $('.settlement-box-stockname-m').get(stock);
+                    var selItemQty = $('.settlement-box-two-m').get(stock);
                     if(selItem.value == ''){ state = false; }
                     if(selItemName.value == ''){ namestate = false; }
                     if(selItemQty.value == ''){ qtystate = false; }
@@ -505,12 +741,47 @@
                 return;
             }
 
-            if(!state){ alert(nls.fillinqty);return; }
-            if(!qtystate){ alert(nls.fillinstockqty);return; }
-            if(!namestate){ alert(nls.fillinstockname);return; }
+            // if(!state){ alert(nls.fillinqty);return; }
+            // if(!qtystate){ alert(nls.fillinstockqty);return; }
+            // if(!namestate){ alert(nls.fillinstockname);return; }
             
+
+            window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
+                var state = false;
+                var msgstart = '';
+                t == 's'? msgstart = nls.choosedata: msgstart = nls.fillindata;
+                if(item == "" || item == null){
+                  state = true;
+                }
+                if(state == true){
+                  alert(msgstart+label);
+                  $( dom).trigger('focus');
+                }
+                return state; 
+            }
+
+
+
             if(field_name =='' || field_accountnum=='' || field_contactname=='' || field_contactnum=='' || check01==false){
-            alert(nls.fillindata2);
+
+
+
+
+              var field1 = vaildationEmpty(field_name,'#field_name',nls.name,'');
+              if(field1 == true) return;
+              var field2 = vaildationEmpty(field_accountnum,'#field_accountnum',nls.acctnum,'');
+              if(field2 == true) return;
+              var field3 = vaildationEmpty(field_contactname,'#field_contactname',nls.acctname,'');
+              if(field3 == true) return;
+              var field4 = vaildationEmpty(field_contactnum,'#field_contactnum',nls.accttel,'');
+              if(field4 == true) return;                                          
+
+              if( check01==false ){
+                alert(nls.fillindata2);
+                return;
+              }
+
+            // alert(nls.fillindata2);
             }else{
                 loadDesktopUItoData(function(){
                     loadDatatoConfirmUI(instFormData);
@@ -522,8 +793,8 @@
             }
         }
         window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data){
-            let d = data;
-            let temp = '\
+            var d = data;
+            var temp = '\
             <table class="confirmbox">\
                  <tr><td colspan="2">'+d.InstructionName+'</td></tr>\
                  <tr><td width="25%">'+nls.fromacct+':</td><td>'+d.formacctName+'</td></tr>\
@@ -536,7 +807,7 @@
                  <tr><td>'+nls.accttel+':</td><td>'+d.CounterpartyTelNo+'</td></tr>\
                  <tr><td colspan="2">'+nls.stockinfo+'</td></tr>';
                 
-                for(let item =0 ; item < d.StockInformationList.length;item++){
+                for(var item =0 ; item < d.StockInformationList.length;item++){
                     temp = temp + '<tr><td colspan="2">' +
                     nls.market+ ': '+ d.StockInformationList[item].marketID +
                     nls.stockno+ ': '+ d.StockInformationList[item].instrumentID +
@@ -581,11 +852,11 @@
             instFormData.StockInformationList = [];
 
             if(isdeskStocktable){
-                let lstlength = $('.stockList').length;
-                let dataLst = [];
+                var lstlength = $('.stockList').length;
+                var dataLst = [];
                 // init form
-                for(let i=0;i<lstlength;i++){
-                    let stockLst = $('.stockList');
+                for(var i=0;i<lstlength;i++){
+                    var stockLst = $('.stockList');
 
                     dataLst[i] = {
                         marketID        :stockLst.find('.settlement-box-market').get(i).value,
@@ -599,12 +870,12 @@
                 }
                 instFormData.StockInformationList = dataLst;
             }else{
-                let lstlength = $('.stockmoList').length;
-                let dataLst = [];
+                var lstlength = $('.stockmoList').length;
+                var dataLst = [];
                 // init form
-                for(let i=0;i<lstlength;i++){
-                    let stockLst = $('.stockmoList');
-                    let stockLstbody = $('.stockmoListbody');
+                for(var i=0;i<lstlength;i++){
+                    var stockLst = $('.stockmoList');
+                    var stockLstbody = $('.stockmoListbody');
 
                     dataLst[i] = {
                         marketID        :stockLstbody.find('.settlement-box-market-m').get(i).value,
@@ -624,10 +895,10 @@
         }
 
 
-    window.settlementInstruction = function settlementInstruction(callback){
+    window.settlementInstruction = function settlementInstruction(otpVal,callback){
 
-        let loadDS = loadUIDataSet();
-        let dataSet={
+        var loadDS = loadUIDataSet();
+        var dataSet={
             "form":
             {
               "name": "settlementInstruction",
@@ -639,6 +910,7 @@
                 "version": "1",
                 "traceNo": "1"
               },
+              "otp": otpVal,
               "body": instSettlementForm
             }
         }
@@ -669,25 +941,26 @@
         (callback && typeof(callback) === "function") && callback();
 
     }
-        let loadinstallFx = function(){
+        var loadinstallFx = function(){
 
             loadinstallFx.prototype.initBehavior = function(){
 
 
             window.nls = {
-                nextstep: '下一步',
+                otperror:'一次性密碼不正確, 試再次輸入',
+                nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '參考編號:',
                 fail: '未能完成',
                 done: '完成',
                 plsfillpwd: '請輸入密碼',
                 loginacctfirst: '請先登入帳號',
-                fillindata: '請輸入／選擇資料',
+                fillindata: '請輸入',
                 fillinqty:'請輸入股票代號',
                 fillinstockqty:'請輸入股票股數',
                 fillinstockname:'請輸入股票名稱',
-                fillindata2:'請輸入／選擇資料及按接受條款',                
-
+                fillindata2:'請按接受條款',                
+                choosedata: '請選擇',
                 FOP:'無需付款交收',
                 DVP:'金額對付交收',
                 Custodian: 'Custodian',
@@ -695,8 +968,8 @@
                 deposit: '存入',
                 withdraw: '提取',
 
-                fromacct:'支賬戶口',
-                toacct:'收賬戶口',
+                fromacct:'支帳戶口',
+                toacct:'收帳戶口',
                 transmethod:'交收方法',
                 market:'市場',
                 acceptman:'交收對手',
@@ -713,7 +986,7 @@
 
             };
 
-
+            window.glootperror = false;
             window.isdeskStocktable = true;
 
             $(window).resize(function(){
@@ -739,11 +1012,11 @@
             glo.isloginflag = false;
             glo.sessionid = "";
             glo.sessionid = "@{S:SESSIONID}";
-            // glo.sessionid = '';
             glo.clientid = "@{S:CLIENTID}";
+            var transacctlst = '@{S:TRADINGACCLIST}';
+            // glo.sessionid = '';
             // glo.clientid = '';
-            let transacctlst = '@{S:TRADINGACCLIST}';
-            // let transacctlst = '';
+             // transacctlst = '';
 
             transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
@@ -752,7 +1025,7 @@
             window.haveMType = false;
             $('.marginchoice').hide();
             if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
-                for (let i = 0; i < glo.tranaccseq.length; i++) {
+                for (var i = 0; i < glo.tranaccseq.length; i++) {
                     if (glo.tranaccseq[i].accountType == "M") {
                         haveMType = true;
                     }
@@ -762,12 +1035,12 @@
             haveMType == true && $('.marginchoice').show();
             
             $('#stepback').on('click',function(e){
-                let selpage = glostepback;
+                var selpage = glostepback;
                 loadstep(selpage);
             });
 
             $('#stepgo').on('click',function(e){
-                let selpage = glostepgo;
+                var selpage = glostepgo;
                 loadstep(selpage);
             });
 
@@ -787,7 +1060,7 @@
 
             $('.cashTradingBtn').on('click',function(e){
 
-                let curSelItem = $(this).data().tradtype;
+                var curSelItem = $(this).data().tradtype;
                 $('.cashTradingBtn').removeClass('cashTradingActive');
                 $(this).addClass('cashTradingActive');
 
@@ -834,14 +1107,14 @@
             });          
             $('body').on('click','.removestockmobtn',function(e){
                     // $(this).parent().parent().remove();
-                    let stockheader = $(this).parent().parent().parent().parent().parent().parent().prev();
-                    let stockbody = $(this).parent().parent().parent().parent().parent().parent();
+                    var stockheader = $(this).parent().parent().parent().parent().parent().parent().prev();
+                    var stockbody = $(this).parent().parent().parent().parent().parent().parent();
 
                     stockheader.remove();
                     stockbody.remove();                    
             });
         }
-            let init = new loadinstallFx();
+            var init = new loadinstallFx();
             init.initBehavior();
             // $('.settlement-addstockBtn').click();
       });
