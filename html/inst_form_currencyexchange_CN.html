@@ -467,6 +467,9 @@ $('#acc_btn_otp').click(function(e){
     }
     window.initJS = function initJS(){
 
+            $('body').on('keydown', '#field_amount', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+            $('body').on('keydown', '#field_amount_to', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});            
+
         window.nls = {
             otperror:'一次性密码不正确，试再次输入',
             nextstep: '同意，下一步',
@@ -479,6 +482,7 @@ $('#acc_btn_otp').click(function(e){
             fillindata: '請輸入',
             choosedata: '請選擇',
             amount: '金額',
+            amounterror: '金額不可小於0',
             localbank: '本地銀行',
             overseabank: '海外銀行',
             transfer: '轉帳',
@@ -535,7 +539,7 @@ $('#acc_btn_otp').click(function(e){
 
 
         $('#stepback').on('click', function(e) {
-            var selpage = glostepback;
+            var selpage = glostepback; 
             loadstep(selpage);
         });
 
@@ -749,6 +753,11 @@ $('#acc_btn_otp').click(function(e){
             return;
         }
         if(fd.state){
+            //check zero amount
+            if(fd.fromAmount == '0' || fd.toAmount == '0'){
+                alert(nls.amounterror);
+                return;
+            }
             exchangeForm.tradingAccSeq = fd.tradingAccSeq;
             $('#selAcctType').text(acctTypeMapping(fd.transAcct));
             $('#selFormCur').text(currencyMapping(exchangeForm.fromCurrency)+' '+formlabelval);

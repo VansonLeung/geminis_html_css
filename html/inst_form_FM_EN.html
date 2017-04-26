@@ -822,6 +822,13 @@ $('#acc_btn_otp').click(function(e){
               if(field6 == true) return;
 
         } else {
+            //check zero amount
+            if(field_amount == '0'){
+                alert(nls.amounterror);
+                return;
+            }
+
+
             loadDesktopUItoData(function() {
                 loadDatatoConfirmUI(instFormData);
                 loadpage('confirmpage');
@@ -985,6 +992,7 @@ $('#acc_btn_otp').click(function(e){
                 transacct: '交易戶口',
                 transmethod: '交收方法',
                 amount: '金額',
+                amounterror: '金額不可小於0',
                 currency: '貨幣',
                 remark: '備註',
                 cashfrom: '資金提取至',
