@@ -1,0 +1,295 @@
+<style type="text/css">.redbartop{
+        width: 100%; height: 10px;  background-color: #bc0000;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .subsubmenuBar{
+     background-color: #dddddd;
+            height: calc(100% - 20px);
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+    #subsubMenu{
+          height: 70px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 10px 20px 0px 20px;
+     font-size:0.9em;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+    @media only screen and (min-width: 992px) {
+    #subsubMenu{
+          height: 90px;
+        background-color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-radius: 8px;  
+    }
+
+    .subsubmenuBox{
+     background-color: rgba(0,0,0,0);
+     height: 100%;
+     padding: 20px 30px 0px 30px;
+     font-size:1.2em;
+     text-align:center;
+     color:#6c6c6c;
+     float: left;
+         cursor: pointer;
+    }
+    }
+
+
+    .subsubmenuBox-Active{
+     color:#bc0000;
+     background-color: #ffffff;
+    }
+    .subsubmenuBox-Active p{
+     color:#bc0000;
+        border-bottom: 4px solid #bc0000 !important;
+    }
+    .subsubmenuBox p{
+     color:#6c6c6c;
+        margin: 0px;
+        border-bottom: 0px solid #bc0000;
+    }
+    .subsubmenuBox-Active a{
+     color:#bc0000;
+        
+    }
+    .subsubmenuBox a{
+     color:#6c6c6c;
+
+    }
+    .stepbar{
+        height:377px;border-radius: 8px;background-color: #fff;max-width: 284px;padding-top: 55px;padding-left:72px;
+    }
+    .enqu{
+    display: block;
+        padding: 0px !important;
+    }
+    .inst{
+    display: none;
+
+    }
+
+    .stepBottomBar{
+        width:100%; 
+    }
+    #stepback{
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
+    }
+    #stepgo{
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
+    }
+
+    .menustepArea{
+        padding:0;margin:0;
+    }
+    .menustepIcon{
+    display:none;width:16px;height:16px;
+    }
+    .menustepText{
+    text-align:left;color:#666;font-size: 0.8em;line-height: 1.2em;
+    }
+    .menustepText-Active{
+    text-align:left;color:#d94634;font-size: 0.8em;line-height: 1.2em;
+    }
+</style>
+<section>
+<div class="row" style="max-width: 1300px;">
+<div class="col s12 m12 l12" style="padding:0 !important;">
+<div id="subsubMenu">
+<div class="redbartop">&nbsp;</div>
+
+<div class="subsubmenuBar">
+<a href="../currency-exchange-instruction/">
+    <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
+        <p>货币交易指示</p>
+    </div>
+</a>
+<div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
+<p>货币交易指示查询</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="enqu" id="enquArea">&nbsp; <!-- enqu -->
+<div class="gem_form notopstripe">
+<div>
+<table class="generic-table-header smallmedpadding">
+    <tbody>
+        <tr>
+            <td class="font_lg">货币交易指示查询</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="generic-table-content font_smedmed" id="enquiryTable">
+</table>
+</div>
+</div>
+<!-- enqu --></div>
+</div>
+</section>
+<script>
+
+
+
+      $(function(e){
+
+
+ 
+    window.loadUIDataSet = function loadUIDataSet() {
+
+        var dataSet = {}
+        dataSet.acct = "9910-268";
+        dataSet.pwd = "12345678";
+        dataSet.loginid = "@{S:CLIENTID}";
+        // dataSet.loginid = "9910-268";
+        dataSet.loginpw = "12345678";
+        return dataSet;
+    }
+ 
+   
+    window.initJS = function initJS(){
+
+        window.nls = {
+            refno:'参考编号',
+            createtime:'指示时间',
+            form:'由',
+            amount:'金额',
+            to:'转换到',
+            raito:'汇率',
+            nodata:'没有资料显示'
+        };
+
+        window.glostepback = 1;
+        window.glostepgo = 2;
+ 
+
+        window.glo = {}
+        glo.isloginflag = false;
+        // glo.sessionid = "@{S:SESSIONID}";
+        // glo.clientid = "@{S:CLIENTID}";
+        // var transacctlst = '@{S:TRADINGACCLIST}';
+        glo.sessionid = "";
+        glo.clientid = "";
+        transacctlst = "";
+        transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
+
+        glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+
+        var haveMType = false;
+        $('.marginchoice').hide();
+        if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
+            for (var i = 0; i < glo.tranaccseq.length; i++) {
+                if (glo.tranaccseq[i].accountType == "M") {
+                    haveMType = true;
+                }
+            }
+        }
+
+        haveMType == true && $('.marginchoice').show();
+
+        if(glo.sessionid !='' && glo.clientid !=''){
+            loadEnquiryData();
+        }else{
+               var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                $('#enquiryTable').empty().append(tempUI);
+        }
+ 
+ 
+
+
+    }
+    window.convtoi18n = function convtoi18n(lang,culture){
+        var langculture = [];
+        var sellang = lang+'_'+culture;
+        langculture['zh_HK'] = "zh_TW";
+        langculture['zh_TW'] = "zh_TW";
+        langculture['zh_CN'] = "zh_CN";
+        langculture['en_US'] = "en_US";
+        if(langculture[sellang] == undefined){
+            return 'en_US';
+        }else{
+            return langculture[sellang];
+        }
+    }
+
+   
+ 
+    window.loadEnquiryData = function loadEnquiryData() {
+        var enquiryForm = {
+            clientID: glo.clientid,
+            sessionID: glo.sessionid,
+            language: glo.locallang,
+            tradingAccSeq: 1
+        }
+        var loadDS = loadUIDataSet();
+        var enloaddata = {
+            "form": {
+                "name": "foreignExchangeInstructionEnquiry",
+                "credentials": {
+                    "username": loadDS.acct,
+                    "password": loadDS.pwd
+                },
+                "header": {
+                    "version": "1",
+                    "traceNo": "1"
+                },
+                "body": enquiryForm
+            }
+        }
+        turnLoader('c');
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            data: JSON.stringify(enloaddata),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+                var resuData = responseData.data;
+                if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
+                    var convData = resuData.foreignExchangeInstructionList;
+                    var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                    for (var i = 0; i < convData.length; i++) {
+                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + convData[i].fromAmount + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + convData[i].toAmount + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
+                    }
+                    $('#enquiryTable').empty().append(tempUI);
+                }
+                turnLoader();
+            },
+            error: function(responseData, textStatus, errorThrown) {
+                    var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                $('#enquiryTable').empty().append(tempUI);
+                turnLoader();
+            }
+        });
+    }
+
+
+
+
+    initJS();
+    
+      });
+</script>
