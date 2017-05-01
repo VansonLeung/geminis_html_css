@@ -170,6 +170,13 @@ section {
 
         &.highlighted {
           background-color: #F3F3F3;
+
+          &.li_right {
+            background-color: #ce0f00;
+            a {
+              color: #fff !important;
+            }
+          }
         }
       }
     }

@@ -43,7 +43,7 @@
               </ul>
               <ul id="nav-mobile" class="right">
                 <li style="border-right: 1px solid #999999; width: 100px; text-align: center"><a href="badges.html"><i class="fa fa-search"></i></a></li>
-                <li><a class="c_red" href="collapsible.html">Account</a></li>
+                <li class="li_right"><a class="c_red" href="collapsible.html">Account</a></li>
               </ul>
 
             </div>
@@ -112,6 +112,15 @@
     target.addClass('highlighted')
 
     $('#nav-overlay').show();
+
+    if (target.hasClass('li_right'))
+    {
+      $('#nav-overlay').addClass('right');
+    }
+    else
+    {
+      $('#nav-overlay').removeClass('right');
+    }
 
     if (overlay_time)
     {

@@ -10,7 +10,6 @@
   display: none;
   z-index: 100000;
   top: 130px;
-  height: 430px;
   width: 100%;
   position: absolute;
   background: #F3F3F3;
@@ -86,4 +85,42 @@
 
     }
   }
+
+
+  &.right
+  {
+    background: #ce0f00;
+    color: #fff;
+
+    .col.s3.box p.font_sm.c_grey_2
+    {
+      color: #fff !important;
+    }
+
+    ul.nav-sub-menu
+    {
+      li
+      {
+        color: #fff !important;
+
+        .arrow
+        {
+          background: url('../images/menu_arrow_2.png') 0 -16px;
+        }
+
+        &.active
+        {
+          background-color: #fff;
+          color: #000 !important;
+
+          .arrow
+          {
+            background: url('../images/menu_arrow_2.png') 0 0;
+          }
+        }
+
+      }
+    }
+  }
+
 }
