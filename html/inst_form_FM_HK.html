@@ -113,6 +113,34 @@
     .radionewlabel{
         color: #333;
     }
+    .newinstselect{
+        height: 78px;
+        display: table;
+    }
+    .newinstselectitem{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .custselectitem select {
+      padding:5px 5px 5px 10px;
+      background: transparent;
+      border: none;
+      font-size: 0.8em; 
+      padding: 5px;
+      width: 100%;
+      color: black;
+    }
+    .custselectitem{ 
+      padding:5px 5px 5px 10px;
+      overflow: hidden;
+      width: 100%;
+      background-color:white;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;  
+      border:1px solid #999;
+    }
+
 </style>
 <section>
 <div class="row" style="max-width: 1300px;">
@@ -124,10 +152,11 @@
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
 <p>資金交易指示</p>
 </div>
-
+<a href="../deposit-Instruction-enquiry/">
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p><a href="../deposit-Instruction-enquiry/">現金存取指示查詢</a></p>
+<p>現金存取指示查詢</p>
 </div>
+</a>
 </div>
 </div>
 </div>
@@ -186,11 +215,11 @@
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 現金戶口 </label></div>
 </div>
 
 <div class="col s12 m12 l6 marginchoice cbcitem">
-<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 保證金戶口 </label></div>
 </div>
 </div>
 </div>
@@ -266,12 +295,26 @@
 <!-- miss -->
 
 <div class="inst-area-three row">
-<div class="col s4 m4 l4 inst-form-select includecurrency inst-grid-b"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<!-- <div class="col s4 m4 l4 inst-form-select includecurrency inst-grid-b"> -->
+<div class="col s4 m4 l4 inst-grid-b newinstselect">
+<div class="newinstselectitem">
+  <div class="custselectitem">
+  <select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select>
+  </div>
+</div>
+<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 
 <div class="col s8 m8 l8 inst-grid-b">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金額</label></div>
+<div class="input-field col s12">
+<input class="validate labelfield" id="field_amount" type="number" /> 
+<label class="labelfield-text" for="field_amount">金額</label>
+<p id="field_amount_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 </div>
 </div>
 </div>
@@ -285,7 +328,7 @@
 </div>
 </div>
 
-<h6 class="inst-tips">* Do not accept third party transfer</h6>
+<h6 class="inst-tips">* 不接受第三方匯款</h6>
 
 <div class="col s12">
 <h5 class="inst-form-2ndtitle withdrawTitle">提取至銀行戶口</h5>
@@ -295,7 +338,10 @@
 <div class="col s12 m12 l6 inst-grid-t inst-grid-b editable">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">銀行名稱</label></div>
+<div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">銀行名稱</label>
+    <p id="field_bankname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 </div>
 </div>
 </div>
@@ -303,7 +349,10 @@
 <div class="col s12 m12 l6 inst-grid-t inst-grid-r inst-grid-b">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountname">戶口姓名</label></div>
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountname">戶口姓名</label>
+    <p id="field_bankaccountname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 </div>
 </div>
 </div>
@@ -313,7 +362,10 @@
 <div class="col s12 m12 l6 inst-grid-b">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountnum">銀行戶口號碼</label></div>
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountnum">銀行戶口號碼</label>
+    <p id="field_bankaccountnum_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 </div>
 </div>
 </div>
@@ -321,7 +373,10 @@
 <div class="col s12 m12 l6 inst-grid-r inst-grid-b">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input class="validate labelfield" id="field_bankswiftcode" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">銀行／國際代碼</label></div>
+<div class="input-field col s12"><input class="validate labelfield" id="field_bankswiftcode" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">銀行／國際代碼</label>
+    <p id="field_bankswiftcode_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 </div>
 </div>
 </div>
@@ -351,7 +406,7 @@
 </div>
 <!-- new requirement -->
 
-<div class="col s12">
+<div class="col s12 instdetailsinfo">
 <h5 class="inst-form-2ndtitle depositTitle">存款指示詳情</h5>
 </div>
 
@@ -363,7 +418,7 @@
   <li>SWIFT編碼：HSBCHKHH</li>
   <li>銀行地址：香港中環皇后大道中1號</li>
   <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
-  <li>帳戶號碼: 500-357561-292 (港元)</li>
+  <li>帳戶號碼： <span class="dynamicAcctNo">500-357561-292 (HKD)</span></li>
   <li>&nbsp;</li>
   <li>*請於入數紙或電匯通知書上寫上帳戶號碼及姓名，電郵至xxxxx@geminisgroup.com或傳真至 （852） xxxxxxxx</li>
 </ul>
@@ -374,7 +429,7 @@
   <li>SWIFT編碼：HSBCHKHH</li>
   <li>銀行地址：香港中環皇后大道中1號</li>
   <li>帳戶名稱：Geminis Securities Limited &ndash; Client Trust A/C</li>
-  <li>帳戶號碼: 500-357561-274 (美元)</li>
+  <li>帳戶號碼： <span class="dynamicAcctNo">500-357561-274 (USD)</span></li>
   <li>&nbsp;</li>
   <li>中轉銀行</li>
   <li>銀行名稱：滙豐銀行（美國紐約）</li>
@@ -407,7 +462,9 @@
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label></div>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label>
+<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+</div>
 
 <div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
 </div>
@@ -607,6 +664,13 @@ $('#acc_btn_otp').click(function(e){
             return langculture[sellang];
         }
     }
+    window.formatAmount = function formatAmount(n, currency) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+        }
+    }
 
     window.loadstep = function loadstep(step) {
         switch (step) {
@@ -695,7 +759,8 @@ $('#acc_btn_otp').click(function(e){
         var localInfo = loadUIDataSet();
         // if(field_passwords =='' || field_passwords != localInfo.loginpw){
         if (field_passwords == '') {
-            alert(nls.plsfillpwd);
+            $('#otplabel').text(nls.plsfillpwd);
+            // alert(nls.plsfillpwd);
         } else {
             var d = instFormData;
             if (d.Instruction == 'D') {
@@ -716,8 +781,9 @@ $('#acc_btn_otp').click(function(e){
                 depositCash(field_passwords,function() {
 
         if(glootperror){
-            alert(nls.otperror);       
-            $('#field_passwords').trigger('focus');
+            $('#otplabel').text(nls.otperror);
+            // alert(nls.otperror);       
+            // $('#field_passwords').trigger('focus');
             glootperror = false;     
             return;
         }
@@ -751,8 +817,9 @@ $('#acc_btn_otp').click(function(e){
                 withdrawCash(field_passwords,function() {
 
         if(glootperror){
-            alert(nls.otperror);       
-            $('#field_passwords').trigger('focus');
+            $('#otplabel').text(nls.otperror);
+            // alert(nls.otperror);       
+            // $('#field_passwords').trigger('focus');
             glootperror = false;     
             return;
         }
@@ -789,45 +856,98 @@ $('#acc_btn_otp').click(function(e){
         var field_bankswiftcode = $('#field_bankswiftcode').val();
         var field_amount = $('#field_amount').val();
         var field_currency = $('#field_currency').val();
+        var vailstate = true;
 
+        function popwarning(field){
+          var msg = '';
+          if(field == 'a'){
+            msg = nls.fillindata+nls.amount;
+          }
+          if(field == 'c'){
+            msg = nls.choosedata+nls.currency;
+          }
+          if(field == '0'){
+            msg = nls.amounterror;
+          }
+          if(field == 'bn'){
+            msg = nls.fillindata+nls.bankname;
+          }
+          if(field == 'ban'){
+            msg = nls.fillindata+nls.bankaccountname;
+          }
+          if(field == 'bno'){
+            msg = nls.fillindata+nls.bankaccountnum;
+          }
+          if(field == 'bsc'){
+            msg = nls.fillindata+nls.bankcode;
+          }
+          return msg;
+        }
+        function resetamtcur(){
+            $('#field_currency_vaillab').html('&nbsp');
+            $('#field_amount_vaillab').html('&nbsp');
+        }
+        function resetWbankinfo(){
+            $('#field_bankname_vaillab').html('&nbsp');
+            $('#field_bankaccountname_vaillab').html('&nbsp');
+            $('#field_bankaccountnum_vaillab').html('&nbsp');
+            $('#field_bankswiftcode_vaillab').html('&nbsp');
+                $('#otplabel').html('&nbsp');
+        }
 
-        if (glo.sessionid == '' || glo.clientid == '') {
-
-            alert(nls.loginacctfirst);
-            return;
-        
+        if(!debuggermode){
+            if (glo.sessionid == '' || glo.clientid == '') {
+                alert(nls.loginacctfirst);
+                return;
+            }
         }
 
         if(instFormData.Instruction == 'W'){
-            // if(field_bankname == '' || field_bankaccountname == '' || field_bankaccountnum == '' || field_bankswiftcode == ''){
+           resetWbankinfo();
+                if(field_bankname == ''){
+                    $('#field_bankname_vaillab').text(popwarning('bn'));
+                    vailstate = false;
 
-              var field1 = vaildationEmpty(field_bankname,'#field_bankname',nls.bankname,'');
-              if(field1 == true) return;
-              var field2 = vaildationEmpty(field_bankaccountname,'#field_bankaccountname',nls.bankaccountname,'');
-              if(field2 == true) return;
-              var field3 = vaildationEmpty(field_bankaccountnum,'#field_bankaccountnum',nls.bankaccountnum,'');
-              if(field3 == true) return;
-              var field4 = vaildationEmpty(field_bankswiftcode,'#field_bankswiftcode',nls.bankcode,'');
-              if(field4 == true) return;
-              
-                // alert(nls.fillindata);
-                // return;
-            // }
+                }
+                if(field_bankaccountname == ''){
+                    $('#field_bankaccountname_vaillab').text(popwarning('ban'));
+                    vailstate = false;
+
+                }
+                if(field_bankaccountnum == ''){
+                    $('#field_bankaccountnum_vaillab').text(popwarning('bno'));
+                    vailstate = false;
+
+                }
+                if(field_bankswiftcode == ''){
+                    $('#field_bankswiftcode_vaillab').text(popwarning('bsc'));
+                    vailstate = false;
+
+                }
+ 
         }
-        if ( field_amount == '' || field_currency == '' || field_currency == null) {
-            // alert(nls.fillindata);
-              var field5 = vaildationEmpty(field_amount,'#field_amount',nls.amount,'');
-              if(field5 == true) return;
-              var field6 = vaildationEmpty(field_currency,'#field_currency',nls.currency,'s');
-              if(field6 == true) return;
+           resetamtcur();
 
-        } else {
-            //check zero amount
-            if(field_amount == '0'){
-                alert(nls.amounterror);
-                return;
+            if(field_currency == '' || field_currency == null) {
+                $('#field_currency_vaillab').text( popwarning('c'));
+                vailstate = false;
             }
 
+            if(field_amount == ''){
+                $('#field_amount_vaillab').text( popwarning('a'));
+                vailstate = false;
+            }
+
+            //check zero amount
+            if(parseFloat(field_amount) == 0){
+                $('#field_amount_vaillab').text(popwarning('0'));
+                vailstate = false;
+            }
+
+            if(vailstate == false){
+                vailstate = true;
+                return;
+            }
 
             loadDesktopUItoData(function() {
                 loadDatatoConfirmUI(instFormData);
@@ -836,7 +956,7 @@ $('#acc_btn_otp').click(function(e){
                 glostepback = 1;
                 glostepgo = 3;
             });
-        }
+        
     }
     window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data) {
         var d = data;
@@ -845,7 +965,7 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
                  <tr><td width="25%">' + nls.transacct + '：</td><td>' + d.TradingAccSeqName + '</td></tr>\
                  <tr><td>' + nls.transmethod + '：</td><td>' + d.SettleMethodName + '</td></tr>\
-                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + d.Amount + '<td></tr>\
+                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + formatAmount(parseFloat(d.Amount),'') + '<td></tr>\
                  <tr><td>' + nls.remark + '：</td><td>' + d.StatementRemark + '</td></tr>';
         if (d.transferacctTypeName) {
             temp += '<tr><td>' + nls.cashfrom + '：</td><td>' + d.transferacctTypeName + '</td></tr>';
@@ -953,6 +1073,17 @@ $('#acc_btn_otp').click(function(e){
     }
 
     window.loadtipsforCur = function loadtipsforCur(cur){
+        var currencyLabel = [];
+        currencyLabel['HKD'] = '500-357561-292 (HKD)';
+        currencyLabel['USD'] = '500-357561-274 (USD)';
+        currencyLabel['EUR'] = '500-357561-275 (EUR)';
+        currencyLabel['AUD'] = '500-357561-277 (AUD)';
+        currencyLabel['CNY'] = '500-357561-285 (CNY)';
+        currencyLabel['JPY'] = '500-357561-278 (JPY)';
+        currencyLabel['GBP'] = '500-357561-276 (GBP)';
+        currencyLabel['SGD'] = '500-357561-280 (SGD)';
+        currencyLabel['CHF'] = '500-357561-281 (CHF)';
+        currencyLabel['MYR'] = '301-753257-102 (MYR)';
         if(cur == 'USD'){
             $('.normaCurArea').hide();
             $('.usdCurArea').show();
@@ -960,6 +1091,8 @@ $('#acc_btn_otp').click(function(e){
             $('.normaCurArea').show();
             $('.usdCurArea').hide();
         }
+
+        $('.dynamicAcctNo').text(currencyLabel[cur]);
     }
 
     var loadinstallFx = function() {
@@ -985,8 +1118,8 @@ $('#acc_btn_otp').click(function(e){
                 transfer: '轉帳',
                 cheuqe: '支票',
                 telex: '電匯',
-                Custodian: 'Custodian',
-                Margin: 'Margin',
+                Custodian: '現金戶口',
+                Margin: '保證金戶口',
                 deposit: '存入',
                 withdraw: '提取',
                 transacct: '交易戶口',
@@ -1008,6 +1141,9 @@ $('#acc_btn_otp').click(function(e){
             window.instFormData = {};
             window.instSettlementForm = {};
             instFormData.Instruction = 'D';
+        // window.debuggermode = true;
+        window.debuggermode = false;
+            
             handlestepcolor(1);
 
 
@@ -1065,10 +1201,12 @@ $('#acc_btn_otp').click(function(e){
             $(".withdrawTitle").hide();
             $(".inst-tips").hide();
             
-            $('.normaCurArea').show();
+            $('.instdetailsinfo').hide();
+            $('.normaCurArea').hide();
             $('.usdCurArea').hide();
             $('#remarkarea').trigger('autoresize');
             $('#field_currency').on('change',function(e){
+            $('.instdetailsinfo').show();
                 var selcur = $(this).val();
                 loadtipsforCur(selcur);                
             });

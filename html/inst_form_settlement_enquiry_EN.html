@@ -23,7 +23,7 @@
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 10px 20px 0px 20px;
-     font-size:0.9em;
+     font-size:18px;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -43,7 +43,7 @@
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 20px 30px 0px 30px;
-     font-size:1.2em;
+     font-size:24px;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -89,10 +89,10 @@
         width:100%; 
     }
     #stepback{
-      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
     }
     #stepgo{
-        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
     }
 
     .menustepArea{
@@ -102,10 +102,10 @@
     display:none;width:16px;height:16px;
     }
     .menustepText{
-    text-align:left;color:#666;font-size: 0.8em;line-height: 1.2em;
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
     }
     .menustepText-Active{
-    text-align:left;color:#d94634;font-size: 0.8em;line-height: 1.2em;
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
     }
 </style>
 <section>
@@ -115,13 +115,12 @@
 <div class="redbartop">&nbsp;</div>
 
 <div class="subsubmenuBar">
-<a href="../currency-exchange-instruction/">
-    <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
-        <p>货币交易指示</p>
-    </div>
-</a>
+<div class="subsubmenuBox" data-gmnsubsubmenu="inst">
+<p><a href="../stock-instruction/">Settlement Instruction</a></p>
+</div>
+
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
-<p>货币交易指示查询</p>
+<p>Settlement Instruction Enquiry</p>
 </div>
 </div>
 </div>
@@ -133,7 +132,7 @@
 <table class="generic-table-header smallmedpadding">
     <tbody>
         <tr>
-            <td class="font_lg">货币交易指示查询</td>
+            <td class="font_lg">Settlement Instruction Enquiry</td>
         </tr>
     </tbody>
 </table>
@@ -168,13 +167,20 @@
     window.initJS = function initJS(){
 
         window.nls = {
-            refno:'参考编号',
-            createtime:'指示时间',
-            form:'由',
-            amount:'金额',
-            to:'转换到',
-            raito:'汇率',
-            nodata:'没有资料显示'
+            deposit: 'Deposit',
+            withdraw: 'Withdrawal',
+            fop: 'Free of Payment',
+            dvp : 'Delivery Against Payment',
+            refno:'Ref No',
+            createtime:'Instructiom Date & Time',
+            market:'Market',
+            labelno:'Stock Code',
+            inst:'Stock/Instruction',
+            qty:'Quantity',
+            methods:'Settle Method',
+            createdate:'Create Date',
+            transtype:'Settle Type',
+            nodata:'No Record'
         };
 
         window.glostepback = 1;
@@ -209,8 +215,8 @@
             loadEnquiryData();
         }else{
                var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>  <th>'+nls.transtype+'</th> </tr>';
+                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
         }
  
@@ -232,14 +238,7 @@
         }
     }
 
-    window.formatAmount = function formatAmount(n, currency) {
-        if(isNaN(n)){
-            return '';
-        }else{
-            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
-        }
-    }
-
+   
  
     window.loadEnquiryData = function loadEnquiryData() {
         var enquiryForm = {
@@ -251,7 +250,7 @@
         var loadDS = loadUIDataSet();
         var enloaddata = {
             "form": {
-                "name": "foreignExchangeInstructionEnquiry",
+                "name": "settlementInstructionEnquiry",
                 "credentials": {
                     "username": loadDS.acct,
                     "password": loadDS.pwd
@@ -272,26 +271,57 @@
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
                 var resuData = responseData.data;
-                if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
-                    var convData = resuData.foreignExchangeInstructionList;
+                if (resuData.settlementInstructionList && resuData.settlementInstructionList.length > 0) {
+                    var convData = resuData.settlementInstructionList;
                     var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
                     for (var i = 0; i < convData.length; i++) {
-                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + formatAmount(convData[i].fromAmount,'') + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + formatAmount(convData[i].toAmount,'') + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
+                        if(convData[i].stockInformationList && convData[i].stockInformationList.length > 0){
+                            for(var j =0;j< convData[i].stockInformationList.length;j++){
+                                var cursubsettItem = convData[i].stockInformationList[j];
+                                var convtime = '/ /';
+                                 convtime = convData[i].creationTime.split(' ');
+                                 var instLabel = '';
+                                 var settlLabel = '';
+                                 if(convData[i].instruction == 'D'){
+                                    instLabel = nls.deposit;
+                                 }
+                                 if(convData[i].instruction == 'W'){
+                                    instLabel = nls.withdraw;
+                                 }
+                                 if(convData[i].settlementMethod == 'FOP'){
+                                    settlLabel = nls.fop;
+                                 }
+                                 if(convData[i].settlementMethod == 'DVP'){
+                                    settlLabel = nls.dvp;
+                                 }
+                                tempUI += 
+                                '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> \
+                                <td>' + convData[i].creationTime + '</td> \
+                                <td>' + cursubsettItem.marketID + '</td> \
+                                <td>' + cursubsettItem.instrumentID + '</td> \
+                                <td>' + cursubsettItem.instrumentName + '</td> \
+                                <td>' + cursubsettItem.qty + '</td> \
+                                <td>' + settlLabel + '</td>  \
+                                <td>' + instLabel + '</td> \
+                                </tr>';
+                            }
+                        }
+
                     }
                     $('#enquiryTable').empty().append(tempUI);
                 }else{
-                    var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+               var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
+                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
-                }
+                        }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
-                    var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+               var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
+                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                 turnLoader();
             }

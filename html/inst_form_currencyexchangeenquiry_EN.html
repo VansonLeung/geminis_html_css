@@ -170,11 +170,11 @@
         window.nls = {
             refno:'Ref. No',
             createtime:'Create Time',
-            form:'Form',
+            form:'From',
             amount:'Amount',
-            to:'exchange to',
-            raito:'Ratio',
-            nodata:'Not data show'
+            to:'Exchange To',
+            raito:'Exchange Rate',
+            nodata:'No Record'
         };
 
         window.glostepback = 1;
@@ -183,12 +183,12 @@
 
         window.glo = {}
         glo.isloginflag = false;
-        // glo.sessionid = "@{S:SESSIONID}";
-        // glo.clientid = "@{S:CLIENTID}";
-        // var transacctlst = '@{S:TRADINGACCLIST}';
-        glo.sessionid = "";
-        glo.clientid = "";
-        transacctlst = "";
+        glo.sessionid = "@{S:SESSIONID}";
+        glo.clientid = "@{S:CLIENTID}";
+        var transacctlst = '@{S:TRADINGACCLIST}';
+        // glo.sessionid = "";
+        // glo.clientid = "";
+        // transacctlst = "";
         transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
         glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
@@ -210,7 +210,7 @@
         }else{
                var tempUI = '';
                     tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
         }
  
@@ -229,6 +229,14 @@
             return 'en_US';
         }else{
             return langculture[sellang];
+        }
+    }
+
+    window.formatAmount = function formatAmount(n, currency) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
         }
     }
 
@@ -270,16 +278,21 @@
                     var tempUI = '';
                     tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
                     for (var i = 0; i < convData.length; i++) {
-                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + convData[i].fromAmount + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + convData[i].toAmount + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
+                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + formatAmount(convData[i].fromAmount,'') + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + formatAmount(convData[i].toAmount,'') + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
                     }
                     $('#enquiryTable').empty().append(tempUI);
+                }else{
+                    var tempUI = '';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                tempUI += '<tr> <td colspan="7"  style="text-align:center">'+nls.nodata+'</td> </tr>';
+                $('#enquiryTable').empty().append(tempUI);
                 }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
                     tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="7"  style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                 turnLoader();
             }

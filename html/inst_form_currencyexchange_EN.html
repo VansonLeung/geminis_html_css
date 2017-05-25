@@ -113,6 +113,31 @@ max-width:none;
     .radionewlabel{
         color: #333;
     }
+    .newinstselect{
+        /*height: 76px;*/
+        width: 100%;
+    }
+    .newinstselectitem{
+    }
+    .custselectitem select {
+      padding:5px 5px 5px 10px;
+      background: transparent;
+      border: none;
+      font-size: 0.8em; 
+      padding: 5px;
+      width: 100%;
+      color: black;
+    }
+    .custselectitem{ 
+      padding:5px 5px 5px 10px;
+      overflow: hidden;
+      width: 100%;
+      background-color:white;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;  
+      border:1px solid #999;
+    } 
 </style>
 <section><!-- <section style="background-color:#f2f2f2;"> -->
 <div class="row" style="max-width: 1300px;">
@@ -180,7 +205,7 @@ max-width:none;
 
 <div class="col s8 m8 l8 row">
 <div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
-<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Custodian </label></div>
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
 </div>
 
 <div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
@@ -196,24 +221,41 @@ max-width:none;
 </div>
 
 <div class="inst-area-two row inst-grid-b">
-<div class="col s12 m12 l2 inst-form-select mobileitemrow"><label class="selecthits" for="field_currency">Form </label> <select class="inputselect" id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+
+<div class="col s12 m12 l2 mobileitemrow newinstselect">
+<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">Form </p>
+<div class="newinstselectitem">
+  <div class="custselectitem">
+<select id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select>
+</div></div>
+<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 
 <div class="col s12 m12 l3 mobileitemrow">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input autocomplete="off" class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">Amount</label></div>
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount" name="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">Amount</label><p style="font-size:0.7em;color:#e74c3c; " id="field_amount_vaillab"></p></div>
 </div>
 </div>
 </div>
 
 <div class="col s2 hidewhenmobile">&nbsp;</div>
 
-<div class="col s12 m12 l2 inst-form-select mobileitemrow"><label class="selecthits">To </label> <select class="inputselect" id="field_currency_to"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<div class="col s12 m12 l2 mobileitemrow newinstselect">
+<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">To </p>
+<div class="newinstselectitem">
+  <div class="custselectitem">
+<select name="field_currency_to" id="field_currency_to"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select>
+</div></div>
+<p id="field_currency_to_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+</div>
 
 <div class="col s12 m12 l3 mobileitemrow">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input autocomplete="off" class="validate labelfield" id="field_amount_to" type="number" /> <label class="labelfield-text" for="field_amount_to">Amount</label></div>
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount_to" name="field_amount_to" type="number"  /> <label class="labelfield-text" for="field_amount_to">Amount</label><p style="font-size:0.7em;color:#e74c3c; " id="field_amount_to_vaillab"></p></div>
 </div>
 </div>
 </div>
@@ -270,7 +312,9 @@ max-width:none;
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">Please entry OTP</label></div>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">Please entry OTP</label>
+<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+</div>
 
 <div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="Get OTP" /></div>
 </div>
@@ -490,7 +534,7 @@ $('#acc_btn_otp').click(function(e){
             overseabank: 'Overseas Bank',
             transfer: 'Transfer',
             cheuqe: 'Cheque',
-            Custodian: 'Custodian',
+            Custodian: 'Cash',
             Margin: 'Margin',
             deposit: 'Deposit',
             withdraw: 'Withdraw',
@@ -507,6 +551,8 @@ $('#acc_btn_otp').click(function(e){
         window.glostepgo = 2;
         window.instFormData = {};
         window.instSettlementForm = {};
+        // window.debuggermode = true;
+        window.debuggermode = false;
         handlestepcolor(1);
 
         window.glo = {}
@@ -584,6 +630,14 @@ $('#acc_btn_otp').click(function(e){
             return 'en_US';
         }else{
             return langculture[sellang];
+        }
+    }
+
+    window.formatAmount = function formatAmount(n, currency) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
         }
     }
 
@@ -698,7 +752,7 @@ $('#acc_btn_otp').click(function(e){
         data.toCurrency = $('#field_currency_to').val();
         data.toAmount = $('#field_amount_to').val();
         data.remark = $('#field_remarks').val();
-        if(data.transAcct =='' || data.fromCurrency ==''|| data.fromCurrency ==null || data.toCurrency ==''|| data.toCurrency ==null ||  (data.fromAmount =='' && data.toAmount =='') ){
+        if(data.transAcct =='' || data.fromCurrency ==''|| data.fromCurrency ==null || data.toCurrency ==''|| data.toCurrency ==null ||  (data.fromAmount =='' && data.toAmount =='') || (parseFloat(data.fromAmount) == 0 || parseFloat(data.toAmount) == 0) ){
             data.state = false;
         }else{
             data.state = true;
@@ -725,6 +779,37 @@ $('#acc_btn_otp').click(function(e){
             sessionID:glo.sessionid
         }
 
+                function popupEmptyMsg(msg,dom){
+                      alert(msg);
+                      $( dom).trigger('focus');
+                }
+                function popwarning(field){
+                    var msg = '';
+                    if(field=='c'){
+                        msg = nls.choosedata+nls.currency;
+                    }
+                    if(field =='a'){
+                        msg = nls.fillindata+nls.amount;
+                    }
+                    if(field =='0'){
+                        msg = nls.amounterror;
+                    }
+                    return msg;
+
+                }
+                function resetwarning(){
+
+                    $('#field_currency_vaillab').html('&nbsp');
+                    $('#field_amount_vaillab').html('&nbsp');
+                    $('#field_currency_to_vaillab').html('&nbsp');
+                    $('#field_amount_to_vaillab').html('&nbsp');
+                $('#otplabel').html('&nbsp');
+
+                }
+
+
+
+
         var fd = uitoFormData();
         var formlabelval = '';
         var tolabelval = '';               
@@ -745,20 +830,20 @@ $('#acc_btn_otp').click(function(e){
         }
 
 
-        if (glo.sessionid == '' || glo.clientid == '') {
-            alert(nls.loginacctfirst);
-            return;
-        }
-        if(fd.state){
-            //check zero amount
-            if(fd.fromAmount == '0' || fd.toAmount == '0'){
-                alert(nls.amounterror);
+        if(!debuggermode){
+            if (glo.sessionid == '' || glo.clientid == '') {
+                alert(nls.loginacctfirst);
                 return;
             }
+        }
+                    resetwarning();
+
+        if(fd.state){
+
             exchangeForm.tradingAccSeq = fd.tradingAccSeq;
             $('#selAcctType').text(acctTypeMapping(fd.transAcct));
-            $('#selFormCur').text(currencyMapping(exchangeForm.fromCurrency)+' '+formlabelval);
-            $('#selToCur').text(currencyMapping(exchangeForm.toCurrency)+' '+tolabelval);
+            $('#selFormCur').text(currencyMapping(exchangeForm.fromCurrency)+' '+formatAmount(parseFloat(formlabelval),''));
+            $('#selToCur').text(currencyMapping(exchangeForm.toCurrency)+' '+formatAmount(parseFloat(tolabelval),''));
             if(fd.remark==''){
                 fd.remark = '一 一 一';
             }
@@ -770,15 +855,16 @@ $('#acc_btn_otp').click(function(e){
             }else{
 
 
-                function popupEmptyMsg(msg,dom){
-                      alert(msg);
-                      $( dom).trigger('focus');
-                }
 
+                    resetwarning();
                     var a = $('#field_currency').val();
                     var b = $('#field_amount').val();
                     var c = $('#field_currency_to').val();
                     var d = $('#field_amount_to').val();
+                    var field_a = $('#field_currency_vaillab');
+                    var field_b = $('#field_amount_vaillab');
+                    var field_c = $('#field_currency_to_vaillab');
+                    var field_d = $('#field_amount_to_vaillab');
                     a == null? a = "":a=a;
                     c == null? c = "":c=c;
                     // conv to 1010
@@ -793,19 +879,46 @@ $('#acc_btn_otp').click(function(e){
                     case "1011":;break; 
                     // a b c #
                     // a # c d
-                    case "0000":popupEmptyMsg(nls.emptmsgtype1,"#field_currency");break;
-                    case "1000":popupEmptyMsg(nls.emptmsgtype1,"#field_amount");break;
-                    case "0010":popupEmptyMsg(nls.emptmsgtype1,"#field_currency");break;
+                    case "0000": 
+                        field_a.text(popwarning('c'));
+                        field_b.text(popwarning('a'));
+                        field_c.text(popwarning('c'));
+                        field_d.text(popwarning('a'));
+                    break;
+                    case "1000":
+                        field_b.text(popwarning('a'));
+                        field_c.text(popwarning('c'));
+                        field_d.text(popwarning('a'));
+                        break;
+                    case "0010":
+                        field_a.text(popwarning('c'));
+                        field_b.text(popwarning('a'));
+                        field_d.text(popwarning('a'));
+                        break;
                     // # # # #
                     // a # # #
                     // # # c #
                     // //請輸入金額及選擇貨幣
-                    case "1100":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
-                    case "0100":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
-                    case "0110":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
-                    case "0011":popupEmptyMsg(nls.emptmsgtype2,"#field_currency");break;
-                    case "0001":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
-                    case "1001":popupEmptyMsg(nls.emptmsgtype2,"#field_currency_to");break;
+                    case "1100": 
+                        field_c.text(popwarning('c'));
+                        break;
+                    case "0100": 
+                        field_a.text(popwarning('c'));
+                        field_c.text(popwarning('c'));
+                        break;
+                    case "0110": 
+                        field_a.text(popwarning('c'));
+                        break;
+                    case "0011":
+                        field_a.text(popwarning('c'));
+                        break;
+                    case "0001":
+                        field_a.text(popwarning('c'));
+                        field_c.text(popwarning('c'));
+                        break;
+                    case "1001":
+                        field_c.text(popwarning('c'));
+                        break;
                     // a b # #
                     // # b # #
                     // # b c #
@@ -813,10 +926,21 @@ $('#acc_btn_otp').click(function(e){
                     // # # # d
                     // a # # d
                     // //請選擇貨幣
-                    case "1010":popupEmptyMsg(nls.emptmsgtype3,"#field_amount");break;
+                    case "1010":
+                        field_b.text(popwarning('a'));
+                        field_d.text(popwarning('a'));
+                        break;
                     // a # c #
                     // //輸入金額
                     default:
+                    }
+
+                    //check zero amount
+                    if(parseFloat(fd.fromAmount) == 0 ){
+                        field_b.text(popwarning(0));
+                    }
+                    if( parseFloat(fd.toAmount) == 0 ){
+                        field_d.text(popwarning(0));
                     }
         }
 
@@ -829,8 +953,9 @@ $('#acc_btn_otp').click(function(e){
         console.log(" Data: - ", exchangeForm);
 
         if(glootperror){
-            alert(nls.otperror);       
-            $('#field_passwords').trigger('focus');
+            $('#otplabel').text(nls.otperror);
+            // alert(nls.otperror);       
+            // $('#field_passwords').trigger('focus');
             glootperror = false;     
             return;
         }
@@ -841,7 +966,8 @@ $('#acc_btn_otp').click(function(e){
                     glostepgo = 4;
             });
         }else{
-            alert(nls.plsfillpwd);
+            // alert(nls.plsfillpwd);
+            $('#otplabel').text(nls.plsfillpwd);
 
         }
     }
