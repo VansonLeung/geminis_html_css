@@ -227,7 +227,7 @@
 
 <div class="subsubmenuBar">
 <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
-<p><a href="../deposit-Instruction/">Cash Deposit Instrcution</a></p>
+<a href="../deposit-Instruction/"><p>Cash Deposit Instrcution</p></a>
 </div>
 
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
@@ -312,6 +312,11 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             bankcode:'Bank / Swift Code',
             custacct:'Bank Account No',
             custno:'Bank Code',
+            status:'Status',
+            statusR:'Received',
+            statusP:'Pending for Approval',
+            statusA:'Approved',
+            statusX:'Rejected',
             nodata:'No Record'
         };
         window.glostepback = 1;
@@ -351,16 +356,16 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
         }else{
              var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="8">'+nls.loginacctfirst+'</td> </tr>';
+                tempUI += '<tr> <td colspan="9">'+nls.loginacctfirst+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter();           
                   var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="7">'+nls.loginacctfirst+'</td> </tr>';
+                tempUI += '<tr> <td colspan="8">'+nls.loginacctfirst+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
                 $('#enquiryTable2').tablesorter(); 
@@ -383,7 +388,17 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             return langculture[sellang];
         }
     }
-
+      window.convstatus = function convstatus(type){
+      var convt = '';
+      switch(type){
+        case 'R': convt = nls.statusR;break;
+        case 'P': convt = nls.statusP;break;
+        case 'A': convt = nls.statusA;break;
+        case 'X': convt = nls.statusX;break;
+        default:;
+      }
+      return convt;
+    } 
    window.convSettleLabel = function convSettleLabel(type){
         var label = '';
         switch (type) {
@@ -439,7 +454,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 if (resuData.cashWithdrawInstructionList && resuData.cashWithdrawInstructionList.length > 0) {
                     var convData = resuData.cashWithdrawInstructionList;
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> \
@@ -450,6 +465,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                         <td>' + convData[i].bankAccount + '</td> \
                         <td>' + convData[i].bankName + '</td> \
                         <td>' + convData[i].bankSwiftCode + '</td> \
+                        <td>' + convstatus(convData[i].status) + '</td> \
                         </tr>';
                     }
                         tempUI +='</tbody>';
@@ -458,9 +474,9 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
                 }else{
                       var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="8">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="9">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter(); 
@@ -470,9 +486,9 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="8">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="9">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter(); 
@@ -518,7 +534,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 if (resuData.cashDepositInstructionList && resuData.cashDepositInstructionList.length > 0) {
                     var convData = resuData.cashDepositInstructionList;
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> \
@@ -528,6 +544,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
                         <td>' + convData[i].bankAccount + '</td> \
                         <td>' + convData[i].bankID + '</td> \
+                        <td>' + convstatus(convData[i].status) + '</td> \
                         </tr>';
                     }
                         tempUI +='</tbody>';
@@ -535,9 +552,9 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                     $('#enquiryTable2').tablesorter(); 
                 }else{
                       var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="8">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
                 $('#enquiryTable2').tablesorter(); 
@@ -546,9 +563,9 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="7">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="8">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
                 $('#enquiryTable2').tablesorter(); 

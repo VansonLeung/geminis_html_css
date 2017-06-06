@@ -174,9 +174,15 @@
             amount:'金额',
             to:'转换到',
             raito:'汇率',
+            status:'状态',
+            statusR:'已提交',
+            statusP:'待审批',
+            statusA:'已审批',
+            statusX:'被拒绝',
             nodata:'没有资料显示'
         };
 
+ 
         window.glostepback = 1;
         window.glostepgo = 2;
  
@@ -209,8 +215,8 @@
             loadEnquiryData();
         }else{
                var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th class="textalignright">'+nls.amount+'</th> <th>'+nls.to+'</th> <th class="textalignright">'+nls.amount+'</th> <th class="textalignright">'+nls.raito+'</th>  <th>'+nls.status+'</th> </tr>';
+                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
         }
  
@@ -240,6 +246,17 @@
         }
     }
 
+      window.convstatus = function convstatus(type){
+      var convt = '';
+      switch(type){
+        case 'R': convt = nls.statusR;break;
+        case 'P': convt = nls.statusP;break;
+        case 'A': convt = nls.statusA;break;
+        case 'X': convt = nls.statusX;break;
+        default:;
+      }
+      return convt;
+    } 
  
     window.loadEnquiryData = function loadEnquiryData() {
         var enquiryForm = {
@@ -275,23 +292,23 @@
                 if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
                     var convData = resuData.foreignExchangeInstructionList;
                     var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th class="textalignright">'+nls.amount+'</th> <th>'+nls.to+'</th> <th class="textalignright">'+nls.amount+'</th> <th class="textalignright">'+nls.raito+'</th> <th>'+nls.status+'</th> </tr>';
                     for (var i = 0; i < convData.length; i++) {
-                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td>' + formatAmount(convData[i].fromAmount,'') + '</td> <td>' + convData[i].toCurrency + '</td> <td>' + formatAmount(convData[i].toAmount,'') + '</td> <td>' + convData[i].exchangeRate + '</td> </tr>';
+                        tempUI += '<tr> <td class="gm gm-numbers">' + convData[i].transactionID + '</td> <td>' + convData[i].creationTime + '</td> <td>' + convData[i].fromCurrency + '</td> <td class="textalignright">' + formatAmount(convData[i].fromAmount,'') + '</td> <td>' + convData[i].toCurrency + '</td> <td class="textalignright">' + formatAmount(convData[i].toAmount,'') + '</td> <td class="textalignright">' + convData[i].exchangeRate + '</td>  <td>' + convstatus(convData[i].status) + '</td></tr>';
                     }
                     $('#enquiryTable').empty().append(tempUI);
                 }else{
                     var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th class="textalignright">'+nls.amount+'</th> <th>'+nls.to+'</th> <th class="textalignright">'+nls.amount+'</th> <th class="textalignright">'+nls.raito+'</th>  <th>'+nls.status+'</th></tr>';
+                tempUI += '<tr> <td colspan="8"  style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                 }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th>'+nls.amount+'</th> <th>'+nls.to+'</th> <th>'+nls.amount+'</th> <th>'+nls.raito+'</th> </tr>';
-                tempUI += '<tr> <td colspan="7" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.form+'</th> <th class="textalignright">'+nls.amount+'</th> <th>'+nls.to+'</th> <th class="textalignright">'+nls.amount+'</th> <th class="textalignright">'+nls.raito+'</th> <th>'+nls.status+'</th> </tr>';
+                tempUI += '<tr> <td colspan="8"  style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                 turnLoader();
             }

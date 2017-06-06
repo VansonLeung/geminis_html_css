@@ -116,7 +116,7 @@
 
 <div class="subsubmenuBar">
 <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
-<p><a href="../stock-instruction/">Settlement Instruction</a></p>
+<a href="../stock-instruction/"><p>Settlement Instruction</p></a>
 </div>
 
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
@@ -180,6 +180,11 @@
             methods:'Settle Method',
             createdate:'Create Date',
             transtype:'Settle Type',
+            status:'Status',
+            statusR:'Received',
+            statusP:'Pending for Approval',
+            statusA:'Approved',
+            statusX:'Rejected',
             nodata:'No Record'
         };
 
@@ -215,8 +220,8 @@
             loadEnquiryData();
         }else{
                var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>  <th>'+nls.transtype+'</th> </tr>';
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>  <th>'+nls.transtype+'</th> <th>'+nls.status+'</th> </tr>';
+                tempUI += '<tr> <td colspan="9" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
         }
  
@@ -238,7 +243,17 @@
         }
     }
 
-   
+      window.convstatus = function convstatus(type){
+      var convt = '';
+      switch(type){
+        case 'R': convt = nls.statusR;break;
+        case 'P': convt = nls.statusP;break;
+        case 'A': convt = nls.statusA;break;
+        case 'X': convt = nls.statusX;break;
+        default:;
+      }
+      return convt;
+    } 
  
     window.loadEnquiryData = function loadEnquiryData() {
         var enquiryForm = {
@@ -274,7 +289,7 @@
                 if (resuData.settlementInstructionList && resuData.settlementInstructionList.length > 0) {
                     var convData = resuData.settlementInstructionList;
                     var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> <th>'+nls.status+'</th> </tr>';
                     for (var i = 0; i < convData.length; i++) {
                         if(convData[i].stockInformationList && convData[i].stockInformationList.length > 0){
                             for(var j =0;j< convData[i].stockInformationList.length;j++){
@@ -304,6 +319,7 @@
                                 <td>' + cursubsettItem.qty + '</td> \
                                 <td>' + settlLabel + '</td>  \
                                 <td>' + instLabel + '</td> \
+                                <td>' + convstatus(cursubsettItem.status) + '</td> \
                                 </tr>';
                             }
                         }
@@ -312,16 +328,16 @@
                     $('#enquiryTable').empty().append(tempUI);
                 }else{
                var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> <th>'+nls.status+'</th> </tr>';
+                tempUI += '<tr> <td colspan="9" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                         }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
                var tempUI = '';
-                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> </tr>';
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                    tempUI += '<tr class="smaller"> <th>'+nls.refno+'</th> <th>'+nls.createtime+'</th> <th>'+nls.market+'</th> <th>'+nls.labelno+'</th> <th>'+nls.inst+'</th> <th>'+nls.qty+'</th> <th>'+nls.methods+'</th>   <th>'+nls.transtype+'</th> <th>'+nls.status+'</th></tr>';
+                tempUI += '<tr> <td colspan="9" style="text-align:center">'+nls.nodata+'</td> </tr>';
                 $('#enquiryTable').empty().append(tempUI);
                 turnLoader();
             }
