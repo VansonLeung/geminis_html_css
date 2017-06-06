@@ -140,6 +140,23 @@ max-width:none;
       border-radius: 20px;  
       border:1px solid #999;
     }
+        .stocklist{
+          border: 1px solid #ccc;
+    /*padding: 10px;*/
+    margin: 0px;
+    }
+    .stockred{
+      color:#d94634;
+    }
+    .stocklist li{
+      padding: 5px;
+    }
+    .stocklist li:nth-child(odd){
+      background-color: #fff;
+    }
+    .stocklist li:nth-child(even){
+      background-color: #f0f0f0;
+    }
 </style>
 <section>
 <div class="row" style="max-width: 1300px;">
@@ -151,7 +168,6 @@ max-width:none;
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
 <p>Settlement Instruction</p>
 </div>
-
 <a href="../stock-instruction-enquiry/">
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
 <p>Settlement Instruction Enquiry</p>
@@ -210,37 +226,36 @@ max-width:none;
 
 <div class="col s12 m12 l12 inst-grid-t inst-grid-b">
 <div class="row">
-
-
 <div class="col s12 m12 l12 row" style="display: flex;align-items: center;">
 <div class="col s5 m5 l5 row">
-    <div class="col s12 m12 l6 form_acct_choice_1 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
-    </div>
-
-    <div class="col s12 m12 l6 form_acct_choice_3 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
-    </div>
-
-    <div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem">
-    <div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
-    </div>
+<div class="col s12 m12 l6 form_acct_choice_1 cbcitem" style="float:right;">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
 </div>
-<div class="col s2 m2 l2">
-    <img src="../../../images/instruction_exchange_arrow.png" style="width:50px; " />
+
+<div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem" style="float: right;">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
 </div>
+
+<div class="col s12 m12 l6 form_acct_choice_3 cbcitem" style="float: right;">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
+</div>
+
+</div>
+
+<div class="col s2 m2 l2"><img src="../../../images/instruction_exchange_arrow.png" style="width:50px; " /></div>
+
 <div class="col s5 m5 l5 row">
-    <div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
-    </div>
+<div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Counterparty </label></div>
+</div>
 
-    <div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
-    </div>
+<div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
+</div>
 
-    <div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
-    <div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
-    </div>    
+<div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Margin </label></div>
+</div>
 </div>
 </div>
 </div>
@@ -248,7 +263,6 @@ max-width:none;
 </div>
 
 <div class="inst-area-two row">
-
 <div class="col s12 m12 l12 inst-grid-t inst-grid-b">
 <div class="row">
 <div class="col s4 m4 l4">
@@ -707,7 +721,7 @@ $('#acc_btn_otp').click(function(e){
                     counterpartyTelNo: d.CounterpartyTelNo,
                     language: glo.locallang,
                     sessionID: glo.sessionid,
-                    stockInformationList: d.StockInformationList
+                    STOCKINFORMATIONLIST: d.STOCKINFORMATIONLIST
                 }
 
 
@@ -851,7 +865,13 @@ $('#acc_btn_otp').click(function(e){
             // if(!state){ alert(nls.fillinqty);return; }
             // if(!qtystate){ alert(nls.fillinstockqty);return; }
             // if(!namestate){ alert(nls.fillinstockname);return; }
-            
+                window.formatQty = function formatQty(n) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return n.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+    } 
 
             window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
                 var state = false;
@@ -927,18 +947,22 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td>'+nls.acctnum+':</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
                  <tr><td>'+nls.acctname+':</td><td>'+d.CounterpartyContactPerson+'</td></tr>\
                  <tr><td>'+nls.accttel+':</td><td>'+d.CounterpartyTelNo+'</td></tr>\
-                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>';
-                
-                for(var item =0 ; item < d.StockInformationList.length;item++){
-                    temp = temp + '<tr><td colspan="2">' +
-                    ' ' + nls.market+ ': '+ d.StockInformationList[item].marketID +
-                    ' ' + nls.stockno+ ': '+ d.StockInformationList[item].instrumentID +
-                    ' ' + nls.stockname+ ': '+ d.StockInformationList[item].instrumentName +
-                    ' ' + nls.stockqty+ ': '+ d.StockInformationList[item].qty +
-                    ' ' + nls.stockamt+ ': '+ formatAmount(parseFloat(d.StockInformationList[item].amount),'') +
-                    ' ' + nls.stockremark+ ': '+ d.StockInformationList[item].remarks +
-                    '</td></tr>';
+                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>\
+                 <tr><td colspan="2"><ul class="stocklist">';
+                for(var item =0 ; item < d.STOCKINFORMATIONLIST.length;item++){
+                  if(d.STOCKINFORMATIONLIST[item].remarks == ''){
+                    formatremark = '---';
+                  }
+                    temp = temp + '<li>' +
+                    ' ' + nls.market+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].marketID +'</span>'+
+                    ' ' + nls.stockno+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentID +'</span>'+
+                    ' ' + nls.stockname+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentName +'</span>'+
+                    ' ' + nls.stockqty+ ': '+ '<span class="stockred">' + formatQty(parseInt(d.STOCKINFORMATIONLIST[item].qty)) +'</span>'+
+                    ' ' + nls.stockamt+ ': '+ '<span class="stockred">' + formatAmount(parseFloat(d.STOCKINFORMATIONLIST[item].amount),'') +'</span>'+
+                    ' ' + nls.stockremark+ ': '+ '<span class="stockred">' + formatremark +'</span>'+
+                    '</li>';
                 }    
+                temp +='</ul></td></tr>';
              
              temp +='</table>';
             
@@ -971,7 +995,7 @@ $('#acc_btn_otp').click(function(e){
             instFormData.CounterpartyAccountNo = $('#field_accountnum').val();
             instFormData.CounterpartyContactPerson = $('#field_contactname').val();
             instFormData.CounterpartyTelNo = $('#field_contactnum').val();
-            instFormData.StockInformationList = [];
+            instFormData.STOCKINFORMATIONLIST = [];
 
             if(isdeskStocktable){
                 var lstlength = $('.stockList').length;
@@ -990,7 +1014,7 @@ $('#acc_btn_otp').click(function(e){
                     };
                     dataLst[i].amount == '' && (dataLst[i].amount = 0);
                 }
-                instFormData.StockInformationList = dataLst;
+                instFormData.STOCKINFORMATIONLIST = dataLst;
             }else{
                 var lstlength = $('.stockmoList').length;
                 var dataLst = [];
@@ -1010,7 +1034,7 @@ $('#acc_btn_otp').click(function(e){
 
                     dataLst[i].amount == '' && (dataLst[i].amount = 0);
                 }
-                instFormData.StockInformationList = dataLst;                
+                instFormData.STOCKINFORMATIONLIST = dataLst;                
             }
             console.log("From Data: - ",instFormData);
             (callback && typeof(callback) === "function") && callback();
@@ -1147,12 +1171,12 @@ $('#acc_btn_otp').click(function(e){
             window.glo = {}
             glo.isloginflag = false;
             glo.sessionid = "";
-            // glo.sessionid = "@{S:SESSIONID}";
-            // glo.clientid = "@{S:CLIENTID}";
-            // var transacctlst = '@{S:TRADINGACCLIST}';
-            glo.sessionid = '';
-            glo.clientid = '';
-             transacctlst = '';
+            glo.sessionid = "@{S:SESSIONID}";
+            glo.clientid = "@{S:CLIENTID}";
+            var transacctlst = '@{S:TRADINGACCLIST}';
+            // glo.sessionid = '';
+            // glo.clientid = '';
+             // transacctlst = '';
 
             transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 

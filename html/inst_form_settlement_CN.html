@@ -140,6 +140,23 @@ max-width:none;
       border-radius: 20px;  
       border:1px solid #999;
     }
+        .stocklist{
+          border: 1px solid #ccc;
+    /*padding: 10px;*/
+    margin: 0px;
+    }
+    .stockred{
+      color:#d94634;
+    }
+    .stocklist li{
+      padding: 5px;
+    }
+    .stocklist li:nth-child(odd){
+      background-color: #fff;
+    }
+    .stocklist li:nth-child(even){
+      background-color: #f0f0f0;
+    }
 </style>
 <section>
 <div class="row" style="max-width: 1300px;">
@@ -153,9 +170,9 @@ max-width:none;
 </div>
 
 <a href="../stock-instruction-enquiry/">
-<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p>股票交收指示查询</p>
-</div>
+  <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+    <p>股票交收指示查询</p>
+  </div>
 </a>
 </div>
 </div>
@@ -210,39 +227,37 @@ max-width:none;
 
 <div class="col s12 m12 l12 inst-grid-r inst-grid-t inst-grid-b">
 <div class="row">
- 
 <div class="col s12 m12 l12 row" style="display: flex;align-items: center;">
 <div class="col s5 m5 l5 row">
-    <div class="col s12 m12 l6 form_acct_choice_1 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 交收对手 </label></div>
-    </div>
-
-    <div class="col s12 m12 l6 form_acct_choice_3 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 现金户口 </label></div>
-    </div>
-
-    <div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem">
-    <div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 保证金户口 </label></div>
-    </div>
+<div class="col s12 m12 l6 form_acct_choice_1 cbcitem" style="float:right;">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty" name="AccountTypes" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 交收对手 </label></div>
 </div>
-<div class="col s2 m2 l2">
-    <img src="../../../images/instruction_exchange_arrow.png" style="width:50px; " />
+
+<div class="col s12 m12 l6 form_acct_choice_2 marginchoice cbcitem" style="float:right;">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin" name="AccountType" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 保证金户口 </label></div>
 </div>
+
+<div class="col s12 m12 l6 form_acct_choice_3 cbcitem" style="float:right;">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 现金户口 </label></div>
+</div>
+</div>
+
+<div class="col s2 m2 l2"><img src="../../../images/instruction_exchange_arrow.png" style="width:50px; " /></div>
+
 <div class="col s5 m5 l5 row">
-    <div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 交收对手 </label></div>
-    </div>
+<div class="col s12 m12 l6 to_acct_choice_1 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_counterparty_r" name="transferMethods" type="radio" value="p" /> <label class="radionewlabel" for="choice_counterparty_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 交收对手 </label></div>
+</div>
 
-    <div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
-    <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 现金户口 </label></div>
-    </div>
+<div class="col s12 m12 l6 to_acct_choice_3 cbcitem">
+<div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian_r" name="transferMethod" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 现金户口 </label></div>
+</div>
 
-    <div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
-    <div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 保证金户口 </label></div>
-    </div>    
+<div class="col s12 m12 l6 to_acct_choice_2 marginchoice cbcitem">
+<div class="inst-form-comboboxItem"><input class="with-gap" id="choice_margin_r" name="transferMethod" type="radio" value="2" /> <label class="radionewlabel" for="choice_margin_r"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> 保证金户口 </label></div>
 </div>
 </div>
- 
+</div>
 </div>
 </div>
 </div>
@@ -375,18 +390,18 @@ max-width:none;
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
 <div class="col s12 m6 l2">
-<h5 style="line-height: 60px">OTP</h5>
+<h5 style="line-height: 60px">动态密码</h5>
 </div>
 
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入一次性密码</label>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入动态密码</label>
 
 <p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="获取一次性密码" /></div>
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="获取动态密码" /></div>
 </div>
 </div>
 </div>
@@ -706,7 +721,7 @@ $('#acc_btn_otp').click(function(e){
                     counterpartyTelNo: d.CounterpartyTelNo,
                     language: glo.locallang,
                     sessionID: glo.sessionid,
-                    stockInformationList: d.StockInformationList
+                    STOCKINFORMATIONLIST: d.STOCKINFORMATIONLIST
                 }
 
 
@@ -849,7 +864,13 @@ $('#acc_btn_otp').click(function(e){
             // if(!qtystate){ alert(nls.fillinstockqty);return; }
             // if(!namestate){ alert(nls.fillinstockname);return; }
             
-
+                          window.formatQty = function formatQty(n) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return n.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+    }  
             window.vaildationEmpty = function vaildationEmpty(item,dom,label,t){
                 var state = false;
                 var msgstart = '';
@@ -912,7 +933,7 @@ $('#acc_btn_otp').click(function(e){
             
         }
         window.loadDatatoConfirmUI = function loadDatatoConfirmUI(data){
-            var d = data;
+             var d = data;
             var temp = '\
             <table class="confirmbox">\
                  <tr><td colspan="2">'+d.InstructionName+'</td></tr>\
@@ -924,18 +945,22 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td>'+nls.acctnum+':</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
                  <tr><td>'+nls.acctname+':</td><td>'+d.CounterpartyContactPerson+'</td></tr>\
                  <tr><td>'+nls.accttel+':</td><td>'+d.CounterpartyTelNo+'</td></tr>\
-                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>';
-                
-                for(var item =0 ; item < d.StockInformationList.length;item++){
-                    temp = temp + '<tr><td colspan="2">' +
-                    ' ' + nls.market+ ': '+ d.StockInformationList[item].marketID +
-                    ' ' + nls.stockno+ ': '+ d.StockInformationList[item].instrumentID +
-                    ' ' + nls.stockname+ ': '+ d.StockInformationList[item].instrumentName +
-                    ' ' + nls.stockqty+ ': '+ d.StockInformationList[item].qty +
-                    ' ' + nls.stockamt+ ': '+ formatAmount(parseFloat(d.StockInformationList[item].amount),'') +
-                    ' ' + nls.stockremark+ ': '+ d.StockInformationList[item].remarks +
-                    '</td></tr>';
+                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>\
+                 <tr><td colspan="2"><ul class="stocklist">';
+                for(var item =0 ; item < d.STOCKINFORMATIONLIST.length;item++){
+                  if(d.STOCKINFORMATIONLIST[item].remarks == ''){
+                    formatremark = '---';
+                  }
+                    temp = temp + '<li>' +
+                    ' ' + nls.market+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].marketID +'</span>'+
+                    ' ' + nls.stockno+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentID +'</span>'+
+                    ' ' + nls.stockname+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentName +'</span>'+
+                    ' ' + nls.stockqty+ ': '+ '<span class="stockred">' + formatQty(parseInt(d.STOCKINFORMATIONLIST[item].qty)) +'</span>'+
+                    ' ' + nls.stockamt+ ': '+ '<span class="stockred">' + formatAmount(parseFloat(d.STOCKINFORMATIONLIST[item].amount),'') +'</span>'+
+                    ' ' + nls.stockremark+ ': '+ '<span class="stockred">' + formatremark +'</span>'+
+                    '</li>';
                 }    
+                temp +='</ul></td></tr>';
              
              temp +='</table>';
             
@@ -968,7 +993,7 @@ $('#acc_btn_otp').click(function(e){
             instFormData.CounterpartyAccountNo = $('#field_accountnum').val();
             instFormData.CounterpartyContactPerson = $('#field_contactname').val();
             instFormData.CounterpartyTelNo = $('#field_contactnum').val();
-            instFormData.StockInformationList = [];
+            instFormData.STOCKINFORMATIONLIST = [];
 
             if(isdeskStocktable){
                 var lstlength = $('.stockList').length;
@@ -987,7 +1012,7 @@ $('#acc_btn_otp').click(function(e){
                     };
                     dataLst[i].amount == '' && (dataLst[i].amount = 0);
                 }
-                instFormData.StockInformationList = dataLst;
+                instFormData.STOCKINFORMATIONLIST = dataLst;
             }else{
                 var lstlength = $('.stockmoList').length;
                 var dataLst = [];
@@ -1007,7 +1032,7 @@ $('#acc_btn_otp').click(function(e){
 
                     dataLst[i].amount == '' && (dataLst[i].amount = 0);
                 }
-                instFormData.StockInformationList = dataLst;                
+                instFormData.STOCKINFORMATIONLIST = dataLst;                
             }
             console.log("From Data: - ",instFormData);
             (callback && typeof(callback) === "function") && callback();
@@ -1078,13 +1103,13 @@ $('#acc_btn_otp').click(function(e){
             $('body').on('keydown', '.settlement-box-stockamt-m', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
 
             window.nls = {
-                otperror:'一次性密码不正确，试再次输入',
+                otperror:'动态密码不正确，试再次输入',
                 nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '参考编号:',
                 fail: '未能完成',
                 done: '完成',
-                plsfillpwd: '请输入一次性密码',
+                plsfillpwd: '请输入动态密码',
                 loginacctfirst: '请先登入帐号',
                 fillindata: '请输入',
                 fillinqty:'请输入股票代号',
