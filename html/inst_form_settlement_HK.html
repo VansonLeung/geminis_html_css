@@ -169,11 +169,9 @@ max-width:none;
 <p>股票交收指示</p>
 </div>
 
-<a href="../stock-instruction-enquiry/">
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p>股票交收指示查詢</p>
+<p><a href="../stock-instruction-enquiry/">股票交收指示查詢</a></p>
 </div>
-</a>
 </div>
 </div>
 </div>
@@ -446,6 +444,7 @@ $('.subsubmenuBox').on('click',function(e){
         $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+window.location.href="../stock-instruction-enquiry/";
         // $('.inst').hide();
         // $('.enqu').show();
 

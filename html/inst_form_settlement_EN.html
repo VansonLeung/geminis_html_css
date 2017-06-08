@@ -168,11 +168,10 @@ max-width:none;
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
 <p>Settlement Instruction</p>
 </div>
-<a href="../stock-instruction-enquiry/">
+
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p>Settlement Instruction Enquiry</p>
+<p><a href="../stock-instruction-enquiry/">Settlement Instruction Enquiry</a></p>
 </div>
-</a>
 </div>
 </div>
 </div>
@@ -239,7 +238,6 @@ max-width:none;
 <div class="col s12 m12 l6 form_acct_choice_3 cbcitem" style="float: right;">
 <div class="inst-form-comboboxItem"><input checked="checked" class="with-gap" id="choice_custodian" name="AccountType" type="radio" value="1" /> <label class="radionewlabel" for="choice_custodian"> <span class="inst-form-greenbox-base"> <span class="inst-form-greenbox">&nbsp;</span></span> Cash </label></div>
 </div>
-
 </div>
 
 <div class="col s2 m2 l2"><img src="../../../images/instruction_exchange_arrow.png" style="width:50px; " /></div>
@@ -446,6 +444,7 @@ $('.subsubmenuBox').on('click',function(e){
         $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+window.location.href="../stock-instruction-enquiry/";
         // $('.inst').hide();
         // $('.enqu').show();
 

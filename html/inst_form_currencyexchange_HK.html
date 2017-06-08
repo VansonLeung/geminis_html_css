@@ -1,4 +1,3 @@
-
 <style type="text/css">.redbartop{
         width: 100%; height: 10px;  background-color: #bc0000;
         border-top-left-radius: 8px;
@@ -150,11 +149,9 @@ max-width:none;
 <p>貨幣交易指示</p>
 </div>
 
-<a href="../currency-exchange-instruction-enquiry/">
-    <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-        <p>貨幣交易指示查詢</p>
-    </div>
-</a>
+<div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
+<p>貨幣交易指示查詢</p>
+</div>
 </div>
 </div>
 </div>
@@ -163,26 +160,26 @@ max-width:none;
 <div class="col s12 m12 l3 hidewhenmobile" style="padding:0 !important;">
 <div class="stepbar">
 <table>
-    <tbody>
-        <tr>
-            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
-            <td class="menustepArea">
-            <p class="menustepText" id="stepbarstep1">交易指示</p>
-            </td>
-        </tr>
-        <tr>
-            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
-            <td class="menustepArea">
-            <p class="menustepText" id="stepbarstep2">確認</p>
-            </td>
-        </tr>
-        <tr>
-            <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
-            <td class="menustepArea">
-            <p class="menustepText" id="stepbarstep3">完成</p>
-            </td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon2" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep2">確認</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon3" src="../../../images/status_icon.png" /></td>
+      <td class="menustepArea">
+      <p class="menustepText" id="stepbarstep3">完成</p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
@@ -221,21 +218,23 @@ max-width:none;
 </div>
 
 <div class="inst-area-two row inst-grid-b">
-
 <div class="col s12 m12 l2 mobileitemrow newinstselect">
-<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">由 </p>
-<div class="newinstselectitem">
-  <div class="custselectitem">
-<select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select>
-</div></div>
-<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">由</p>
 
+<div class="newinstselectitem">
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+</div>
+
+<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
 <div class="col s12 m12 l3 mobileitemrow">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount" name="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金額</label><p style="font-size:0.7em;color:#e74c3c; " id="field_amount_vaillab"></p></div>
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount" name="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金額</label>
+
+<p id="field_amount_vaillab" style="font-size:0.7em;color:#e74c3c; ">&nbsp;</p>
+</div>
 </div>
 </div>
 </div>
@@ -243,19 +242,22 @@ max-width:none;
 <div class="col s2 hidewhenmobile">&nbsp;</div>
 
 <div class="col s12 m12 l2 mobileitemrow newinstselect">
-<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">轉到 </p>
-<div class="newinstselectitem">
-  <div class="custselectitem">
-<select name="field_currency_to" id="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select>
-</div></div>
-<p id="field_currency_to_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">轉到</p>
 
+<div class="newinstselectitem">
+<div class="custselectitem"><select id="field_currency_to" name="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+</div>
+
+<p id="field_currency_to_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
 <div class="col s12 m12 l3 mobileitemrow">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount_to" name="field_amount_to" type="number"  /> <label class="labelfield-text" for="field_amount_to">金額</label><p style="font-size:0.7em;color:#e74c3c; " id="field_amount_to_vaillab"></p></div>
+<div class="input-field col s12"><input autocomplete="off" class="validate labelfield phone-group" id="field_amount_to" name="field_amount_to" type="number" /> <label class="labelfield-text" for="field_amount_to">金額</label>
+
+<p id="field_amount_to_vaillab" style="font-size:0.7em;color:#e74c3c; ">&nbsp;</p>
+</div>
 </div>
 </div>
 </div>
@@ -282,41 +284,42 @@ max-width:none;
 
 <div class="inst-area-one row inst-grid-b ">
 <table class="confirmbox">
-    <tbody>
-        <tr>
-            <td width="25%">交易戶口：</td>
-            <td id="selAcctType" width="75%">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>由貨幣：</td>
-            <td id="selFormCur">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>轉到貨幣：</td>
-            <td id="selToCur">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>備註：</td>
-            <td id="SelRemark">&nbsp;</td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td width="25%">交易戶口：</td>
+      <td id="selAcctType" width="75%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>由貨幣：</td>
+      <td id="selFormCur">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>轉到貨幣：</td>
+      <td id="selToCur">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>備註：</td>
+      <td id="SelRemark">&nbsp;</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
 <div class="col s12 m6 l2">
-<h5 style="line-height: 60px">OTP</h5>
+<h5 style="line-height: 60px">動態密碼</h5>
 </div>
 
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入OTP</label>
-<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入動態密碼</label>
+
+<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取OTP" /></div>
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取動態密碼" /></div>
 </div>
 </div>
 </div>
@@ -345,11 +348,11 @@ max-width:none;
 <div class="gem_form notopstripe">
 <div>
 <table class="generic-table-header smallmedpadding">
-    <tbody>
-        <tr>
-            <td class="font_lg">貨幣交易指示查詢</td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td class="font_lg">貨幣交易指示查詢</td>
+    </tr>
+  </tbody>
 </table>
 
 <table class="generic-table-content font_smedmed" id="enquiryTable">
@@ -379,6 +382,7 @@ $('.subsubmenuBox').on('click',function(e){
         $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+window.location.href="../currency-exchange-instruction-enquiry/";
         // $('.inst').hide();
         // $('.enqu').show();
         // if(glo.sessionid !='' && glo.clientid !=''){
@@ -518,13 +522,13 @@ $('#acc_btn_otp').click(function(e){
             $('body').on('keydown', '#field_amount_to', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});            
 
         window.nls = {
-            otperror:'一次性密碼不正確, 試再次輸入',
+            otperror:'動態密碼不正確, 試再次輸入',
             nextstep: '同意，下一步',
             success: '已完成',
             desc: '參考編號:',
             fail: '未能完成',
             done: '完成',
-            plsfillpwd: '請輸入OTP',
+            plsfillpwd: '動態密碼',
             loginacctfirst: '請先登入帳號',
             fillindata: '請輸入',
             choosedata: '請選擇',

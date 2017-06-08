@@ -118,8 +118,6 @@
         display: table;
     }
     .newinstselectitem{
-        display: table-cell;
-        vertical-align: middle;
     }
     .custselectitem select {
       padding:5px 5px 5px 10px;
@@ -139,7 +137,7 @@
       -moz-border-radius: 20px;
       border-radius: 20px;  
       border:1px solid #999;
-    }    
+    }
 </style>
 <section>
 <div class="row" style="max-width: 1300px;">
@@ -151,10 +149,9 @@
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
 <p>Cash Deposit Instruction</p>
 </div>
-<a href="../deposit-Instruction-enquiry/">
+
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p>Cash Deposit Instruction Enquiry</p>
-</a>
+<p><a href="../deposit-Instruction-enquiry/">Cash Deposit Instruction Enquiry</a></p>
 </div>
 </div>
 </div>
@@ -293,25 +290,23 @@
 </div>
 <!-- miss -->
 
-<div class="inst-area-three row">
-<div class="col s4 m4 l4 inst-grid-b newinstselect">
+<div class="inst-area-three row"><!-- <div class="col s4 m4 l4 inst-form-select includecurrency inst-grid-b"> -->
+<div class="col s12 m12 l12 inst-grid-b newinstselect">
+<div style="width:34%;display: inline-block;    vertical-align: top;padding-top: 26px;">
 <div class="newinstselectitem">
-  <div class="custselectitem">
-<select id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select>
-</div>
-</div>
-<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
-
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select></div>
 </div>
 
-<div class="col s8 m8 l8 inst-grid-b">
+<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
+</div>
+
+<div style="width:66%;display: inline-block;  vertical-align: top;">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12">
-<input class="validate labelfield" id="field_amount" type="number" /> 
-<label class="labelfield-text" for="field_amount">Amount</label>
-<p id="field_amount_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<div class="input-field col s12"><input class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">Amount</label>
 
+<p id="field_amount_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
+</div>
 </div>
 </div>
 </div>
@@ -337,8 +332,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">Bank Name</label>
-    <p id="field_bankname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -348,8 +343,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountname">Customer Name</label>
-    <p id="field_bankaccountname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankaccountname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -361,8 +356,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountnum">Bank Account No</label>
-    <p id="field_bankaccountnum_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankaccountnum_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -372,8 +367,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankswiftcode" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">Bank / Swift Code</label>
-    <p id="field_bankswiftcode_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankswiftcode_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -414,7 +409,7 @@
   <li>Please deposit into the following bank account</li>
   <li>Bank Name: The Hongkong and Shanghai Banking Corporation Limited</li>
   <li>SWIFT Code: HSBCHKHH</li>
-  <li>Bank Address: No 1  Queen's Road Central, Hong Kong</li>
+  <li>Bank Address: No 1 Queen&#39;s Road Central, Hong Kong</li>
   <li>Account Name: Geminis Securities Limited &ndash; Client Trust A/C</li>
   <li>Account No: <span class="dynamicAcctNo">500-357561-292 (HKD)</span></li>
   <li>&nbsp;</li>
@@ -425,7 +420,7 @@
   <li>Please deposit into the following bank account</li>
   <li>Bank Name: The Hongkong and Shanghai Banking Corporation Limited</li>
   <li>SWIFT Code: HSBCHKHH</li>
-  <li>Bank Address: No 1  Queen's Road Central, Hong Kong</li>
+  <li>Bank Address: No 1 Queen&#39;s Road Central, Hong Kong</li>
   <li>Account Name: Geminis Securities Limited &ndash; Client Trust A/C</li>
   <li>Account No: <span class="dynamicAcctNo">500-357561-274 (USD)</span></li>
   <li>&nbsp;</li>
@@ -461,7 +456,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">Please entry OTP</label>
-<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+
+<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
 <div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="Get OTP" /></div>
@@ -532,6 +528,7 @@ $('.subsubmenuBox').on('click',function(e){
         $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+window.location.href="../deposit-Instruction-enquiry/";
         // $('.inst').hide();
         // $('.enqu').show();
 

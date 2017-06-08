@@ -118,8 +118,6 @@
         display: table;
     }
     .newinstselectitem{
-        display: table-cell;
-        vertical-align: middle;
     }
     .custselectitem select {
       padding:5px 5px 5px 10px;
@@ -139,7 +137,7 @@
       -moz-border-radius: 20px;
       border-radius: 20px;  
       border:1px solid #999;
-    }    
+    }
 </style>
 <section>
 <div class="row" style="max-width: 1300px;">
@@ -151,11 +149,10 @@
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
 <p>资金交易指示</p>
 </div>
-<a href="../deposit-Instruction-enquiry/">
+
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
-<p>现金存取指示查询</p>
+<p><a href="../deposit-Instruction-enquiry/">现金存取指示查询</a></p>
 </div>
-</a>
 </div>
 </div>
 </div>
@@ -293,25 +290,23 @@
 </div>
 <!-- miss -->
 
-<div class="inst-area-three row">
-<div class="col s4 m4 l4 inst-grid-b newinstselect">
+<div class="inst-area-three row"><!-- <div class="col s4 m4 l4 inst-form-select includecurrency inst-grid-b"> -->
+<div class="col s12 m12 l12 inst-grid-b newinstselect">
+<div style="width:34%;display: inline-block;    vertical-align: top;padding-top: 26px;">
 <div class="newinstselectitem">
-  <div class="custselectitem">
-<select id="field_currency"><option disabled="disabled" selected="selected" value="">货币</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select>
-</div>
-</div>
-<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
-
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">货币</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select></div>
 </div>
 
-<div class="col s8 m8 l8 inst-grid-b">
+<p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
+</div>
+
+<div style="width:66%;display: inline-block;  vertical-align: top;">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12">
-<input class="validate labelfield" id="field_amount" type="number" /> 
-<label class="labelfield-text" for="field_amount">金额</label>
-<p id="field_amount_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<div class="input-field col s12"><input class="validate labelfield" id="field_amount" type="number" /> <label class="labelfield-text" for="field_amount">金额</label>
 
+<p id="field_amount_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
+</div>
 </div>
 </div>
 </div>
@@ -337,8 +332,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12 "><input class="validate labelfield" id="field_bankname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankname">银行名称</label>
-    <p id="field_bankname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -348,8 +343,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountname" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountname">户口姓名</label>
-    <p id="field_bankaccountname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankaccountname_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -361,8 +356,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankaccountnum" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankaccountnum">银行户口号码</label>
-    <p id="field_bankaccountnum_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankaccountnum_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -372,8 +367,8 @@
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
 <div class="input-field col s12"><input class="validate labelfield" id="field_bankswiftcode" type="text" /> <label class="labelfield-text labelfield-left" for="field_bankswiftcode">银行／国际代码</label>
-    <p id="field_bankswiftcode_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
 
+<p id="field_bankswiftcode_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 </div>
 </div>
@@ -454,17 +449,18 @@
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
 <div class="col s12 m6 l2">
-<h5 style="line-height: 60px">OTP</h5>
+<h5 style="line-height: 60px">动态密码</h5>
 </div>
 
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入OTP</label>
-<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入动态密码</label>
+
+<p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="获取OTP" /></div>
+<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="获取动态密码" /></div>
 </div>
 </div>
 </div>
@@ -532,6 +528,7 @@ $('.subsubmenuBox').on('click',function(e){
         $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+window.location.href="../deposit-Instruction-enquiry/";
         // $('.inst').hide();
         // $('.enqu').show();
 
@@ -1101,13 +1098,13 @@ $('#acc_btn_otp').click(function(e){
             $('body').on('keydown', '#field_amount', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
 
             window.nls = {
-                otperror:'一次性密码不正确，试再次输入',
+                otperror:'动态密码不正确，试再次输入',
                 nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '参考编号:',
                 fail: '未能完成',
                 done: '完成',
-                plsfillpwd: '请输入OTP',
+                plsfillpwd: '请输入动态密码',
                 loginacctfirst: '请先登入帐号',
                 fillindata: '请输入',
                 choosedata: '请选择',
