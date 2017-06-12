@@ -1,72 +1,198 @@
+<style type="text/css">.bundleContentArea{
+    max-width: 1200px;
+}
+.left-content-Area{
+    border-radius: 8px; width: auto; max-width: 896px;
+}    
+.bar-top-header{
+    width: 100%; height: 10px;  background-color: #ce0f00;
+}
+.planheader{
+    display: -webkit-flex; display: -ms-flexbox; display: flex; padding:42px
+}
+.planheader-body{
+  width:100%  
+}
+.planheader-title{
+  margin:0;margin-bottom:16px;font-size: 24px; line-height: 1.5; letter-spacing: normal; text-align: left; color: #333;
+}
+.planheader-desc{
+  margin:0;font-size: 18px; line-height: 28px; letter-spacing: normal; text-align: left; color: #333333; 
+}
+.planapplybtn{
+    background-color: #ce0f00 !important; 
+}
+.planapplybtn a{
+ color:white !important;   
+}
+.planImg{
+    width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.planalbumImg{
+    width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+.plandescheader{
+    font-size:20px; color:#333333; border-bottom:1px solid #333;padding: 10px 0px;
+}
+.plandescbody{
+    list-style-type: disc;
+}
+.plandescbody li{
+    list-style-type: disc;margin-left: 30px;
+}
+
+.plandescbody li p{
+    font-size: 16px;line-height: 30px;color:#333;
+}
+.planfeeheader{
+    font-size:20px; color:#333333; border-bottom:1px solid #333;padding: 10px 0px;
+}
+.planfeebody{
+    font-size: 16px;line-height: 30px;color:#333;
+}
+.planfeeprice{
+  font-size: 20px;line-height: 30px;color:#ce0f00;  
+}
+.detailsbody{
+    padding:42px
+}
+
+.plan-back-btn-desktop{
+    height:132px;background-color:#bc0000;margin: 0;line-height: 132px;border-top-left-radius:8px;border-top-right-radius:8px;
+}
+.plan-back-btn-desktop p{
+    font-size:20px;color:#fff;margin:0;float:left
+}
+.plan-back-btn-desktop p a{
+    color:white;
+}
+.plan-back-btn-desktop p a span{
+    padding:0px 20px;
+}
+
+.plan-prev-btn-desktop{
+    height:132px;background-color:#d94634;margin: 0;line-height: 132px;border-bottom-left-radius:8px;border-bottom-right-radius:8px;
+}
+.plan-prev-btn-desktop p{
+    font-size:20px;color:#fff;margin:0;float:right
+}
+.plan-prev-btn-desktop p a{
+   color:white;
+}
+.plan-prev-btn-desktop p a span{
+   padding:0px 20px;
+}
+
+.tempiframearea{
+width:100%;min-height:200px;background-color:white;margin-top: 20px;
+}
+.tempiframearea h5{
+width:100%;
+}
+.clearpadd{
+    padding: 0px !important;
+}
+.plan-prev-btn-mobile{
+height:132px;background-color:#bc0000;margin: 0;line-height: 132px;
+}
+.plan-prev-btn-mobile p{
+font-size:20px;margin:0;float:left
+}
+.plan-prev-btn-mobile p a{
+color:white;
+}
+.plan-prev-btn-mobile p a span{
+padding:0px 20px;
+}
+
+.plan-next-btn-mobile{
+height:132px;background-color:#d94634;margin: 0;line-height: 132px;
+}
+.plan-next-btn-mobile p{
+font-size:20px;margin:0;float:right
+}
+.plan-next-btn-mobile p a{
+color:white;
+}
+.plan-next-btn-mobile p a span{
+padding:0px 20px;
+}
+</style>
 <section>
-<div class="row" style="max-width: 1200px">
+<div class="row bundleContentArea">
 <div class="col l9">
-<div class="gem_form notopstripe" style="border-radius: 8px; width: auto; max-width: 896px">
+<div class="gem_form notopstripe left-content-Area">
 <div>
-<div style="  width: 100%; height: 10px;  background-color: #ce0f00; ">&nbsp;</div>
+<div class="bar-top-header">&nbsp;</div>
 
-<div id="alertshowarea" style="width:100%;min-height: 400px; padding-top: 66px !important; display:none">
-<p class="finishmsg" style="text-align: center;"><img class="msgiconfinish" src="../../../images/complete icon.png" /></p>
-
-<p class="finishmsg" id="callstate" style="text-align: center;">已完成</p>
-
-<p class="refnumlabel" id="calldesc" style="text-align: center;">参考编号: 000000</p>
-</div>
-
-<div id="headertop" style="display: -webkit-flex; display: -ms-flexbox; display: flex; padding:42px">
-<div style="width:100%">
+<div class="planheader" id="headertop">
+<div class="planheader-body">
 <div>
-<h3 style="margin:0;margin-bottom:16px;font-size: 24px; line-height: 1.5; letter-spacing: normal; text-align: left; color: #333; ">QP-Web HK Junior X Version</h3>
+<h3 class="planheader-title">港股報價王 Junior X 版</h3>
 
-<p style="margin:0;font-size: 18px; line-height: 28px; letter-spacing: normal; text-align: left; color: #333333; ">XXX证券有限公司提供实时串流报价，最新的财经新闻和信息。<br />
-订阅的实时报价服务。</p>
+<p class="planheader-desc">XXX證券有限公司提供實時串流報價，最新的財經新聞和信息。<br />
+訂閱的實時報價服務。</p>
 </div>
 </div>
 
 <div style="padding: 0 ">
-<div class="generic-button-big gb-primary" style="background-color: #ce0f00 !important;"><a onclick="callser();" style="color:white !important;">申請 </a></div>
+<a onclick="callser();"><div class="generic-button-big gb-primary planapplybtn">申請 </div></a>
 </div>
 </div>
 
-<div id="detailsbody" style="padding:42px">
+<div class="detailsbody" id="detailsbody">
 <div class="row">
-<div class="col s12 m12 l6"><img src="http://www.cherrypicks.com/sites/default/files/styles/home-highlight/public/highlight/thumbnail/20160422_ARwiz_highlight_295x150.png?itok=q5WSv8Fa" style="width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);" /><br />
+<div class="col s12 m12 l6"><img class="planImg" src="../../../images/menu_img1.jpg" /><br />
 &nbsp;
 <div class="gem_form materialize">
-<div class="carousel carousel-slider center" data-indicators="true">
-<div class="carousel-item red white-text" href="#one!"><img id="showplanimg" src="http://www.cherrypicks.com/sites/default/files/styles/media-thumbnail/public/media/thumbnail/Annual_thumbnails.jpg?itok=EfcTD9Ra" style="width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);" /></div>
+<div class="carousel carousel-slider center" data-indicators="true" style="min-height: 300px;">
+<div class="carousel-item white-text" href="#one!"><img class="planalbumImg" id="showplanimg" src="../../../images/menu_img2.jpg" /></div>
 
-<div class="carousel-item amber white-text" href="#two!"><img id="showplanimg" src="http://www.cherrypicks.com/sites/default/files/styles/media-thumbnail/public/media/thumbnail/ARex_thumbnails.jpg?itok=GXdl5JX7" style="width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);" /></div>
+<div class="carousel-item white-text" href="#two!"><img class="planalbumImg" id="showplanimg" src="../../../images/menu_img3.jpg" /></div>
 
-<div class="carousel-item green white-text" href="#three!"><img id="showplanimg" src="http://www.cherrypicks.com/sites/default/files/styles/media-thumbnail/public/media/thumbnail/media_Recruit_thumbnails.jpg?itok=f03ZaEmx" style="width:100%;object-fit: contain;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);" /></div>
+<div class="carousel-item white-text" href="#three!"><img class="planalbumImg" id="showplanimg" src="../../../images/menu_img4.jpg" /></div>
 </div>
 </div>
 </div>
 
 <div class="col s12 m12 l6">
 <div>
-<h4 style="font-size:20px; color:#333333; border-bottom:1px solid #333;padding: 10px 0px;">簡介</h4>
+<h4 class="plandescheader">簡介</h4>
 
-<ul style="list-style-type: disc;">
-
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Integrated with trading platform to facilitate stock trading easily like click-to-trade function </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Detailed HK stock quotes, 5-level market depth, broker queues, and all-day transactions </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Hang Seng indices </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Company listing news for main board and GEM board from SEHK </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Ming Pao Chinese news provided during the promotional period </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">HK Company Profile provides English and Chinese listed company information including Company Profile, Earnings Summary, Profit & Loss Account, Balance Sheet, Financial Ratios, Cash Flow Statement, Quarterly/Interim Results, Entitlement History, and Shares Buyback, etc. </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">Dow Jones Asia Pacific Equity News provides Asia Pacific real-time English and Chinese financial market news and equity news during trading hours </p></li>
-<li style="list-style-type: disc;margin-left: 30px;"><p style="font-size: 16px;line-height: 30px;color:#333;">QPI Market Watch consists of exceptional movement notice (Exceptional Movement Stocks and Exceptional Movement Warrants under the “Market Memo” section), and features that keep you abreast of insider activities (Insider Filings), daily stocks picks by leading broker firms (Broker Recommendations) as well as warrants and CBBCs recommended by major issuers (Warrant Insights and CBBC Insights)</p></li>
-
+<ul class="plandescbody">
+    <li>
+    <p>與網上交易平台連結使股票交易更方便如點撃帶價交易功能便在其中</p>
+    </li>
+    <li>
+    <p>港股詳盡報價包括五檔買賣排隊、經紀排隊及全日成交紀綠</p>
+    </li>
+    <li>
+    <p>恆生指數</p>
+    </li>
+    <li>
+    <p>主板及創業板公司最新公告</p>
+    </li>
+    <li>
+    <p>推廣期內免費提供明報中文財經新聞</p>
+    </li>
+    <li>
+    <p>香港上市公司資料提供中英文上市公司資料包括公司簡介、盈虧表現、損益表、資產負債表、財務比率、現金流量表、季度/中期業績、派息紀錄及股份回購等等</p>
+    </li>
+    <li>
+    <p>道瓊斯亞太股票新聞於交易時間內提供亞太即時中英文財經市場新聞及股票新聞</p>
+    </li>
+    <li>
+    <p>報價王情報包括現設置于&ldquo;大市備忘&rdquo;版面下的異動股提示（異動股、異動認股證）, 更包括新增的藍籌公司主要股東權益變動（股權變動）、大行推薦之股票（大行推介）及主要發行商推介的認股証和牛熊証（窩輪錦囊、牛熊証錦囊）等資料</p>
+    </li>
 </ul>
 </div>
 
 <div>
-<h4 style="font-size:20px; color:#333333; border-bottom:1px solid #333;padding: 10px 0px;">收费详情</h4>
+<h4 class="planfeeheader">收費詳情</h4>
 
-<h4 style="font-size: 20px;line-height: 30px;color:#ce0f00;">＄994.49</h4>
+<h4 class="planfeeprice">＄994.49</h4>
 
-<p style="font-size: 16px;line-height: 30px;color:#333;">XXX证券有限公司提供实时串流报价，最新的财经新闻和信息。订阅的实时报价服务。</p>
+<p class="planfeebody">XXX證券有限公司提供實時串流報價，最新的財經新聞和信息。訂閱的實時報價服務。</p>
 </div>
 </div>
 </div>
@@ -75,217 +201,144 @@
 </div>
 </div>
 <!-- right menu -->
+    <div class="col s12 m12 l3">
+    <!-- desktop show -->
+        <div class="deskshow">
+            <div class="rightButtoGrp">
+                <div class="prevLeftBtn plan-back-btn-desktop">
+                    <p><a href="#"><span>&lt;</span>上一服務計劃</a></p>
+                </div>
 
-<div class="col s12 m12 l3"><!-- desktop show -->
-<div class="deskshow">
-<div class="rightButtoGrp">
-<div class="prevLeftBtn" style="height:132px;background-color:#bc0000;margin: 0;line-height: 132px;border-top-left-radius:8px;border-top-right-radius:8px;">
-<p style="font-size:20px;color:#fff;margin:0;float:left"><a href="#" style="color:white;"><span style="padding:0px 20px;">&lt;</span>上一服务计划</a></p>
-</div>
+                <div class="prevRightBtn plan-prev-btn-desktop">
+                    <p><a href="#">下一服務計劃 <span>&gt;</span></a></p>
+                </div>
+            </div>
+        <!-- iframe news -->
 
-<div class="prevRightBtn" style="height:132px;background-color:#d94634;margin: 0;line-height: 132px;border-bottom-left-radius:8px;border-bottom-right-radius:8px;">
-<p style="font-size:20px;color:#fff;margin:0;float:right"><a href="#" style="color:white;">下一服务计划 <span style="padding:0px 20px;">&gt;</span></a></p>
-</div>
-</div>
-<!-- iframe news -->
+            <div class="center valign-wrapper hidewhenmobile tempiframearea"><h5>news iframe area </h5></div>
+        <!-- iframe news -->
+        </div>
+    <!-- desktop show -->
+    <!-- mobile show -->
+        <div class="mobileshow row">
+            <div class="col s6 m6 l6 clearpadd">
+                <div class="prevLeftBtn plan-prev-btn-mobile">
+                    <p><a href="#"><span>&lt;</span>上一服務計劃</a></p>
+                </div>
+            </div>
 
-<div class="center valign-wrapper hidewhenmobile" style="width:100%;min-height:200px;background-color:white;margin-top: 20px;">
-<h5 style="width:100%">news iframe area</h5>
+            <div class="col s6 m6 l6 clearpadd">
+                <div class="prevRightBtn plan-next-btn-mobile">
+                    <p><a href="#">下一服務計劃 <span>&gt;</span></a></p>
+                </div>
+            </div>
+        </div>
+    <!-- mobile show -->
+    </div>
+<!-- right menu -->
 </div>
-<!-- iframe news --></div>
-<!-- desktop show --><!-- mobile show -->
-
-<div class="mobileshow row">
-<div class="col s6 m6 l6" style="padding: 0px">
-<div class="prevLeftBtn" style="height:132px;background-color:#bc0000;margin: 0;line-height: 132px;">
-<p style="font-size:20px;margin:0;float:left"><a href="#" style="color:white;"><span style="padding:0px 20px;">&lt;</span>上一服务计划</a></p>
-</div>
-</div>
-
-<div class="col s6 m6 l6" style="padding: 0px">
-<div class="prevRightBtn" style="height:132px;background-color:#d94634;margin: 0;line-height: 132px;">
-<p style="font-size:20px;margin:0;float:right"><a href="#" style="color:white;">下一服务计划 <span style="padding:0px 20px;">&gt;</span></a></p>
-</div>
-</div>
-</div>
-<!-- mobile show --></div>
-<!-- right menu --></div>
 </section>
 <script>
 
 
 $(function(){
-    window.loadUIDataSet = function loadUIDataSet() {
-
-        let dataSet = {}
-        dataSet.acct = "9910-268";
-        dataSet.pwd = "12345678";
-        dataSet.loginid = "@{S:CLIENTID}";
-        // dataSet.loginid = "9910-268";
-        dataSet.loginpw = "12345678";
-        return dataSet;
-    }
-    window.serCallHandle = function serCallHandle(res,trueFlag){
-        console.log("Res - Data ", res.data);
-        if(!trueFlag){
-                    $("#alertshowarea").show();
-                    $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
-                    $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
-                    setTimeout(function() {
-                    	$("#alertshowarea").fadeOut(500);
-                    }, 2000);
-        }else{
-	        if (res.data) {
-	            if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
-	            	$("#alertshowarea").show();
-	            	$(".msgiconfinish").attr('src','../../../images/complete icon.png');
-	            	$("#callstate").text(nls.success);
-	            	if(res.data.SubscriptionIDField && res.data.SubscriptionIDField !=''){
-		            	$("#calldesc").text(nls.desc + res.data.SubscriptionIDField);
-	            	}else{
-		            	$("#calldesc").text('');
-	            	}
-                    setTimeout(function() {
-                    	$("#alertshowarea").fadeOut(500);
-                    }, 2000);
-	            }else{
-	            	$("#alertshowarea").show();
-	            	$(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
-	            	$("#callstate").text(nls.fail);
-	            	$("#calldesc").text('');
-	            	setTimeout(function() {
-	            		$("#alertshowarea").fadeOut(500);
-	            	}, 2000);
-	            }
-	        } 
-        }   	
-    }
-
-    window.callSOAPapi = function callSOAPapi(loaddata, callback) {
-        $.ajax({
-            type: 'POST',
-            url: 'http://dev.oicomg.in:13000/GeminisAPI/ttl/submitSoapQuery',
-            data: JSON.stringify(loaddata),
-            dataType: 'json',
-            success: function(responseData, textStatus, jqXHR) {
-                console.log("SerCall - " + loaddata.form.name, responseData);
-            	serCallHandle(responseData,true);
-                (callback && typeof(callback) === "function") && callback();
-            },
-            error: function(responseData, textStatus, errorThrown) {
-            	serCallHandle(responseData,false);
-                (callback && typeof(callback) === "function") && callback();
-            }
-        });
-    }
-
-    window.convtoi18n = function convtoi18n(lang,culture){
-        let langculture = [];
-        let sellang = lang+'_'+culture;
-        langculture['zh_HK'] = "zh_TW";
-        langculture['zh_TW'] = "zh_TW";
-        langculture['zh_CN'] = "zh_CN";
-        langculture['en_US'] = "en_US";
-        if(langculture[sellang] == undefined){
-            return 'en_US';
-        }else{
-            return langculture[sellang];
-        }
-    }
-
-window.getToday = function getToday(){
-	let today = new Date();
-	let dd = today.getDate();
-	let mm = today.getMonth()+1; //January is 0!
-	let yyyy = today.getFullYear();
-	let hh = today.getHours();
-	let min = today.getSeconds();
-	let sec = today.getMinutes();
-
-	if(dd<10) {
-	    dd='0'+dd
-	} 
-
-	if(mm<10) {
-	    mm='0'+mm
-	} 
-
-	today = yyyy+'-'+ mm+'-'+dd+' '+hh+'.'+min+'.'+sec;
-	return today;	
-}
-    window.callser = function callser(callback) {
-
-            window.nls = {
-                done: '完成',
-                success: '已完成',
-				desc: '参考编号:',
-				fail: '未能完成',
-                loginacctfirst: '请先登入帐号'
-            };
-        if (glo.sessionid == '' || glo.clientid == '') {
-
-            alert(nls.loginacctfirst);
-            return;
-        }
- 
-   	instSettlementForm = {
-                clientID: glo.clientid,
-                subscriptionPlan: '2',
-                subscriptionTimestamp: getToday(),
-                language: glo.locallang,
-                sessionID: glo.sessionid
-              }
-
-        let loadDS = loadUIDataSet();
-        let dataSet = {
-            "form": {
-                "name": "subscribeMarketData",
-                "credentials": {
-                    "username": loadDS.acct,
-                    "password": loadDS.pwd
-                },
-                "header": {
-                    "version": "1",
-                    "traceNo": "1"
-                },
-                "body": instSettlementForm
-            }
-        }
-	        callSOAPapi(dataSet, function() {
-	            (callback && typeof(callback) === "function") && callback();
-	        });
-	 
-
-    }
 
 
-
-            $(window).resize(function(){
-                rewindowsize();
-            });
-            
-
-            
-
-            window.rewindowsize = function rewindowsize(){
-                let curwei= $(document).width();
-                let desksizetable = $(".deskshow");
-                let mosizetable = $(".mobileshow");
-                if(curwei <= 992){
-                    // isdeskStocktable = false;
-                    desksizetable.hide();
-                    mosizetable.show();
+//Server Call
+            window.serCallHandle = function serCallHandle(res,trueFlag){
+                console.log("Res - Data ", res.data);
+                if(!trueFlag){
+                    alert(nls.fail);
                 }else{
-                    // isdeskStocktable = true;
-                    desksizetable.show();
-                    mosizetable.hide();
+                    if (res.data) {
+                        if(res.data.isSuccess && res.data.isSuccess == 'Y'){
+                        alert(nls.success);
+                        }
+                    } 
+                }       
+            }
+
+            window.callSOAPapi = function callSOAPapi(loaddata, callback) {
+                turnLoader('c');
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/session/submitSoapQuery',
+                    data: JSON.stringify(loaddata),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function(responseData, textStatus, jqXHR) {
+                        console.log("SerCall - " + loaddata.form.name, responseData);
+                        serCallHandle(responseData,true);
+                        turnLoader();
+                        (callback && typeof(callback) === "function") && callback();
+                    },
+                    error: function(responseData, textStatus, errorThrown) {
+                        serCallHandle(responseData,false);
+                        turnLoader();
+                        (callback && typeof(callback) === "function") && callback();
+                    }
+                });
+            }
+
+
+
+            window.callser = function callser(callback) {
+
+                window.nls = {
+                    done: '完成',
+                    success: '已完成',
+                    desc: '參考編號:',
+                    fail: '未能完成',
+                    loginacctfirst: '請先登入帳號'
+                };
+
+                if (glo.sessionid == '' || glo.clientid == '') {
+                    alert(nls.loginacctfirst);
+                    return;
                 }
-            }    
+         
+            instSettlementForm = {
+                        ClientID: glo.clientid,
+                        SubscriptionPlan: '2',
+                        SubscriptionTimestamp: getToday(),
+                        Language: glo.locallang,
+                        SessionID: glo.sessionid
+                      }
 
-            rewindowsize();
+                var dataSet = {
+                    "form": {
+                        "name": "subscribeMarketData",
+                        "credentials": {
+                            "username": "9910-268",
+                            "password": "12345678"
+                        },
+                        "header": {
+                            "version": "1",
+                            "traceNo": "1"
+                        },
+                        "body": instSettlementForm
+                    }
+                }
+                    callSOAPapi(dataSet, function() {
+                        (callback && typeof(callback) === "function") && callback();
+                    });
+             
 
-// init
+            }
+
+
+
+            $(window).resize(function(){ rewindowsize(); });
+            
+
+            window.convtoi18n = function convtoi18n(lang,culture){var langculture = []; var sellang = lang+'_'+culture; langculture['zh_HK'] = "zh_TW"; langculture['zh_TW'] = "zh_TW"; langculture['zh_CN'] = "zh_CN"; langculture['en_US'] = "en_US"; if(langculture[sellang] == undefined){return 'en_US'; }else{return langculture[sellang]; } }
+
+            window.getToday = function getToday(){var today = new Date(); var dd = today.getDate(); var mm = today.getMonth()+1; var yyyy = today.getFullYear(); var hh = today.getHours(); var min = today.getSeconds(); var sec = today.getMinutes(); if(dd<10) {dd='0'+dd; } if(mm<10) {mm='0'+mm; } today = yyyy+'-'+ mm+'-'+dd+' '+hh+'.'+min+'.'+sec; return today; }          
+
+            window.rewindowsize = function rewindowsize(){var curwei= $(document).width(); var desksizetable = $(".deskshow"); var mosizetable = $(".mobileshow"); if(curwei <= 992){desksizetable.hide(); mosizetable.show(); }else{desksizetable.show(); mosizetable.hide(); } }
+
+
+            // init
             window.instSettlementForm = {};
             window.glo = {}
             window.prevPage = 0;
@@ -301,15 +354,13 @@ window.getToday = function getToday(){
             $('body').on('click','.prevRightBtn',function(e){ window.location.href = planLstLink[nextPage]; });
             glo.sessionid = "@{S:SESSIONID}";
             glo.clientid = "@{S:CLIENTID}";
-            let transacctlst = '@{S:TRADINGACCLIST}';
-            // glo.sessionid = '';
-            // glo.clientid = '';
-            // let transacctlst = '';
+            var transacctlst = '@{S:TRADINGACCLIST}';
             transacctlst != "" && (glo.tranaccseq = JSON.parse(transacctlst));
 
             glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
+            rewindowsize();
 
-$('.carousel.carousel-slider').carousel({full_width: true});
+            $('.carousel.carousel-slider').carousel({full_width: true});
 
 
 });

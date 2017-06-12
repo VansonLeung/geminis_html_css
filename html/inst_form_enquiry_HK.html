@@ -366,7 +366,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
         }else{
              var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
                         // convData = [{
 // transactionID:'1',
@@ -395,7 +395,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                         // <td>' + convData[i].currencyID + '</td> \
                         // <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         // <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
-                        // <td style="text-align:right;padding-right:24px;">' + convData[i].bankAccount + '</td> \
+                        // <td>' + convData[i].bankAccount + '</td> \
                         // <td>' + convData[i].bankName + '</td> \
                         // <td>' + convData[i].bankSwiftCode + '</td> \
                         // <td>' + convstatus(convData[i].status) + '</td> \
@@ -404,9 +404,12 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 tempUI += '<tr> <td colspan="9" style="text-align:center;">'+nls.loginacctfirst+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]});           
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }});           
                   var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                         // convData = [{
 // transactionID:'1',
@@ -433,7 +436,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                         // <td>' + convData[i].currencyID + '</td> \
                         // <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         // <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
-                        // <td style="text-align:right;padding-right:24px;">' + convData[i].bankAccount + '</td> \
+                        // <td>' + convData[i].bankAccount + '</td> \
                         // <td>' + convData[i].bankID + '</td> \
                         // <td>' + convstatus(convData[i].status) + '</td> \
                         // </tr>';
@@ -441,7 +444,10 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 tempUI += '<tr> <td colspan="8" style="text-align:center;">'+nls.loginacctfirst+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
-                $('#enquiryTable2').tablesorter({sortList:[[0,1]]}); 
+                $('#enquiryTable2').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
         }
 
  
@@ -527,14 +533,14 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 if (resuData.cashWithdrawInstructionList && resuData.cashWithdrawInstructionList.length > 0) {
                     var convData = resuData.cashWithdrawInstructionList;
                     var tempUI = '';
-                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
+                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:20px;">' + convData[i].transactionID + '</td> \
                         <td>' + convData[i].creationTime + '</td> \
                         <td>' + convData[i].currencyID + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
-                        <td style="text-align:right;padding-right:24px;">' + convData[i].bankAccount + '</td> \
+                        <td>' + convData[i].bankAccount + '</td> \
                         <td>' + convData[i].bankName + '</td> \
                         <td>' + convData[i].bankSwiftCode + '</td> \
                         <td>' + convstatus(convData[i].status) + '</td> \
@@ -542,26 +548,35 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                     }  
                         tempUI +='</tbody>';
                     $('#enquiryTable').empty().append(tempUI);
-                    $('#enquiryTable').tablesorter({sortList:[[0,1]]}); 
+                    $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
 
                 }else{
                       var tempUI = '';
-                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
+                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
                 tempUI += '<tr> <td colspan="9" style="text-align:center;">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]}); 
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
                 }
 
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
-                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
+                  tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th><th><span>'+nls.currency+'</span></th>  <th style="text-align:right;"><span>'+nls.amount+'</span></th> <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'</span></th> <th><span>'+nls.bankcode+'</span></th> <th><span>'+nls.status+'</span></th> </tr></thead>';
                 tempUI += '<tr> <td colspan="9" style="text-align:center;">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]}); 
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
 
                 turnLoader();
             }
@@ -604,7 +619,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 if (resuData.cashDepositInstructionList && resuData.cashDepositInstructionList.length > 0) {
                     var convData = resuData.cashDepositInstructionList;
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:24px;">' + convData[i].transactionID + '</td> \
@@ -612,33 +627,42 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                         <td>' + convData[i].currencyID + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
-                        <td style="text-align:right;padding-right:24px;">' + convData[i].bankAccount + '</td> \
+                        <td>' + convData[i].bankAccount + '</td> \
                         <td>' + convData[i].bankID + '</td> \
                         <td>' + convstatus(convData[i].status) + '</td> \
                         </tr>';
                     }   
                         tempUI +='</tbody>';
                     $('#enquiryTable2').empty().append(tempUI);
-                    $('#enquiryTable2').tablesorter({sortList:[[0,1]]}); 
+                    $('#enquiryTable2').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
                 }else{
                       var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                 tempUI += '<tr> <td colspan="8" style="text-align:center;">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
-                $('#enquiryTable2').tablesorter({sortList:[[0,1]]}); 
+                $('#enquiryTable2').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
                 }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th style="text-align:right;"><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th style="text-align:right;"><span>'+nls.refno+'</span></th> <th><span>'+nls.createtime+'</span></th> <th><span>'+nls.currency+'</span></th><th style="text-align:right;"><span>'+nls.amount+'</span></th>  <th><span>'+nls.settletype+'</span></th> <th><span>'+nls.custacct+'</span></th> <th><span>'+nls.custno+'</span></th> <th><span>'+nls.status+'</span></th></tr></thead>';
                         tempUI +='<tbody>';
                 tempUI += '<tr> <td colspan="8" style="text-align:center;">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable2').empty().append(tempUI);
-                $('#enquiryTable2').tablesorter({sortList:[[0,1]]}); 
+                $('#enquiryTable2').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }}); 
                 turnLoader();
             }
         });

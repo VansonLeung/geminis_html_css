@@ -128,7 +128,7 @@ padding:0px 20px;
 <div class="planheader" id="headertop">
 <div class="planheader-body">
 <div>
-<h3 class="planheader-title">港股報價王 9.0 版</h3>
+<h3 class="planheader-title">Shenzhen-HK Stock Connect (VAS)</h3>
 
 <p class="planheader-desc">XXX證券有限公司提供實時串流報價，最新的財經新聞和信息。<br />
 訂閱的實時報價服務。</p>
@@ -161,31 +161,22 @@ padding:0px 20px;
 
 <ul class="plandescbody">
     <li>
-    <p>港股詳盡報價包括十檔買賣排隊、經紀排隊及全日成交紀綠</p>
+    <p>QPI Stock Connect SZSEA stocks is a value added service (VAS) to QPI-Web HK. It provides real-time prices of all SZSE A-shares. The information contained in QPI Stock Connect includes Shenzhen A-share level 1 data, analytic charts, symbol search and daily quota balance for northbound trading which is essential to stock market investors.</p>
     </li>
     <li>
-    <p>恆生指數</p>
+    <p>Teletext page with level 1 real-time data of A-Share securities listed in the Shenzhen Stock Exchange (SZSE)</p>
     </li>
     <li>
-    <p>香港期貨交易所所有指數期貨、指數期權</p>
+    <p>Major China Market Indices including SZSE A, SZSE B and SZSE Component</p>
     </li>
     <li>
-    <p>主板及創業板公司最新公告</p>
+    <p>SZSEA Risk Alert Board for Main Board and Small and Medium Enterprise</p>
     </li>
     <li>
-    <p>推廣期內免費提供明報中文財經新聞</p>
+    <p>SZSEA Sector Constituents</p>
     </li>
     <li>
-    <p>香港上市公司資料提供中英文上市公司資料包括公司簡介、盈虧表現、損益表、資產負債表、財務比率、現金流量表、季度/中期業績、派息紀錄及股份回購等等</p>
-    </li>
-    <li>
-    <p>道瓊斯亞太股票新聞於交易時間內提供亞太即時中英文財經市場新聞及股票新聞</p>
-    </li>
-    <li>
-    <p>國際市場資訊提供適量更新的主要外匯價格、貨幣兌換率及延遲的世界指數供用戶參考</p>
-    </li>
-    <li>
-    <p>報價王情報包括現設置于&ldquo;大市備忘&rdquo;版面下的異動股提示（異動股、異動認股證）, 更包括新增的藍籌公司主要股東權益變動（股權變動）、大行推薦之股票（大行推介）及主要發行商推介的認股証和牛熊証（窩輪錦囊、牛熊証錦囊）等資料</p>
+    <p>Daily Northbound Quota</p>
     </li>
 </ul>
 </div>
@@ -302,7 +293,7 @@ $(function(){
          
             instSettlementForm = {
                         ClientID: glo.clientid,
-                        SubscriptionPlan: '1',
+                        SubscriptionPlan: '4',
                         SubscriptionTimestamp: getToday(),
                         Language: glo.locallang,
                         SessionID: glo.sessionid
@@ -344,9 +335,9 @@ $(function(){
             // init
             window.instSettlementForm = {};
             window.glo = {}
-            window.prevPage = 3;
-            window.curselPage = 0;
-            window.nextPage = 1;
+            window.prevPage = 2;
+            window.curselPage = 3;
+            window.nextPage = 0;
             window.planLstLink = [
             'qpwebhkfullversion',
             'qpwebhkjuniorxversion',

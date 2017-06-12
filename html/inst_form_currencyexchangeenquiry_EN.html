@@ -315,7 +315,10 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]});   
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }});   
         }
  
  
@@ -407,7 +410,10 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                     }  
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]});                       
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }});                       
                 }else{
                 var tempUI = '';
                     tempUI += '<thead><tr class="smaller"> <th class="right-align"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align"><span>'+nls.form+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="left-align"><span>'+nls.to+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.raito+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
@@ -416,7 +422,10 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]});   
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }});   
                 }
                 turnLoader();
             },
@@ -428,7 +437,10 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]]});  
+                $('#enquiryTable').tablesorter({sortList:[[0,1]],
+    textExtraction: function(node){ 
+        return $(node).text().replace(/[,$£€]/g,'');
+     }});  
                 turnLoader();
             }
         });
