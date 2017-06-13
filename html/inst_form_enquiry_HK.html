@@ -291,7 +291,16 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
       $(function(e){
 
-
+    $('.subsubmenuBox').on('click',function(e){
+        var subsubItem = $(this).data().gmnsubsubmenu;
+        if(subsubItem == 'inst'){
+        turnLoader('c');
+            window.location.href="../deposit-Instruction/";
+        }
+        if(subsubItem == 'enqu'){
+            // window.location.href="../deposit-Instruction-enquiry/";
+        }
+    });
  
     window.loadUIDataSet = function loadUIDataSet() {
 

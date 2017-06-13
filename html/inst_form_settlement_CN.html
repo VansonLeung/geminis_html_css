@@ -424,7 +424,6 @@ max-width:none;
 </div>
 </div>
 
-<div class="enqu">&nbsp;</div>
 </div>
 
 <div class="row inst stepBottomBar">
@@ -440,17 +439,11 @@ max-width:none;
 $('.subsubmenuBox').on('click',function(e){
     var subsubItem = $(this).data().gmnsubsubmenu;
     if(subsubItem == 'inst'){
-        $('.inst').show();
-        $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+        turnLoader('c');
 window.location.href="../stock-instruction-enquiry/";
-        // $('.inst').hide();
-        // $('.enqu').show();
-
     }
-    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
-    $(this).addClass('subsubmenuBox-Active');
 });
 
 $('#acc_btn_otp').click(function(e){

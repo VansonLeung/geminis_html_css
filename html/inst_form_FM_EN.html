@@ -485,26 +485,8 @@
 </div>
 </div>
 
-<div class="enqu">&nbsp;</div>
-</div>
-<!-- </section>
-<section class="tmpbody" style="background-color: #f2f2f2;background-image: url(../../../images/bg_img/trade_bg.jpg);background-repeat: no-repeat;background-size: contain;">
-<div class="row" id="orgForm">
-<div align="right" class="col l3 hidewhenmobile">
-
 </div>
 
-<div class="col s12 m12 l9 smallform">
-
-<div id="sercallloader" style="display: none ">
-<div class="valgin center progress" style="margin: auto; width: 70%; overflow: hidden; border-radius: 20px; ">
-<div class="indeterminate">&nbsp;</div>
-</div>
-</div>
-
-
-</div>
-</div> -->
 
 <div class="row inst stepBottomBar">
 <div class="col s12 m12 l3 " id="stepback">Back</div>
@@ -524,17 +506,12 @@ $(".editable").on("click", function() {
 $('.subsubmenuBox').on('click',function(e){
     var subsubItem = $(this).data().gmnsubsubmenu;
     if(subsubItem == 'inst'){
-        $('.inst').show();
-        $('.enqu').hide();
     }
     if(subsubItem == 'enqu'){
+        turnLoader('c');
 window.location.href="../deposit-Instruction-enquiry/";
-        // $('.inst').hide();
-        // $('.enqu').show();
 
     }
-    $('.subsubmenuBox').removeClass('subsubmenuBox-Active');
-    $(this).addClass('subsubmenuBox-Active');
 });
 
 $('#acc_btn_otp').click(function(e){

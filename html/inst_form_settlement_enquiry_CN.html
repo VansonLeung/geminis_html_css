@@ -214,7 +214,16 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
       $(function(e){
 
-
+    $('.subsubmenuBox').on('click',function(e){
+        var subsubItem = $(this).data().gmnsubsubmenu;
+        if(subsubItem == 'inst'){
+        turnLoader('c');
+            window.location.href="../stock-instruction/";
+        }
+        if(subsubItem == 'enqu'){
+            // window.location.href="../stock-instruction-enquiry/";
+        }
+    });
  
     window.loadUIDataSet = function loadUIDataSet() {
 
