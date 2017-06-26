@@ -222,7 +222,7 @@ max-width:none;
 <p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">Form</p>
 
 <div class="newinstselectitem">
-<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="TWD">TWD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
 </div>
 
 <p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
@@ -245,7 +245,7 @@ max-width:none;
 <p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">To</p>
 
 <div class="newinstselectitem">
-<div class="custselectitem"><select id="field_currency_to" name="field_currency_to"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<div class="custselectitem"><select id="field_currency_to" name="field_currency_to"><option disabled="disabled" selected="selected" value="">Currency</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="TWD">TWD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
 </div>
 
 <p id="field_currency_to_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
@@ -314,7 +314,7 @@ max-width:none;
 <div class="col s12 m6 l10">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">Please entry OTP</label>
+<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">Please enter OTP</label>
 
 <p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
@@ -343,7 +343,6 @@ max-width:none;
 <!-- </form> --></div>
 </div>
 </div>
-
 </div>
 
 <div class="row inst stepBottomBar">
@@ -506,9 +505,9 @@ $('#acc_btn_otp').click(function(e){
             desc: 'Ref. No',
             fail: 'Fail',
             done: 'Success',
-            plsfillpwd: 'Please entry OTP',
+            plsfillpwd: 'Please enter OTP',
             loginacctfirst: 'Please login first.',
-            fillindata: 'Please Entry ',
+            fillindata: 'Please enter ',
             choosedata: 'Please Choose ',
             amount: 'Amount',
             amounterror: 'Amount cannot be less than zero',
@@ -523,9 +522,9 @@ $('#acc_btn_otp').click(function(e){
             transacct: 'Account Type',
             currency: 'Currency',
             remark: 'Remark',
-            emptmsgtype1:'please choose currency and entry amount',
+            emptmsgtype1:'please choose currency and enter amount',
             emptmsgtype2:'Please choose currency',
-            emptmsgtype3:'please entry amount'
+            emptmsgtype3:'please enter amount'
         };
 
         window.glootperror = false;
@@ -701,6 +700,7 @@ $('#acc_btn_otp').click(function(e){
             curLst['GBP'] = 'GBP';
             curLst['SGD'] = 'SGD';
             curLst['MYR'] = 'MYR';
+            curLst['TwD'] = 'TWD';
             if(curLst[curr] != undefined){
                 return curLst[curr];
             }else{

@@ -333,6 +333,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             status:'状态',
             statusR:'已提交',
             statusP:'待审批',
+            statusC:'已取消',
             statusA:'已审批',
             statusX:'被拒绝',
             nodata:'没有资料显示'
@@ -478,10 +479,11 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
       window.convstatus = function convstatus(type){
       var convt = '';
       switch(type){
-        case 'R': convt = nls.statusR;break;
-        case 'P': convt = nls.statusP;break;
-        case 'A': convt = nls.statusA;break;
-        case 'X': convt = nls.statusX;break;
+        case 'R': convt = '<b style="color:black">'+nls.statusR+'</b>';break;
+        case 'P': convt = '<b style="color:black">'+nls.statusP+'</b>';break;
+        case 'A': convt = '<b style="color:#4caf50">'+nls.statusA+'</b>';break;
+        case 'X': convt = '<b style="color:#d43b30">'+nls.statusX+'</b>';break;
+        case 'C': convt = '<b style="color:#6c6c6c">'+nls.statusC+'</b>';break;
         default:;
       }
       return convt;
