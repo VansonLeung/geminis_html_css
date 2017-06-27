@@ -212,6 +212,8 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 
       $(function(e){
 
+
+
     $('.subsubmenuBox').on('click',function(e){
         var subsubItem = $(this).data().gmnsubsubmenu;
         if(subsubItem == 'inst'){
@@ -222,6 +224,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             // window.location.href="../currency-exchange-instruction-enquiry/";
         }
     });
+
  
     window.loadUIDataSet = function loadUIDataSet() {
 
@@ -243,7 +246,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             form:'由',
             amount:'金額',
             to:'轉換到',
-            raito:'匯率',
+            remark:'備註',
             status:'狀態',
             statusR:'已提交',
             statusP:'待審批',
@@ -286,7 +289,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             loadEnquiryData();
         }else{
                var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th class="right-align"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align"><span>'+nls.form+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="left-align"><span>'+nls.to+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.raito+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th class="right-align" style="padding:0;padding-left:0px;width:100px"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align" style="width: 50px;padding: 0px;"><span>'+nls.form+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.to+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.remark+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
                     // convData = [{
 // transactionID:'0001',
@@ -311,13 +314,13 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                     // for (var i = 0; i < convData.length; i++) {
                         // tempUI += '\
                         // <tr> \
-                        // <td  style="text-align:right;padding-right:24px; class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
+                        // <td  style="text-align:right;padding-right:24px;padding-left:10px class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
                         // <td class="left-align">' + convData[i].creationTime + '</td> \
                         // <td class="left-align">' + convData[i].fromCurrency + '</td> \
                         // <td  style="text-align:right;padding-right:24px; class="right-align">' + formatAmount(convData[i].fromAmount,'') + '</td> \
                         // <td class="left-align">' + convData[i].toCurrency + '</td> \
                         // <td  style="text-align:right;padding-right:24px; class="right-align">' + formatAmount(convData[i].toAmount,'') + '</td> \
-                        // <td  style="text-align:right;padding-right:24px; class="right-align">' + convData[i].exchangeRate + '</td>  \
+                        // <td  style="text-align:right;padding-right:24px; class="right-align">' + '' + '</td>  \
                         // <td class="left-align">' + convstatus(convData[i].status) + '</td> \
                         // </tr>';
                     // }                    
@@ -403,21 +406,21 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
                 if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
                     var convData = resuData.foreignExchangeInstructionList;
                     var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th class="right-align"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align"><span>'+nls.form+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="left-align"><span>'+nls.to+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.raito+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th class="right-align" style="padding:0;padding-left:0px;width:100px"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align" style="width: 50px;padding: 0px;"><span>'+nls.form+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.to+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.remark+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '\
                         <tr> \
-                        <td  style="text-align:right;padding-right:24px; class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
+                        <td  style="text-align:right;padding-right:24px;padding-left:10px class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
                         <td class="left-align">' + convData[i].creationTime + '</td> \
                         <td class="left-align">' + convData[i].fromCurrency + '</td> \
                         <td  style="text-align:right;padding-right:24px; class="right-align">' + formatAmount(convData[i].fromAmount,'') + '</td> \
                         <td class="left-align">' + convData[i].toCurrency + '</td> \
                         <td  style="text-align:right;padding-right:24px; class="right-align">' + formatAmount(convData[i].toAmount,'') + '</td> \
-                        <td  style="text-align:right;padding-right:24px; class="right-align">' + convData[i].exchangeRate + '</td>  \
+                        <td  style="text-align:right;padding-right:24px; class="right-align">' + '' + '</td>  \
                         <td class="left-align">' + convstatus(convData[i].status) + '</td> \
                         </tr>';
-                    }  
+                    }    
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter({sortList:[[0,1]],
@@ -426,7 +429,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
      }});                       
                 }else{
                 var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th class="right-align"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align"><span>'+nls.form+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="left-align"><span>'+nls.to+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.raito+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th class="right-align" style="padding:0;padding-left:0px;width:100px"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align" style="width: 50px;padding: 0px;"><span>'+nls.form+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.to+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.remark+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
                   
                 tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
@@ -441,7 +444,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
             },
             error: function(responseData, textStatus, errorThrown) {
                 var tempUI = '';
-                    tempUI += '<thead><tr class="smaller"> <th class="right-align"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align"><span>'+nls.form+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="left-align"><span>'+nls.to+'</span></th> <th class="right-align"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.raito+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
+                    tempUI += '<thead><tr class="smaller"> <th class="right-align" style="padding:0;padding-left:0px;width:100px"><span>'+nls.refno+'</span></th> <th class="left-align"><span>'+nls.createtime+'</span></th> <th class="left-align" style="width: 50px;padding: 0px;"><span>'+nls.form+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.to+'</span></th> <th class="right-align" style="width: 50px;padding: 0px;"><span>'+nls.amount+'</span></th> <th class="right-align"><span>'+nls.remark+'</span></th>  <th class="left-align"><span>'+nls.status+'</span></th> </tr></thead>';
                         tempUI +='<tbody>';
                   
                 tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
