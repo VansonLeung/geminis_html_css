@@ -91,10 +91,10 @@ max-width:none;
         width:100%; 
     }
     #stepback{
-      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;     cursor: pointer; 
     }
     #stepgo{
-        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;    cursor: pointer;
     }
 
     .menustepArea{
@@ -151,10 +151,10 @@ max-width:none;
     .stocklist li{
       padding: 5px;
     }
-    .stocklist li:nth-child(odd){
+    .stocklist tr:nth-child(odd){
       background-color: #fff;
     }
-    .stocklist li:nth-child(even){
+    .stocklist tr:nth-child(even){
       background-color: #f0f0f0;
     }
 </style>
@@ -344,11 +344,11 @@ max-width:none;
 <table class="generic-table-content small font_smed stocklisttable nopaddtable desksizetable">
   <tbody>
     <tr class="smaller">
-      <th class="settlement-col-6">市場</th>
-      <th class="settlement-col-1">代號</th>
-      <th class="settlement-col-2">股票名稱</th>
-      <th class="settlement-col-3">股數</th>
-      <th class="t_right settlement-col-4">金額 (如適用)</th>
+      <th style="width:90px;" class="settlement-col-6">市場</th>
+      <th style="width:100px;" class="settlement-col-1">代號</th>
+      <th style="width:100px;" class="settlement-col-2">股票名稱</th>
+      <th style="width:100px;" class="settlement-col-3">股數</th>
+      <th style="width:150px;" class="t_right settlement-col-4">金額 (如適用)</th>
       <th class="settlement-col-5">備註</th>
     </tr>
   </tbody>
@@ -542,21 +542,21 @@ $('#acc_btn_otp').click(function(e){
         if(!trueFlag){
                     $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
         }else{
             if (res.data) {
-                if(res.data.isSuccessField && res.data.isSuccessField == 'Y'){
+                if(res.data.isSuccess && res.data.isSuccess == 'Y'){
                     $(".msgiconfinish").attr('src','../../../images/complete icon.png');
                     $("#callstate").text(nls.success);
-                    if(res.data.transactionIDField && res.data.transactionIDField !=''){
-                        $("#calldesc").text(nls.desc + res.data.transactionIDField);
+                    if(res.data.transactionID && res.data.transactionID !=''){
+                        $("#calldesc").text(nls.desc + res.data.transactionID);
                     }else{
                         $("#calldesc").text('');
                     }
                 }else{
                     $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
                 }
             } else{
                 // otp error
@@ -566,7 +566,7 @@ $('#acc_btn_otp').click(function(e){
 
                     $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
                 }
         }       
     }
@@ -780,9 +780,9 @@ $('#acc_btn_otp').click(function(e){
               return msg;
             }
             function resetstockinfo(){
-                $('.settlement-box-one-vaillab').html('&nbsp');
-                $('.settlement-box-stockname-vaillab').html('&nbsp');
-                $('.settlement-box-two-vaillab').html('&nbsp');
+                $('.settlement-box-one-vaillab').html('');
+                $('.settlement-box-stockname-vaillab').html('');
+                $('.settlement-box-two-vaillab').html('');
             }
             function resetinfo(){
                 $('#field_name_vaillab').html('&nbsp');
@@ -805,15 +805,20 @@ $('#acc_btn_otp').click(function(e){
                       var selItem_label = $('.settlement-box-one-vaillab').get(stock);
                       var selItemName_label = $('.settlement-box-stockname-vaillab').get(stock);
                       var selItemQty_label = $('.settlement-box-two-vaillab').get(stock);
-                    if(selItem.value == ''){ 
+                       var pre_selItem_value = selItem.value.replace(/ /g,'');
+                    if(pre_selItem_value == ''){ 
+                debugger
                       $(selItem_label).text(popwarning('q'));
+                debugger
                       vailstockstate = false; 
                     }
-                    if(selItemName.value == ''){ 
+                       var pre_selItemName_value = selItemName.value.replace(/ /g,'');
+                    if(pre_selItemName_value == ''){ 
                       $(selItemName_label).text(popwarning('ssn'));
                       vailstockstate = false; 
                     }
-                    if(selItemQty.value == ''){
+                       var pre_selItemQty_value = selItemQty.value.replace(/ /g,'');
+                    if(pre_selItemQty_value == ''){
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
@@ -821,7 +826,7 @@ $('#acc_btn_otp').click(function(e){
 
 
             }else{
-            
+              
                 for (var stock = 0; stock<stockmolstlen; stock++){
                     var selItem = $('.settlement-box-one-m').get(stock);
                     var selItemName = $('.settlement-box-stockname-m').get(stock);
@@ -829,15 +834,20 @@ $('#acc_btn_otp').click(function(e){
                       var selItem_label = $('.settlement-box-one-m-vaillab').get(stock);
                       var selItemName_label = $('.settlement-box-stockname-m-vaillab').get(stock);
                       var selItemQty_label = $('.settlement-box-two-m-vaillab').get(stock);
-                    if(selItem.value == ''){ 
+                       var pre_selItem_value = selItem.value.replace(/ /g,'');
+                    if(pre_selItem_value == ''){ 
+                debugger
                       $(selItem_label).text(popwarning('q'));
+                debugger
                       vailstockstate = false; 
                     }
-                    if(selItemName.value == ''){ 
+                       var pre_selItemName_value = selItemName.value.replace(/ /g,'');
+                    if(pre_selItemName_value == ''){ 
                       $(selItemName_label).text(popwarning('ssn'));
                       vailstockstate = false; 
                     }
-                    if(selItemQty.value == ''){
+                       var pre_selItemQty_value = selItemQty.value.replace(/ /g,'');
+                    if(pre_selItemQty_value == ''){
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
@@ -882,19 +892,23 @@ $('#acc_btn_otp').click(function(e){
 
 
            resetinfo();
-                if(field_name == ''){
+                var pre_field_name = field_name.replace(/ /g,'');
+                if(pre_field_name == ''){
                     $('#field_name_vaillab').text(popwarning('n'));
                     vailstate = false;
                 }
-                if(field_accountnum == ''){
+                var pre_field_accountnum = field_accountnum.replace(/ /g,'');
+                if(pre_field_accountnum == ''){
                     $('#field_accountnum_vaillab').text(popwarning('an'));
                     vailstate = false;
                 }
-                if(field_contactname == ''){
+                var pre_contactname = field_contactname.replace(/ /g,'');
+                if(pre_contactname == ''){
                     $('#field_contactname_vaillab').text(popwarning('cn'));
                     vailstate = false;
                 }
-                if(field_contactnum == ''){
+                var pre_contactnum = field_contactnum.replace(/ /g,'');
+                if(pre_contactnum == ''){
                     $('#field_contactnum_vaillab').text(popwarning('co'));
                     vailstate = false;
                 }
@@ -928,31 +942,40 @@ $('#acc_btn_otp').click(function(e){
             var d = data;
             var temp = '\
             <table class="confirmbox">\
-                 <tr><td colspan="2">'+d.InstructionName+'</td></tr>\
-                 <tr><td width="25%">'+nls.fromacct+':</td><td>'+d.formacctName+'</td></tr>\
-                 <tr><td>'+nls.toacct+':</td><td>'+d.toacctName+'<td></tr>\
-                 <tr><td>'+nls.transmethod+':</td><td>'+d.SettlementMethodName+'</td></tr>\
-                 <tr><td colspan="2">'+nls.acceptman+'</td></tr>\
-                 <tr><td>'+nls.name+':</td><td>'+d.CounterpartyName+'</td></tr>\
-                 <tr><td>'+nls.acctnum+':</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
-                 <tr><td>'+nls.acctname+':</td><td>'+d.CounterpartyContactPerson+'</td></tr>\
-                 <tr><td>'+nls.accttel+':</td><td>'+d.CounterpartyTelNo+'</td></tr>\
-                 <tr><td colspan="2">'+nls.stockinfo+'</td></tr>\
-                 <tr><td colspan="2"><ul class="stocklist">';
+                 <tr><td width="130px">'+d.InstructionName+'</td><td colspan="3">'+d.formacctName+' -> '+d.toacctName+'</td></tr>\
+                 <tr><td style="padding: 10px 0px;">'+nls.transmethod+':</td><td colspan="3" style="padding: 10px 0px;">'+d.SettlementMethodName+'</td></tr>\
+                 <tr> <td colspan="4" style="padding: 10px 0px;"> </td></tr>\
+                 <tr><td colspan="4" style="background-color: #ddd;padding: 10px 5px;">'+nls.acceptman+'</td></tr>\
+                 <tr><td width="130px">'+nls.name+'</td><td>'+d.CounterpartyName+'</td><td width="130px">'+nls.acctnum+'</td><td>'+d.CounterpartyAccountNo+'</td></tr>\
+                 <tr><td width="130px" style="padding:10px 0px;">'+nls.acctname+'</td><td style="padding:10px 0px;">'+d.CounterpartyContactPerson+'</td><td width="130px" style="padding:10px 0px;">'+nls.accttel+'</td><td style="padding:10px 0px;">'+d.CounterpartyTelNo+'</td></tr>\
+                 <tr> <td colspan="4" style="padding: 10px 0px;"> </td></tr>\
+                 <tr><td colspan="4" style="background-color: #ddd;padding: 10px 5px;">'+nls.stockinfo+'</td></tr>\
+                 <tr><td colspan="4" style="padding-top:0px;"><table class="generic-table-content small font_smed nopaddtable  " style="display:table">\
+                 <tr class="smaller">\
+                 <th style="background-color:#4a4a4a;color:white;width:67px">' + nls.market+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;width:74px">' + nls.stockno+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;width:77px">' + nls.stockname+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;text-align:right;width:60px">' + nls.stockqty+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;text-align:right;width:125px;">' + nls.stockamt+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;">' + nls.stockremark+ '</th>\
+                  </tr>';
                 for(var item =0 ; item < d.STOCKINFORMATIONLIST.length;item++){
+var formatremark ='';
                   if(d.STOCKINFORMATIONLIST[item].remarks == ''){
-                    formatremark = '---';
-                  }
-                    temp = temp + '<li>' +
-                    ' ' + nls.market+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].marketID +'</span>'+
-                    ' ' + nls.stockno+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentID +'</span>'+
-                    ' ' + nls.stockname+ ': '+ '<span class="stockred">' + d.STOCKINFORMATIONLIST[item].instrumentName +'</span>'+
-                    ' ' + nls.stockqty+ ': '+ '<span class="stockred">' + formatQty(parseInt(d.STOCKINFORMATIONLIST[item].qty)) +'</span>'+
-                    ' ' + nls.stockamt+ ': '+ '<span class="stockred">' + formatAmount(parseFloat(d.STOCKINFORMATIONLIST[item].amount),'') +'</span>'+
-                    ' ' + nls.stockremark+ ': '+ '<span class="stockred">' + formatremark +'</span>'+
-                    '</li>';
+                    formatremark = ' ';
+                  }else{
+ formatremark =d.STOCKINFORMATIONLIST[item].remarks;
+}   
+                    temp = temp + '<tr>' +
+                    '<td><span class="">' + d.STOCKINFORMATIONLIST[item].marketID +'</span></td>'+
+                    '<td><span class="">' + d.STOCKINFORMATIONLIST[item].instrumentID +'</span></td>'+
+                    '<td><span class="">' + d.STOCKINFORMATIONLIST[item].instrumentName +'</span></td>'+
+                    '<td style="text-align:right;"><span class="">' + formatQty(parseInt(d.STOCKINFORMATIONLIST[item].qty)) +'</span></td>'+
+                    '<td style="text-align:right;"><span class="">' + formatAmount(parseFloat(d.STOCKINFORMATIONLIST[item].amount),'') +'</span></td>'+
+                    '<td><span class="">' + formatremark +'</span></td>'+
+                    '</tr>';
                 }    
-                temp +='</ul></td></tr>';
+                temp +='</table></td></tr>';
              
              temp +='</table>';
             
@@ -1064,11 +1087,11 @@ $('#acc_btn_otp').click(function(e){
   <div class="custselectitem"><select class="settlement-box-market"><option value="HKEX">HKEX</option><option value="MAMK">MAMK</option><option value="SZMK">SZMK</option><option value="USEX">USEX</option><option value="TWEX">TWEX</option><option value="AUEX">AUEX</option><option value="CAEX">CAEX</option><option value="CHEX">CHEX</option><option value="EUEX">EUEX</option><option value="GREX">GREX</option><option value="IDEX">IDEX</option><option value="JPEX">JPEX</option><option value="KREX">KREX</option><option value="MYEX">MYEX</option><option value="PHEX">PHEX</option><option value="SGEX">SGEX</option><option value="SHEB">SHEB</option><option value="THEX">THEX</option> </select>\
   </div></div>\
   </td>\
-              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-one" style="margin-left:0px;" /><p class="settlement-box-one-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td>\
-              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockname" style="width:100px !important; height:35px !important;" /><p class="settlement-box-stockname-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td>\
-              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-two" /><p class="settlement-box-two-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td>\
-              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockamt" style="width:100px !important; height:35px !important;" /></td>\
-              <td style="padding:5px !important;"><div><input type="text" value="" class="settlement-box-three" /> <div class="table_button settlement-red-color c_white removestockbtn"><i class="fa fa-remove" aria-hidden="true"></i></div></div></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-one" style="margin-left:0px; height:40px !important;" /><p class="settlement-box-one-vaillab" style="font-size: 0.7em;margin:0px;line-height: 0.9em;color:#e74c3c;"></p></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-stockname" style="width:100px !important; height:40px !important;" /><p class="settlement-box-stockname-vaillab" style="font-size: 0.7em;margin:0px;line-height: 0.9em;color:#e74c3c;"></p></td>\
+              <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-two" style="height:40px !important;" /><p class="settlement-box-two-vaillab" style="font-size: 0.7em;margin:0px;line-height: 0.9em;color:#e74c3c;"></p></td>\
+              <td style="padding:5px !important;text-align:right;"><input type="text" value="" class="settlement-box-stockamt" style="width:145px !important; height:40px !important;" /></td>\
+              <td style="padding:5px !important;"><div><input type="text" value="" class="settlement-box-three" style="width:185px !important;" /> <div class="table_button settlement-red-color c_white removestockbtn"><i class="fa fa-remove" aria-hidden="true"></i></div></div></td>\
             </tr>\
                     ');
         (callback && typeof(callback) === "function") && callback();
@@ -1091,8 +1114,8 @@ $('#acc_btn_otp').click(function(e){
 
             loadinstallFx.prototype.initBehavior = function(){
 
-            $('body').on('keydown', '.settlement-box-stockamt', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
-            $('body').on('keydown', '.settlement-box-stockamt-m', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+            $('body').on('keydown', '.settlement-box-stockamt,.settlement-box-one,.settlement-box-two', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+            $('body').on('keydown', '.settlement-box-stockamt-m,.settlement-box-one-m,.settlement-box-two-m', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
 
             window.nls = {
                 otperror:'動態密碼不正確，試再次輸入',
@@ -1100,6 +1123,7 @@ $('#acc_btn_otp').click(function(e){
                 success: '已完成',
                 desc: '參考編號:',
                 fail: '未能完成',
+                failmsg: '有關指示未被接納，請與本行職員聯絡。',
                 done: '完成',
                 plsfillpwd: '請輸入動態密碼',
                 loginacctfirst: '請先登入帳號',
