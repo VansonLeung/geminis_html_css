@@ -344,11 +344,11 @@ max-width:none;
 <table class="generic-table-content small font_smed stocklisttable nopaddtable desksizetable">
   <tbody>
     <tr class="smaller">
-      <th style="width:90px;" class="settlement-col-6">Market</th>
-      <th style="width:100px;" class="settlement-col-1">Stock Code</th>
-      <th style="width:100px;" class="settlement-col-2">Stock Name</th>
-      <th style="width:100px;" class="settlement-col-3">Quantity</th>
-      <th style="width:150px;" class="t_right settlement-col-4">Amount(if applicable)</th>
+      <th class="settlement-col-6" style="width:150px;">Market</th>
+      <th class="settlement-col-1" style="width:100px;">Stock Code</th>
+      <th class="settlement-col-2" style="width:100px;">Stock Name</th>
+      <th class="settlement-col-3" style="width:100px;">Quantity</th>
+      <th class="t_right settlement-col-4" style="width:150px;">Amount(if applicable)</th>
       <th class="settlement-col-5">Remark</th>
     </tr>
   </tbody>
@@ -441,7 +441,7 @@ $('.subsubmenuBox').on('click',function(e){
     }
     if(subsubItem == 'enqu'){
         turnLoader('c');
-window.location.href="../stock-instruction-enquiry/";
+        window.location.href="../stock-instruction-enquiry/";
 
     }
 });
@@ -459,25 +459,37 @@ $('#acc_btn_otp').click(function(e){
 
         $.post('/api/usercode/registerfromsession',
               {
-                  email:'kaycheung@cherrypicks.com',
+                  lang:getSelLanguage()
               })
               .done( function(msg) {
                   if (msg.success)
                   {
                 turnLoader();
-                      alert('Success, please check your email.');
+                      swal({
+                        title:'Sent, please check your Email.',
+                        type:'success',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
                   else
                   {
                 turnLoader();
-                      alert(msg.message);
+                      swal({
+                        title:'Failure, plesase try again later.',
+                        type:'error',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
               })
               .fail( function(xhr, textStatus, errorThrown) {
                 turnLoader();
-                  alert("Network Error");
+                      swal({
+                        title:'Failure, plesase try again later.',
+                        type:'error',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
               });      
 
@@ -604,6 +616,7 @@ $('#acc_btn_otp').click(function(e){
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
@@ -630,44 +643,44 @@ $('#acc_btn_otp').click(function(e){
         }
 
         window.handlestepcolor = function handlestepcolor(step){
-        switch (step) {
-            case 1:
-                $('#stepbarstepicon1').show();
-                $('#stepbarstepicon2').hide();
-                $('#stepbarstepicon3').hide();
-                
-                $('#stepbarstep1').addClass('menustepText-Active');
-                $('#stepbarstep2').removeClass('menustepText-Active');
-                $('#stepbarstep3').removeClass('menustepText-Active');
-                // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
-                break;
-            case 2:
-                $('#stepbarstepicon1').hide();
-                $('#stepbarstepicon2').show();
-                $('#stepbarstepicon3').hide();
-                $('#stepbarstep1').removeClass('menustepText-Active');
-                $('#stepbarstep2').addClass('menustepText-Active');
-                $('#stepbarstep3').removeClass('menustepText-Active');                
-                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
-                break;
-            case 3:
-                $('#stepbarstepicon1').hide();
-                $('#stepbarstepicon2').hide();
-                $('#stepbarstepicon3').show();
-                $('#stepbarstep1').removeClass('menustepText-Active');
-                $('#stepbarstep2').removeClass('menustepText-Active');
-                $('#stepbarstep3').addClass('menustepText-Active');                
-                // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
-                // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
-                break;
-            default:
-                ;
-        }
+          switch (step) {
+              case 1:
+                  $('#stepbarstepicon1').show();
+                  $('#stepbarstepicon2').hide();
+                  $('#stepbarstepicon3').hide();
+                  
+                  $('#stepbarstep1').addClass('menustepText-Active');
+                  $('#stepbarstep2').removeClass('menustepText-Active');
+                  $('#stepbarstep3').removeClass('menustepText-Active');
+                  // $('#stepbarstep1').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                  break;
+              case 2:
+                  $('#stepbarstepicon1').hide();
+                  $('#stepbarstepicon2').show();
+                  $('#stepbarstepicon3').hide();
+                  $('#stepbarstep1').removeClass('menustepText-Active');
+                  $('#stepbarstep2').addClass('menustepText-Active');
+                  $('#stepbarstep3').removeClass('menustepText-Active');                
+                  // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep2').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep3').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');;
+                  break;
+              case 3:
+                  $('#stepbarstepicon1').hide();
+                  $('#stepbarstepicon2').hide();
+                  $('#stepbarstepicon3').show();
+                  $('#stepbarstep1').removeClass('menustepText-Active');
+                  $('#stepbarstep2').removeClass('menustepText-Active');
+                  $('#stepbarstep3').addClass('menustepText-Active');                
+                  // $('#stepbarstep1').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep2').attr('style', 'text-align:left;color:#666;font-size: 16px;line-height: 24px;');
+                  // $('#stepbarstep3').attr('style', 'text-align:left;color:#d94634;font-size: 16px;line-height: 24px;');;
+                  break;
+              default:
+                  ;
+          }
         }
 
         window.reloadPage = function reloadPage(){
@@ -717,23 +730,73 @@ $('#acc_btn_otp').click(function(e){
                 }
 
 
+window.getinstSessionExpireMsg = function getinstSessionExpireMsg(lang){
+    var msgData = {};
+    switch(lang){
+        case 'zh-HK': 
+            msgData.title = '登入超時' ;
+            msgData.text = '登入超時，請重新登入。' ;
+            break;
+        case 'cn-CN': 
+        case 'zh-CN': 
+            msgData.title = '登入超时' ;
+            msgData.text = '登入超时，请重新登入。' ;
+            break;
+        case 'en-US': 
+        default:
+            msgData.title = 'Session Timeout' ;
+            msgData.text = 'Session Timeout, Please login again.' ;
+    }
+    return msgData;
+}
+
+var msglang = "@{S:LANG}"+"-"+"@{S:CULTURE}";
+var msg = getinstSessionExpireMsg(msglang);
+
+$.ajax({
+    type: 'POST',
+    url: '/api/session/isLogin',
+    success: function(responseData, textStatus, jqXHR) {
+       if(responseData == "True"){
+
                 settlementInstruction(field_passwords,function(){
-
-        if(glootperror){
-            $('#otplabel').text(nls.otperror);
-            // alert(nls.otperror);       
-            // $('#field_passwords').trigger('focus');
-            glootperror = false;     
-            return;
-        }
-
-
+                    if(glootperror){
+                        $('#otplabel').text(nls.otperror);
+                        glootperror = false;     
+                        return;
+                    }
                     loadpage('completepage');
                     $('#stepgo').text(nls.done);
                     handlestepcolor(3);
                     glostepback = 0;
                     glostepgo = 4;
                 });
+
+       }else{
+       swal({
+          title: msg.title,
+          text: msg.text,
+          timer: 2000,
+          showConfirmButton: false
+        });
+       setTimeout(function(){ location.reload(); }, 3000);
+       }
+    },
+    error: function(responseData, textStatus, errorThrown) {
+       swal({
+          title: msg.title,
+          text: msg.text,
+          timer: 2000,
+          showConfirmButton: false
+        });
+       setTimeout(function(){ location.reload(); }, 3000);
+    }
+});
+
+
+
+
+                
             }
         }
 
@@ -948,9 +1011,9 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td colspan="4" style="background-color: #ddd;padding: 10px 5px;">'+nls.stockinfo+'</td></tr>\
                  <tr><td colspan="4" style="padding-top:0px;"><table class="generic-table-content small font_smed nopaddtable  " style="display:table">\
                  <tr class="smaller">\
-                 <th style="background-color:#4a4a4a;color:white;width:67px">' + nls.market+ '</th>\
-                 <th style="background-color:#4a4a4a;color:white;width:74px">' + nls.stockno+ '</th>\
-                 <th style="background-color:#4a4a4a;color:white;width:77px">' + nls.stockname+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;width:160px">' + nls.market+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;width:90px">' + nls.stockno+ '</th>\
+                 <th style="background-color:#4a4a4a;color:white;width:100px">' + nls.stockname+ '</th>\
                  <th style="background-color:#4a4a4a;color:white;text-align:right;width:60px">' + nls.stockqty+ '</th>\
                  <th style="background-color:#4a4a4a;color:white;text-align:right;width:125px;">' + nls.stockamt+ '</th>\
                  <th style="background-color:#4a4a4a;color:white;">' + nls.stockremark+ '</th>\
@@ -963,7 +1026,7 @@ var formatremark ='';
  formatremark =d.STOCKINFORMATIONLIST[item].remarks;
 }   
                     temp = temp + '<tr>' +
-                    '<td><span class="">' + d.STOCKINFORMATIONLIST[item].marketID +'</span></td>'+
+                    '<td><span class="">' + getMarketLabel(d.STOCKINFORMATIONLIST[item].marketID,loadMarketList()) +'</span></td>'+
                     '<td><span class="">' + d.STOCKINFORMATIONLIST[item].instrumentID +'</span></td>'+
                     '<td><span class="">' + d.STOCKINFORMATIONLIST[item].instrumentName +'</span></td>'+
                     '<td style="text-align:right;"><span class="">' + formatQty(parseInt(d.STOCKINFORMATIONLIST[item].qty)) +'</span></td>'+
@@ -1073,14 +1136,63 @@ var formatremark ='';
                 (callback && typeof(callback) === "function") && callback();
             });
     }  
-
+window.loadMarketList = function loadMarketList(){
+  var data = [
+{name:'HKEX',label:'Hong Kong'},
+{name:'MAMK',label:'Mainland A-Share'},
+{name:'SZMK',label:'Shenzhen A-Share'},
+{name:'USEX',label:'United States'},
+{name:'TWEX',label:'Taiwan'},
+{name:'AUEX',label:'Australia'},
+{name:'CAEX',label:'Canada'},
+{name:'CHEX',label:'Switzerland'},
+{name:'EUEX',label:'Europe'},
+{name:'GREX',label:'Germany'},
+{name:'IDEX',label:'Indonesia'},
+{name:'JPEX',label:'Japan'},
+{name:'KREX',label:'South Korea'},
+{name:'MYEX',label:'Malaysia'},
+{name:'PHEX',label:'Philippines'},
+{name:'SGEX',label:'Singapore'},
+{name:'SHEB',label:'Shanghai B-Share'},
+{name:'THEX',label:'Thailand'}
+];
+  return data;
+}
+window.gen_marketlist_ui = function gen_marketlist_ui(list){
+  var str='';
+    str += '<select class="settlement-box-market">';
+  for(var i=0;i<list.length;i++){
+    str += '<option value="'+list[i].name+'">'+list[i].label+'</option>';
+  }
+    str += '</select>';
+  return str;
+}
+window.gen_marketlist_ui_m = function gen_marketlist_ui_m(list){
+  var str='';
+    str += '<select class="settlement-box-market-m">';
+  for(var i=0;i<list.length;i++){
+    str += '<option value="'+list[i].name+'">'+list[i].label+'</option>';
+  }
+    str += '</select>';
+  return str;
+}
+window.getMarketLabel = function getMarketLabel(name,list){
+  var label = '';
+  for (var i = 0; i < list.length; i++) {
+    if(list[i].name == name){
+      label = list[i].label;
+    }
+  }
+  return label;
+}
     window.renderDeskStocktoUI = function renderDeskStocktoUI(callback){
         $('.stocklisttable').append('\
             <tr class="real-grey-line stockList">\
               <td style="padding:5px !important;">\
 <div class="newinstselect">\
 <div class="newinstselectitem">\
-  <div class="custselectitem"><select class="settlement-box-market"><option value="HKEX">HKEX</option><option value="MAMK">MAMK</option><option value="SZMK">SZMK</option><option value="USEX">USEX</option><option value="TWEX">TWEX</option><option value="AUEX">AUEX</option><option value="CAEX">CAEX</option><option value="CHEX">CHEX</option><option value="EUEX">EUEX</option><option value="GREX">GREX</option><option value="IDEX">IDEX</option><option value="JPEX">JPEX</option><option value="KREX">KREX</option><option value="MYEX">MYEX</option><option value="PHEX">PHEX</option><option value="SGEX">SGEX</option><option value="SHEB">SHEB</option><option value="THEX">THEX</option> </select>\
+  <div class="custselectitem">'+ gen_marketlist_ui(loadMarketList()) +' \
   </div></div>\
   </td>\
               <td style="padding:5px !important;"><input type="text" value="" class="settlement-box-one" style="margin-left:0px; height:40px !important;" /><p class="settlement-box-one-vaillab" style="font-size: 0.7em;margin:0px;line-height: 0.9em;color:#e74c3c;"></p></td>\
@@ -1099,7 +1211,7 @@ var formatremark ='';
             <tr class="expandable-header stockmoList"> <td class="toggle"> <div class="iconexheader"></div> </td> <td> <input type="text" class="settlement-box-one-m" value="" /> <p class="settlement-box-one-m-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td> <td class="t_right"> <input type="text" class="settlement-box-stockname-m" value="" /> <p class="settlement-box-stockname-m-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td> </tr> <tr class="expandable-content stockmoListbody"> <td colspan="3"> <table> <tr> <td> </td> <td>Market:</td> <td class="right-align">\
 <div class=" newinstselect">\
 <div class="newinstselectitem">\
-  <div class="custselectitem">  <select style="width:100%" class="settlement-box-market-m"> <option value="HKEX">HKEX</option> <option value="MAMK">MAMK</option> <option value="SZMK">SZMK</option> <option value="USEX">USEX</option> <option value="TWEX">TWEX</option> <option value="AUEX">AUEX</option> <option value="CAEX">CAEX</option> <option value="CHEX">CHEX</option> <option value="EUEX">EUEX</option> <option value="GREX">GREX</option> <option value="IDEX">IDEX</option> <option value="JPEX">JPEX</option> <option value="KREX">KREX</option> <option value="MYEX">MYEX</option> <option value="PHEX">PHEX</option> <option value="SGEX">SGEX</option> <option value="SHEB">SHEB</option> <option value="THEX">THEX</option> </select>\
+  <div class="custselectitem">  '+ gen_marketlist_ui_m(loadMarketList()) +'\
   </div></div>\
    </td> </tr> <tr> <td> </td> <td>Quantity:</td> <td class="right-align"> <input type="text" class="settlement-box-two-m" value="" /> <p class="settlement-box-two-m-vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;"></p></td> </tr> <tr> <td> </td> <td>Amount:</td> <td class="right-align"> <input type="text" class="settlement-box-stockamt-m" value="" /> </td> </tr> <tr> <td> </td> <td>Remark:</td> <td class="right-align"> <textarea class="settlement-box-three-m" style="width:100%"></textarea> </td> </tr> <tr> <td></td> <td></td> <td class="right-align"><span style="display:inline-block; padding:0px 10px;color:#ce0f00;">Remove</span> <div class="table_button settlement-red-color c_white removestockmobtn"><i class="fa fa-remove" aria-hidden="true"></i></div> </td> </tr> </table> </td> </tr>');   
         
@@ -1110,9 +1222,40 @@ var formatremark ='';
 
             loadinstallFx.prototype.initBehavior = function(){
 
-            $('body').on('keydown', '.settlement-box-stockamt,.settlement-box-one,.settlement-box-two', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
-            $('body').on('keydown', '.settlement-box-stockamt-m,.settlement-box-one-m,.settlement-box-two-m', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
-
+            $('body').on('change','.settlement-box-market',function(e){
+              $(this).parent().parent().parent().parent().next()[0].children[0].value = '';
+            });
+            $('body').on('keydown', '.settlement-box-stockamt,.settlement-box-one,.settlement-box-two', function(e){
+              var prevVal = $(this).parent().parent()[0].cells[0].children[0].children[0].children[0].children[0].value;
+              if(prevVal == 'HKEX'){
+              -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+                            }else{
+                var myRegEx  = /[^a-z\d]/i;
+                var isValid = !(myRegEx.test(e.key));
+                if(isValid){
+                  return true;
+                }else{
+                  return false;
+                }
+              }
+            });
+            $('body').on('change','.settlement-box-market-m',function(e){
+              $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().prev()[0].children[1].children[0].value = '';
+            });            
+            $('body').on('keydown', '.settlement-box-stockamt-m,.settlement-box-one-m,.settlement-box-two-m', function(e){
+              var prevVal = $(this).parent().parent().next()[0].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[0].value;
+              if(prevVal == 'HKEX'){
+              -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+                            }else{
+                var myRegEx  = /[^a-z\d]/i;
+                var isValid = !(myRegEx.test(e.key));
+                if(isValid){
+                  return true;
+                }else{
+                  return false;
+                }
+              }
+            });
             window.nls = {
                 otperror:'Invalid OTP. Please try again',
                 nextstep: 'Next',

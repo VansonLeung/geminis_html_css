@@ -91,10 +91,10 @@ max-width:none;
         width:100%; 
     }
     #stepback{
-      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;cursor: pointer;  
     }
     #stepgo{
-        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;cursor: pointer;
     }
 
     .menustepArea{
@@ -194,7 +194,7 @@ max-width:none;
 </div>
 
 <div class="inst-area-one row">
-<div class="col s12 m12 l6 inst-grid-b mobileitemrow" style="border-top:1px solid #9e9e9e;">
+<div class="col s12 m12 l12 inst-grid-b mobileitemrow" style="border-top:1px solid #9e9e9e;">
 <div class="row">
 <div class="col s4 m4 l4">
 <p class="inst-form-label">交易户口</p>
@@ -212,9 +212,9 @@ max-width:none;
 </div>
 </div>
 
-<div class="col l6 hidewhenmobile inst-grid-r inst-grid-b" style="border-top:1px solid #9e9e9e;">
+<!-- <div class="col l6 hidewhenmobile inst-grid-r inst-grid-b" style="border-top:1px solid #9e9e9e;">
 <div class="emptyItem">&nbsp;</div>
-</div>
+</div> -->
 </div>
 
 <div class="inst-area-two row inst-grid-b">
@@ -271,6 +271,9 @@ max-width:none;
 </div>
 </div>
 </div>
+</div>
+<div style="font-size:14px; color:black;">
+<p>*外币转换的截数时间为每日中午十二时(星期六/日及公众假期除外)。</p>
 </div>
 </div>
 </div>
@@ -383,7 +386,7 @@ $('#acc_btn_otp').click(function(e){
         if(!trueFlag){
                     $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
         }else{
             if (res.data) {
                 if(res.data.isSuccess && res.data.isSuccess == 'Y'){
@@ -397,7 +400,7 @@ $('#acc_btn_otp').click(function(e){
                 }else{
                     $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
                 }
             }else{
                 // otp error
@@ -406,7 +409,7 @@ $('#acc_btn_otp').click(function(e){
                 }
               $(".msgiconfinish").attr('src','../../../images/notcomplete-icon.png');
                     $("#callstate").text(nls.fail);
-                    $("#calldesc").text('');
+                    $("#calldesc").text(nls.failmsg);
             } 
         }       
     }
@@ -415,9 +418,6 @@ $('#acc_btn_otp').click(function(e){
         var dataSet = {}
         dataSet.acct = "9910-268";
         dataSet.pwd = "12345678";
-        dataSet.loginid = "@{S:CLIENTID}";
-        // dataSet.loginid = "9910-268";
-        dataSet.loginpw = "12345678";
         return dataSet;
     }
     window.callOTP = function callOTP(callback){
@@ -425,25 +425,37 @@ $('#acc_btn_otp').click(function(e){
 
         $.post('/api/usercode/registerfromsession',
               {
-                  email:'kaycheung@cherrypicks.com',
+                  lang:getSelLanguage()
               })
               .done( function(msg) {
                   if (msg.success)
                   {
                 turnLoader();
-                      alert('成功，请检查电邮');
+                      swal({
+                        title:'已发出，请检查邮件。',
+                        type:'success',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
                   else
                   {
                 turnLoader();
-                      alert(msg.message);
+                      swal({
+                        title:'未能发出，请稍后尝试。',
+                        type:'error',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
               })
               .fail( function(xhr, textStatus, errorThrown) {
                 turnLoader();
-                  alert("Network Error");
+                      swal({
+                        title:'未能发出，请稍后尝试。',
+                        type:'error',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
               });      
 
@@ -504,6 +516,7 @@ window.nls = {
             success: '已完成',
             desc: '参考编号:',
             fail: '未能完成',
+                failmsg: '有关指示未被接纳，请与本行职员联络。',
             done: '完成',
             plsfillpwd: '请输入动态密码',
             loginacctfirst: '请先登入帐号',
@@ -812,6 +825,7 @@ window.nls = {
             tolabelval = '';
         }
 
+        exchangeForm.remark = fd.remark;
         if(!debuggermode){
             if (glo.sessionid == '' || glo.clientid == '') {
                 alert(nls.loginacctfirst);
@@ -931,22 +945,67 @@ window.nls = {
     window.loadcomplete = function loadcomplete(){
         var pwd = $('#field_passwords').val();
         if(pwd !=''){
-            foreignExchange(pwd,function(e){
-        console.log(" Data: - ", exchangeForm);
+ function getinstSessionExpireMsg(lang){
+    var msgData = {};
+    switch(lang){
+        case 'zh-HK': 
+            msgData.title = '登入超時' ;
+            msgData.text = '登入超時，請重新登入。' ;
+            break;
+        case 'zh-CN': 
+            msgData.title = '登入超时' ;
+            msgData.text = '登入超时，请重新登入。' ;
+            break;
+        case 'en-US': 
+        default:
+            msgData.title = 'Session Timeout' ;
+            msgData.text = 'Session Timeout, Please login again.' ;
+    }
+    return msgData;
+}
 
-        if(glootperror){
-            $('#otplabel').text(nls.otperror);
-            // alert(nls.otperror);       
-            // $('#field_passwords').trigger('focus');
-            glootperror = false;     
-            return;
-        }
-                    loadpage('completepage');
-                    $('#stepgo').text(nls.done);
-                    handlestepcolor(3);
-                    glostepback = 0;
-                    glostepgo = 4;
+var msglang = "@{S:LANG}"+"-"+"@{S:CULTURE}";
+var msg = getinstSessionExpireMsg(msglang);
+
+$.ajax({
+    type: 'POST',
+    url: '/api/session/isLogin',
+    success: function(responseData, textStatus, jqXHR) {
+       if(responseData == "True"){
+            foreignExchange(pwd,function(e){
+              console.log(" Data: - ", exchangeForm);
+              if(glootperror){
+                $('#otplabel').text(nls.otperror);
+                glootperror = false;     
+                return;
+              }
+              loadpage('completepage');
+              $('#stepgo').text(nls.done);
+              handlestepcolor(3);
+              glostepback = 0;
+              glostepgo = 4;
             });
+
+       }else{
+       swal({
+          title: msg.title,
+          text: msg.text,
+          timer: 2000,
+          showConfirmButton: false
+        });
+       setTimeout(function(){ location.reload(); }, 3000);
+       }
+    },
+    error: function(responseData, textStatus, errorThrown) {
+       swal({
+          title: msg.title,
+          text: msg.text,
+          timer: 2000,
+          showConfirmButton: false
+        });
+       setTimeout(function(){ location.reload(); }, 3000);
+    }
+});
         }else{
             // alert(nls.plsfillpwd);
             $('#otplabel').text(nls.plsfillpwd);
