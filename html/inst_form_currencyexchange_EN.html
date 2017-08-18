@@ -211,11 +211,9 @@ max-width:none;
 </div>
 </div>
 </div>
-
 <!-- <div class="col l6 hidewhenmobile inst-grid-r inst-grid-b" style="border-top:1px solid #9e9e9e;">
 <div class="emptyItem">&nbsp;</div>
-</div> -->
-</div>
+</div> --></div>
 
 <div class="inst-area-two row inst-grid-b">
 <div class="col s12 m12 l2 mobileitemrow newinstselect">
@@ -272,6 +270,7 @@ max-width:none;
 </div>
 </div>
 </div>
+
 <div style="font-size:14px; color:black;">
 <p>*Foreign currency exchange are available before noon 12 pm. Excluded Saturday/Sunday and public holidays.</p>
 </div>
@@ -705,6 +704,7 @@ $('#acc_btn_otp').click(function(e){
     window.currencyMapping = function currencyMapping(curr){
         var curLst =[];
             curLst['HKD'] = 'HKD';
+            curLst['TWD'] = 'TWD';
             curLst['USD'] = 'USD';
             curLst['EUR'] = 'EUR';
             curLst['AUD'] = 'AUD';
@@ -713,7 +713,6 @@ $('#acc_btn_otp').click(function(e){
             curLst['GBP'] = 'GBP';
             curLst['SGD'] = 'SGD';
             curLst['MYR'] = 'MYR';
-            curLst['TwD'] = 'TWD';
             if(curLst[curr] != undefined){
                 return curLst[curr];
             }else{

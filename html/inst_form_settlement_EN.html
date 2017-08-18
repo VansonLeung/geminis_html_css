@@ -817,6 +817,9 @@ $.ajax({
               if(field == 'qty'){
                 msg = nls.fillinstockqty;
               }
+              if(field == 'qtyz'){
+                msg = nls.fillinstockqtyz;
+              }
               if(field == 'cb'){
                 msg = nls.fillindata2;
               }
@@ -885,6 +888,10 @@ $.ajax({
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
+                    if((pre_selItemQty_value == 0 || pre_selItemQty_value == '0') && pre_selItemQty_value !=''){
+                      $(selItemQty_label).text(popwarning('qtyz'));
+                      vailstockstate = false; 
+                   }                   
                 }
 
 
@@ -911,6 +918,10 @@ $.ajax({
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
+                    if((pre_selItemQty_value == 0 || pre_selItemQty_value == '0') && pre_selItemQty_value !=''){
+                      $(selItemQty_label).text(popwarning('qtyz'));
+                      vailstockstate = false; 
+                   }                   
                 }
 
             }
@@ -1269,6 +1280,7 @@ window.getMarketLabel = function getMarketLabel(name,list){
                 fillindata: 'Please enter ',
                 fillinqty:'Please enter Stock Code',
                 fillinstockqty:'Please enter Stock Quantity',
+                fillinstockqtyz:'Stock quantity cannot less than 0',
                 fillinstockname:'Please enter Stock Name',
                 fillindata2:'Please accept the Terms and Conditions',                
                 choosedata: 'Please choose ',

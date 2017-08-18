@@ -412,11 +412,30 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
 
 
     }
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = '港元';
+            curLst['USD'] = '美元';
+            curLst['EUR'] = '歐元';
+            curLst['AUD'] = '澳元';
+            curLst['CNY'] = '人民幣';
+            curLst['JPY'] = '日元';
+            curLst['GBP'] = '英鎊';
+            curLst['SGD'] = '新加波元';
+            curLst['CHF'] = '瑞士法郎';
+            curLst['MYR'] = '馬來西亞元';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }    
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
@@ -456,7 +475,7 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
             return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
         }
     }
- window.ui_withdraw_table = function ui_withdraw_table(nls){
+    window.ui_withdraw_table = function ui_withdraw_table(nls){
       var str = '';
       str += '<thead><tr class="smaller"> <th style="text-align:right;width:120px;"><span>'+nls.refno+'</span></th> <th style="width:135px;"><span>'+nls.createtime+'</span></th><th style="width:85px"><span>'+nls.currency+'</span></th>  <th style="width: 130px;text-align:right;"><span>'+nls.amount+'</span></th> <th style="width: 120px;"><span>'+nls.settletype+'</span></th> <th><span>'+nls.bankacct+'</span></th> <th><span>'+nls.bankname+'<br>'+nls.bankcode+'</span></th> <th style="width:135px;"><span>'+nls.remark+'</span></th> <th style="width:90px;"><span>'+nls.status+'</span></th> </tr></thead>';  
       return str;
@@ -471,7 +490,7 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
 
     window.ui_deposit_table = function ui_deposit_table(nls){
       var str = '';
-      str += '<thead><tr class="smaller"> <th style="text-align:right;width:120px;"><span>'+nls.refno+'</span></th> <th style="width:135px;"><span>'+nls.createtime+'</span></th> <th style="width:85px"><span>'+nls.currency+'</span></th><th style="width: 130px;text-align:right;"><span>'+nls.amount+'</span></th>  <th style="width: 120px;"><span>'+nls.settletype+'</span></th> <th style="width: 135px;"><span>'+nls.custacct+'</span></th> <th style="width: 95px;"><span>'+nls.custno+'</span></th><th style="width:135px;"><span>'+nls.remark+'</span></th> <th style="width:90px;"><span>'+nls.status+'</span></th></tr></thead>'; 
+      str += '<thead><tr class="smaller"> <th style="text-align:right;width:120px;"><span>'+nls.refno+'</span></th> <th style="width:135px;"><span>'+nls.createtime+'</span></th> <th style="width:85px"><span>'+nls.currency+'</span></th><th style="width: 130px;text-align:right;"><span>'+nls.amount+'</span></th>  <th style="width: 120px;"><span>'+nls.settletype+'</span></th> <th style="width: 110px;"><span>'+nls.custacct+'</span></th> <th style="width: 110px;"><span>'+nls.custno+'</span></th><th style="width:135px;"><span>'+nls.remark+'</span></th> <th style="width:90px;"><span>'+nls.status+'</span></th></tr></thead>'; 
       return str;
     }
     window.ui_deposit_table_nullbody = function ui_deposit_table_nullbody(nls){
@@ -521,7 +540,7 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:20px;">' + convData[i].transactionID + '</td> \
                         <td>' + convData[i].creationTime + '</td> \
-                        <td>' + convData[i].currencyID + '</td> \
+                        <td>' + currencyMapping(convData[i].currencyID) + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
                         <td>' + convData[i].bankAccount + '</td> \
@@ -605,7 +624,7 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:24px;">' + convData[i].transactionID + '</td> \
                         <td>' + convData[i].creationTime + '</td> \
-                        <td>' + convData[i].currencyID + '</td> \
+                        <td>' + currencyMapping(convData[i].currencyID) + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
                         <td>' + convData[i].bankAccount + '</td> \

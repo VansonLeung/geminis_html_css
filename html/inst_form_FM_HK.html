@@ -297,7 +297,7 @@
 <div class="col s12 m12 l12 inst-grid-b newinstselect">
 <div style="width:34%;display: inline-block;    vertical-align: top;padding-top: 26px;">
 <div class="newinstselectitem">
-<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="CHF">CHF</option><option value="MYR">MYR</option> </select></div>
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">港元</option><option value="USD">美元</option><option value="EUR">歐元</option><option value="AUD">澳元</option><option value="CNY">人民幣</option><option value="JPY">日元</option><option value="GBP">英鎊</option><option value="SGD">新加波元</option><option value="CHF">瑞士法郎</option><option value="MYR">馬來西亞元</option> </select></div>
 </div>
 
 <p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
@@ -529,25 +529,37 @@ $('#acc_btn_otp').click(function(e){
 
         $.post('/api/usercode/registerfromsession',
               {
-                  email:'kaycheung@cherrypicks.com',
+                  lang:getSelLanguage()
               })
               .done( function(msg) {
                   if (msg.success)
                   {
                 turnLoader();
-                      alert('成功，請檢查電郵');
+                      swal({
+                        title:'已發出，請檢查郵件。',
+                        type:'success',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
                   else
                   {
                 turnLoader();
-                      alert(msg.message);
+                      swal({
+                        title:'未能發出，請稍後嘗試。',
+                        type:'error',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
               })
               .fail( function(xhr, textStatus, errorThrown) {
                 turnLoader();
-                  alert("Network Error");
+                      swal({
+                        title:'未能發出，請稍後嘗試。',
+                        type:'error',
+                        confirmButtonText:'確認'
+                      });
                 (callback && typeof(callback) === "function") && callback();
               });      
 
@@ -623,12 +635,30 @@ $('#acc_btn_otp').click(function(e){
             }
         });
     }
-
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = '港元';
+            curLst['USD'] = '美元';
+            curLst['EUR'] = '歐元';
+            curLst['AUD'] = '澳元';
+            curLst['CNY'] = '人民幣';
+            curLst['JPY'] = '日元';
+            curLst['GBP'] = '英鎊';
+            curLst['SGD'] = '新加波元';
+            curLst['CHF'] = '瑞士法郎';
+            curLst['MYR'] = '馬來西亞元';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
@@ -757,6 +787,7 @@ $('#acc_btn_otp').click(function(e){
                             msgData.title = '登入超時' ;
                             msgData.text = '登入超時，請重新登入。' ;
                             break;
+                        case 'cn-CN': 
                         case 'zh-CN': 
                             msgData.title = '登入超时' ;
                             msgData.text = '登入超时，请重新登入。' ;
@@ -834,6 +865,7 @@ $('#acc_btn_otp').click(function(e){
                             msgData.title = '登入超時' ;
                             msgData.text = '登入超時，請重新登入。' ;
                             break;
+                        case 'cn-CN': 
                         case 'zh-CN': 
                             msgData.title = '登入超时' ;
                             msgData.text = '登入超时，请重新登入。' ;
@@ -1026,7 +1058,7 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
                  <tr><td width="25%">' + nls.transacct + '：</td><td>' + d.TradingAccSeqName + '</td></tr>\
                  <tr><td>' + nls.transmethod + '：</td><td>' + d.SettleMethodName + '</td></tr>\
-                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + formatAmount(parseFloat(d.Amount),'') + '<td></tr>\
+                 <tr><td>' + nls.currency + '：</td><td>' + currencyMapping(d.CurrencyID) + ' ' + formatAmount(parseFloat(d.Amount),'') + '<td></tr>\
                  <tr><td>' + nls.remark + '：</td><td>' + d.StatementRemark + '</td></tr>';
         if (d.transferacctTypeName) {
             temp += '<tr><td>' + nls.cashfrom + '：</td><td>' + d.transferacctTypeName + '</td></tr>';

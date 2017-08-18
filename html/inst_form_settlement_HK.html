@@ -813,6 +813,9 @@ $.ajax({
               if(field == 'qty'){
                 msg = nls.fillinstockqty;
               }
+              if(field == 'qtyz'){
+                msg = nls.fillinstockqtyz;
+              }
               if(field == 'cb'){
                 msg = nls.fillindata2;
               }
@@ -867,9 +870,7 @@ $.ajax({
                       var selItemQty_label = $('.settlement-box-two-vaillab').get(stock);
                        var pre_selItem_value = selItem.value.replace(/ /g,'');
                     if(pre_selItem_value == ''){ 
-                debugger
                       $(selItem_label).text(popwarning('q'));
-                debugger
                       vailstockstate = false; 
                     }
                        var pre_selItemName_value = selItemName.value.replace(/ /g,'');
@@ -882,6 +883,10 @@ $.ajax({
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
+                    if((pre_selItemQty_value == 0 || pre_selItemQty_value == '0') && pre_selItemQty_value !=''){
+                      $(selItemQty_label).text(popwarning('qtyz'));
+                      vailstockstate = false; 
+                   }                    
                 }
 
 
@@ -896,9 +901,7 @@ $.ajax({
                       var selItemQty_label = $('.settlement-box-two-m-vaillab').get(stock);
                        var pre_selItem_value = selItem.value.replace(/ /g,'');
                     if(pre_selItem_value == ''){ 
-                debugger
                       $(selItem_label).text(popwarning('q'));
-                debugger
                       vailstockstate = false; 
                     }
                        var pre_selItemName_value = selItemName.value.replace(/ /g,'');
@@ -911,6 +914,10 @@ $.ajax({
                       $(selItemQty_label).text(popwarning('qty'));
                       vailstockstate = false; 
                    }
+                    if((pre_selItemQty_value == 0 || pre_selItemQty_value == '0') && pre_selItemQty_value !=''){
+                      $(selItemQty_label).text(popwarning('qtyz'));
+                      vailstockstate = false; 
+                   }                    
                 }
 
             }
@@ -1271,6 +1278,7 @@ window.getMarketLabel = function getMarketLabel(name,list){
                 fillindata: '請輸入',
                 fillinqty:'請輸入股票代號',
                 fillinstockqty:'請輸入股票股數',
+                fillinstockqtyz:'股票股數不可少於0',
                 fillinstockname:'請輸入股票名稱',
                 fillindata2:'請按接受條款',                
                 choosedata: '請選擇',

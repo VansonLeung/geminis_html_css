@@ -412,11 +412,30 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
 
 
     }
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = 'HKD';
+            curLst['USD'] = 'USD';
+            curLst['EUR'] = 'EUR';
+            curLst['AUD'] = 'AUD';
+            curLst['CNY'] = 'CNY';
+            curLst['JPY'] = 'JPY';
+            curLst['GBP'] = 'GBP';
+            curLst['SGD'] = 'SGD';
+            curLst['CHF'] = 'CHF';
+            curLst['MYR'] = 'MYR';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }    
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
@@ -521,7 +540,7 @@ window.ui_withdraw_table = function ui_withdraw_table(nls){
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:20px;">' + convData[i].transactionID + '</td> \
                         <td>' + convData[i].creationTime + '</td> \
-                        <td>' + convData[i].currencyID + '</td> \
+                        <td>' + currencyMapping(convData[i].currencyID) + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
                         <td>' + convData[i].bankAccount + '</td> \
@@ -605,7 +624,7 @@ window.ui_withdraw_table = function ui_withdraw_table(nls){
                     for (var i = 0; i < convData.length; i++) {
                         tempUI += '<tr> <td class="gm gm-numbers" style="text-align:right;padding-right:24px;">' + convData[i].transactionID + '</td> \
                         <td>' + convData[i].creationTime + '</td> \
-                        <td>' + convData[i].currencyID + '</td> \
+                        <td>' + currencyMapping(convData[i].currencyID) + '</td> \
                         <td style="text-align:right;padding-right:24px;">' + formatAmount(convData[i].amount,'') + '</td> \
                         <td>' + convSettleLabel(convData[i].settleMethod) + '</td> \
                         <td>' + convData[i].bankAccount + '</td> \

@@ -211,18 +211,16 @@ max-width:none;
 </div>
 </div>
 </div>
-
 <!-- <div class="col l6 hidewhenmobile inst-grid-r inst-grid-b" style="border-top:1px solid #9e9e9e;">
 <div class="emptyItem">&nbsp;</div>
-</div> -->
-</div>
+</div> --></div>
 
 <div class="inst-area-two row inst-grid-b">
 <div class="col s12 m12 l2 mobileitemrow newinstselect">
 <p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">由</p>
 
 <div class="newinstselectitem">
-<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="TWD">TWD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<div class="custselectitem"><select id="field_currency"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">港元</option><option value="USD">美元</option><option value="TWD">台幣</option><option value="EUR">歐元</option><option value="AUD">澳元</option><option value="CNY">人民幣</option><option value="JPY">日元</option><option value="GBP">英鎊</option><option value="SGD">新加波元</option><option value="MYR">馬來西亞元</option> </select></div>
 </div>
 
 <p id="field_currency_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
@@ -245,7 +243,7 @@ max-width:none;
 <p style="font-size: 0.7em;line-height: 0.8em;color: #0076ff;margin:5px">轉到</p>
 
 <div class="newinstselectitem">
-<div class="custselectitem"><select id="field_currency_to" name="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">HKD</option><option value="USD">USD</option><option value="TWD">TWD</option><option value="EUR">EUR</option><option value="AUD">AUD</option><option value="CNY">CNY</option><option value="JPY">JPY</option><option value="GBP">GBP</option><option value="SGD">SGD</option><option value="MYR">MYR</option> </select></div>
+<div class="custselectitem"><select id="field_currency_to" name="field_currency_to"><option disabled="disabled" selected="selected" value="">貨幣</option><option value="HKD">港元</option><option value="USD">美元</option><option value="TWD">台幣</option><option value="EUR">歐元</option><option value="AUD">澳元</option><option value="CNY">人民幣</option><option value="JPY">日元</option><option value="GBP">英鎊</option><option value="SGD">新加波元</option><option value="MYR">馬來西亞元</option> </select></div>
 </div>
 
 <p id="field_currency_to_vaillab" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
@@ -272,6 +270,7 @@ max-width:none;
 </div>
 </div>
 </div>
+
 <div style="font-size:14px; color:black;">
 <p>*外幣轉換的截數時間為每日中午十二時(星期六/日及公眾假期除外)。</p>
 </div>
@@ -705,6 +704,7 @@ $('#acc_btn_otp').click(function(e){
     window.currencyMapping = function currencyMapping(curr){
         var curLst =[];
             curLst['HKD'] = '港幣';
+            curLst['TWD'] = '台幣';
             curLst['USD'] = '美元';
             curLst['EUR'] = '歐元';
             curLst['AUD'] = '澳元';
@@ -713,7 +713,6 @@ $('#acc_btn_otp').click(function(e){
             curLst['GBP'] = '英鎊';
             curLst['SGD'] = '新加坡元';
             curLst['MYR'] = '馬來西亞令吉';
-            curLst['TWD'] = '台幣';
             if(curLst[curr] != undefined){
                 return curLst[curr];
             }else{

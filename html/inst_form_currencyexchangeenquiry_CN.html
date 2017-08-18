@@ -1,7 +1,8 @@
 <style type="text/css">.next:hover,.prev:hover{
     border-top: 2px solid #bc0000;
     padding-top: 5px;
-}.next,.prev {
+}
+.next,.prev{
 cursor:pointer;
 }
 .redbartop{
@@ -29,7 +30,7 @@ cursor:pointer;
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 10px 20px 0px 20px;
-     font-size:0.9em;
+     font-size:18px;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -49,7 +50,7 @@ cursor:pointer;
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 20px 30px 0px 30px;
-     font-size:1.2em;
+     font-size:24px;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -95,10 +96,10 @@ cursor:pointer;
         width:100%; 
     }
     #stepback{
-      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
     }
     #stepgo{
-        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
     }
 
     .menustepArea{
@@ -108,13 +109,13 @@ cursor:pointer;
     display:none;width:16px;height:16px;
     }
     .menustepText{
-    text-align:left;color:#666;font-size: 0.8em;line-height: 1.2em;
+    text-align:left;color:#666;font-size: 16px;line-height: 24px;
     }
     .menustepText-Active{
-    text-align:left;color:#d94634;font-size: 0.8em;line-height: 1.2em;
+    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
     }
 
-#enquiryTable {
+    #enquiryTable {
   margin: 0 auto;
   font-size: 1.2em;
   margin-bottom: 15px;
@@ -179,11 +180,11 @@ cursor:pointer;
 
 <div class="subsubmenuBar">
 <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
-<p><a href="../currency-exchange-instruction/">货币交易指示</a></p>
+<p><a href="../stock-instruction/">股票交收指示</a></p>
 </div>
 
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
-<p>货币交易指示查询</p>
+<p>股票存取指示查询</p>
 </div>
 </div>
 </div>
@@ -195,7 +196,7 @@ cursor:pointer;
 <table class="generic-table-header smallmedpadding">
   <tbody>
     <tr>
-      <td class="font_lg">货币交易指示查询</td>
+      <td class="font_lg">股票存取指示查询</td>
     </tr>
   </tbody>
 </table>
@@ -204,7 +205,7 @@ cursor:pointer;
 </table>
 
 <div class="pager" id="pager" style="width: 100%;text-align: center;">
-<form><b class="prev">上一页</b> <input class="pagedisplay" readonly="readonly" style="width:70px;text-align: center;background-color: transparent;font-size: 18px;" type="text" /> <b class="next">下一页</b> <select class="pagesize" style="display: none;"><option selected="selected" value="10">10</option> </select></form>
+<form><span class="prev">上一页</span> <input class="pagedisplay" readonly="readonly" style="width:70px;text-align: center;background-color: transparent;font-size: 18px;" type="text" /> <span class="next">下一页</span> <select class="pagesize" style="display: none;"><option selected="selected" value="10">10</option> </select></form>
 </div>
 </div>
 </div>
@@ -221,21 +222,19 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
 jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)./)){ jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
 
 
+
       $(function(e){
-
-
 
     $('.subsubmenuBox').on('click',function(e){
         var subsubItem = $(this).data().gmnsubsubmenu;
         if(subsubItem == 'inst'){
         turnLoader('c');
-            window.location.href="../currency-exchange-instruction/";
+            window.location.href="../stock-instruction/";
         }
         if(subsubItem == 'enqu'){
-            // window.location.href="../currency-exchange-instruction-enquiry/";
+            // window.location.href="../stock-instruction-enquiry/";
         }
     });
-
  
     window.loadUIDataSet = function loadUIDataSet() {
 
@@ -247,40 +246,49 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
         dataSet.loginpw = "12345678";
         return dataSet;
     }
- 
-     window.gen_table_ui = function gen_table_ui(){
-      var str = '';
-      str += '<thead><tr class="smaller"> \
-      <th class="right-align" style="padding:0;padding-left:0px;width:100px"><span>'+nls.refno+'</span></th> \
-      <th class="left-align" style="width: 180px;padding: 0px;"><span>'+nls.createtime+'</span></th> \
-      <th class="left-align" style="width: 50px;padding: 0px;"><span>'+nls.form+'</span></th> \
-      <th class="right-align" style="width: 100px;padding: 0px;"><span>'+nls.amount+'</span></th> \
-      <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.to+'</span></th> \
-      <th class="right-align" style="width: 100px;padding: 0px;"><span>'+nls.amount+'</span></th> \
-      <th class="left-align"><span>'+nls.remark+'</span></th>  \
-      <th class="left-align" style="width: 100px;padding: 0px;"><span>'+nls.status+'</span></th> \
-      </tr></thead>';
-      return str;
-    }  
+   window.gen_table_ui = function gen_table_ui(){
+    var str ='';
+    str += '<thead><tr class="smaller"> \
+            <th class="left-align"><span>'+nls.refno+'</span></th> \
+            <th class="left-align"><span>'+nls.createtime+'</span></th> \
+            <th class="left-align"><span>'+nls.transtype+'</span></th> \
+            <th class="left-align"><span>'+nls.market+'</span></th> \
+            <th class="right-align"><span>'+nls.labelno+'</span></th> \
+            <th class="left-align" style="width:150px;"><span>'+nls.inst+'</span></th> \
+            <th class="right-align"><span>'+nls.qty+'</span></th> \
+            <th class="left-align"><span>'+nls.methods+'</span></th>  \
+            <th class="left-align" style="width:200px;"><span>'+nls.remark+'</span></th>  \
+            <th class="left-align"><span>'+nls.status+'</span></th> \
+            </tr></thead>';
+    return str;
+  }
+   
     window.initJS = function initJS(){
 
         window.nls = {
+            deposit: '存入',
+            withdraw: '提取',
+            fop: '无需付款交收',
+            dvp : '金额对付交收',
             refno:'参考编号',
             createtime:'指示时间',
-            form:'由',
-            amount:'金额',
-            to:'转换到',
-            remark:'备注',
+            market:'市场',
+            labelno:'股票代号',
+            inst:'股票名称',
+            qty:'股数',
+            methods:'寄存方式',
+            createdate:'指示日期',
+            transtype:'存入/提取',
             status:'状态',
             statusR:'已提交',
             statusP:'待审批',
             statusC:'已取消',
             statusA:'已审批',
             statusX:'被拒绝',
+            remark:'备注',
             nodata:'没有资料显示'
         };
 
- 
         window.glostepback = 1;
         window.glostepgo = 2;
  
@@ -313,9 +321,10 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
             loadEnquiryData();
         }else{
                var tempUI = '';
-                    tempUI += gen_table_ui();
+                    tempUI += gen_table_ui(); 
                         tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                       
+                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter({sortList:[[0,1]],
@@ -328,25 +337,23 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
 
 
     }
+
+
+
+    window.numberWithCommas = function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
-        langculture['cn_CN'] = "zh_CN";
+        langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
             return 'en_US';
         }else{
             return langculture[sellang];
-        }
-    }
-
-    window.formatAmount = function formatAmount(n, currency) {
-        if(isNaN(n)){
-            return '';
-        }else{
-            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
         }
     }
 
@@ -362,27 +369,39 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
       }
       return convt;
     } 
-    window.convamountTBC = function convamountTBC(amount){
-      var lang = "@{S:LOCALE}";
-      var convt = '';
-        if(amount == ' 0.00'){
-            switch(lang){
-              case 'zh-HK': 
-              convt = '待定';
-              break;
-              case 'zh-CN': 
-              convt = '待定';
-              break;
-              case 'en-US': 
-              convt = 'TBC';
-              break;
-              default:
-            }
-          return convt;      
-        }else{
-          return amount;
-        }
-    } 
+window.loadMarketList = function loadMarketList(){
+  var data = [
+{name:'HKEX',label:'港股'},
+{name:'MAMK',label:'上海A股'},
+{name:'SZMK',label:'深圳A股'},
+{name:'USEX',label:'美股'},
+{name:'TWEX',label:'台股'},
+{name:'AUEX',label:'澳洲股'},
+{name:'CAEX',label:'加拿大股'},
+{name:'CHEX',label:'瑞士股'},
+{name:'EUEX',label:'欧洲股'},
+{name:'GREX',label:'德国股'},
+{name:'IDEX',label:'印度股'},
+{name:'JPEX',label:'日本股'},
+{name:'KREX',label:'南韩股'},
+{name:'MYEX',label:'马来西亚股'},
+{name:'PHEX',label:'菲律宾股'},
+{name:'SGEX',label:'新加坡股'},
+{name:'SHEB',label:'上海B股'},
+{name:'THEX',label:'泰国股'}
+];
+  return data;
+}
+
+window.getMarketLabel = function getMarketLabel(name,list){
+  var label = '';
+  for (var i = 0; i < list.length; i++) {
+    if(list[i].name == name){
+      label = list[i].label;
+    }
+  }
+  return label;
+} 
     window.loadEnquiryData = function loadEnquiryData() {
         var enquiryForm = {
             clientID: glo.clientid,
@@ -393,7 +412,7 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
         var loadDS = loadUIDataSet();
         var enloaddata = {
             "form": {
-                "name": "foreignExchangeInstructionEnquiry",
+                "name": "settlementInstructionEnquiry",
                 "credentials": {
                     "username": loadDS.acct,
                     "password": loadDS.pwd
@@ -414,24 +433,47 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
                 var resuData = responseData.data;
-                if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
-                    var convData = resuData.foreignExchangeInstructionList;
+                if (resuData.settlementInstructionList && resuData.settlementInstructionList.length > 0) {
+                    var convData = resuData.settlementInstructionList;
                     var tempUI = '';
-                    tempUI += gen_table_ui();
+                    tempUI += gen_table_ui(); 
                         tempUI +='<tbody>';
                     for (var i = 0; i < convData.length; i++) {
-                        tempUI += '\
-                        <tr> \
-                        <td  style="text-align:right;padding-right:24px;padding-left:10px class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
-                        <td class="left-align">' + convData[i].creationTime + '</td> \
-                        <td class="left-align">' + convData[i].fromCurrency + '</td> \
-                        <td  style="text-align:right;padding-right:24px; class="right-align">' + convamountTBC(formatAmount(convData[i].fromAmount,'')) + '</td> \
-                        <td class="left-align">' + convData[i].toCurrency + '</td> \
-                        <td  style="text-align:right;padding-right:24px; class="right-align">' + convamountTBC(formatAmount(convData[i].toAmount,'')) + '</td> \
-                        <td  style="text-align:left;padding-right:24px; class="left-align">' + convData[i].remark + '</td>  \
-                        <td class="left-align">' + convstatus(convData[i].status) + '</td> \
-                        </tr>';
-                    }    
+                        if(convData[i].stockInformationList && convData[i].stockInformationList.length > 0){
+                            for(var j =0;j< convData[i].stockInformationList.length;j++){
+                                var cursubsettItem = convData[i].stockInformationList[j];
+                                var convtime = '/ /';
+                                 convtime = convData[i].creationTime.split(' ');
+                                 var instLabel = '';
+                                 var settlLabel = '';
+                                 if(convData[i].instruction == 'D'){
+                                    instLabel = nls.deposit;
+                                 }
+                                 if(convData[i].instruction == 'W'){
+                                    instLabel = nls.withdraw;
+                                 }
+                                 if(convData[i].settlementMethod == 'FOP'){
+                                    settlLabel = nls.fop;
+                                 }
+                                 if(convData[i].settlementMethod == 'DVP'){
+                                    settlLabel = nls.dvp;
+                                 }
+                                tempUI += 
+                                '<tr> <td class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
+                                <td class="left-align">' + convData[i].creationTime + '</td> \
+                                <td class="left-align">' + instLabel + '</td> \
+                                <td class="left-align">' + getMarketLabel(cursubsettItem.marketID,loadMarketList()) + '</td> \
+                                <td  style="text-align:right;padding-right:24px; class="right-align">' + cursubsettItem.instrumentID + '</td> \
+                                <td class="left-align">' + cursubsettItem.instrumentName + '</td> \
+                                <td  style="text-align:right;padding-right:24px; class="right-align">' + numberWithCommas(cursubsettItem.qty) + '</td> \
+                                <td class="left-align">' + settlLabel + '</td>  \
+                                <td class="left-align">'+cursubsettItem.remarks+'</td> \
+                                <td class="left-align">' + convstatus(convData[i].status) + '</td> \
+                                </tr>';
+                            }
+                        }
+
+                    }
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter({sortList:[[0,1]],
@@ -439,26 +481,24 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
         return $(node).text().replace(/[,$£€]/g,'');
      }}).tablesorterPager({container: $("#pager")});
                 }else{
-                var tempUI = '';
-                    tempUI += gen_table_ui();
+               var tempUI = '';
+                    tempUI += gen_table_ui(); 
                         tempUI +='<tbody>';
-                  
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter({sortList:[[0,1]],
     textExtraction: function(node){ 
         return $(node).text().replace(/[,$£€]/g,'');
      }}).tablesorterPager({container: $("#pager")});
-                }
+                        }
                 turnLoader();
             },
             error: function(responseData, textStatus, errorThrown) {
-                var tempUI = '';
-                    tempUI += gen_table_ui();
+               var tempUI = '';
+                    tempUI += gen_table_ui(); 
                         tempUI +='<tbody>';
-                  
-                tempUI += '<tr> <td colspan="8" style="text-align:center">'+nls.nodata+'</td> </tr>';
+                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
                         tempUI +='</tbody>';
                 $('#enquiryTable').empty().append(tempUI);
                 $('#enquiryTable').tablesorter({sortList:[[0,1]],

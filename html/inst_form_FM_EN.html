@@ -520,31 +520,42 @@ $('#acc_btn_otp').click(function(e){
 
 });
 
-
     window.callOTP = function callOTP(callback){
         turnLoader('c');
 
         $.post('/api/usercode/registerfromsession',
               {
-                  email:'kaycheung@cherrypicks.com',
+                  lang:getSelLanguage()
               })
               .done( function(msg) {
                   if (msg.success)
                   {
                 turnLoader();
-                      alert('Success, please check your email.');
+                      swal({
+                        title:'Sent, please check your Email.',
+                        type:'success',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
                   else
                   {
                 turnLoader();
-                      alert(msg.message);
+                      swal({
+                        title:'Failure, plesase try again later.',
+                        type:'error',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
                   }
               })
               .fail( function(xhr, textStatus, errorThrown) {
                 turnLoader();
-                  alert("Network Error");
+                      swal({
+                        title:'Failure, plesase try again later.',
+                        type:'error',
+                        confirmButtonText:'OK'
+                      });
                 (callback && typeof(callback) === "function") && callback();
               });      
 
@@ -621,11 +632,31 @@ $('#acc_btn_otp').click(function(e){
         });
     }
 
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = 'HKD';
+            curLst['USD'] = 'USD';
+            curLst['EUR'] = 'EUR';
+            curLst['AUD'] = 'AUD';
+            curLst['CNY'] = 'CNY';
+            curLst['JPY'] = 'JPY';
+            curLst['GBP'] = 'GBP';
+            curLst['SGD'] = 'SGD';
+            curLst['CHF'] = 'CHF';
+            curLst['MYR'] = 'MYR';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }
+
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
@@ -754,6 +785,7 @@ $('#acc_btn_otp').click(function(e){
                             msgData.title = '登入超時' ;
                             msgData.text = '登入超時，請重新登入。' ;
                             break;
+                        case 'cn-CN': 
                         case 'zh-CN': 
                             msgData.title = '登入超时' ;
                             msgData.text = '登入超时，请重新登入。' ;
@@ -831,6 +863,7 @@ $('#acc_btn_otp').click(function(e){
                             msgData.title = '登入超時' ;
                             msgData.text = '登入超時，請重新登入。' ;
                             break;
+                        case 'cn-CN': 
                         case 'zh-CN': 
                             msgData.title = '登入超时' ;
                             msgData.text = '登入超时，请重新登入。' ;
@@ -1023,7 +1056,7 @@ $('#acc_btn_otp').click(function(e){
                  <tr><td colspan="2">' + d.InstructionName + '</td></tr>\
                  <tr><td width="25%">' + nls.transacct + '：</td><td>' + d.TradingAccSeqName + '</td></tr>\
                  <tr><td>' + nls.transmethod + '：</td><td>' + d.SettleMethodName + '</td></tr>\
-                 <tr><td>' + nls.currency + '：</td><td>' + d.CurrencyID + ' ' + formatAmount(parseFloat(d.Amount),'') + '<td></tr>\
+                 <tr><td>' + nls.currency + '：</td><td>' + currencyMapping(d.CurrencyID) + ' ' + formatAmount(parseFloat(d.Amount),'') + '<td></tr>\
                  <tr><td>' + nls.remark + '：</td><td>' + d.StatementRemark + '</td></tr>';
         if (d.transferacctTypeName) {
             temp += '<tr><td>' + nls.cashfrom + '：</td><td>' + d.transferacctTypeName + '</td></tr>';
