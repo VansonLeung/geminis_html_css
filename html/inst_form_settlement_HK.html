@@ -1426,15 +1426,21 @@ window.getMarketLabel = function getMarketLabel(name,list){
 
 
             $('body').on('click','.removestockbtn',function(e){
+              if($('body').find('.removestockbtn').length <= 1){
+
+              }else{
                     $(this).parent().parent().parent().remove();
+              }
             });          
             $('body').on('click','.removestockmobtn',function(e){
-                    // $(this).parent().parent().remove();
+              if($('body').find('.removestockmobtn').length <= 1){
+              }else{
                     var stockheader = $(this).parent().parent().parent().parent().parent().parent().prev();
                     var stockbody = $(this).parent().parent().parent().parent().parent().parent();
 
                     stockheader.remove();
                     stockbody.remove();                    
+              }
             });
         }
             var init = new loadinstallFx();
