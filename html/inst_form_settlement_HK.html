@@ -184,7 +184,7 @@ max-width:none;
     <tr>
       <td class="menustepArea"><img class="menustepIcon" id="stepbarstepicon1" src="../../../images/status_icon.png" /></td>
       <td class="menustepArea">
-      <p class="menustepText" id="stepbarstep1">交易指示</p>
+      <p class="menustepText" id="stepbarstep1">股票交收指示</p>
       </td>
     </tr>
     <tr>
@@ -211,7 +211,7 @@ max-width:none;
 <form>
 <div class="area-top">
 <div class="col s12">
-<h5 class="inst-form-1sttitle">交易提示</h5>
+<h5 class="inst-form-1sttitle">股票交收指示</h5>
 </div>
 
 <div class="inst-area-one row">
@@ -380,26 +380,26 @@ max-width:none;
 <div class="confirmpage">
 <div class="area-top">
 <div class="col s12 inst-grid-b">
-<h5 class="inst-form-1sttitle">資金交易提示</h5>
+<h5 class="inst-form-1sttitle">股票交收指示</h5>
 </div>
 
 <div class="inst-area-one row inst-grid-b " id="cfmArea">&nbsp;</div>
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
-<div class="col s12 m6 l2">
-<h5 style="line-height: 60px">動態密碼</h5>
+<div class="col s12 m3 l3">
+<h5 style="line-height: 60px;font-size: 16px;">驗證碼</h5>
 </div>
 
-<div class="col s12 m6 l10">
+<div class="col s12 m9 l9">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入動態密碼</label>
+<div class="input-field col s12 m12 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入驗證碼</label>
 
 <p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取動態密碼" /></div>
+<div class="col s12 m12 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary " style="font-size: 16px;" id="acc_btn_otp" type="button" value="獲取驗證碼" /></div>
 </div>
 </div>
 </div>
@@ -753,11 +753,11 @@ window.getinstSessionExpireMsg = function getinstSessionExpireMsg(lang){
 var msglang = "@{S:LANG}"+"-"+"@{S:CULTURE}";
 var msg = getinstSessionExpireMsg(msglang);
 
-$.ajax({
-    type: 'POST',
-    url: '/api/session/isLogin',
-    success: function(responseData, textStatus, jqXHR) {
-       if(responseData == "True"){
+// $.ajax({
+//     type: 'POST',
+//     url: '/api/session/isLogin',
+//     success: function(responseData, textStatus, jqXHR) {
+//        if(responseData == "True"){
 
                 settlementInstruction(field_passwords,function(){
                     if(glootperror){
@@ -772,26 +772,26 @@ $.ajax({
                     glostepgo = 4;
                 });
 
-       }else{
-       swal({
-          title: msg.title,
-          text: msg.text,
-          timer: 2000,
-          showConfirmButton: false
-        });
-       setTimeout(function(){ location.reload(); }, 3000);
-       }
-    },
-    error: function(responseData, textStatus, errorThrown) {
-       swal({
-          title: msg.title,
-          text: msg.text,
-          timer: 2000,
-          showConfirmButton: false
-        });
-       setTimeout(function(){ location.reload(); }, 3000);
-    }
-});
+//        }else{
+//        swal({
+//           title: msg.title,
+//           text: msg.text,
+//           timer: 2000,
+//           showConfirmButton: false
+//         });
+//        setTimeout(function(){ location.reload(); }, 3000);
+//        }
+//     },
+//     error: function(responseData, textStatus, errorThrown) {
+//        swal({
+//           title: msg.title,
+//           text: msg.text,
+//           timer: 2000,
+//           showConfirmButton: false
+//         });
+//        setTimeout(function(){ location.reload(); }, 3000);
+//     }
+// });
 
 
             }
@@ -1148,22 +1148,22 @@ window.loadMarketList = function loadMarketList(){
   var data = [
 {name:'HKEX',label:'港股'},
 {name:'MAMK',label:'上海A股'},
-{name:'SZMK',label:'深圳A股'},
-{name:'USEX',label:'美股'},
-{name:'TWEX',label:'台股'},
-{name:'AUEX',label:'澳洲股'},
-{name:'CAEX',label:'加拿大股'},
-{name:'CHEX',label:'瑞士股'},
-{name:'EUEX',label:'歐洲股'},
-{name:'GREX',label:'德國股'},
-{name:'IDEX',label:'印度股'},
-{name:'JPEX',label:'日本股'},
-{name:'KREX',label:'南韓股'},
-{name:'MYEX',label:'馬來西亞股'},
-{name:'PHEX',label:'菲律賓股'},
-{name:'SGEX',label:'新加坡股'},
-{name:'SHEB',label:'上海B股'},
-{name:'THEX',label:'泰國股'}
+{name:'SZMK',label:'深圳A股'}
+// {name:'USEX',label:'美股'},
+// {name:'TWEX',label:'台股'},
+// {name:'AUEX',label:'澳洲股'},
+// {name:'CAEX',label:'加拿大股'},
+// {name:'CHEX',label:'瑞士股'},
+// {name:'EUEX',label:'歐洲股'},
+// {name:'GREX',label:'德國股'},
+// {name:'IDEX',label:'印度股'},
+// {name:'JPEX',label:'日本股'},
+// {name:'KREX',label:'南韓股'},
+// {name:'MYEX',label:'馬來西亞股'},
+// {name:'PHEX',label:'菲律賓股'},
+// {name:'SGEX',label:'新加坡股'},
+// {name:'SHEB',label:'上海B股'},
+// {name:'THEX',label:'泰國股'}
 ];
   return data;
 }
@@ -1266,14 +1266,14 @@ window.getMarketLabel = function getMarketLabel(name,list){
             });
 
             window.nls = {
-                otperror:'動態密碼不正確，試再次輸入',
+                otperror:'驗證碼不正確，試再次輸入',
                 nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '參考編號:',
                 fail: '未能完成',
                 failmsg: '有關指示未被接納，請與本行職員聯絡。',
                 done: '完成',
-                plsfillpwd: '請輸入動態密碼',
+                plsfillpwd: '請輸入驗證碼',
                 loginacctfirst: '請先登入帳號',
                 fillindata: '請輸入',
                 fillinqty:'請輸入股票代號',

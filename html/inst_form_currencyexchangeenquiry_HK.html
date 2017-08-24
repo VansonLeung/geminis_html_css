@@ -1,10 +1,4 @@
-<style type="text/css">.next:hover,.prev:hover{
-    border-top: 2px solid #bc0000;
-    padding-top: 5px;
-}
-.next,.prev{
-cursor:pointer;
-}
+<style type="text/css">
 .redbartop{
         width: 100%; height: 10px;  background-color: #bc0000;
         border-top-left-radius: 8px;
@@ -30,7 +24,7 @@ cursor:pointer;
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 10px 20px 0px 20px;
-     font-size:18px;
+     font-size:0.9em;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -50,7 +44,7 @@ cursor:pointer;
      background-color: rgba(0,0,0,0);
      height: 100%;
      padding: 20px 30px 0px 30px;
-     font-size:24px;
+     font-size:1.2em;
      text-align:center;
      color:#6c6c6c;
      float: left;
@@ -96,10 +90,10 @@ cursor:pointer;
         width:100%; 
     }
     #stepback{
-      height:87px; background-color: #9b9b9b;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;  
+      height:87px; background-color: #9b9b9b;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;  
     }
     #stepgo{
-        height:87px; background-color: #4a4a4a;text-align: center;font-size: 20px;vertical-align: middle;line-height: 87px;color:#fff;
+        height:87px; background-color: #4a4a4a;text-align: center;font-size: 1em;vertical-align: middle;line-height: 87px;color:#fff;
     }
 
     .menustepArea{
@@ -109,67 +103,77 @@ cursor:pointer;
     display:none;width:16px;height:16px;
     }
     .menustepText{
-    text-align:left;color:#666;font-size: 16px;line-height: 24px;
+    text-align:left;color:#666;font-size: 0.8em;line-height: 1.2em;
     }
     .menustepText-Active{
-    text-align:left;color:#d94634;font-size: 16px;line-height: 24px;
+    text-align:left;color:#d94634;font-size: 0.8em;line-height: 1.2em;
     }
-
-    #enquiryTable {
-  margin: 0 auto;
-  font-size: 1.2em;
-  margin-bottom: 15px;
-}
-
-
-#enquiryTable thead {
+</style>
+<style>
+.clickable{
   cursor: pointer;
-  background: #c9dff0;
 }
-#enquiryTable thead tr th { 
-  font-weight: bold;
-/*  padding: 12px 30px;
-  padding-left: 42px;*/
+.dataTables_paginate{
+  width: 100%;
+  text-align: center !important;
+  padding-top: 0px !important;
+  margin-top: 15px;
+  border-top: 1px gray solid;
 }
-#enquiryTable thead tr th span { 
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
+.paginate_button,
+.searchpage_button{
+  margin:-2px;
 }
-
-#enquiryTable thead tr th.headerSortUp, #enquiryTable thead tr th.headerSortDown {
-  /*background: #acc8dd;*/
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.searchpage_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+  border-top: 3px red solid;
 }
-
-#enquiryTable thead tr th.headerSortUp span {
-  background-image: url('../../../images/submenu_dropdown.png');
-    -webkit-filter: brightness(400%); /* Safari */
-    filter: brightness(400%);
-    background-size: 14px 20px;
-    background-repeat: no-repeat;
+.select-style select{
+   -webkit-appearance: menulist-button;
+  width: 100%;
+  border: 1px
+  solid rgb(148,148,148);
+  border-radius: 5px;
 }
-#enquiryTable thead tr th.headerSortDown span {
-  background-image: url('../../../images/tab_arrow.png');
-    -webkit-filter: brightness(400%); /* Safari */
-    filter: brightness(400%);
-    background-size: 14px 20px;
-    background-repeat: no-repeat;
+.nowrap{
+  white-space: nowrap;
 }
+</style>
 
 
-#enquiryTable tbody tr { 
-  color: #555;
+<style>
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc{background: #656667;}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after{ font-family: FontAwesome;padding-left:.4em;color:gray;}
+table.dataTable thead .sorting:after{content: '\f0dc';}
+table.dataTable thead .sorting_desc:after{content: '\f0dd';color: white;}
+table.dataTable thead .sorting_asc:after{content: '\f0de';color: white;}
+.dataTables_paginate{
+  margin-top: 0px;
+  border-top: 1px gray solid;}
+.paginate_button{margin:-2px;}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{border-top: 3px red solid !important;}
+
+
+table.dataTable thead th{
+  font-size: 14px;
 }
-#enquiryTable tbody tr td {
-  text-align: left;
-  padding: 15px 10px 15px 4px;
-}
-#enquiryTable tbody tr td.lalign {
-  text-align: left;
+table.dataTable.no-footer {
+     border-bottom: 0px solid #111; 
 }
 
-#enquiryTable tbody tr td:nth-child(1) {
-    padding-left: 35px;
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 8px 18px;
+}
+.generic-table-content tr td:last-child {
+    padding-right: 35px;
+}
+.nowrap{
+    white-space: nowrap;
 }
 </style>
 <section>
@@ -180,11 +184,11 @@ cursor:pointer;
 
 <div class="subsubmenuBar">
 <div class="subsubmenuBox" data-gmnsubsubmenu="inst">
-<p><a href="../stock-instruction/">股票交收指示</a></p>
+<p><a href="../currency-exchange-instruction/">貨幣交易指示</a></p>
 </div>
 
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="enqu">
-<p>股票存取指示查詢</p>
+<p>貨幣交易指示查詢</p>
 </div>
 </div>
 </div>
@@ -196,96 +200,79 @@ cursor:pointer;
 <table class="generic-table-header smallmedpadding">
   <tbody>
     <tr>
-      <td class="font_lg">股票存取指示查詢</td>
+      <td class="font_lg">貨幣交易指示查詢</td>
     </tr>
   </tbody>
 </table>
 
 <table class="generic-table-content font_smedmed" id="enquiryTable">
 </table>
-
-<div class="pager" id="pager" style="width: 100%;text-align: center;">
-<form><span class="prev">上一頁</span> <input class="pagedisplay" readonly="readonly" style="width:70px;text-align: center;background-color: transparent;font-size: 18px;" type="text" /> <span class="next">下一頁</span> <select class="pagesize" style="display: none;"><option selected="selected" value="10">10</option> </select></form>
-</div>
+<table style="background-color: white;    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; width:100%;" class="responsive generic-table-content font_smedmed tblIPOCalendar" cellspacing="0" width="100%">
+    </table>
+ 
 </div>
 </div>
 <!-- enqu --></div>
 </div>
 </section>
-<script>
- (function($){$.extend({tablesorter:new
-function(){var parsers=[],widgets=[];this.defaults={cssHeader:"header",cssAsc:"headerSortUp",cssDesc:"headerSortDown",cssChildRow:"expand-child",sortInitialOrder:"asc",sortMultiSortKey:"shiftKey",sortForce:null,sortAppend:null,sortLocaleCompare:true,textExtraction:"simple",parsers:{},widgets:[],widgetZebra:{css:["even","odd"]},headers:{},widthFixed:false,cancelSelection:true,sortList:[],headerList:[],dateFormat:"us",decimal:'/\.|\,/g',onRenderHeader:null,selectorHeaders:'thead th',debug:false};function benchmark(s,d){log(s+","+(new Date().getTime()-d.getTime())+"ms");}this.benchmark=benchmark;function log(s){if(typeof console!="undefined"&&typeof console.debug!="undefined"){console.log(s);}else{alert(s);}}function buildParserCache(table,$headers){if(table.config.debug){var parsersDebug="";}if(table.tBodies.length==0)return;var rows=table.tBodies[0].rows;if(rows[0]){var list=[],cells=rows[0].cells,l=cells.length;for(var i=0;i<l;i++){var p=false;if($.metadata&&($($headers[i]).metadata()&&$($headers[i]).metadata().sorter)){p=getParserById($($headers[i]).metadata().sorter);}else if((table.config.headers[i]&&table.config.headers[i].sorter)){p=getParserById(table.config.headers[i].sorter);}if(!p){p=detectParserForColumn(table,rows,-1,i);}if(table.config.debug){parsersDebug+="column:"+i+" parser:"+p.id+"\n";}list.push(p);}}if(table.config.debug){log(parsersDebug);}return list;};function detectParserForColumn(table,rows,rowIndex,cellIndex){var l=parsers.length,node=false,nodeValue=false,keepLooking=true;while(nodeValue==''&&keepLooking){rowIndex++;if(rows[rowIndex]){node=getNodeFromRowAndCellIndex(rows,rowIndex,cellIndex);nodeValue=trimAndGetNodeText(table.config,node);if(table.config.debug){log('Checking if value was empty on row:'+rowIndex);}}else{keepLooking=false;}}for(var i=1;i<l;i++){if(parsers[i].is(nodeValue,table,node)){return parsers[i];}}return parsers[0];}function getNodeFromRowAndCellIndex(rows,rowIndex,cellIndex){return rows[rowIndex].cells[cellIndex];}function trimAndGetNodeText(config,node){return $.trim(getElementText(config,node));}function getParserById(name){var l=parsers.length;for(var i=0;i<l;i++){if(parsers[i].id.toLowerCase()==name.toLowerCase()){return parsers[i];}}return false;}function buildCache(table){if(table.config.debug){var cacheTime=new Date();}var totalRows=(table.tBodies[0]&&table.tBodies[0].rows.length)||0,totalCells=(table.tBodies[0].rows[0]&&table.tBodies[0].rows[0].cells.length)||0,parsers=table.config.parsers,cache={row:[],normalized:[]};for(var i=0;i<totalRows;++i){var c=$(table.tBodies[0].rows[i]),cols=[];if(c.hasClass(table.config.cssChildRow)){cache.row[cache.row.length-1]=cache.row[cache.row.length-1].add(c);continue;}cache.row.push(c);for(var j=0;j<totalCells;++j){cols.push(parsers[j].format(getElementText(table.config,c[0].cells[j]),table,c[0].cells[j]));}cols.push(cache.normalized.length);cache.normalized.push(cols);cols=null;};if(table.config.debug){benchmark("Building cache for "+totalRows+" rows:",cacheTime);}return cache;};function getElementText(config,node){var text="";if(!node)return"";if(!config.supportsTextContent)config.supportsTextContent=node.textContent||false;if(config.textExtraction=="simple"){if(config.supportsTextContent){text=node.textContent;}else{if(node.childNodes[0]&&node.childNodes[0].hasChildNodes()){text=node.childNodes[0].innerHTML;}else{text=node.innerHTML;}}}else{if(typeof(config.textExtraction)=="function"){text=config.textExtraction(node);}else{text=$(node).text();}}return text;}function appendToTable(table,cache){if(table.config.debug){var appendTime=new Date()}var c=cache,r=c.row,n=c.normalized,totalRows=n.length,checkCell=(n[0].length-1),tableBody=$(table.tBodies[0]),rows=[];for(var i=0;i<totalRows;i++){var pos=n[i][checkCell];rows.push(r[pos]);if(!table.config.appender){var l=r[pos].length;for(var j=0;j<l;j++){tableBody[0].appendChild(r[pos][j]);}}}if(table.config.appender){table.config.appender(table,rows);}rows=null;if(table.config.debug){benchmark("Rebuilt table:",appendTime);}applyWidget(table);setTimeout(function(){$(table).trigger("sortEnd");},0);};function buildHeaders(table){if(table.config.debug){var time=new Date();}var meta=($.metadata)?true:false;var header_index=computeTableHeaderCellIndexes(table);$tableHeaders=$(table.config.selectorHeaders,table).each(function(index){this.column=header_index[this.parentNode.rowIndex+"-"+this.cellIndex];this.order=formatSortingOrder(table.config.sortInitialOrder);this.count=this.order;if(checkHeaderMetadata(this)||checkHeaderOptions(table,index))this.sortDisabled=true;if(checkHeaderOptionsSortingLocked(table,index))this.order=this.lockedOrder=checkHeaderOptionsSortingLocked(table,index);if(!this.sortDisabled){var $th=$(this).addClass(table.config.cssHeader);if(table.config.onRenderHeader)table.config.onRenderHeader.apply($th);}table.config.headerList[index]=this;});if(table.config.debug){benchmark("Built headers:",time);log($tableHeaders);}return $tableHeaders;};function computeTableHeaderCellIndexes(t){var matrix=[];var lookup={};var thead=t.getElementsByTagName('THEAD')[0];var trs=thead.getElementsByTagName('TR');for(var i=0;i<trs.length;i++){var cells=trs[i].cells;for(var j=0;j<cells.length;j++){var c=cells[j];var rowIndex=c.parentNode.rowIndex;var cellId=rowIndex+"-"+c.cellIndex;var rowSpan=c.rowSpan||1;var colSpan=c.colSpan||1
-var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];}for(var k=0;k<matrix[rowIndex].length+1;k++){if(typeof(matrix[rowIndex][k])=="undefined"){firstAvailCol=k;break;}}lookup[cellId]=firstAvailCol;for(var k=rowIndex;k<rowIndex+rowSpan;k++){if(typeof(matrix[k])=="undefined"){matrix[k]=[];}var matrixrow=matrix[k];for(var l=firstAvailCol;l<firstAvailCol+colSpan;l++){matrixrow[l]="x";}}}}return lookup;}function checkCellColSpan(table,rows,row){var arr=[],r=table.tHead.rows,c=r[row].cells;for(var i=0;i<c.length;i++){var cell=c[i];if(cell.colSpan>1){arr=arr.concat(checkCellColSpan(table,headerArr,row++));}else{if(table.tHead.length==1||(cell.rowSpan>1||!r[row+1])){arr.push(cell);}}}return arr;};function checkHeaderMetadata(cell){if(($.metadata)&&($(cell).metadata().sorter===false)){return true;};return false;}function checkHeaderOptions(table,i){if((table.config.headers[i])&&(table.config.headers[i].sorter===false)){return true;};return false;}function checkHeaderOptionsSortingLocked(table,i){if((table.config.headers[i])&&(table.config.headers[i].lockedOrder))return table.config.headers[i].lockedOrder;return false;}function applyWidget(table){var c=table.config.widgets;var l=c.length;for(var i=0;i<l;i++){getWidgetById(c[i]).format(table);}}function getWidgetById(name){var l=widgets.length;for(var i=0;i<l;i++){if(widgets[i].id.toLowerCase()==name.toLowerCase()){return widgets[i];}}};function formatSortingOrder(v){if(typeof(v)!="Number"){return(v.toLowerCase()=="desc")?1:0;}else{return(v==1)?1:0;}}function isValueInArray(v,a){var l=a.length;for(var i=0;i<l;i++){if(a[i][0]==v){return true;}}return false;}function setHeadersCss(table,$headers,list,css){$headers.removeClass(css[0]).removeClass(css[1]);var h=[];$headers.each(function(offset){if(!this.sortDisabled){h[this.column]=$(this);}});var l=list.length;for(var i=0;i<l;i++){h[list[i][0]].addClass(css[list[i][1]]);}}function fixColumnWidth(table,$headers){var c=table.config;if(c.widthFixed){var colgroup=$('<colgroup>');$("tr:first td",table.tBodies[0]).each(function(){colgroup.append($('<col>').css('width',$(this).width()));});$(table).prepend(colgroup);};}function updateHeaderSortCount(table,sortList){var c=table.config,l=sortList.length;for(var i=0;i<l;i++){var s=sortList[i],o=c.headerList[s[0]];o.count=s[1];o.count++;}}function multisort(table,sortList,cache){if(table.config.debug){var sortTime=new Date();}var dynamicExp="var sortWrapper = function(a,b) {",l=sortList.length;for(var i=0;i<l;i++){var c=sortList[i][0];var order=sortList[i][1];var s=(table.config.parsers[c].type=="text")?((order==0)?makeSortFunction("text","asc",c):makeSortFunction("text","desc",c)):((order==0)?makeSortFunction("numeric","asc",c):makeSortFunction("numeric","desc",c));var e="e"+i;dynamicExp+="var "+e+" = "+s;dynamicExp+="if("+e+") { return "+e+"; } ";dynamicExp+="else { ";}var orgOrderCol=cache.normalized[0].length-1;dynamicExp+="return a["+orgOrderCol+"]-b["+orgOrderCol+"];";for(var i=0;i<l;i++){dynamicExp+="}; ";}dynamicExp+="return 0; ";dynamicExp+="}; ";if(table.config.debug){benchmark("Evaling expression:"+dynamicExp,new Date());}eval(dynamicExp);cache.normalized.sort(sortWrapper);if(table.config.debug){benchmark("Sorting on "+sortList.toString()+" and dir "+order+" time:",sortTime);}return cache;};function makeSortFunction(type,direction,index){var a="a["+index+"]",b="b["+index+"]";if(type=='text'&&direction=='asc'){return"("+a+" == "+b+" ? 0 : ("+a+" === null ? Number.POSITIVE_INFINITY : ("+b+" === null ? Number.NEGATIVE_INFINITY : ("+a+" < "+b+") ? -1 : 1 )));";}else if(type=='text'&&direction=='desc'){return"("+a+" == "+b+" ? 0 : ("+a+" === null ? Number.POSITIVE_INFINITY : ("+b+" === null ? Number.NEGATIVE_INFINITY : ("+b+" < "+a+") ? -1 : 1 )));";}else if(type=='numeric'&&direction=='asc'){return"("+a+" === null && "+b+" === null) ? 0 :("+a+" === null ? Number.POSITIVE_INFINITY : ("+b+" === null ? Number.NEGATIVE_INFINITY : "+a+" - "+b+"));";}else if(type=='numeric'&&direction=='desc'){return"("+a+" === null && "+b+" === null) ? 0 :("+a+" === null ? Number.POSITIVE_INFINITY : ("+b+" === null ? Number.NEGATIVE_INFINITY : "+b+" - "+a+"));";}};function makeSortText(i){return"((a["+i+"] < b["+i+"]) ? -1 : ((a["+i+"] > b["+i+"]) ? 1 : 0));";};function makeSortTextDesc(i){return"((b["+i+"] < a["+i+"]) ? -1 : ((b["+i+"] > a["+i+"]) ? 1 : 0));";};function makeSortNumeric(i){return"a["+i+"]-b["+i+"];";};function makeSortNumericDesc(i){return"b["+i+"]-a["+i+"];";};function sortText(a,b){if(table.config.sortLocaleCompare)return a.localeCompare(b);return((a<b)?-1:((a>b)?1:0));};function sortTextDesc(a,b){if(table.config.sortLocaleCompare)return b.localeCompare(a);return((b<a)?-1:((b>a)?1:0));};function sortNumeric(a,b){return a-b;};function sortNumericDesc(a,b){return b-a;};function getCachedSortType(parsers,i){return parsers[i].type;};this.construct=function(settings){return this.each(function(){if(!this.tHead||!this.tBodies)return;var $this,$document,$headers,cache,config,shiftDown=0,sortOrder;this.config={};config=$.extend(this.config,$.tablesorter.defaults,settings);$this=$(this);$.data(this,"tablesorter",config);$headers=buildHeaders(this);this.config.parsers=buildParserCache(this,$headers);cache=buildCache(this);var sortCSS=[config.cssDesc,config.cssAsc];fixColumnWidth(this);$headers.click(function(e){var totalRows=($this[0].tBodies[0]&&$this[0].tBodies[0].rows.length)||0;if(!this.sortDisabled&&totalRows>0){$this.trigger("sortStart");var $cell=$(this);var i=this.column;this.order=this.count++%2;if(this.lockedOrder)this.order=this.lockedOrder;if(!e[config.sortMultiSortKey]){config.sortList=[];if(config.sortForce!=null){var a=config.sortForce;for(var j=0;j<a.length;j++){if(a[j][0]!=i){config.sortList.push(a[j]);}}}config.sortList.push([i,this.order]);}else{if(isValueInArray(i,config.sortList)){for(var j=0;j<config.sortList.length;j++){var s=config.sortList[j],o=config.headerList[s[0]];if(s[0]==i){o.count=s[1];o.count++;s[1]=o.count%2;}}}else{config.sortList.push([i,this.order]);}};setTimeout(function(){setHeadersCss($this[0],$headers,config.sortList,sortCSS);appendToTable($this[0],multisort($this[0],config.sortList,cache));},1);return false;}}).mousedown(function(){if(config.cancelSelection){this.onselectstart=function(){return false};return false;}});$this.bind("update",function(){var me=this;setTimeout(function(){me.config.parsers=buildParserCache(me,$headers);cache=buildCache(me);},1);}).bind("updateCell",function(e,cell){var config=this.config;var pos=[(cell.parentNode.rowIndex-1),cell.cellIndex];cache.normalized[pos[0]][pos[1]]=config.parsers[pos[1]].format(getElementText(config,cell),cell);}).bind("sorton",function(e,list){$(this).trigger("sortStart");config.sortList=list;var sortList=config.sortList;updateHeaderSortCount(this,sortList);setHeadersCss(this,$headers,sortList,sortCSS);appendToTable(this,multisort(this,sortList,cache));}).bind("appendCache",function(){appendToTable(this,cache);}).bind("applyWidgetId",function(e,id){getWidgetById(id).format(this);}).bind("applyWidgets",function(){applyWidget(this);});if($.metadata&&($(this).metadata()&&$(this).metadata().sortlist)){config.sortList=$(this).metadata().sortlist;}if(config.sortList.length>0){$this.trigger("sorton",[config.sortList]);}applyWidget(this);});};this.addParser=function(parser){var l=parsers.length,a=true;for(var i=0;i<l;i++){if(parsers[i].id.toLowerCase()==parser.id.toLowerCase()){a=false;}}if(a){parsers.push(parser);};};this.addWidget=function(widget){widgets.push(widget);};this.formatFloat=function(s){var i=parseFloat(s);return(isNaN(i))?0:i;};this.formatInt=function(s){var i=parseInt(s);return(isNaN(i))?0:i;};this.isDigit=function(s,config){return/^[-+]?\d*$/.test($.trim(s.replace(/[,.']/g,'')));};this.clearTableBody=function(table){if($.browser.msie){function empty(){while(this.firstChild)this.removeChild(this.firstChild);}empty.apply(table.tBodies[0]);}else{table.tBodies[0].innerHTML="";}};}});$.fn.extend({tablesorter:$.tablesorter.construct});var ts=$.tablesorter;ts.addParser({id:"text",is:function(s){return true;},format:function(s){return $.trim(s.toLocaleLowerCase());},type:"text"});ts.addParser({id:"digit",is:function(s,table){var c=table.config;return $.tablesorter.isDigit(s,c);},format:function(s){return $.tablesorter.formatFloat(s);},type:"numeric"});ts.addParser({id:"currency",is:function(s){return/^[Â£$â‚¬?.]/.test(s);},format:function(s){return $.tablesorter.formatFloat(s.replace(new RegExp(/[Â£$â‚¬]/g),""));},type:"numeric"});ts.addParser({id:"ipAddress",is:function(s){return/^\d{2,3}[\.]\d{2,3}[\.]\d{2,3}[\.]\d{2,3}$/.test(s);},format:function(s){var a=s.split("."),r="",l=a.length;for(var i=0;i<l;i++){var item=a[i];if(item.length==2){r+="0"+item;}else{r+=item;}}return $.tablesorter.formatFloat(r);},type:"numeric"});ts.addParser({id:"url",is:function(s){return/^(https?|ftp|file):\/\/$/.test(s);},format:function(s){return jQuery.trim(s.replace(new RegExp(/(https?|ftp|file):\/\//),''));},type:"text"});ts.addParser({id:"isoDate",is:function(s){return/^\d{4}[\/-]\d{1,2}[\/-]\d{1,2}$/.test(s);},format:function(s){return $.tablesorter.formatFloat((s!="")?new Date(s.replace(new RegExp(/-/g),"/")).getTime():"0");},type:"numeric"});ts.addParser({id:"percent",is:function(s){return/\%$/.test($.trim(s));},format:function(s){return $.tablesorter.formatFloat(s.replace(new RegExp(/%/g),""));},type:"numeric"});ts.addParser({id:"usLongDate",is:function(s){return s.match(new RegExp(/^[A-Za-z]{3,10}\.? [0-9]{1,2}, ([0-9]{4}|'?[0-9]{2}) (([0-2]?[0-9]:[0-5][0-9])|([0-1]?[0-9]:[0-5][0-9]\s(AM|PM)))$/));},format:function(s){return $.tablesorter.formatFloat(new Date(s).getTime());},type:"numeric"});ts.addParser({id:"shortDate",is:function(s){return/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/.test(s);},format:function(s,table){var c=table.config;s=s.replace(/\-/g,"/");if(c.dateFormat=="us"){s=s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/,"$3/$1/$2");}else if(c.dateFormat=="uk"){s=s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/,"$3/$2/$1");}else if(c.dateFormat=="dd/mm/yy"||c.dateFormat=="dd-mm-yy"){s=s.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2})/,"$1/$2/$3");}return $.tablesorter.formatFloat(new Date(s).getTime());},type:"numeric"});ts.addParser({id:"time",is:function(s){return/^(([0-2]?[0-9]:[0-5][0-9])|([0-1]?[0-9]:[0-5][0-9]\s(am|pm)))$/.test(s);},format:function(s){return $.tablesorter.formatFloat(new Date("2000/01/01 "+s).getTime());},type:"numeric"});ts.addParser({id:"metadata",is:function(s){return false;},format:function(s,table,cell){var c=table.config,p=(!c.parserMetadataName)?'sortValue':c.parserMetadataName;return $(cell).metadata()[p];},type:"numeric"});ts.addWidget({id:"zebra",format:function(table){if(table.config.debug){var time=new Date();}var $tr,row=-1,odd;$("tr:visible",table.tBodies[0]).each(function(i){$tr=$(this);if(!$tr.hasClass(table.config.cssChildRow))row++;odd=(row%2==0);$tr.removeClass(table.config.widgetZebra.css[odd?0:1]).addClass(table.config.widgetZebra.css[odd?1:0])});if(table.config.debug){$.tablesorter.benchmark("Applying Zebra widget",time);}}});})(jQuery);
-</script><script>
-!function(e){e.extend({tablesorterPager:new function(){function t(t){e(t.cssPageDisplay,t.container).val(t.page+1+t.seperator+t.totalPages)}function a(e,t){var a=e.config;a.size=t,a.totalPages=Math.ceil(a.totalRows/a.size),a.pagerPositionSet=!1,c(e),n(e)}function n(t){var a=t.config;if(!a.pagerPositionSet&&a.positionFixed){var a=t.config,n=e(t);n.offset,a.pagerPositionSet=!0}}function i(e){var t=e.config;t.page=0,c(e)}function s(e){var t=e.config;t.page=t.totalPages-1,c(e)}function o(e){var t=e.config;t.page++,t.page>=t.totalPages-1&&(t.page=t.totalPages-1),c(e)}function r(e){var t=e.config;t.page--,t.page<=0&&(t.page=0),c(e)}function c(e){var t=e.config;(t.page<0||t.page>t.totalPages-1)&&(t.page=0),g(e,t.rowsCopy)}function g(a,i){var o=a.config,r=i.length,c=o.page*o.size,g=c+o.size;g>i.length&&(g=i.length);var f=e(a.tBodies[0]);e.tablesorter.clearTableBody(a);for(var p=c;g>p;p++)for(var l=i[p],r=l.length,u=0;r>u;u++)f[0].appendChild(l[u]);n(a,f),e(a).trigger("applyWidgets"),o.page>=o.totalPages&&s(a),t(o)}this.appender=function(e,t){var a=e.config;a.rowsCopy=t,a.totalRows=t.length,a.totalPages=Math.ceil(a.totalRows/a.size),g(e,t)},this.defaults={size:10,offset:0,page:0,totalRows:0,totalPages:0,container:null,cssNext:".next",cssPrev:".prev",cssFirst:".first",cssLast:".last",cssPageDisplay:".pagedisplay",cssPageSize:".pagesize",seperator:"/",positionFixed:!0,appender:this.appender},this.construct=function(t){return this.each(function(){config=e.extend(this.config,e.tablesorterPager.defaults,t);var n=this,c=config.container;e(this).trigger("appendCache"),config.size=parseInt(e(".pagesize",c).val()),e(config.cssFirst,c).click(function(){return i(n),!1}),e(config.cssNext,c).click(function(){return o(n),!1}),e(config.cssPrev,c).click(function(){return r(n),!1}),e(config.cssLast,c).click(function(){return s(n),!1}),e(config.cssPageSize,c).change(function(){return a(n,parseInt(e(this).val())),!1})})}}}),e.fn.extend({tablesorterPager:e.tablesorterPager.construct})}(jQuery);
-</script><script>
-jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)./)){ jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
-
-
+ <script>
+ 
 
       $(function(e){
+
+
 
     $('.subsubmenuBox').on('click',function(e){
         var subsubItem = $(this).data().gmnsubsubmenu;
         if(subsubItem == 'inst'){
         turnLoader('c');
-            window.location.href="../stock-instruction/";
+            window.location.href="../currency-exchange-instruction/";
         }
         if(subsubItem == 'enqu'){
-            // window.location.href="../stock-instruction-enquiry/";
+            // window.location.href="../currency-exchange-instruction-enquiry/";
         }
     });
+
  
     window.loadUIDataSet = function loadUIDataSet() {
 
         var dataSet = {}
         dataSet.acct = "9910-268";
         dataSet.pwd = "12345678";
-        dataSet.loginid = "@{S:CLIENTID}";
-        // dataSet.loginid = "9910-268";
-        dataSet.loginpw = "12345678";
         return dataSet;
     }
  
-     window.gen_table_ui = function gen_table_ui(){
-    var str ='';
-    str += '<thead><tr class="smaller"> \
-            <th class="left-align"><span>'+nls.refno+'</span></th> \
-            <th class="left-align"><span>'+nls.createtime+'</span></th> \
-            <th class="left-align"><span>'+nls.transtype+'</span></th> \
-            <th class="left-align"><span>'+nls.market+'</span></th> \
-            <th class="right-align"><span>'+nls.labelno+'</span></th> \
-            <th class="left-align" style="width:150px;"><span>'+nls.inst+'</span></th> \
-            <th class="right-align"><span>'+nls.qty+'</span></th> \
-            <th class="left-align"><span>'+nls.methods+'</span></th>  \
-            <th class="left-align" style="width:200px;"><span>'+nls.remark+'</span></th>  \
-            <th class="left-align"><span>'+nls.status+'</span></th> \
-            </tr></thead>';
-    return str;
-  }
+    window.gen_table_ui = function gen_table_ui(){
+        var str ='';
+        str += '<thead>';
+        str += '    <tr>';
+        str += '        <th class="nowrap">'+nls.refno+'</th>';
+        str += '        <th class="nowrap">'+nls.createtime+'</th>';
+        str += '        <th class="nowrap">'+nls.form+'</th>';
+        str += '        <th class="nowrap">'+nls.amount+'</th>';
+        str += '        <th class="nowrap">'+nls.to+'</th>';
+        str += '        <th class="nowrap">'+nls.amount+'</th>';
+        str += '        <th class="nowrap">'+nls.remark+'</th>';
+        str += '        <th class="nowrap">'+nls.status+'</th>';
+        str += '    </tr>';
+        str += '</thead>';              
+        return str;
+    }      
     window.initJS = function initJS(){
 
         window.nls = {
-            deposit: '存入',
-            withdraw: '提取',
-            fop: '無需付款交收',
-            dvp : '金額對付交收',
             refno:'參考編號',
             createtime:'指示時間',
-            market:'市場',
-            labelno:'股票代號',
-            inst:'股票名稱',
-            qty:'股數',
-            methods:'寄存方式',
-            createdate:'指示日期',
-            transtype:'存入/提取',
+            form:'由',
+            amount:'金額',
+            to:'轉換到',
+            remark:'備註',
             status:'狀態',
             statusR:'已提交',
             statusP:'待審批',
             statusC:'已取消',
             statusA:'已審批',
             statusX:'被拒絕',
-            remark:'備註',
             nodata:'沒有資料顯示'
         };
 
@@ -305,55 +292,32 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
 
         glo.locallang =convtoi18n("@{S:LANG}","@{S:CULTURE}");
 
-        var haveMType = false;
-        $('.marginchoice').hide();
-        if (glo.tranaccseq && glo.tranaccseq != null && glo.tranaccseq != undefined && glo.tranaccseq.length > 0) {
-            for (var i = 0; i < glo.tranaccseq.length; i++) {
-                if (glo.tranaccseq[i].accountType == "M") {
-                    haveMType = true;
-                }
-            }
-        }
-
-        haveMType == true && $('.marginchoice').show();
-
-        if(glo.sessionid !='' && glo.clientid !=''){
             loadEnquiryData();
-        }else{
-               var tempUI = '';
-                    tempUI += gen_table_ui();
-                        tempUI +='<tbody>';
-                       
-                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
-                        tempUI +='</tbody>';
-                $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]],
-    textExtraction: function(node){ 
-        return $(node).text().replace(/[,$£€]/g,'');
-     }}).tablesorterPager({container: $("#pager")});
-        }
- 
+
  
 
 
     }
-
-
-
-    window.numberWithCommas = function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
     window.convtoi18n = function convtoi18n(lang,culture){
         var langculture = [];
         var sellang = lang+'_'+culture;
         langculture['zh_HK'] = "zh_TW";
         langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
         langculture['zh_CN'] = "zh_CN";
         langculture['en_US'] = "en_US";
         if(langculture[sellang] == undefined){
             return 'en_US';
         }else{
             return langculture[sellang];
+        }
+    }
+
+    window.formatAmount = function formatAmount(n, currency) {
+        if(isNaN(n)){
+            return '';
+        }else{
+            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
         }
     }
 
@@ -369,39 +333,113 @@ jQuery.browser={};(function(){jQuery.browser.msie=false; jQuery.browser.version=
       }
       return convt;
     } 
-window.loadMarketList = function loadMarketList(){
-  var data = [
-{name:'HKEX',label:'港股'},
-{name:'MAMK',label:'上海A股'},
-{name:'SZMK',label:'深圳A股'},
-{name:'USEX',label:'美股'},
-{name:'TWEX',label:'台股'},
-{name:'AUEX',label:'澳洲股'},
-{name:'CAEX',label:'加拿大股'},
-{name:'CHEX',label:'瑞士股'},
-{name:'EUEX',label:'歐洲股'},
-{name:'GREX',label:'德國股'},
-{name:'IDEX',label:'印度股'},
-{name:'JPEX',label:'日本股'},
-{name:'KREX',label:'南韓股'},
-{name:'MYEX',label:'馬來西亞股'},
-{name:'PHEX',label:'菲律賓股'},
-{name:'SGEX',label:'新加坡股'},
-{name:'SHEB',label:'上海B股'},
-{name:'THEX',label:'泰國股'}
-];
-  return data;
-}
-window.getMarketLabel = function getMarketLabel(name,list){
-  var label = '';
-  for (var i = 0; i < list.length; i++) {
-    if(list[i].name == name){
-      label = list[i].label;
+    window.currencyMapping = function currencyMapping(curr){
+        var curLst =[];
+            curLst['HKD'] = '港幣';
+            curLst['TWD'] = '台幣';
+            curLst['USD'] = '美元';
+            curLst['EUR'] = '歐元';
+            curLst['AUD'] = '澳元';
+            curLst['CNY'] = '人民幣';
+            curLst['JPY'] = '日元';
+            curLst['GBP'] = '英鎊';
+            curLst['SGD'] = '新加坡元';
+            curLst['MYR'] = '馬來西亞元';
+            if(curLst[curr] != undefined){
+                return curLst[curr];
+            }else{
+                return '';
+            }
+    }    
+    window.convamountTBC = function convamountTBC(amount){
+      var lang = "@{S:LOCALE}";
+      var convt = '';
+        if(amount == ' 0.00'){
+            switch(lang){
+              case 'zh-HK': 
+              convt = '待定';
+              break;
+              case 'cn-CN': 
+              case 'zh-CN': 
+              convt = '待定';
+              break;
+              case 'en-US': 
+              default:
+              convt = 'TBC';
+            }
+          return convt;      
+        }else{
+          return amount;
+        }
     }
-  }
-  return label;
-} 
+    window.renderDatatable = function renderDatatable(langtxt){
+        $('.tblIPOCalendar').DataTable({
+          "language": langtxt,
+          "columnDefs":[{className:"dt-right", "targets": [ 3,5 ]},],
+          "iDisplayLength": 10,
+          "responsive": true,
+          "info": false,
+          "ordering": true,
+          "paging": true,
+          "searching": false,     
+          "bLengthChange": false,
+          "order" : [[ 0, "desc" ]]
+        });
+        $('.dataTables_paginate').css("width","100%");
+        $('.dataTables_paginate').css("text-align","center");
+        $('.dataTables_paginate').css("padding-top","0px");        
+    }
     window.loadEnquiryData = function loadEnquiryData() {
+        var dtlang_en = {
+            "processing"  :"Processing...",
+            "sProcessing" :"Processing...",
+            "sLengthMenu" :"Show _MENU_ Items",
+            "sZeroRecords"  :"No Data Available",
+            "sInfo"     :"From _START_ To _END_ Items, Total _TOTAL_ Items",
+            "sInfoEmpty"  :"From 0 To 0 Item, Total 0 Item",
+            "sInfoFiltered" :"(From _MAX_ items searching result)",
+            "sInfoPostFix"  :"",
+            "sSearch"   :"Search:",
+            "sUrl"      :"",
+            "oPaginate"   :{"sFirst":"First","sPrevious":"Previous","sNext":"Next","sLast":"Last"},
+            "sWeekDays"   :['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            "sMonths"   :['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            "sToday"    :"Today"
+        };
+        var dtlang_zh_TW = {
+            "processing"  :"處理中...",
+            "sProcessing" :"處理中...",
+            "sLengthMenu" :"顯示 _MENU_ 項結果",
+            "sZeroRecords"  :"沒有匹配結果",
+            "sInfo"     :"顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+            "sInfoEmpty"  :"顯示第 0 至 0 項結果，共 0 項",
+            "sInfoFiltered" :"(從 _MAX_ 項結果過濾)",
+            "sInfoPostFix"  :"",
+            "sSearch"   :"搜索:",
+            "sUrl"      :"",
+            "oPaginate"   :{"sFirst":"首頁","sPrevious":"上頁","sNext":"下頁","sLast":"尾頁"},
+            "sWeekDays"   :['日', '一', '二', '三', '四', '五', '六'],
+            "sMonths"   :['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            "sToday"    :"今天"
+        };
+        var dtlang_zh_CN = {
+            "processing"  :"处理中...",
+            "sProcessing" :"处理中...",
+            "sLengthMenu" :"显示 _MENU_ 项结果",
+            "sZeroRecords"  :"没有匹配结果",
+            "sInfo"     :"显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty"  :"显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered" :"(从 _MAX_ 项结果过滤)",
+            "sInfoPostFix"  :"",
+            "sSearch"   :"搜索:",
+            "sUrl"      :"",
+            "oPaginate"   :{"sFirst":"首页","sPrevious":"上页","sNext":"下页","sLast":"尾页"},
+            "sWeekDays"   :['日', '一', '二', '三', '四', '五', '六'],
+            "sMonths"   :['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            "sToday"    :"今天"
+        };
+      var lang = 'zh_TW';
+      var langtxt=("en"==lang)?dtlang_en:"zh_TW"==lang?dtlang_zh_TW:dtlang_zh_CN;      
         var enquiryForm = {
             clientID: glo.clientid,
             sessionID: glo.sessionid,
@@ -411,7 +449,7 @@ window.getMarketLabel = function getMarketLabel(name,list){
         var loadDS = loadUIDataSet();
         var enloaddata = {
             "form": {
-                "name": "settlementInstructionEnquiry",
+                "name": "foreignExchangeInstructionEnquiry",
                 "credentials": {
                     "username": loadDS.acct,
                     "password": loadDS.pwd
@@ -426,84 +464,52 @@ window.getMarketLabel = function getMarketLabel(name,list){
         turnLoader('c');
         $.ajax({
             type: 'POST',
+            // url: 'test.json',
             url: '/api/session/submitSoapQuery',
             data: JSON.stringify(enloaddata),
             contentType: 'application/json',
             dataType: 'json',
             success: function(responseData, textStatus, jqXHR) {
                 var resuData = responseData.data;
-                if (resuData.settlementInstructionList && resuData.settlementInstructionList.length > 0) {
-                    var convData = resuData.settlementInstructionList;
-                    var tempUI = '';
-                    tempUI += gen_table_ui(); 
-                        tempUI +='<tbody>';
+                if (resuData.foreignExchangeInstructionList && resuData.foreignExchangeInstructionList.length > 0) {
+                    var convData = resuData.foreignExchangeInstructionList;
+                    var loadthUI = '';
+                    loadthUI += gen_table_ui();                  
+                    loadthUI += '<tbody>';    
                     for (var i = 0; i < convData.length; i++) {
-                        if(convData[i].stockInformationList && convData[i].stockInformationList.length > 0){
-                            for(var j =0;j< convData[i].stockInformationList.length;j++){
-                                var cursubsettItem = convData[i].stockInformationList[j];
-                                var convtime = '/ /';
-                                 convtime = convData[i].creationTime.split(' ');
-                                 var instLabel = '';
-                                 var settlLabel = '';
-                                 if(convData[i].instruction == 'D'){
-                                    instLabel = nls.deposit;
-                                 }
-                                 if(convData[i].instruction == 'W'){
-                                    instLabel = nls.withdraw;
-                                 }
-                                 if(convData[i].settlementMethod == 'FOP'){
-                                    settlLabel = nls.fop;
-                                 }
-                                 if(convData[i].settlementMethod == 'DVP'){
-                                    settlLabel = nls.dvp;
-                                 }
-                                tempUI += 
-                                '<tr> <td class="gm gm-numbers left-align">' + convData[i].transactionID + '</td> \
-                                <td class="left-align">' + convData[i].creationTime + '</td> \
-                                <td class="left-align">' + instLabel + '</td> \
-                                <td class="left-align">' + getMarketLabel(cursubsettItem.marketID,loadMarketList()) + '</td> \
-                                <td  style="text-align:right;padding-right:24px; class="right-align">' + cursubsettItem.instrumentID + '</td> \
-                                <td class="left-align">' + cursubsettItem.instrumentName + '</td> \
-                                <td  style="text-align:right;padding-right:24px; class="right-align">' + numberWithCommas(cursubsettItem.qty) + '</td> \
-                                <td class="left-align">' + settlLabel + '</td>  \
-                                <td class="left-align">'+cursubsettItem.remarks+'</td> \
-                                <td class="left-align">' + convstatus(convData[i].status) + '</td> \
-                                </tr>';
-                            }
-                        }
-
-                    }
-                        tempUI +='</tbody>';
-                $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]],
-    textExtraction: function(node){ 
-        return $(node).text().replace(/[,$£€]/g,'');
-     }}).tablesorterPager({container: $("#pager")});
-                }else{
-               var tempUI = '';
-                    tempUI += gen_table_ui(); 
-                        tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
-                        tempUI +='</tbody>';
-                $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]],
-    textExtraction: function(node){ 
-        return $(node).text().replace(/[,$£€]/g,'');
-     }}).tablesorterPager({container: $("#pager")});
-                        }
+                        loadthUI += '\
+                        <tr> \
+                        <td class="nowrap">' + convData[i].transactionID + '</td> \
+                        <td class="nowrap">' + convData[i].creationTime + '</td> \
+                        <td class="nowrap">' + currencyMapping(convData[i].fromCurrency) + '</td> \
+                        <td class="nowrap">' + convamountTBC(formatAmount(convData[i].fromAmount,'')) + '</td> \
+                        <td class="nowrap">' + currencyMapping(convData[i].toCurrency) + '</td> \
+                        <td class="nowrap">' + convamountTBC(formatAmount(convData[i].toAmount,'')) + '</td> \
+                        <td class="nowrap">' + convData[i].remark + '</td>  \
+                        <td class="nowrap">' + convstatus(convData[i].status) + '</td> \
+                        </tr>';
+                    }                                   
+                    loadthUI += '</tbody>';                  
+                    $('.tblIPOCalendar').empty().append(loadthUI);
+                    renderDatatable(langtxt);
                 turnLoader();
+                }else{
+                    var loadthUI = '';
+                    loadthUI += gen_table_ui();
+                    loadthUI +='<tbody>';
+                    loadthUI +='</tbody>';
+                    $('.tblIPOCalendar').empty().append(loadthUI);
+                    renderDatatable(langtxt);
+                turnLoader();
+              }
             },
             error: function(responseData, textStatus, errorThrown) {
-               var tempUI = '';
-                    tempUI += gen_table_ui(); 
-                        tempUI +='<tbody>';
-                tempUI += '<tr> <td colspan="10" style="text-align:center">'+nls.nodata+'</td> </tr>';
-                        tempUI +='</tbody>';
-                $('#enquiryTable').empty().append(tempUI);
-                $('#enquiryTable').tablesorter({sortList:[[0,1]],
-    textExtraction: function(node){ 
-        return $(node).text().replace(/[,$£€]/g,'');
-     }}).tablesorterPager({container: $("#pager")});
+                    var loadthUI = '';
+                    loadthUI += gen_table_ui();
+                    loadthUI +='<tbody>';
+                    loadthUI +='</tbody>';
+                    $('.tblIPOCalendar').empty().append(loadthUI);
+                    renderDatatable(langtxt);
                 turnLoader();
             }
         });

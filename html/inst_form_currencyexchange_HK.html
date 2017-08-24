@@ -190,7 +190,7 @@ max-width:none;
 <div class="overviewpage">
 <div class="area-top">
 <div class="col s12">
-<h5 class="inst-form-1sttitle">貨幣交易提示</h5>
+<h5 class="inst-form-1sttitle">貨幣交易指示</h5>
 </div>
 
 <div class="inst-area-one row">
@@ -281,7 +281,7 @@ max-width:none;
 <div class="confirmpage">
 <div class="area-top">
 <div class="col s12 inst-grid-b">
-<h5 class="inst-form-1sttitle">資金交易提示</h5>
+<h5 class="inst-form-1sttitle">資金交易指示</h5>
 </div>
 
 <div class="inst-area-one row inst-grid-b ">
@@ -309,19 +309,19 @@ max-width:none;
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
-<div class="col s12 m6 l2">
-<h5 style="line-height: 60px">動態密碼</h5>
+<div class="col s12 m3 l3">
+<h5 style="line-height: 60px;font-size: 16px;">驗證碼</h5>
 </div>
 
-<div class="col s12 m6 l10">
+<div class="col s12 m9 l9">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入動態密碼</label>
+<div class="input-field col s12 m12 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">請輸入驗證碼</label>
 
 <p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="獲取動態密碼" /></div>
+<div class="col s12 m12 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary" style="font-size: 16px;"  id="acc_btn_otp" type="button" value="獲取驗證碼" /></div>
 </div>
 </div>
 </div>
@@ -510,14 +510,14 @@ $('#acc_btn_otp').click(function(e){
             $('body').on('keydown', '#field_amount_to', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});            
 
         window.nls = {
-            otperror:'動態密碼不正確, 試再次輸入',
+            otperror:'驗證碼不正確, 試再次輸入',
             nextstep: '同意，下一步',
             success: '已完成',
             desc: '參考編號:',
             fail: '未能完成',
                 failmsg: '有關指示未被接納，請與本行職員聯絡。',
             done: '完成',
-            plsfillpwd: '動態密碼',
+            plsfillpwd: '驗證碼',
             loginacctfirst: '請先登入帳號',
             fillindata: '請輸入',
             choosedata: '請選擇',
@@ -712,7 +712,7 @@ $('#acc_btn_otp').click(function(e){
             curLst['JPY'] = '日元';
             curLst['GBP'] = '英鎊';
             curLst['SGD'] = '新加坡元';
-            curLst['MYR'] = '馬來西亞令吉';
+            curLst['MYR'] = '馬來西亞元';
             if(curLst[curr] != undefined){
                 return curLst[curr];
             }else{
@@ -966,11 +966,11 @@ $('#acc_btn_otp').click(function(e){
 var msglang = "@{S:LANG}"+"-"+"@{S:CULTURE}";
 var msg = getinstSessionExpireMsg(msglang);
 
-$.ajax({
-    type: 'POST',
-    url: '/api/session/isLogin',
-    success: function(responseData, textStatus, jqXHR) {
-       if(responseData == "True"){
+// $.ajax({
+//     type: 'POST',
+//     url: '/api/session/isLogin',
+//     success: function(responseData, textStatus, jqXHR) {
+//        if(responseData == "True"){
             foreignExchange(pwd,function(e){
               console.log(" Data: - ", exchangeForm);
               if(glootperror){
@@ -985,26 +985,26 @@ $.ajax({
               glostepgo = 4;
             });
 
-       }else{
-       swal({
-          title: msg.title,
-          text: msg.text,
-          timer: 2000,
-          showConfirmButton: false
-        });
-       setTimeout(function(){ location.reload(); }, 3000);
-       }
-    },
-    error: function(responseData, textStatus, errorThrown) {
-       swal({
-          title: msg.title,
-          text: msg.text,
-          timer: 2000,
-          showConfirmButton: false
-        });
-       setTimeout(function(){ location.reload(); }, 3000);
-    }
-});
+//        }else{
+//        swal({
+//           title: msg.title,
+//           text: msg.text,
+//           timer: 2000,
+//           showConfirmButton: false
+//         });
+//        setTimeout(function(){ location.reload(); }, 3000);
+//        }
+//     },
+//     error: function(responseData, textStatus, errorThrown) {
+//        swal({
+//           title: msg.title,
+//           text: msg.text,
+//           timer: 2000,
+//           showConfirmButton: false
+//         });
+//        setTimeout(function(){ location.reload(); }, 3000);
+//     }
+// });
         }else{
             // alert(nls.plsfillpwd);
             $('#otplabel').text(nls.plsfillpwd);

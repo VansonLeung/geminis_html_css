@@ -1,0 +1,342 @@
+<style type="text/css">.bundleContentArea{
+  max-width: 1300px;
+}
+.clearpadd{
+  padding: 0px !important;
+}
+.clearpadd-right{
+  padding-right: 0px !important;
+}
+.bar-top-item{
+  margin: 0px; height: 10px;
+}
+.content-left-area{
+  position: relative;
+  padding:10px 0px 0px 0px;
+}
+.lineblock{
+  margin-top: 5px;
+}
+.tempIframeUI{
+  width:100%;min-height:200px; 
+}
+.tempIframeUI h5{
+  width: 100%;
+}
+</style>
+<style type="text/css">.clickable{
+  cursor: pointer;
+}
+.dataTables_paginate{
+  width: 100%;
+  text-align: center !important;
+  padding-top: 0px !important;
+  margin-top: 15px;
+  border-top: 1px gray solid;
+}
+.paginate_button,
+.searchpage_button{
+  margin:-2px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.searchpage_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+  border-top: 3px red solid;
+}
+.select-style select{
+   -webkit-appearance: menulist-button;
+  width: 100%;
+  border: 1px
+  solid rgb(148,148,148);
+  border-radius: 5px;
+}
+.nowrap{
+  white-space: nowrap;
+}
+</style>
+<style type="text/css">table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc{background: #656667;}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after{ font-family: FontAwesome;padding-left:.4em;color:gray;}
+table.dataTable thead .sorting:after{content: '\f0dc';}
+table.dataTable thead .sorting_desc:after{content: '\f0dd';color: white;}
+table.dataTable thead .sorting_asc:after{content: '\f0de';color: white;}
+.dataTables_paginate{
+  margin-top: 0px;
+  border-top: 1px gray solid;}
+.paginate_button{margin:-2px;}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{border-top: 3px red solid !important;}
+
+
+table.dataTable thead th{
+  font-size: 14px;
+}
+table.dataTable.no-footer {
+     border-bottom: 0px solid #111; 
+}
+.nowrap{
+    white-space: nowrap;
+}
+</style>
+<section>
+<div class="row bundleContentArea">
+<div class="col s12 m12 l9 clearpadd">
+<div class="gem_form">
+<div class="bar-top-item" style="background-color: #f86957">&nbsp;</div>
+
+<div class="container content-left-area">
+<div class="row">
+<div class="col s12 m12"><!-- left content area -->
+<div id="headertop" style="display: -webkit-flex; display: -ms-flexbox; display: flex; padding:0px;">
+<div style="width:100%">
+<h2 id="pagetitle" style="font-size: 24px; line-height: 1.5;color:#333333;margin:12px 0px 0px 0px;padding:0px 20px">&nbsp;</h2>
+
+<table cellspacing="0" class="responsive generic-table-content font_smedmed tblIPOCalendar" style="background-color: white;    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; width:100%;" width="100%">
+</table>
+</div>
+</div>
+<!-- left content area --></div>
+</div>
+</div>
+</div>
+
+<div class="gem_form nobg">
+<div class="row">
+<div class="col s12 m12" style="padding: 0px;"><iframe class="if-flexible" frameborder="0" id="i0" scrolling="no" src="@{IFRAME_QPI:geminis.profiles.ipoc}"></iframe></div>
+</div>
+</div>
+</div>
+
+<div class="col s12 m3 l3 clearpadd-right hidewhenmobile"><!-- right content area -->
+<div class="center tempIframeUI"><iframe class="if-flexible" frameborder="0" id="i1" scrolling="no" src="@{IFRAME_QPI:geminis.stock_quoter}"></iframe><iframe class="if-flexible" frameborder="0" id="i2" scrolling="no" src="@{IFRAME_QPI:geminis.news_Hot}"></iframe></div>
+<!-- right content area  --></div>
+</div>
+</section>
+<script>
+$(function(){
+$('.breadcrumb-bar-bg').attr('style','background-color:#f86957');
+    window.convtoi18n = function convtoi18n(lang,culture){
+        var langculture = [];
+        var sellang = lang+'_'+culture;
+        langculture['zh_HK'] = "zh_TW";
+        langculture['zh_TW'] = "zh_TW";
+        langculture['cn_CN'] = "zh_CN";
+        langculture['zh_CN'] = "zh_CN";
+        langculture['en_US'] = "en_US";
+        if(langculture[sellang] == undefined){
+            return 'en_US';
+        }else{
+            return langculture[sellang];
+        }
+    }
+window.getFormattedDate = function getFormattedDate(date) {
+  var year = date.getFullYear();
+
+  var month = (1 + date.getMonth()).toString();
+  month = month.length > 1 ? month : '0' + month;
+
+  var day = date.getDate().toString();
+  day = day.length > 1 ? day : '0' + day;
+  
+  return year+ '-' + month + '-' + day;
+}
+
+window.loadIPOLstdt = function loadIPOLstdt(ipoItem){
+  var instname = ipoItem.instrumentChineseShortName;
+
+
+var tempui = '';
+            tempui += '<tr>';
+            tempui += '  <td class="nowrap">'+ipoItem.instrumentID+'</td>';
+            tempui += '  <td class="nowrap">'+instname+'</td>';
+            tempui += '  <td class="nowrap">'+ipoItem.lotsize+'</td>';
+            tempui += '  <td class="nowrap">'+ipoItem.minOfferPrice+' - '+ipoItem.maxOfferPrice+'</td>';
+            tempui += '  <td class="nowrap">'+ipoItem.listingDate+'</td>';
+            tempui += '  <td class="nowrap">'+ipoItem.EIPOEndDate+' '+ipoItem.EIPOEndTime+'</td>';
+
+
+          // if(ipoItem)
+          var curtime = new Date();
+          // curtime = getFormattedDate(curtime);
+          var eipodata = ipoItem.EIPOStartDate+' '+ipoItem.EIPOStartTime;
+          eipodata = eipodata.replace(/-/g, '/');
+          var eipotime = new Date(eipodata);
+          var calllang = 'zh-HK';
+          // eipotime = getFormattedDate(eipotime);
+          if(eipotime > curtime){
+            tempui+= '<td class="nowrap"><p style="margin:0;color:#000;font-size: 16px;text-align:center">'+nls.eipostarttime+'<br>'+ipoItem.EIPOStartDate+' </p></td>';
+          }
+          if(eipotime <= curtime){
+            var type = '';
+            if(ipoItem.status == 'O'){
+              type = nls.typeopen;
+            tempui+= '<td class="nowrap"><a href="/'+calllang+'/Page/ipo-mainpage/?entitlementid='+ipoItem.entitlementID+'"><div style="display:inline-block;width:80px;height:40px;line-height:40px;background-color:#f86957;border-radius:4px;margin:0;font-size: 18px;color:white;text-align: center;">'+type+'</div></a></td>';              
+            }
+            if(ipoItem.status == 'C'){
+              type = nls.typeclose;
+            tempui+= '<td class="nowrap"><p style="margin:0;color:#000;font-size: 18px;">'+type+'</p></td>';
+            }
+            if(ipoItem.status == 'F'){
+              type = nls.typeconfirm;
+            tempui+= '<td class="nowrap"><div style="display:inline-block;width:80px;height:40px;line-height:40px;background-color:#f86957;border-radius:4px;margin:0;font-size: 18px;color:white;text-align: center;">'+type+'</div></td>';              
+            }
+         
+
+          }
+            tempui += '</tr>';
+
+  return tempui;
+}
+    var instSettlementForm = {
+              }
+
+  window.nls = {
+    pagetitle:'可申請購買新股',
+    stock:'代號',
+    status:'狀態',
+    name:'股票名稱',
+lotsize:'一手股數',
+offerprice:'招股價',
+listingdate:'上市日期',
+eipoendtime:'自助渠道截止認購時間',
+eipostarttime:'自助渠道接受認購日期',
+    typeopen: '申請',
+    typeclose: '已截止',
+    typeconfirm: '查詢認購'
+  }
+
+$('#pagetitle').text(nls.pagetitle);
+
+ var loaddata = {
+            "form": {
+                "name": "IPOListEnquiry",
+                "credentials": {
+                    "username": '9910-268',
+                    "password": '12345678'
+                },
+                "header": {
+                    "version": "1",
+                    "traceNo": "1"
+                },
+                "body": instSettlementForm
+            }
+        }
+
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/session/submitSoapQuery',
+            data: JSON.stringify(loaddata),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(responseData, textStatus, jqXHR) {
+
+              window.res = responseData;
+
+
+// test
+              if(res.data){
+                  if(res.data.IPOStocksList&& res.data.IPOStocksList.length > 0){
+                  var loadthUI = '';
+                  loadthUI += '<thead>';
+                  loadthUI += '    <tr>';
+                  loadthUI += '        <th class="nowrap">'+nls.stock+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.name+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.lotsize+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.offerprice+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.listingdate+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.eipoendtime+'</th>';
+                  loadthUI += '        <th class="nowrap">'+nls.status+'</th>';
+                  loadthUI += '    </tr>';
+                  loadthUI += '</thead>';                  
+                  loadthUI += '<tbody>';                  
+                              for(var i=0;i<res.data.IPOStocksList.length;i++){
+                                  loadthUI += loadIPOLstdt(res.data.IPOStocksList[i]);
+                              }
+                  loadthUI += '</tbody>';                  
+                  $('.tblIPOCalendar').empty().append(loadthUI);
+
+
+      var dtlang_en = {
+        "processing"  :"Processing...",
+        "sProcessing" :"Processing...",
+        "sLengthMenu" :"Show _MENU_ Items",
+        "sZeroRecords"  :"No Data Available",
+        "sInfo"     :"From _START_ To _END_ Items, Total _TOTAL_ Items",
+        "sInfoEmpty"  :"From 0 To 0 Item, Total 0 Item",
+        "sInfoFiltered" :"(From _MAX_ items searching result)",
+        "sInfoPostFix"  :"",
+        "sSearch"   :"Search:",
+        "sUrl"      :"",
+        "oPaginate"   :{"sFirst":"First","sPrevious":"Previous","sNext":"Next","sLast":"Last"},
+        "sWeekDays"   :['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        "sMonths"   :['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        "sToday"    :"Today"
+      };
+      var dtlang_zh_TW = {
+        "processing"  :"處理中...",
+        "sProcessing" :"處理中...",
+        "sLengthMenu" :"顯示 _MENU_ 項結果",
+        "sZeroRecords"  :"沒有匹配結果",
+        "sInfo"     :"顯示第 _START_ 至 _END_ 項結果，共 _TOTAL_ 項",
+        "sInfoEmpty"  :"顯示第 0 至 0 項結果，共 0 項",
+        "sInfoFiltered" :"(從 _MAX_ 項結果過濾)",
+        "sInfoPostFix"  :"",
+        "sSearch"   :"搜索:",
+        "sUrl"      :"",
+        "oPaginate"   :{"sFirst":"首頁","sPrevious":"上頁","sNext":"下頁","sLast":"尾頁"},
+        "sWeekDays"   :['日', '一', '二', '三', '四', '五', '六'],
+        "sMonths"   :['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+        "sToday"    :"今天"
+      };
+      var dtlang_zh_CN = {
+        "processing"  :"处理中...",
+        "sProcessing" :"处理中...",
+        "sLengthMenu" :"显示 _MENU_ 项结果",
+        "sZeroRecords"  :"没有匹配结果",
+        "sInfo"     :"显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+        "sInfoEmpty"  :"显示第 0 至 0 项结果，共 0 项",
+        "sInfoFiltered" :"(从 _MAX_ 项结果过滤)",
+        "sInfoPostFix"  :"",
+        "sSearch"   :"搜索:",
+        "sUrl"      :"",
+        "oPaginate"   :{"sFirst":"首页","sPrevious":"上页","sNext":"下页","sLast":"尾页"},
+        "sWeekDays"   :['日', '一', '二', '三', '四', '五', '六'],
+        "sMonths"   :['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+        "sToday"    :"今天"
+      };
+      var lang = 'zh_TW';
+      var langtxt=("en"==lang)?dtlang_en:"zh_TW"==lang?dtlang_zh_TW:dtlang_zh_CN;
+
+      $('.tblIPOCalendar').DataTable({
+        "language": langtxt,
+        "iDisplayLength": 10,
+        "responsive": true,
+        "info": false,
+        "ordering": true,
+        "paging": true,
+        "searching": false,     
+        "bLengthChange": false,
+        "order" : [[ 5, "desc" ]]
+      });
+      $('.dataTables_paginate').css("width","100%");
+      $('.dataTables_paginate').css("text-align","center");
+      $('.dataTables_paginate').css("padding-top","0px");
+                }
+              }
+// test  
+
+
+            },
+            error: function(responseData, textStatus, errorThrown) {
+            }
+        });
+
+
+
+
+});
+</script>

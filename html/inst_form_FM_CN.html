@@ -147,7 +147,7 @@
 
 <div class="subsubmenuBar">
 <div class="subsubmenuBox subsubmenuBox-Active" data-gmnsubsubmenu="inst">
-<p>资金交易指示</p>
+<p>现金存取指示</p>
 </div>
 
 <div class="subsubmenuBox" data-gmnsubsubmenu="enqu">
@@ -191,7 +191,7 @@
 <div class="overviewpage">
 <form>
 <div class="col s12">
-<h5 class="inst-form-1sttitle">资金交易提示</h5>
+<h5 class="inst-form-1sttitle">现金存取指示</h5>
 </div>
 
 <div class="inst-area-one row">
@@ -441,26 +441,26 @@
 <div class="confirmpage">
 <div class="area-top">
 <div class="col s12 inst-grid-b">
-<h5 class="inst-form-1sttitle">资金交易提示</h5>
+<h5 class="inst-form-1sttitle">现金交易指示</h5>
 </div>
 
 <div class="inst-area-one row inst-grid-b " id="cfmArea">&nbsp;</div>
 
 <div class="inst-area-three row inst-grid-b">
 <div class="col s12">
-<div class="col s12 m6 l2">
-<h5 style="line-height: 60px">动态密码</h5>
+<div class="col s12 m3 l3">
+<h5 style="line-height: 60px;font-size: 16px;">验证码</h5>
 </div>
 
-<div class="col s12 m6 l10">
+<div class="col s12 m9 l9">
 <div class="gem_form materialize remove-gemform-s">
 <div class="row">
-<div class="input-field col s12 m6 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入动态密码</label>
+<div class="input-field col s12 m12 l6"><input autocomplete="false" class="validate labelfield" id="field_passwords" type="text" /> <label class="labelfield-text labelfield-left" for="field_passwords">请输入验证码</label>
 
 <p id="otplabel" style="font-size: 0.7em;margin:5px;line-height: 0.9em;color:#e74c3c;">&nbsp;</p>
 </div>
 
-<div class="col s12 m6 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary font_lg" id="acc_btn_otp" type="button" value="获取动态密码" /></div>
+<div class="col s12 m12 l6" style="text-align: center;"><input class="generic-button-standalone gb-primary " style="font-size: 16px;" id="acc_btn_otp" type="button" value="获取验证码" /></div>
 </div>
 </div>
 </div>
@@ -800,11 +800,11 @@ $('#acc_btn_otp').click(function(e){
                 var msglang = "@{S:LANG}"+"-"+"@{S:CULTURE}";
                 var msg = getinstSessionExpireMsg(msglang);
 
-                $.ajax({
-                    type: 'POST',
-                    url: '/api/session/isLogin',
-                    success: function(responseData, textStatus, jqXHR) {
-                       if(responseData == "True"){
+                // $.ajax({
+                //     type: 'POST',
+                //     url: '/api/session/isLogin',
+                //     success: function(responseData, textStatus, jqXHR) {
+                //        if(responseData == "True"){
                                 depositCash(field_passwords,function() {
                                     if(glootperror){
                                         $('#otplabel').text(nls.otperror);
@@ -818,26 +818,26 @@ $('#acc_btn_otp').click(function(e){
                                     glostepgo = 4;
                                 });
 
-                       }else{
-                       swal({
-                          title: msg.title,
-                          text: msg.text,
-                          timer: 2000,
-                          showConfirmButton: false
-                        });
-                       setTimeout(function(){ location.reload(); }, 3000);
-                       }
-                    },
-                    error: function(responseData, textStatus, errorThrown) {
-                       swal({
-                          title: msg.title,
-                          text: msg.text,
-                          timer: 2000,
-                          showConfirmButton: false
-                        });
-                       setTimeout(function(){ location.reload(); }, 3000);
-                    }
-                });
+                //        }else{
+                //        swal({
+                //           title: msg.title,
+                //           text: msg.text,
+                //           timer: 2000,
+                //           showConfirmButton: false
+                //         });
+                //        setTimeout(function(){ location.reload(); }, 3000);
+                //        }
+                //     },
+                //     error: function(responseData, textStatus, errorThrown) {
+                //        swal({
+                //           title: msg.title,
+                //           text: msg.text,
+                //           timer: 2000,
+                //           showConfirmButton: false
+                //         });
+                //        setTimeout(function(){ location.reload(); }, 3000);
+                //     }
+                // });
             } else {
                 instSettlementForm = {
                     channelID: 'INT',
@@ -1193,14 +1193,14 @@ $('#acc_btn_otp').click(function(e){
             $('body').on('keydown', '#field_amount', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
 
             window.nls = {
-                otperror:'动态密码不正确，试再次输入',
+                otperror:'验证码不正确，试再次输入',
                 nextstep: '同意，下一步',
                 success: '已完成',
                 desc: '参考编号:',
                 fail: '未能完成',
                 failmsg: '有关指示未被接纳，请与本行职员联络。',
                 done: '完成',
-                plsfillpwd: '请输入动态密码',
+                plsfillpwd: '请输入验证码',
                 loginacctfirst: '请先登入帐号',
                 fillindata: '请输入',
                 choosedata: '请选择',
